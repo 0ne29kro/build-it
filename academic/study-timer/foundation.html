@@ -1,0 +1,5153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Guide — study-timer | Build It</title>
+    <link rel="stylesheet" href="/assets/css/guide.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/">Home</a> / 
+                <a href="/academic/">Academic</a> / 
+                <a href="/academic/study-timer/">study-timer</a> / 
+                Foundation
+            </nav>
+        </div>
+    </header>
+
+    <div class="guide-header">
+        <h1>Foundation Guide</h1>
+        <p class="subtitle">Study Timer</p>
+        <div class="guide-meta">
+            <span>📄 60 Pages</span>
+            <span>🎯 Stage: See It Work</span>
+            <span>📦 Output: foundation.py</span>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="guide-content">
+        
+    <article class="page-section" id="page-1">
+      <div class="page-header">
+        <span class="page-number">Page 1 of 60</span>
+        <h1 class="page-title">Import the GUI Module</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Imports the core Tkinter module that provides all windowing and widget capabilities.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Module & Runtime Boundary
+<strong>Depends on:</strong> None
+
+<p>This step is part of the larger process of establishing which tools the application is allowed to use.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>import tkinter as tk</code></pre></div>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>tkinter</code> is Python's standard GUI library</li>
+<li>Aliased as <code>tk</code> for shorter references throughout the code</li>
+<li>Provides windows, buttons, labels, and layout management</li>
+<li>No application logic runs yet—this only makes GUI tools available</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without this import, Python cannot create windows or any visual interface. This single line unlocks the entire GUI capability of the application.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a diagram showing tkinter as the GUI foundation.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Run the file without import errors</li>
+<li>[ ] Confirm <code>tk</code> is available in scope</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li><code>ModuleNotFoundError: No module named 'tkinter'</code> — Tkinter not installed</li>
+<li>Using <code>Tkinter</code> instead of <code>tkinter</code> (Python 3 uses lowercase)</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Verify Python installation includes Tkinter (standard on most systems)</li>
+<li>Use lowercase <code>tkinter</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 2: Import the Time Module</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-2">Page 2: Import the Time Module →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 60</span>
+        <h1 class="page-title">Import the Time Module</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Imports the time module for clock display and accurate countdown timing.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Module & Runtime Boundary
+<strong>Depends on:</strong> Page 1
+
+<p>This step is part of the larger process of enabling time-based functionality.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>import time</code></pre></div>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>time.strftime()</code> formats the current time for the clock display</li>
+<li><code>time.monotonic()</code> provides a clock that never goes backward</li>
+<li>Standard library module with no external dependencies</li>
+<li>Essential for both display and countdown accuracy</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without the time module, we couldn't display the current time or measure elapsed time accurately. The monotonic clock is critical for drift-free countdown timing.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a diagram comparing wall-clock time vs monotonic time.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Import completes without error</li>
+<li>[ ] <code>time.strftime()</code> and <code>time.monotonic()</code> are available</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Naming a local file <code>time.py</code> (shadows the module)</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure no local file named <code>time.py</code> exists in your directory</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 3: Import the Optional Type Hint</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-3">Page 3: Import the Optional Type Hint →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 60</span>
+        <h1 class="page-title">Import the Optional Type Hint</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Imports the Optional type hint for expressing nullable values.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Module & Runtime Boundary
+<strong>Depends on:</strong> Page 2
+
+<p>This step is part of the larger process of establishing type safety.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>from typing import Optional</code></pre></div>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>Optional[float]</code> means "either a float or None"</li>
+<li>Used for timing variables that may be unset</li>
+<li>Improves code clarity and enables IDE support</li>
+<li>No runtime cost—purely for documentation and tooling</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without Optional, return types like "float or None" would be ambiguous. This type hint documents intent directly in variable declarations.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a diagram showing Optional[float] semantics.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Import completes without error</li>
+<li>[ ] <code>Optional</code> is available for type hints</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Misspelling as <code>optional</code> (must be capitalized)</li>
+<li>Forgetting the <code>from typing</code> prefix</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use exact form: <code>from typing import Optional</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 4: Define the TimerState Class</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-4">Page 4: Define the TimerState Class →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 60</span>
+        <h1 class="page-title">Define the TimerState Class</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates a dedicated object to hold all mutable runtime state of the countdown timer.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Domain State
+<strong>Depends on:</strong> Page 3
+
+<p>This step is part of the larger process of separating state from behavior.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>class TimerState:
+<p>"""Transient runtime state for the countdown timer."""</p>
+
+<p>def __init__(self, duration_seconds: int):</p>
+<p>self.remaining_seconds: int = duration_seconds</p>
+<p>self.is_running: bool = False</p>
+<p>self.alarm_triggered: bool = False</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>remaining_seconds</code> tracks how much time is left on the countdown</li>
+<li><code>is_running</code> indicates whether the timer is actively counting down</li>
+<li><code>alarm_triggered</code> prevents the alarm from firing more than once</li>
+<li>Takes initial duration as parameter (comes from app constant)</li>
+<li>This object is never saved to disk—it exists only while running</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a dedicated state object, timer variables would be scattered. This creates a single source of truth for runtime behavior. State transitions (start, pause, reset, alarm) all modify this one object.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a state diagram showing the three fields and their relationships.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Instantiate <code>TimerState(1500)</code> without errors</li>
+<li>[ ] Access <code>.remaining_seconds</code>, <code>.is_running</code>, and <code>.alarm_triggered</code></li>
+<li>[ ] Confirm initial values: 1500, False, False</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Missing colon after class definition</li>
+<li>Forgetting <code>self</code> parameter in <code>__init__</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Verify class syntax matches exactly</li>
+<li>Check that all three attributes are assigned inside <code>__init__</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 5: Establish the Application Controller Class</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-5">Page 5: Establish the Application Controller Class →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 60</span>
+        <h1 class="page-title">Establish the Application Controller Class</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Defines the main application controller that owns the window, state, and behavior.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Shell
+<strong>Depends on:</strong> Page 4
+
+<p>This step is part of the larger process of establishing architectural authority.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>class StudyTimerApp:
+<p>"""Main application controller."""</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>All application behavior will live inside this class</li>
+<li>This object coordinates UI, timing, and state</li>
+<li>External code interacts only through this controller</li>
+<li>No logic is executed yet—this establishes structure</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a central controller, behavior would be distributed across functions and global variables. This class becomes the single entry point for understanding the application.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a box diagram showing StudyTimerApp as the container.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Define the class without syntax errors</li>
+<li>[ ] Confirm the class exists but has no methods yet</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Missing colon after class name</li>
+<li>Incorrect capitalization</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use PascalCase: <code>StudyTimerApp</code></li>
+<li>Include colon after class name</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 6: Define Timing Constants</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-6">Page 6: Define Timing Constants →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 60</span>
+        <h1 class="page-title">Define Timing Constants</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Declares fixed timing values used throughout the application.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Shell
+<strong>Depends on:</strong> Page 5
+
+<p>This step is part of the larger process of centralizing magic numbers.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Timing constants
+<p>TICK_INTERVAL_MS = 200</p>
+<p>CLOCK_UPDATE_MS = 1000</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>TICK_INTERVAL_MS</code> controls how often the timer logic runs (200ms = 5 times per second)</li>
+<li><code>CLOCK_UPDATE_MS</code> controls how often the clock display updates (1000ms = once per second)</li>
+<li>Constants are defined once and reused everywhere</li>
+<li>Class-level constants shared by all instances</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without named constants, 200 and 1000 would appear scattered throughout the code. Changing timing behavior would require hunting through multiple locations. This centralizes timing decisions.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a table showing each constant and where it's used.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Access <code>StudyTimerApp.TICK_INTERVAL_MS</code> and get 200</li>
+<li>[ ] Access <code>StudyTimerApp.CLOCK_UPDATE_MS</code> and get 1000</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Constants defined outside the class (wrong indentation)</li>
+<li>Using lowercase names (violates convention)</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Indent constants inside the class body</li>
+<li>Use SCREAMING_SNAKE_CASE for constants</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 7: Define the Default Duration Constant</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-7">Page 7: Define the Default Duration Constant →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 60</span>
+        <h1 class="page-title">Define the Default Duration Constant</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Declares the hardcoded countdown duration used by the timer.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Shell
+<strong>Depends on:</strong> Page 6
+
+<p>This step is part of the larger process of defining fixed application behavior.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>DEFAULT_DURATION = 25 * 60  # 25 minutes in seconds</code></pre></div>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>25 minutes is the classic Pomodoro technique duration</li>
+<li>Stored in seconds (1500) for internal calculations</li>
+<li>Expression <code>25 * 60</code> is clearer than raw <code>1500</code></li>
+<li>This is a class constant—hardcoded, not user-configurable</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Foundation stage uses hardcoded values. This constant is the single source of truth for the countdown duration. Later stages (Configuration) will replace this with user-adjustable settings.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a diagram showing DEFAULT_DURATION flow through the app.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Access <code>StudyTimerApp.DEFAULT_DURATION</code> and get 1500</li>
+<li>[ ] Understand this is 25 minutes in seconds</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Using <code>25 / 60</code> instead of <code>25 * 60</code> (division vs multiplication)</li>
+<li>Placing outside the class</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Minutes to seconds requires multiplication</li>
+<li>Keep constant inside class body</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 8: Define the Init Method Signature</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-8">Page 8: Define the Init Method Signature →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 60</span>
+        <h1 class="page-title">Define the Init Method Signature</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the initialization method that sets up the application.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Shell
+<strong>Depends on:</strong> Page 7
+
+<p>This step is part of the larger process of establishing the startup sequence.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def __init__(self, root: tk.Tk):
+<p>self.root = root</p>
+<p>self.root.title("Academic Study Timer")</p>
+<p>self.root.resizable(False, False)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stores the Tk root window for later use</li>
+<li>Sets a descriptive window title</li>
+<li>Prevents resizing to preserve layout integrity</li>
+<li>Type hint <code>tk.Tk</code> documents the expected argument</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without storing the root window, later methods cannot schedule callbacks or modify the window. Without disabling resize, users could break the layout.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot of the empty window with title bar.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Create a Tk root and pass it to the constructor</li>
+<li>[ ] See a window titled "Academic Study Timer"</li>
+<li>[ ] Confirm the window cannot be resized</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting <code>self</code> parameter</li>
+<li>Typo in method name (<code>__init_</code> vs <code>__init__</code>)</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Verify <code>__init__</code> has both <code>self</code> and <code>root</code> parameters</li>
+<li>Use double underscores on both sides</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 9: Initialize Timer State</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-9">Page 9: Initialize Timer State →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-9">
+      <div class="page-header">
+        <span class="page-number">Page 9 of 60</span>
+        <h1 class="page-title">Initialize Timer State</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the initial runtime timer state using the hardcoded default duration.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Initialization
+<strong>Depends on:</strong> Page 8, Page 4 (TimerState class exists)
+
+<p>This step is part of the larger process of preparing runtime state.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Timer state
+<p>self.timer_state = TimerState(self.DEFAULT_DURATION)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Instantiates TimerState with the hardcoded duration constant</li>
+<li>Sets <code>remaining_seconds</code> to 1500 (25 minutes)</li>
+<li>Initializes timer in a non-running, non-alarmed state</li>
+<li>Creates the single source of truth for runtime behavior</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without creating TimerState, there would be no countdown to manage. Using the class constant ensures consistency between initialization and reset.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a diagram showing DEFAULT_DURATION → TimerState initialization.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Access <code>app.timer_state.remaining_seconds</code> and get 1500</li>
+<li>[ ] Access <code>app.timer_state.is_running</code> and get False</li>
+<li>[ ] Access <code>app.timer_state.alarm_triggered</code> and get False</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>TimerState class not defined before StudyTimerApp</li>
+<li>Forgetting <code>self.</code> prefix</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure TimerState class appears before StudyTimerApp in the file</li>
+<li>Use <code>self.timer_state</code> to store on instance</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 10: Initialize Timing Bookkeeping Variables</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-10">Page 10: Initialize Timing Bookkeeping Variables →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-10">
+      <div class="page-header">
+        <span class="page-number">Page 10 of 60</span>
+        <h1 class="page-title">Initialize Timing Bookkeeping Variables</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Sets up internal variables used for accurate time tracking.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Initialization
+<strong>Depends on:</strong> Page 9
+
+<p>This step is part of the larger process of enabling drift-free countdown timing.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Timing bookkeeping
+<p>self._last_tick_time: Optional[float] = None</p>
+<p>self._accumulated_time: float = 0.0</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>_last_tick_time</code> stores the previous tick timestamp (None when not running)</li>
+<li><code>_accumulated_time</code> stores fractional seconds between ticks</li>
+<li>Both prefixed with <code>_</code> to indicate internal use</li>
+<li>These prevent timing drift and handle tick jitter</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without tracking elapsed time between ticks, the countdown would drift based on UI responsiveness. Without accumulating fractional seconds, the timer would lose precision.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a timeline diagram showing tick intervals and accumulated time.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Access <code>app._last_tick_time</code> and get None</li>
+<li>[ ] Access <code>app._accumulated_time</code> and get 0.0</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Missing <code>Optional</code> import from typing</li>
+<li>Using wrong type annotation syntax</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Verify <code>from typing import Optional</code> is in imports</li>
+<li>Use <code>Optional[float]</code> with brackets, not parentheses</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 11: Trigger UI Construction</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-11">Page 11: Trigger UI Construction →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-11">
+      <div class="page-header">
+        <span class="page-number">Page 11 of 60</span>
+        <h1 class="page-title">Trigger UI Construction</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Delegates all UI creation to a dedicated method.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Initialization
+<strong>Depends on:</strong> Page 10
+
+<p>This step is part of the larger process of separating initialization from layout.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Build UI
+<p>self._build_ui()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Calls a separate method to construct all widgets</li>
+<li>Keeps <code>__init__</code> readable and linear</li>
+<li>Ensures UI is built after all state is initialized</li>
+<li>Method will be defined later in the code</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without delegation, <code>__init__</code> would grow to hundreds of lines. Separating "prepare data" from "build visuals" keeps code organized and maintainable.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a flowchart showing __init__ calling _build_ui.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See that <code>_build_ui()</code> is called (even if not yet defined)</li>
+<li>[ ] Understand that UI construction happens after state setup</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li><code>AttributeError</code> if method not yet defined (expected at this stage)</li>
+<li>Missing parentheses: <code>_build_ui</code> vs <code>_build_ui()</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>This error resolves when <code>_build_ui</code> is implemented</li>
+<li>Ensure parentheses are present for method call</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 12: Start Background Update Cycles</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-12">Page 12: Start Background Update Cycles →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-12">
+      <div class="page-header">
+        <span class="page-number">Page 12 of 60</span>
+        <h1 class="page-title">Start Background Update Cycles</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Starts the recurring clock update and timer tick loops.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Application Initialization
+<strong>Depends on:</strong> Page 11
+
+<p>This step is part of the larger process of enabling continuous, non-blocking updates.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Start background updates
+<p>self._update_clock()</p>
+<p>self._tick()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>_update_clock()</code> updates the live time display every second</li>
+<li><code>_tick()</code> drives the countdown logic at regular intervals</li>
+<li>Both methods reschedule themselves using <code>root.after()</code></li>
+<li>No threads are created—all execution stays in Tkinter's event loop</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without background updates, the clock would freeze and the timer would never count down. Using <code>root.after()</code> keeps the UI responsive without threading complexity.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a diagram showing the event loop with scheduled callbacks.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See that both background loops are started</li>
+<li>[ ] Understand that methods reschedule themselves</li>
+<li>[ ] Confirm no threading is involved</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Methods not yet defined (expected at this stage)</li>
+<li>Missing parentheses on method calls</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Errors resolve when methods are implemented</li>
+<li>Ensure both calls include parentheses</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 13: Create the Main UI Container</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-13">Page 13: Create the Main UI Container →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-13">
+      <div class="page-header">
+        <span class="page-number">Page 13 of 60</span>
+        <h1 class="page-title">Create the Main UI Container</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the top-level layout frame that holds all widgets.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition
+<strong>Depends on:</strong> Page 11 (_build_ui is called)
+
+<p>This step is part of the larger process of establishing the widget hierarchy.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _build_ui(self):
+<p>"""Construct all UI elements."""</p>
+<p># Main container</p>
+<p>main_frame = tk.Frame(self.root, padx=20, pady=20)</p>
+<p>main_frame.pack(fill=tk.BOTH, expand=True)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>main_frame</code> serves as the root container for all UI elements</li>
+<li>Padding (<code>padx</code>, <code>pady</code>) creates visual spacing from window edges</li>
+<li><code>fill</code> and <code>expand</code> allow the frame to occupy all available space</li>
+<li>All subsequent UI elements will attach to this frame</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a container frame, widgets would attach directly to the root window, making layout changes difficult. This establishes a single containment hierarchy.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a wireframe showing the main_frame with padding margins.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See consistent 20-pixel margins around content</li>
+<li>[ ] Confirm <code>_build_ui</code> method exists and creates a frame</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting <code>self</code> parameter in method definition</li>
+<li>Using wrong parent (not <code>self.root</code>)</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Verify method signature is <code>def _build_ui(self):</code></li>
+<li>Ensure frame's parent is <code>self.root</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 14: Create the Clock Header Frame</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-14">Page 14: Create the Clock Header Frame →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-14">
+      <div class="page-header">
+        <span class="page-number">Page 14 of 60</span>
+        <h1 class="page-title">Create the Clock Header Frame</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates a horizontal container for the live clock display.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Header
+<strong>Depends on:</strong> Page 13 (main_frame exists)
+
+<p>This step is part of the larger process of building the header section.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Clock header
+<p>clock_frame = tk.Frame(main_frame)</p>
+<p>clock_frame.pack(fill=tk.X, pady=(0, 15))</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>clock_frame</code> contains the clock label and value</li>
+<li><code>fill=tk.X</code> stretches horizontally to match parent width</li>
+<li><code>pady=(0, 15)</code> adds 15 pixels of space below (asymmetric padding)</li>
+<li>Separates clock from the timer display below</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a dedicated frame, clock elements would mix with timer elements. The bottom padding creates clear visual separation between header and body.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a wireframe showing clock_frame position.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See a horizontal region reserved for the clock</li>
+<li>[ ] Confirm 15-pixel gap below the clock area</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Using wrong parent (<code>self.root</code> instead of <code>main_frame</code>)</li>
+<li>Symmetric padding instead of asymmetric <code>(0, 15)</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure parent is <code>main_frame</code> (local variable)</li>
+<li>Use tuple syntax: <code>pady=(top, bottom)</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 15: Create the Static Clock Label</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-15">Page 15: Create the Static Clock Label →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-15">
+      <div class="page-header">
+        <span class="page-number">Page 15 of 60</span>
+        <h1 class="page-title">Create the Static Clock Label</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Adds the "Current Time:" text label that never changes.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Header
+<strong>Depends on:</strong> Page 14 (clock_frame exists)
+
+<p>This step is part of the larger process of labeling dynamic UI elements.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>tk.Label(
+<p>clock_frame,</p>
+<p>text="Current Time:",</p>
+<p>font=("TkDefaultFont", 10)</p>
+<p>).pack(side=tk.LEFT)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Creates a Label widget with static text</li>
+<li>Uses system default font at size 10</li>
+<li>Packs to the left side of clock_frame</li>
+<li>Not stored in a variable—never needs updating</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a label, users would see a time value with no explanation. Left-packing ensures the label aligns with the dynamic value that follows.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing "Current Time:" text.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See "Current Time:" text in the window</li>
+<li>[ ] Confirm text is left-aligned</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Wrong parent (not <code>clock_frame</code>)</li>
+<li>Missing <code>pack()</code> call</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure parent is <code>clock_frame</code></li>
+<li>Chain <code>.pack()</code> directly after Label creation</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 16: Create the Live Clock Value Label</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-16">Page 16: Create the Live Clock Value Label →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-16">
+      <div class="page-header">
+        <span class="page-number">Page 16 of 60</span>
+        <h1 class="page-title">Create the Live Clock Value Label</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the label that displays the actual current time, updated every second.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Header
+<strong>Depends on:</strong> Page 15 (static label exists)
+
+<p>This step is part of the larger process of displaying dynamic content.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self.clock_label = tk.Label(
+<p>clock_frame,</p>
+<p>text="",</p>
+<p>font=("TkDefaultFont", 10, "bold")</p>
+<p>)</p>
+<p>self.clock_label.pack(side=tk.LEFT, padx=(5, 0))</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stored as <code>self.clock_label</code> for later updates by <code>_update_clock()</code></li>
+<li>Bold font differentiates dynamic content from static label</li>
+<li>Left padding separates it from "Current Time:"</li>
+<li>Initial text is empty—populated by the update method</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without storing as instance variable, <code>_update_clock</code> couldn't modify the text. This creates the target for the clock update loop.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing the clock value.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Access <code>app.clock_label</code> from outside the class</li>
+<li>[ ] See the label appears right of "Current Time:"</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting <code>self.</code> prefix</li>
+<li>Bold not in font tuple</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>self.clock_label</code> to store on instance</li>
+<li>Font tuple with bold: <code>("FontName", size, "bold")</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 17: Create the Timer Display Frame</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-17">Page 17: Create the Timer Display Frame →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-17">
+      <div class="page-header">
+        <span class="page-number">Page 17 of 60</span>
+        <h1 class="page-title">Create the Timer Display Frame</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the bordered container that holds the countdown display and status.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Countdown Display
+<strong>Depends on:</strong> Page 14 (header complete)
+
+<p>This step is part of the larger process of visually grouping the timer area.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Timer display frame
+<p>self.timer_frame = tk.Frame(</p>
+<p>main_frame,</p>
+<p>bd=2,</p>
+<p>relief=tk.GROOVE,</p>
+<p>padx=20,</p>
+<p>pady=20</p>
+<p>)</p>
+<p>self.timer_frame.pack(fill=tk.X, pady=(0, 15))</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stored as <code>self.timer_frame</code> for alarm color changes later</li>
+<li><code>bd=2</code> creates a 2-pixel border</li>
+<li><code>relief=tk.GROOVE</code> gives an inset appearance</li>
+<li>Internal padding separates content from borders</li>
+<li>Bottom margin separates from controls below</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a bordered frame, the countdown would float in empty space. Storing as instance variable enables alarm state to change the background color.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing the grooved border.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See a bordered box below the clock</li>
+<li>[ ] Access <code>app.timer_frame</code> for later modifications</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting <code>self.</code> prefix</li>
+<li>Using wrong relief style</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Store as <code>self.timer_frame</code> for alarm functionality</li>
+<li>Use <code>tk.GROOVE</code> (not string "groove")</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 18: Create the Countdown Display Label</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-18">Page 18: Create the Countdown Display Label →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-18">
+      <div class="page-header">
+        <span class="page-number">Page 18 of 60</span>
+        <h1 class="page-title">Create the Countdown Display Label</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the large label that shows the remaining time in MM:SS format.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Countdown Display
+<strong>Depends on:</strong> Page 17 (timer_frame exists)
+
+<p>This step is part of the larger process of displaying the countdown prominently.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Countdown label
+<p>self.countdown_label = tk.Label(</p>
+<p>self.timer_frame,</p>
+<p>text=self._format_time(self.timer_state.remaining_seconds),</p>
+<p>font=("TkFixedFont", 48, "bold")</p>
+<p>)</p>
+<p>self.countdown_label.pack()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stored as <code>self.countdown_label</code> for countdown updates</li>
+<li>Large font size (48) makes time highly visible</li>
+<li>Uses <code>_format_time()</code> to display initial value as MM:SS</li>
+<li>Fixed-width font ensures consistent digit spacing</li>
+<li>Centered within timer_frame by default pack behavior</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a large, prominent display, users couldn't see the countdown at a glance. Storing as instance variable enables the tick loop to update the display.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing "25:00" in large text.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See formatted time displayed prominently</li>
+<li>[ ] Access <code>app.countdown_label</code> for updates</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li><code>_format_time</code> not yet defined (expected)</li>
+<li>Wrong parent (should be <code>self.timer_frame</code>)</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Error resolves when <code>_format_time</code> is implemented</li>
+<li>Ensure parent is <code>self.timer_frame</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 19: Create the Status Display Label</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-19">Page 19: Create the Status Display Label →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-19">
+      <div class="page-header">
+        <span class="page-number">Page 19 of 60</span>
+        <h1 class="page-title">Create the Status Display Label</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the label that shows the current timer state (Ready, Running, Paused, Time's Up).</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Countdown Display
+<strong>Depends on:</strong> Page 18 (countdown label exists)
+
+<p>This step is part of the larger process of communicating timer state.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Status label
+<p>self.status_label = tk.Label(</p>
+<p>self.timer_frame,</p>
+<p>text="Ready",</p>
+<p>font=("TkDefaultFont", 12)</p>
+<p>)</p>
+<p>self.status_label.pack(pady=(10, 0))</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stored as <code>self.status_label</code> for state change updates</li>
+<li>Smaller font than countdown (12 vs 48)—secondary information</li>
+<li>Initial text "Ready" matches initial state</li>
+<li>Top padding separates from countdown display</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a status label, users would have to infer state from button availability. This explicitly communicates what the timer is doing.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing "Ready" below countdown.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See "Ready" displayed below the countdown</li>
+<li>[ ] Access <code>app.status_label</code> for state updates</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Wrong parent widget</li>
+<li>Forgetting <code>self.</code> prefix</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure parent is <code>self.timer_frame</code></li>
+<li>Store as <code>self.status_label</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 20: Create the Button Container Frame</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-20">Page 20: Create the Button Container Frame →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-20">
+      <div class="page-header">
+        <span class="page-number">Page 20 of 60</span>
+        <h1 class="page-title">Create the Button Container Frame</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates a horizontal container for the control buttons.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Controls
+<strong>Depends on:</strong> Page 17 (timer display complete)
+
+<p>This step is part of the larger process of organizing control elements.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Control buttons
+<p>controls_frame = tk.Frame(main_frame)</p>
+<p>controls_frame.pack(fill=tk.X)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Local variable—buttons are stored individually instead</li>
+<li><code>fill=tk.X</code> stretches to parent width for button distribution</li>
+<li>No bottom padding needed—this is the last element</li>
+<li>Contains Start, Stop, and Reset buttons</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a container frame, buttons would need individual positioning. This groups controls and enables even distribution across the width.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a wireframe showing controls_frame.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See space reserved below the timer display</li>
+<li>[ ] Confirm the frame spans the full width</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Wrong parent (should be <code>main_frame</code>)</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure parent is <code>main_frame</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 21: Create the Start Button</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-21">Page 21: Create the Start Button →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-21">
+      <div class="page-header">
+        <span class="page-number">Page 21 of 60</span>
+        <h1 class="page-title">Create the Start Button</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the button that starts or resumes the countdown.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Controls
+<strong>Depends on:</strong> Page 20 (controls_frame exists)
+
+<p>This step is part of the larger process of implementing user control.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self.start_button = tk.Button(
+<p>controls_frame,</p>
+<p>text="Start",</p>
+<p>width=10,</p>
+<p>command=self._on_start</p>
+<p>)</p>
+<p>self.start_button.pack(side=tk.LEFT, expand=True)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stored as <code>self.start_button</code> for state-based enabling/disabling</li>
+<li>Fixed width of 10 characters for consistent sizing</li>
+<li><code>command</code> binds to <code>_on_start</code> method</li>
+<li><code>expand=True</code> with <code>side=tk.LEFT</code> distributes space evenly</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without storing as instance variable, the button couldn't be disabled during countdown. This creates the primary action trigger.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing the Start button.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See a "Start" button below the timer display</li>
+<li>[ ] Access <code>app.start_button</code> for state management</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li><code>_on_start</code> not yet defined (expected)</li>
+<li>Missing <code>expand=True</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Command reference errors resolve when method is implemented</li>
+<li>Include <code>expand=True</code> for even distribution</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 22: Create the Stop Button</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-22">Page 22: Create the Stop Button →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-22">
+      <div class="page-header">
+        <span class="page-number">Page 22 of 60</span>
+        <h1 class="page-title">Create the Stop Button</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the button that pauses the countdown.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Controls
+<strong>Depends on:</strong> Page 21 (Start button exists)
+
+<p>This step is part of the larger process of implementing user control.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self.stop_button = tk.Button(
+<p>controls_frame,</p>
+<p>text="Stop",</p>
+<p>width=10,</p>
+<p>command=self._on_stop,</p>
+<p>state=tk.DISABLED</p>
+<p>)</p>
+<p>self.stop_button.pack(side=tk.LEFT, expand=True)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stored as <code>self.stop_button</code> for state management</li>
+<li>Initially disabled (<code>state=tk.DISABLED</code>)—can't stop what isn't running</li>
+<li>Same width as Start for visual consistency</li>
+<li><code>command</code> binds to <code>_on_stop</code> method</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without initial disabled state, users could click Stop before Start. This implements UI-level guard that matches logical constraints.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing the disabled Stop button.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See a "Stop" button that appears grayed out</li>
+<li>[ ] Confirm the button cannot be clicked initially</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting <code>state=tk.DISABLED</code></li>
+<li>Using string "disabled" instead of constant</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Always use <code>tk.DISABLED</code> constant</li>
+<li>Verify button appears grayed out</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 23: Create the Reset Button</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-23">Page 23: Create the Reset Button →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-23">
+      <div class="page-header">
+        <span class="page-number">Page 23 of 60</span>
+        <h1 class="page-title">Create the Reset Button</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the button that resets the timer to its initial state.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Composition → Controls
+<strong>Depends on:</strong> Page 22 (Stop button exists)
+
+<p>This step is part of the larger process of implementing user control.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self.reset_button = tk.Button(
+<p>controls_frame,</p>
+<p>text="Reset",</p>
+<p>width=10,</p>
+<p>command=self._on_reset</p>
+<p>)</p>
+<p>self.reset_button.pack(side=tk.LEFT, expand=True)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stored as <code>self.reset_button</code> for potential state management</li>
+<li>Initially enabled—reset is always valid</li>
+<li>Same width as other buttons for consistency</li>
+<li><code>command</code> binds to <code>_on_reset</code> method</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a reset button, users would need to restart the application. This returns the timer to its starting condition.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a screenshot showing all three buttons.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See Start, Stop, and Reset buttons in a row</li>
+<li>[ ] Confirm all buttons have equal width</li>
+<li>[ ] Verify Stop is disabled, Start and Reset are enabled</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Buttons not evenly distributed</li>
+<li>Width inconsistent</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure all three have <code>expand=True</code></li>
+<li>Use <code>width=10</code> for all buttons</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 24: Define the Time Formatting Helper</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-24">Page 24: Define the Time Formatting Helper →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-24">
+      <div class="page-header">
+        <span class="page-number">Page 24 of 60</span>
+        <h1 class="page-title">Define the Time Formatting Helper</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Converts raw seconds into human-readable MM:SS display format.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Helper Utilities
+<strong>Depends on:</strong> None (pure function)
+
+<p>This step is part of the larger process of displaying countdown values.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _format_time(self, seconds: int) -&gt; str:
+<p>"""Convert seconds to MM:SS format."""</p>
+<p>minutes = seconds // 60</p>
+<p>secs = seconds % 60</p>
+<p>return f"{minutes:02d}:{secs:02d}"</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Integer division (<code>//</code>) extracts whole minutes</li>
+<li>Modulo (<code>%</code>) extracts remaining seconds</li>
+<li>f-string with <code>:02d</code> ensures zero-padded two-digit output</li>
+<li>Returns string like "25:00" or "04:37"</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without formatting, users would see raw seconds (1500) instead of readable time (25:00). Zero-padding ensures consistent display width.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include input/output examples.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Call <code>app._format_time(1500)</code> and get "25:00"</li>
+<li>[ ] Call <code>app._format_time(65)</code> and get "01:05"</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Using <code>/</code> instead of <code>//</code></li>
+<li>Missing zero-padding</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>//</code> for integer division</li>
+<li>Use <code>:02d</code> format specifier</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 25: Define the Clock Update Method</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-25">Page 25: Define the Clock Update Method →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-25">
+      <div class="page-header">
+        <span class="page-number">Page 25 of 60</span>
+        <h1 class="page-title">Define the Clock Update Method</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the method that updates the live clock display every second.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Background Processes
+<strong>Depends on:</strong> Page 16 (clock_label exists)
+
+<p>This step is part of the larger process of providing real-time feedback.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _update_clock(self):
+<p>"""Update the live clock display."""</p>
+<p>current_time = time.strftime("%H:%M:%S")</p>
+<p>self.clock_label.config(text=current_time)</p>
+<p>self.root.after(self.CLOCK_UPDATE_MS, self._update_clock)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>time.strftime("%H:%M:%S")</code> gets current time in 24-hour format</li>
+<li><code>config(text=...)</code> updates the label</li>
+<li><code>root.after()</code> schedules next update without blocking</li>
+<li>Method reschedules itself through the event loop</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without <code>root.after()</code>, the update would block the UI. Self-rescheduling creates a continuous, non-blocking update cycle.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include the after() cycle diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See clock display update every second</li>
+<li>[ ] Confirm UI remains responsive</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Missing <code>self.</code> on clock_label</li>
+<li>Forgetting to reschedule</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>self.clock_label</code></li>
+<li>Always include <code>root.after()</code> at end</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 26: Define the Tick Method Signature</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-26">Page 26: Define the Tick Method Signature →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-26">
+      <div class="page-header">
+        <span class="page-number">Page 26 of 60</span>
+        <h1 class="page-title">Define the Tick Method Signature</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the entry point for the recurring timer tick loop.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 12 (tick started)
+
+<p>This step is part of the larger process of driving the countdown.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _tick(self):
+<p>"""Process one tick of the countdown timer."""</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Method runs continuously via <code>root.after()</code></li>
+<li>Contains all countdown logic</li>
+<li>Executes regardless of timer state</li>
+<li>Docstring clarifies single-tick responsibility</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without a dedicated tick method, countdown logic would be scattered. This centralizes all timing behavior.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include a tick loop flowchart.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See method signature defined</li>
+<li>[ ] Understand logic follows in subsequent pages</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Typo in method name</li>
+<li>Missing <code>self</code> parameter</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use exact name: <code>_tick</code></li>
+<li>Include <code>self</code> as first parameter</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 27: Check Running State in Tick</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-27">Page 27: Check Running State in Tick →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-27">
+      <div class="page-header">
+        <span class="page-number">Page 27 of 60</span>
+        <h1 class="page-title">Check Running State in Tick</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Guards countdown logic to only execute when timer is running.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 26 (tick method exists)
+
+<p>This step is part of the larger process of implementing state-aware countdown.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>if self.timer_state.is_running:
+<p>current_time = time.monotonic()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>is_running</code> check prevents countdown when paused</li>
+<li><code>time.monotonic()</code> provides clock immune to adjustments</li>
+<li>Monotonic time never goes backward</li>
+<li>Only captures timestamp when actually running</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without the guard, timer would count down even when paused. Monotonic time prevents system clock changes from corrupting countdown.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include monotonic vs wall-clock comparison.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Confirm countdown only runs when <code>is_running</code> is True</li>
+<li>[ ] Understand why monotonic time is used</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Using <code>time.time()</code> instead</li>
+<li>Checking wrong variable</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Always use <code>time.monotonic()</code> for elapsed time</li>
+<li>Check <code>timer_state.is_running</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 28: Calculate Elapsed Time</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-28">Page 28: Calculate Elapsed Time →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-28">
+      <div class="page-header">
+        <span class="page-number">Page 28 of 60</span>
+        <h1 class="page-title">Calculate Elapsed Time</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Computes the real time elapsed since the previous tick.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 27 (current_time captured)
+
+<p>This step is part of the larger process of drift-free timing.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>if self._last_tick_time is not None:
+<p>elapsed = current_time - self._last_tick_time</p>
+<p>self._accumulated_time += elapsed</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Checks previous tick exists (not first tick)</li>
+<li>Calculates actual elapsed time between ticks</li>
+<li>Accumulates fractional seconds for precision</li>
+<li>Handles variable tick intervals gracefully</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without elapsed calculation, countdown would assume perfect 200ms ticks. Accumulation ensures real-time accuracy.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include accumulated time diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Understand elapsed time varies between ticks</li>
+<li>[ ] See how fractional seconds accumulate</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Not checking for <code>None</code></li>
+<li>Using <code>=</code> instead of <code>+=</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Always check <code>is not None</code> first</li>
+<li>Use <code>+=</code> for accumulation</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 29: Decrement Whole Seconds</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-29">Page 29: Decrement Whole Seconds →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-29">
+      <div class="page-header">
+        <span class="page-number">Page 29 of 60</span>
+        <h1 class="page-title">Decrement Whole Seconds</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Converts accumulated time into countdown decrements.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 28 (time accumulated)
+
+<p>This step is part of the larger process of whole-second countdown.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>while self._accumulated_time &gt;= 1.0 and self.timer_state.remaining_seconds &gt; 0:
+<p>self.timer_state.remaining_seconds -= 1</p>
+<p>self._accumulated_time -= 1.0</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>while</code> handles multiple seconds if tick delayed</li>
+<li>Only decrements when full second accumulated</li>
+<li>Stops at zero to prevent negative</li>
+<li>Preserves fractional remainder</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without while loop, delayed tick could skip seconds. Zero check prevents negative countdown.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include decrement diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See countdown decrement by whole seconds</li>
+<li>[ ] Verify countdown never goes negative</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Using <code>if</code> instead of <code>while</code></li>
+<li>Missing zero check</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>while</code> for multiple seconds</li>
+<li>Include <code>remaining_seconds > 0</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 30: Detect Alarm Condition</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-30">Page 30: Detect Alarm Condition →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-30">
+      <div class="page-header">
+        <span class="page-number">Page 30 of 60</span>
+        <h1 class="page-title">Detect Alarm Condition</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Checks if countdown reached zero and alarm hasn't fired.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 29 (countdown decremented)
+
+<p>This step is part of the larger process of triggering completion.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>if self.timer_state.remaining_seconds == 0 and not self.timer_state.alarm_triggered:
+<p>self._trigger_alarm()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Double condition prevents repeated triggers</li>
+<li><code>remaining_seconds == 0</code> detects completion</li>
+<li><code>not alarm_triggered</code> ensures one-time execution</li>
+<li>Delegates to dedicated alarm method</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without <code>alarm_triggered</code> check, alarm would fire every tick at zero. Delegation keeps tick loop clean.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include alarm state diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Confirm alarm fires exactly once at zero</li>
+<li>[ ] Understand why both conditions needed</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Missing <code>not</code> before alarm_triggered</li>
+<li>Using <code><=</code> instead of <code>==</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>not self.timer_state.alarm_triggered</code></li>
+<li>Use <code>== 0</code> for exact check</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 31: Update Last Tick Time</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-31">Page 31: Update Last Tick Time →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-31">
+      <div class="page-header">
+        <span class="page-number">Page 31 of 60</span>
+        <h1 class="page-title">Update Last Tick Time</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Records current timestamp for next tick's calculation.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 30 (alarm check complete)
+
+<p>This step is part of the larger process of timing continuity.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self._last_tick_time = current_time</code></pre></div>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stores current time for next iteration</li>
+<li>Must happen after all calculations</li>
+<li>Only inside <code>is_running</code> block</li>
+<li>Enables accurate elapsed on next tick</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without updating, elapsed would calculate from original start, causing exponential drift.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include timing update diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Understand this must be inside <code>is_running</code> block</li>
+<li>[ ] See how it enables next tick's calculation</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Placing outside <code>is_running</code> block</li>
+<li>Forgetting <code>self.</code> prefix</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure proper indentation</li>
+<li>Use <code>self._last_tick_time</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 32: Update Timer Display</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-32">Page 32: Update Timer Display →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-32">
+      <div class="page-header">
+        <span class="page-number">Page 32 of 60</span>
+        <h1 class="page-title">Update Timer Display</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Triggers visual refresh after processing the tick.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 31 (timing complete)
+
+<p>This step is part of the larger process of UI synchronization.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self._update_timer_display()</code></pre></div>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Called every tick regardless of running state</li>
+<li>Updates countdown, status, and colors</li>
+<li>Placed outside <code>is_running</code> block (note indentation)</li>
+<li>Ensures UI always reflects current state</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without calling display update, UI would freeze. Must update every tick for consistent visuals.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include tick → display flow.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Confirm this is at method level, not inside <code>if</code></li>
+<li>[ ] Understand display updates regardless of state</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Wrong indentation (inside <code>if</code>)</li>
+<li>Method name typo</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Align with <code>_tick</code> method level</li>
+<li>Use exact name: <code>_update_timer_display</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 33: Schedule Next Tick</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-33">Page 33: Schedule Next Tick →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-33">
+      <div class="page-header">
+        <span class="page-number">Page 33 of 60</span>
+        <h1 class="page-title">Schedule Next Tick</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Schedules the next tick loop execution.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Time Engine
+<strong>Depends on:</strong> Page 32 (display updated)
+
+<p>This step is part of the larger process of continuous timing.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self.root.after(self.TICK_INTERVAL_MS, self._tick)</code></pre></div>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>root.after()</code> schedules without blocking</li>
+<li><code>TICK_INTERVAL_MS</code> (200ms) for smooth updates</li>
+<li>Method reschedules itself perpetually</li>
+<li>At method level, outside all conditionals</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without rescheduling, tick runs once and stops. Using <code>after()</code> keeps UI responsive.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include scheduling diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See <code>_tick</code> reschedules every 200ms</li>
+<li>[ ] Confirm UI remains responsive</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Placing inside conditional</li>
+<li>Missing <code>self.</code> on method reference</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Ensure at method level</li>
+<li>Use <code>self._tick</code> reference</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 34: Define the Display Update Method</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-34">Page 34: Define the Display Update Method →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-34">
+      <div class="page-header">
+        <span class="page-number">Page 34 of 60</span>
+        <h1 class="page-title">Define the Display Update Method</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the method that synchronizes UI with timer state.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Rendering
+<strong>Depends on:</strong> Page 32 (called from tick)
+
+<p>This step is part of the larger process of visual feedback.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _update_timer_display(self):
+<p>"""Refresh countdown display and status."""</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Called every tick regardless of state</li>
+<li>Updates countdown, status, colors, buttons</li>
+<li>Centralizes all display logic</li>
+<li>Separates rendering from timing</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without dedicated method, display logic would be duplicated. Centralizing ensures consistency.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include rendering flow diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See method signature defined</li>
+<li>[ ] Understand rendering logic follows</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Method name doesn't match call</li>
+<li>Missing <code>self</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use exact name: <code>_update_timer_display</code></li>
+<li>Include <code>self</code> parameter</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 35: Update Countdown Text</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-35">Page 35: Update Countdown Text →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-35">
+      <div class="page-header">
+        <span class="page-number">Page 35 of 60</span>
+        <h1 class="page-title">Update Countdown Text</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Renders current remaining time in the countdown label.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Rendering
+<strong>Depends on:</strong> Page 34 (method exists), Page 24 (formatter exists)
+
+<p>This step is part of the larger process of countdown feedback.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Update countdown text
+<p>self.countdown_label.config(</p>
+<p>text=self._format_time(self.timer_state.remaining_seconds)</p>
+<p>)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Calls <code>_format_time()</code> to convert to MM:SS</li>
+<li>Updates the large countdown label</li>
+<li>Runs every tick for smooth updates</li>
+<li>No conditional—always shows current state</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without updating, users wouldn't see time passing. This is the primary visual feedback.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include countdown update screenshot.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See countdown update as time passes</li>
+<li>[ ] Confirm format is always MM:SS</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Wrong label name</li>
+<li>Missing formatter call</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>self.countdown_label</code></li>
+<li>Always format before display</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 36: Apply Alarm Visual Styling</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-36">Page 36: Apply Alarm Visual Styling →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-36">
+      <div class="page-header">
+        <span class="page-number">Page 36 of 60</span>
+        <h1 class="page-title">Apply Alarm Visual Styling</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Applies "Time's Up" styling when alarm is active.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Rendering → Alarm State
+<strong>Depends on:</strong> Page 35 (countdown updated)
+
+<p>This step is part of the larger process of completion feedback.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Handle alarm state visuals
+<p>if self.timer_state.alarm_triggered:</p>
+<p>self.timer_frame.config(bg="#ffcccc")</p>
+<p>self.countdown_label.config(bg="#ffcccc")</p>
+<p>self.status_label.config(bg="#ffcccc", text="Time's Up!", fg="#cc0000")</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Light red background (<code>#ffcccc</code>) signals completion</li>
+<li>Dark red text (<code>#cc0000</code>) emphasizes urgency</li>
+<li>Status switches to "Time's Up!"</li>
+<li>Uses <code>alarm_triggered</code> flag as gate</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without visual feedback, users might miss completion if sound muted. Red provides unmistakable indication.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include alarm state screenshot.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See red background when timer completes</li>
+<li>[ ] See "Time's Up!" in red text</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Invalid hex colors</li>
+<li>Missing <code>#</code> prefix</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use valid hex: <code>#ffcccc</code>, <code>#cc0000</code></li>
+<li>Always prefix with <code>#</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 37: Restore Normal Visual Styling</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-37">Page 37: Restore Normal Visual Styling →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-37">
+      <div class="page-header">
+        <span class="page-number">Page 37 of 60</span>
+        <h1 class="page-title">Restore Normal Visual Styling</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Restores default visuals when not in alarm state.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Rendering → Normal State
+<strong>Depends on:</strong> Page 36 (alarm branch defined)
+
+<p>This step is part of the larger process of visual consistency.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>else:
+<p># Normal state visuals</p>
+<p>default_bg = self.root.cget("bg")</p>
+<p>self.timer_frame.config(bg=default_bg)</p>
+<p>self.countdown_label.config(bg=default_bg)</p>
+<p>self.status_label.config(bg=default_bg, fg="black")</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Clears alarm styling after reset</li>
+<li><code>root.cget("bg")</code> gets system default background</li>
+<li>Restores black text for readability</li>
+<li>Ensures visual matches logical state</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without restoring, red would persist forever. Using <code>cget</code> respects system theme.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include color restoration screenshot.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See normal background after Reset</li>
+<li>[ ] Confirm colors match system theme</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting to restore <code>fg</code></li>
+<li>Hardcoding background color</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Set <code>fg="black"</code> in else</li>
+<li>Use <code>cget("bg")</code> for native appearance</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 38: Set Status Text Based on State</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-38">Page 38: Set Status Text Based on State →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-38">
+      <div class="page-header">
+        <span class="page-number">Page 38 of 60</span>
+        <h1 class="page-title">Set Status Text Based on State</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Determines and applies the appropriate status message.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Rendering → Status Logic
+<strong>Depends on:</strong> Page 37 (normal styling)
+
+<p>This step is part of the larger process of state communication.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Determine status text
+<p>if self.timer_state.is_running:</p>
+<p>self.status_label.config(text="Running")</p>
+<p>elif self.timer_state.remaining_seconds &lt; self.DEFAULT_DURATION:</p>
+<p>self.status_label.config(text="Paused")</p>
+<p>else:</p>
+<p>self.status_label.config(text="Ready")</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>"Running" when actively counting down</li>
+<li>"Paused" when stopped with time elapsed</li>
+<li>"Ready" when at full default duration</li>
+<li>Uses <code>DEFAULT_DURATION</code> constant for comparison</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without status, users must infer state. Using the constant ensures correct detection at the hardcoded duration.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include status state diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See "Ready" initially</li>
+<li>[ ] See "Running" when started</li>
+<li>[ ] See "Paused" when stopped with time elapsed</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Wrong comparison value</li>
+<li>Wrong condition order</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>self.DEFAULT_DURATION</code></li>
+<li>Check <code>is_running</code> first</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 39: Update Button States</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-39">Page 39: Update Button States →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-39">
+      <div class="page-header">
+        <span class="page-number">Page 39 of 60</span>
+        <h1 class="page-title">Update Button States</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Enables or disables buttons based on timer state.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> UI Rendering
+<strong>Depends on:</strong> Page 38 (status updated)
+
+<p>This step is part of the larger process of preventing invalid actions.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Update button states
+<p>if self.timer_state.is_running:</p>
+<p>self.start_button.config(state=tk.DISABLED)</p>
+<p>self.stop_button.config(state=tk.NORMAL)</p>
+<p>else:</p>
+<p>self.start_button.config(state=tk.NORMAL)</p>
+<p>self.stop_button.config(state=tk.DISABLED)</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Running: disable Start, enable Stop</li>
+<li>Not running: enable Start, disable Stop</li>
+<li>Visual feedback matches logical constraints</li>
+<li>Reset always enabled (not shown)</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without state management, users could click invalid buttons. Disabled state communicates what's allowed.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include button state screenshots.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See Start enabled, Stop disabled initially</li>
+<li>[ ] See states swap when running</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Using string instead of constant</li>
+<li>Wrong button names</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>tk.DISABLED</code> and <code>tk.NORMAL</code></li>
+<li>Match button names from earlier pages</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 40: Define the Alarm Trigger Method</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-40">Page 40: Define the Alarm Trigger Method →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-40">
+      <div class="page-header">
+        <span class="page-number">Page 40 of 60</span>
+        <h1 class="page-title">Define the Alarm Trigger Method</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the method that handles countdown completion.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Control Semantics
+<strong>Depends on:</strong> Page 30 (called from tick)
+
+<p>This step is part of the larger process of completion handling.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _trigger_alarm(self):
+<p>"""Handle alarm when countdown reaches zero."""</p>
+<p>self.timer_state.alarm_triggered = True</p>
+<p>self.timer_state.is_running = False</p>
+<p>self._last_tick_time = None</p>
+<p>self._accumulated_time = 0.0</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>alarm_triggered = True</code> makes state sticky</li>
+<li><code>is_running = False</code> stops countdown</li>
+<li>Clears timing variables for clean restart</li>
+<li>State changes happen regardless of sound</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without sticky alarm, it could fire repeatedly. State must transition regardless of audio.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include alarm state machine.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Confirm alarm state is set</li>
+<li>[ ] Verify timer stops after alarm</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting timing variable cleanup</li>
+<li>Missing one of the state flags</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Clear both timing variables</li>
+<li>Set both state flags</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 41: Play Alarm Sound</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-41">Page 41: Play Alarm Sound →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-41">
+      <div class="page-header">
+        <span class="page-number">Page 41 of 60</span>
+        <h1 class="page-title">Play Alarm Sound</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Plays the system bell when countdown completes.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Control Semantics
+<strong>Depends on:</strong> Page 40 (state updated)
+
+<p>This step is part of the larger process of audio feedback.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Always play alarm sound (Foundation has no toggle)
+<p>self.root.bell()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>root.bell()</code> plays the system alert sound</li>
+<li>Foundation always plays the sound—no user control</li>
+<li>Called after state is updated</li>
+<li>Simple, platform-native audio feedback</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without audio feedback, users might miss completion. Foundation provides no way to disable this—that comes in Configuration stage.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include audio behavior note.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Hear system bell when timer completes</li>
+<li>[ ] Confirm sound always plays (no toggle)</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>No audio hardware (silent failure is OK)</li>
+<li>Wrong method name</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>self.root.bell()</code> exactly</li>
+<li>Sound may be silent on some systems</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 42: Define the Start Handler</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-42">Page 42: Define the Start Handler →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-42">
+      <div class="page-header">
+        <span class="page-number">Page 42 of 60</span>
+        <h1 class="page-title">Define the Start Handler</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the method that handles Start button clicks.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Control Semantics
+<strong>Depends on:</strong> Page 21 (button references this)
+
+<p>This step is part of the larger process of user control.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _on_start(self):
+<p>"""Handle Start button click."""</p>
+<p>if self.timer_state.is_running:</p>
+<p>return</p>
+<p>if self.timer_state.alarm_triggered:</p>
+<p>return</p>
+<p>if self.timer_state.remaining_seconds == 0:</p>
+<p>return</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>is_running</code> guard prevents double-start</li>
+<li><code>alarm_triggered</code> guard requires reset after completion</li>
+<li><code>remaining_seconds == 0</code> guard prevents starting exhausted timer</li>
+<li>Early returns keep code flat and readable</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without guards, users could cause undefined behavior. These enforce valid state transitions.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include guard decision tree.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Confirm Start does nothing when running</li>
+<li>[ ] Confirm Start does nothing after alarm</li>
+<li>[ ] Confirm Start does nothing at zero</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Missing one of three guards</li>
+<li>Wrong comparison</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Include all three guards</li>
+<li>Use separate <code>if</code>/<code>return</code> for each</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 43: Activate Timer in Start Handler</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-43">Page 43: Activate Timer in Start Handler →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-43">
+      <div class="page-header">
+        <span class="page-number">Page 43 of 60</span>
+        <h1 class="page-title">Activate Timer in Start Handler</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Begins countdown timing after passing all guards.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Control Semantics
+<strong>Depends on:</strong> Page 42 (guards defined)
+
+<p>This step is part of the larger process of running state transition.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>self.timer_state.is_running = True
+<p>self._last_tick_time = time.monotonic()</p>
+<p>self._accumulated_time = 0.0</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li><code>is_running = True</code> activates tick countdown logic</li>
+<li><code>_last_tick_time</code> establishes timing reference</li>
+<li><code>_accumulated_time = 0.0</code> ensures clean start</li>
+<li>Monotonic time prevents clock interference</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without setting <code>is_running</code>, tick would ignore countdown. Without timing setup, first second could be wrong.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include Ready → Running diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] See timer count down after Start</li>
+<li>[ ] Confirm timing is accurate</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Using <code>time.time()</code> instead</li>
+<li>Forgetting to clear accumulated</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>time.monotonic()</code></li>
+<li>Set <code>_accumulated_time = 0.0</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 44: Define the Stop Handler</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-44">Page 44: Define the Stop Handler →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-44">
+      <div class="page-header">
+        <span class="page-number">Page 44 of 60</span>
+        <h1 class="page-title">Define the Stop Handler</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the method that pauses the countdown.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Control Semantics
+<strong>Depends on:</strong> Page 22 (button references this)
+
+<p>This step is part of the larger process of pause functionality.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _on_stop(self):
+<p>"""Handle Stop button click."""</p>
+<p>if not self.timer_state.is_running:</p>
+<p>return</p>
+
+<p>self.timer_state.is_running = False</p>
+<p>self._last_tick_time = None</p>
+<p>self._accumulated_time = 0.0</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Guard: stopping stopped timer does nothing</li>
+<li><code>is_running = False</code> pauses countdown</li>
+<li>Clears timing variables</li>
+<li>Preserves <code>remaining_seconds</code> (true pause)</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without guard, stop could interfere. Without preserving remaining, pause would become reset.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include Running → Paused diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Pause running timer with Stop</li>
+<li>[ ] Resume from same time with Start</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Missing guard</li>
+<li>Resetting remaining_seconds</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Check <code>is_running</code> before stopping</li>
+<li>Only modify timing variables</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 45: Define the Reset Handler</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-45">Page 45: Define the Reset Handler →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-45">
+      <div class="page-header">
+        <span class="page-number">Page 45 of 60</span>
+        <h1 class="page-title">Define the Reset Handler</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the method that returns timer to ready state.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Control Semantics
+<strong>Depends on:</strong> Page 23 (button references this)
+
+<p>This step is part of the larger process of state reset.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def _on_reset(self):
+<p>"""Handle Reset button click."""</p>
+<p>self.timer_state.is_running = False</p>
+<p>self.timer_state.alarm_triggered = False</p>
+<p>self.timer_state.remaining_seconds = self.DEFAULT_DURATION</p>
+<p>self._last_tick_time = None</p>
+<p>self._accumulated_time = 0.0</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Stops any running countdown</li>
+<li>Clears sticky alarm flag</li>
+<li>Restores hardcoded default duration</li>
+<li>Clears all timing bookkeeping</li>
+<li>Safe to call from any state</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without reset, app restart needed after alarm. Using <code>DEFAULT_DURATION</code> returns to the hardcoded starting value.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include Any State → Ready diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Reset from any state</li>
+<li>[ ] See 25:00 after reset</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Wrong duration constant</li>
+<li>Forgetting alarm_triggered</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use <code>self.DEFAULT_DURATION</code></li>
+<li>Clear all five values</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 46: Define the Main Function</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-46">Page 46: Define the Main Function →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-46">
+      <div class="page-header">
+        <span class="page-number">Page 46 of 60</span>
+        <h1 class="page-title">Define the Main Function</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Creates the startup function that launches the application.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Entry Point
+<strong>Depends on:</strong> All previous pages
+
+<p>This step is part of the larger process of making the app runnable.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>def main():
+<p>root = tk.Tk()</p>
+<p>app = StudyTimerApp(root)</p>
+<p>root.mainloop()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Creates Tk root window</li>
+<li>Instantiates application controller</li>
+<li>Starts event loop (blocks until close)</li>
+<li>Encapsulates complete startup</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without main function, startup would be at module level. This encapsulates the three-step launch.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include startup sequence diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Call <code>main()</code> to launch</li>
+<li>[ ] See complete UI appear</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Forgetting <code>mainloop()</code></li>
+<li>Wrong order</li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Always end with <code>mainloop()</code></li>
+<li>Create root, then app, then loop</li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 47: Add Script Entry Guard</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-47">Page 47: Add Script Entry Guard →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-47">
+      <div class="page-header">
+        <span class="page-number">Page 47 of 60</span>
+        <h1 class="page-title">Add Script Entry Guard</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Ensures app runs only when executed directly.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Entry Point
+<strong>Depends on:</strong> Page 46 (main exists)
+
+<p>This step is part of the larger process of module reusability.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>if __name__ == "__main__":
+<p>main()</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Explanation</h2>
+
+<ul><li>Allows importing without auto-launch</li>
+<li>Standard Python script pattern</li>
+<li>Keeps module reusable</li>
+<li>Calls main only on direct execution</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>Without guard, importing for testing would launch GUI. This is Python best practice.</p>
+
+<p>---</p>
+
+<h2>Visual reference</h2>
+
+<p>🔲 <strong>Visual placeholder</strong></p>
+<p>This page will later include import vs execution diagram.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Run file directly to launch app</li>
+<li>[ ] Import module without launching</li>
+</ul>
+<p>If this is not true, stop and review before continuing.</p>
+
+<p>---</p>
+
+<h2>If something breaks here</h2>
+
+<strong>Common issues at this step:</strong>
+
+<ul><li>Typo in <code>__name__</code> or <code>"__main__"</code></li>
+<li>Forgetting to call <code>main()</code></li>
+</ul>
+<strong>How to recover:</strong>
+
+<ul><li>Use double underscores</li>
+<li>Include parentheses: <code>main()</code></li>
+</ul>
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 48: Foundation Code Verification</strong></p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-48">Page 48: Foundation Code Verification →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-48">
+      <div class="page-header">
+        <span class="page-number">Page 48 of 60</span>
+        <h1 class="page-title">Foundation Code Verification</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Provides the complete code structure for verification.</p>
+
+<p>---</p>
+
+<h2>Where this fits</h2>
+
+<strong>Part:</strong> Foundation
+<strong>Section:</strong> Verification
+<strong>Depends on:</strong> All previous pages
+
+<p>This step is part of the larger process of ensuring correctness.</p>
+
+<p>---</p>
+
+<h2>Code (this page)</h2>
+
+<div class="code-block"><div class="code-header">python</div><pre><code># Complete Foundation code should match this structure:
+<p># - 3 imports (tkinter, time, Optional)</p>
+<p># - TimerState class with 3 attributes</p>
+<p># - StudyTimerApp class with DEFAULT_DURATION constant</p>
+<p># - All methods defined</p>
+<p># - main() function and entry guard</code></pre></div></p>
+
+<p>---</p>
+
+<h2>Verification Checklist</h2>
+
+<ul><li>[ ] Single file, no external dependencies</li>
+<li>[ ] Runs and opens exactly ONE window</li>
+<li>[ ] Shows "Academic Study Timer" in title bar</li>
+<li>[ ] Clock updates every second</li>
+<li>[ ] Timer shows 25:00 initially</li>
+<li>[ ] Start/Stop/Reset buttons work</li>
+<li>[ ] NO settings UI (no LabelFrame, no Apply button)</li>
+<li>[ ] Alarm ALWAYS plays (no toggle)</li>
+</ul>
+<p>---</p>
+
+<h2>Why this matters</h2>
+
+<p>This checkpoint ensures all code is correct before proceeding. Every feature should work.</p>
+
+<p>---</p>
+
+<h2>Checkpoint</h2>
+
+<p>After this page, you should be able to:</p>
+
+<ul><li>[ ] Run the complete application</li>
+<li>[ ] Verify all features work</li>
+</ul>
+<p>If this is not true, review previous pages.</p>
+
+<p>---</p>
+
+<h2>Next page</h2>
+
+<p>➡️ <strong>Page 49: Verification — Window and Title</strong></p>
+
+<p>---</p>
+
+<p># Pages 49-60: Feature Verification Pages</p>
+
+<h2>What these pages do</h2>
+
+<p>The remaining pages provide detailed verification for each feature, ensuring the Foundation stage is complete and correct.</p>
+
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-49">Page 49: Verify Window Opens Correctly →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-49">
+      <div class="page-header">
+        <span class="page-number">Page 49 of 60</span>
+        <h1 class="page-title">Verify Window Opens Correctly</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Running the script opens exactly ONE window</li>
+<li>[ ] Window title is "Academic Study Timer"</li>
+<li>[ ] Window cannot be resized</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-50">Page 50: Verify Clock Display →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-50">
+      <div class="page-header">
+        <span class="page-number">Page 50 of 60</span>
+        <h1 class="page-title">Verify Clock Display</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Clock shows current time in HH:MM:SS format</li>
+<li>[ ] Clock updates every second</li>
+<li>[ ] Format uses 24-hour time</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-51">Page 51: Verify Initial Timer Display →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-51">
+      <div class="page-header">
+        <span class="page-number">Page 51 of 60</span>
+        <h1 class="page-title">Verify Initial Timer Display</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Countdown shows "25:00" initially</li>
+<li>[ ] Status shows "Ready"</li>
+<li>[ ] Timer frame has grooved border</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-52">Page 52: Verify Start Button →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-52">
+      <div class="page-header">
+        <span class="page-number">Page 52 of 60</span>
+        <h1 class="page-title">Verify Start Button</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Start begins countdown</li>
+<li>[ ] Status changes to "Running"</li>
+<li>[ ] Start button becomes disabled</li>
+<li>[ ] Stop button becomes enabled</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-53">Page 53: Verify Stop Button →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-53">
+      <div class="page-header">
+        <span class="page-number">Page 53 of 60</span>
+        <h1 class="page-title">Verify Stop Button</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Stop pauses countdown</li>
+<li>[ ] Status changes to "Paused"</li>
+<li>[ ] Time is preserved (not reset)</li>
+<li>[ ] Can resume with Start</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-54">Page 54: Verify Reset Button →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-54">
+      <div class="page-header">
+        <span class="page-number">Page 54 of 60</span>
+        <h1 class="page-title">Verify Reset Button</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Reset returns to 25:00</li>
+<li>[ ] Status changes to "Ready"</li>
+<li>[ ] Works from any state (running, paused, alarmed)</li>
+<li>[ ] Clears alarm state</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-55">Page 55: Verify Countdown Accuracy →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-55">
+      <div class="page-header">
+        <span class="page-number">Page 55 of 60</span>
+        <h1 class="page-title">Verify Countdown Accuracy</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Timer counts down in real-time</li>
+<li>[ ] No drift over extended periods</li>
+<li>[ ] Handles system load gracefully</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-56">Page 56: Verify Alarm Trigger →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-56">
+      <div class="page-header">
+        <span class="page-number">Page 56 of 60</span>
+        <h1 class="page-title">Verify Alarm Trigger</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] Alarm fires when countdown reaches 00:00</li>
+<li>[ ] Alarm fires exactly once</li>
+<li>[ ] Background turns red</li>
+<li>[ ] Status shows "Time's Up!"</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-57">Page 57: Verify Alarm Sound →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-57">
+      <div class="page-header">
+        <span class="page-number">Page 57 of 60</span>
+        <h1 class="page-title">Verify Alarm Sound</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] System bell plays on alarm</li>
+<li>[ ] Sound ALWAYS plays (no toggle in Foundation)</li>
+<li>[ ] Visual feedback always occurs</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-58">Page 58: Verify No Settings UI →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-58">
+      <div class="page-header">
+        <span class="page-number">Page 58 of 60</span>
+        <h1 class="page-title">Verify No Settings UI</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] NO Settings LabelFrame</li>
+<li>[ ] NO duration input field</li>
+<li>[ ] NO alarm checkbox</li>
+<li>[ ] NO Apply button</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-59">Page 59: Verify No Configuration Features →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-59">
+      <div class="page-header">
+        <span class="page-number">Page 59 of 60</span>
+        <h1 class="page-title">Verify No Configuration Features</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>Verification</h2>
+
+<ul><li>[ ] No Settings dataclass</li>
+<li>[ ] No <code>self.settings</code> reference anywhere</li>
+<li>[ ] Uses <code>DEFAULT_DURATION</code> constant</li>
+<li>[ ] No validation methods</li>
+</ul>
+<p>---</p>
+        
+        <div class="next-page">
+          <a href="#page-60">Page 60: Foundation Stage Complete →</a>
+        </div>
+      </div>
+    </article>
+  
+
+    <article class="page-section" id="page-60">
+      <div class="page-header">
+        <span class="page-number">Page 60 of 60</span>
+        <h1 class="page-title">Foundation Stage Complete</h1>
+      </div>
+      <div class="page-body">
+        
+
+<h2>What this page does</h2>
+
+<p>Confirms the Foundation stage is fully complete.</p>
+
+<p>---</p>
+
+<h2>Final Verification Checklist</h2>
+
+<strong>Foundation DOES include:</strong>
+
+<ul><li>[x] TimerState class with runtime state</li>
+<li>[x] StudyTimerApp with hardcoded DEFAULT_DURATION</li>
+<li>[x] Clock display updating every second</li>
+<li>[x] Countdown display with MM:SS format</li>
+<li>[x] Start/Stop/Reset buttons</li>
+<li>[x] Alarm with visual feedback (red background)</li>
+<li>[x] Alarm sound (always plays)</li>
+</ul>
+<strong>Foundation does NOT include:</strong>
+
+<ul><li>[x] No Settings dataclass</li>
+<li>[x] No <code>@dataclass</code> import</li>
+<li>[x] No <code>messagebox</code> import</li>
+<li>[x] No settings UI panel</li>
+<li>[x] No Apply button</li>
+<li>[x] No alarm toggle</li>
+<li>[x] No duration configuration</li>
+<li>[x] No file I/O</li>
+</ul>
+<p>---</p>
+
+<h2>Completion Confirmation</h2>
+
+<p>You have completed the Foundation stage.</p>
+
+<p>Running <code>foundation.py</code> opens exactly <strong>ONE window</strong> with:</p>
+<ul><li>Working timer with Start/Stop/Reset</li>
+<li>Hardcoded 25-minute duration</li>
+<li>Alarm that always plays</li>
+<li>No settings UI whatsoever</li>
+</ul>
+<strong>Total Pages:</strong> 60
+<strong>Status:</strong> COMPLETE
+
+<p>---</p>
+
+<p># Appendix: Complete Foundation Code</p>
+
+<p>The complete code file should match this exactly. Run it to verify - it should open exactly ONE window.</p>
+
+<div class="code-block"><div class="code-header">python</div><pre><code>"""
+<p>Academic Study Timer</p>
+<p>Foundation Stage</p>
+<p>Standalone application with hardcoded values.</p>
+<p>"""</p>
+
+<p>import tkinter as tk</p>
+<p>import time</p>
+<p>from typing import Optional</p>
+
+
+<p>class TimerState:</p>
+<p>"""Transient runtime state for the countdown timer."""</p>
+
+<p>def __init__(self, duration_seconds: int):</p>
+<p>self.remaining_seconds: int = duration_seconds</p>
+<p>self.is_running: bool = False</p>
+<p>self.alarm_triggered: bool = False</p>
+
+
+<p>class StudyTimerApp:</p>
+<p>"""Main application controller."""</p>
+
+<p># Timing constants</p>
+<p>TICK_INTERVAL_MS = 200</p>
+<p>CLOCK_UPDATE_MS = 1000</p>
+<p>DEFAULT_DURATION = 25 * 60  # 25 minutes in seconds</p>
+
+<p>def __init__(self, root: tk.Tk):</p>
+<p>self.root = root</p>
+<p>self.root.title("Academic Study Timer")</p>
+<p>self.root.resizable(False, False)</p>
+
+<p># Timer state</p>
+<p>self.timer_state = TimerState(self.DEFAULT_DURATION)</p>
+
+<p># Timing bookkeeping</p>
+<p>self._last_tick_time: Optional[float] = None</p>
+<p>self._accumulated_time: float = 0.0</p>
+
+<p># Build UI</p>
+<p>self._build_ui()</p>
+
+<p># Start background updates</p>
+<p>self._update_clock()</p>
+<p>self._tick()</p>
+
+<p>def _build_ui(self):</p>
+<p>"""Construct all UI elements."""</p>
+<p># Main container</p>
+<p>main_frame = tk.Frame(self.root, padx=20, pady=20)</p>
+<p>main_frame.pack(fill=tk.BOTH, expand=True)</p>
+
+<p># Clock header</p>
+<p>clock_frame = tk.Frame(main_frame)</p>
+<p>clock_frame.pack(fill=tk.X, pady=(0, 15))</p>
+
+<p>tk.Label(</p>
+<p>clock_frame,</p>
+<p>text="Current Time:",</p>
+<p>font=("TkDefaultFont", 10)</p>
+<p>).pack(side=tk.LEFT)</p>
+
+<p>self.clock_label = tk.Label(</p>
+<p>clock_frame,</p>
+<p>text="",</p>
+<p>font=("TkDefaultFont", 10, "bold")</p>
+<p>)</p>
+<p>self.clock_label.pack(side=tk.LEFT, padx=(5, 0))</p>
+
+<p># Timer display frame</p>
+<p>self.timer_frame = tk.Frame(</p>
+<p>main_frame,</p>
+<p>bd=2,</p>
+<p>relief=tk.GROOVE,</p>
+<p>padx=20,</p>
+<p>pady=20</p>
+<p>)</p>
+<p>self.timer_frame.pack(fill=tk.X, pady=(0, 15))</p>
+
+<p># Countdown label</p>
+<p>self.countdown_label = tk.Label(</p>
+<p>self.timer_frame,</p>
+<p>text=self._format_time(self.timer_state.remaining_seconds),</p>
+<p>font=("TkFixedFont", 48, "bold")</p>
+<p>)</p>
+<p>self.countdown_label.pack()</p>
+
+<p># Status label</p>
+<p>self.status_label = tk.Label(</p>
+<p>self.timer_frame,</p>
+<p>text="Ready",</p>
+<p>font=("TkDefaultFont", 12)</p>
+<p>)</p>
+<p>self.status_label.pack(pady=(10, 0))</p>
+
+<p># Control buttons</p>
+<p>controls_frame = tk.Frame(main_frame)</p>
+<p>controls_frame.pack(fill=tk.X)</p>
+
+<p>self.start_button = tk.Button(</p>
+<p>controls_frame,</p>
+<p>text="Start",</p>
+<p>width=10,</p>
+<p>command=self._on_start</p>
+<p>)</p>
+<p>self.start_button.pack(side=tk.LEFT, expand=True)</p>
+
+<p>self.stop_button = tk.Button(</p>
+<p>controls_frame,</p>
+<p>text="Stop",</p>
+<p>width=10,</p>
+<p>command=self._on_stop,</p>
+<p>state=tk.DISABLED</p>
+<p>)</p>
+<p>self.stop_button.pack(side=tk.LEFT, expand=True)</p>
+
+<p>self.reset_button = tk.Button(</p>
+<p>controls_frame,</p>
+<p>text="Reset",</p>
+<p>width=10,</p>
+<p>command=self._on_reset</p>
+<p>)</p>
+<p>self.reset_button.pack(side=tk.LEFT, expand=True)</p>
+
+<p>def _format_time(self, seconds: int) -&gt; str:</p>
+<p>"""Convert seconds to MM:SS format."""</p>
+<p>minutes = seconds // 60</p>
+<p>secs = seconds % 60</p>
+<p>return f"{minutes:02d}:{secs:02d}"</p>
+
+<p>def _update_clock(self):</p>
+<p>"""Update the live clock display."""</p>
+<p>current_time = time.strftime("%H:%M:%S")</p>
+<p>self.clock_label.config(text=current_time)</p>
+<p>self.root.after(self.CLOCK_UPDATE_MS, self._update_clock)</p>
+
+<p>def _tick(self):</p>
+<p>"""Process one tick of the countdown timer."""</p>
+<p>if self.timer_state.is_running:</p>
+<p>current_time = time.monotonic()</p>
+
+<p>if self._last_tick_time is not None:</p>
+<p>elapsed = current_time - self._last_tick_time</p>
+<p>self._accumulated_time += elapsed</p>
+
+<p>while self._accumulated_time &gt;= 1.0 and self.timer_state.remaining_seconds &gt; 0:</p>
+<p>self.timer_state.remaining_seconds -= 1</p>
+<p>self._accumulated_time -= 1.0</p>
+
+<p>if self.timer_state.remaining_seconds == 0 and not self.timer_state.alarm_triggered:</p>
+<p>self._trigger_alarm()</p>
+
+<p>self._last_tick_time = current_time</p>
+
+<p>self._update_timer_display()</p>
+<p>self.root.after(self.TICK_INTERVAL_MS, self._tick)</p>
+
+<p>def _update_timer_display(self):</p>
+<p>"""Refresh countdown display and status."""</p>
+<p># Update countdown text</p>
+<p>self.countdown_label.config(</p>
+<p>text=self._format_time(self.timer_state.remaining_seconds)</p>
+<p>)</p>
+
+<p># Handle alarm state visuals</p>
+<p>if self.timer_state.alarm_triggered:</p>
+<p>self.timer_frame.config(bg="#ffcccc")</p>
+<p>self.countdown_label.config(bg="#ffcccc")</p>
+<p>self.status_label.config(bg="#ffcccc", text="Time's Up!", fg="#cc0000")</p>
+<p>else:</p>
+<p># Normal state visuals</p>
+<p>default_bg = self.root.cget("bg")</p>
+<p>self.timer_frame.config(bg=default_bg)</p>
+<p>self.countdown_label.config(bg=default_bg)</p>
+<p>self.status_label.config(bg=default_bg, fg="black")</p>
+
+<p># Determine status text</p>
+<p>if self.timer_state.is_running:</p>
+<p>self.status_label.config(text="Running")</p>
+<p>elif self.timer_state.remaining_seconds &lt; self.DEFAULT_DURATION:</p>
+<p>self.status_label.config(text="Paused")</p>
+<p>else:</p>
+<p>self.status_label.config(text="Ready")</p>
+
+<p># Update button states</p>
+<p>if self.timer_state.is_running:</p>
+<p>self.start_button.config(state=tk.DISABLED)</p>
+<p>self.stop_button.config(state=tk.NORMAL)</p>
+<p>else:</p>
+<p>self.start_button.config(state=tk.NORMAL)</p>
+<p>self.stop_button.config(state=tk.DISABLED)</p>
+
+<p>def _trigger_alarm(self):</p>
+<p>"""Handle alarm when countdown reaches zero."""</p>
+<p>self.timer_state.alarm_triggered = True</p>
+<p>self.timer_state.is_running = False</p>
+<p>self._last_tick_time = None</p>
+<p>self._accumulated_time = 0.0</p>
+
+<p># Always play alarm sound (Foundation has no toggle)</p>
+<p>self.root.bell()</p>
+
+<p>def _on_start(self):</p>
+<p>"""Handle Start button click."""</p>
+<p>if self.timer_state.is_running:</p>
+<p>return</p>
+<p>if self.timer_state.alarm_triggered:</p>
+<p>return</p>
+<p>if self.timer_state.remaining_seconds == 0:</p>
+<p>return</p>
+
+<p>self.timer_state.is_running = True</p>
+<p>self._last_tick_time = time.monotonic()</p>
+<p>self._accumulated_time = 0.0</p>
+
+<p>def _on_stop(self):</p>
+<p>"""Handle Stop button click."""</p>
+<p>if not self.timer_state.is_running:</p>
+<p>return</p>
+
+<p>self.timer_state.is_running = False</p>
+<p>self._last_tick_time = None</p>
+<p>self._accumulated_time = 0.0</p>
+
+<p>def _on_reset(self):</p>
+<p>"""Handle Reset button click."""</p>
+<p>self.timer_state.is_running = False</p>
+<p>self.timer_state.alarm_triggered = False</p>
+<p>self.timer_state.remaining_seconds = self.DEFAULT_DURATION</p>
+<p>self._last_tick_time = None</p>
+<p>self._accumulated_time = 0.0</p>
+
+
+<p>def main():</p>
+<p>root = tk.Tk()</p>
+<p>app = StudyTimerApp(root)</p>
+<p>root.mainloop()</p>
+
+
+<p>if __name__ == "__main__":</p>
+<p>main()</code></pre></div></p>
+
+<p>---</p>
+
+<strong>END OF FOUNDATION GUIDE</strong>
+        
+      </div>
+    </article>
+  
+    </main>
+
+    <button class="toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰</button>
+
+    <div class="toc-panel" id="tocPanel">
+        <div class="toc-header">
+            <h3>Contents</h3>
+            <button class="toc-close" onclick="toggleTOC()">×</button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="#page-1">Page 1: Import the GUI Module</a></li>
+<li><a href="#page-2">Page 2: Import the Time Module</a></li>
+<li><a href="#page-3">Page 3: Import the Optional Type Hint</a></li>
+<li><a href="#page-4">Page 4: Define the TimerState Class</a></li>
+<li><a href="#page-5">Page 5: Establish the Application Controller Class</a></li>
+<li><a href="#page-6">Page 6: Define Timing Constants</a></li>
+<li><a href="#page-7">Page 7: Define the Default Duration Constant</a></li>
+<li><a href="#page-8">Page 8: Define the Init Method Signature</a></li>
+<li><a href="#page-9">Page 9: Initialize Timer State</a></li>
+<li><a href="#page-10">Page 10: Initialize Timing Bookkeeping Variables</a></li>
+<li><a href="#page-11">Page 11: Trigger UI Construction</a></li>
+<li><a href="#page-12">Page 12: Start Background Update Cycles</a></li>
+<li><a href="#page-13">Page 13: Create the Main UI Container</a></li>
+<li><a href="#page-14">Page 14: Create the Clock Header Frame</a></li>
+<li><a href="#page-15">Page 15: Create the Static Clock Label</a></li>
+<li><a href="#page-16">Page 16: Create the Live Clock Value Label</a></li>
+<li><a href="#page-17">Page 17: Create the Timer Display Frame</a></li>
+<li><a href="#page-18">Page 18: Create the Countdown Display Label</a></li>
+<li><a href="#page-19">Page 19: Create the Status Display Label</a></li>
+<li><a href="#page-20">Page 20: Create the Button Container Frame</a></li>
+<li><a href="#page-21">Page 21: Create the Start Button</a></li>
+<li><a href="#page-22">Page 22: Create the Stop Button</a></li>
+<li><a href="#page-23">Page 23: Create the Reset Button</a></li>
+<li><a href="#page-24">Page 24: Define the Time Formatting Helper</a></li>
+<li><a href="#page-25">Page 25: Define the Clock Update Method</a></li>
+<li><a href="#page-26">Page 26: Define the Tick Method Signature</a></li>
+<li><a href="#page-27">Page 27: Check Running State in Tick</a></li>
+<li><a href="#page-28">Page 28: Calculate Elapsed Time</a></li>
+<li><a href="#page-29">Page 29: Decrement Whole Seconds</a></li>
+<li><a href="#page-30">Page 30: Detect Alarm Condition</a></li>
+<li><a href="#page-31">Page 31: Update Last Tick Time</a></li>
+<li><a href="#page-32">Page 32: Update Timer Display</a></li>
+<li><a href="#page-33">Page 33: Schedule Next Tick</a></li>
+<li><a href="#page-34">Page 34: Define the Display Update Method</a></li>
+<li><a href="#page-35">Page 35: Update Countdown Text</a></li>
+<li><a href="#page-36">Page 36: Apply Alarm Visual Styling</a></li>
+<li><a href="#page-37">Page 37: Restore Normal Visual Styling</a></li>
+<li><a href="#page-38">Page 38: Set Status Text Based on State</a></li>
+<li><a href="#page-39">Page 39: Update Button States</a></li>
+<li><a href="#page-40">Page 40: Define the Alarm Trigger Method</a></li>
+<li><a href="#page-41">Page 41: Play Alarm Sound</a></li>
+<li><a href="#page-42">Page 42: Define the Start Handler</a></li>
+<li><a href="#page-43">Page 43: Activate Timer in Start Handler</a></li>
+<li><a href="#page-44">Page 44: Define the Stop Handler</a></li>
+<li><a href="#page-45">Page 45: Define the Reset Handler</a></li>
+<li><a href="#page-46">Page 46: Define the Main Function</a></li>
+<li><a href="#page-47">Page 47: Add Script Entry Guard</a></li>
+<li><a href="#page-48">Page 48: Foundation Code Verification</a></li>
+<li><a href="#page-49">Page 49: Verify Window Opens Correctly</a></li>
+<li><a href="#page-50">Page 50: Verify Clock Display</a></li>
+<li><a href="#page-51">Page 51: Verify Initial Timer Display</a></li>
+<li><a href="#page-52">Page 52: Verify Start Button</a></li>
+<li><a href="#page-53">Page 53: Verify Stop Button</a></li>
+<li><a href="#page-54">Page 54: Verify Reset Button</a></li>
+<li><a href="#page-55">Page 55: Verify Countdown Accuracy</a></li>
+<li><a href="#page-56">Page 56: Verify Alarm Trigger</a></li>
+<li><a href="#page-57">Page 57: Verify Alarm Sound</a></li>
+<li><a href="#page-58">Page 58: Verify No Settings UI</a></li>
+<li><a href="#page-59">Page 59: Verify No Configuration Features</a></li>
+<li><a href="#page-60">Page 60: Foundation Stage Complete</a></li>
+        </ul>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+    </footer>
+
+    <script src="/assets/js/guide.js"></script>
+</body>
+</html>
