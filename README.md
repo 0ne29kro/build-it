@@ -64,7 +64,7 @@ Projects designed for students and productivity.
 - [Study Timer — Foundation Guide](./academic/study-timer/foundation.html)
 - [Study Timer — Configuration Guide](./academic/study-timer/configuration.html)
 - [Study Timer — Persistence Guide](./academic/study-timer/persistence.html)
-- [Study Timer — Addendum](/build-it/academic/study-timer/ADDENDUM.html)
+- [Study Timer — Addendum](./academic/study-timer/ADDENDUM.html)
 
 ---
 
