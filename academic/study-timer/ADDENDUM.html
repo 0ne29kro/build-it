@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Timer — Addendum | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+    <style>
+        /* Additional styles for addendum tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        code {
+            background-color: #f0f0f0;
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+        h3 {
+            margin-top: 2rem;
+            color: #444;
+        }
+        ul.checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.checklist li {
+            padding: 0.3rem 0;
+        }
+        ul.checklist li::before {
+            content: "☐ ";
+            color: #666;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 2rem 0;
+        }
+        .header-meta {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .end-marker {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 3rem;
+            padding: 1rem;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/build-it/">Build It</a>
+        </nav>
+    </header>
+
+    <main>
+        <nav class="breadcrumb">
+            <a href="/build-it/">Home</a> /
+            <a href="/build-it/academic/">Academic</a> /
+            <a href="/build-it/academic/study-timer/">study-timer</a> /
+            Addendum
+        </nav>
+
+        <h1>Build It — Study Timer Addendum</h1>
+        
+        <p class="header-meta">Project-Specific Extension to the Constitution</p>
+
+        <hr>
+
+        <h2>1. Project Name and Description</h2>
+
+        <p><strong>Project:</strong> Academic Study Timer<br>
+        <strong>Series:</strong> Academic<br>
+        <strong>Description:</strong> A Pomodoro-style countdown timer with configurable duration, optional alarm sound, and persistent settings.</p>
+
+        <p><strong>What it does:</strong></p>
+        <ul>
+            <li>Displays current time in 24-hour format</li>
+            <li>Counts down from a configurable duration</li>
+            <li>Plays system bell when time expires</li>
+            <li>Provides visual alarm state (red background)</li>
+            <li>Saves and loads user preferences</li>
+        </ul>
+
+        <hr>
+
+        <h2>2. Actual Page Counts</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Pages</th>
+                    <th>Output File</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Foundation</strong></td>
+                    <td>60</td>
+                    <td><code>foundation.py</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Configuration</strong></td>
+                    <td>110</td>
+                    <td><code>configuration.py</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Persistence</strong></td>
+                    <td>142</td>
+                    <td><code>persistence.py</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Total instruction pages:</strong> 312</p>
+
+        <hr>
+
+        <h2>3. Chunk Breakdown</h2>
+
+        <h3>Foundation (60 pages)</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Chunk</th>
+                    <th>Pages</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Module &amp; Runtime Boundary</td><td>1–3</td><td>Imports (tkinter, time, Optional)</td></tr>
+                <tr><td>Domain State</td><td>4</td><td>TimerState class</td></tr>
+                <tr><td>Application Shell</td><td>5–7</td><td>StudyTimerApp class, constants</td></tr>
+                <tr><td>Application Initialization</td><td>8–12</td><td>__init__ setup, state, background loops</td></tr>
+                <tr><td>UI Composition → Header</td><td>13–16</td><td>Clock frame and labels</td></tr>
+                <tr><td>UI Composition → Countdown Display</td><td>17–19</td><td>Timer frame, countdown label, status</td></tr>
+                <tr><td>UI Composition → Controls</td><td>20–23</td><td>Start, Stop, Reset buttons</td></tr>
+                <tr><td>Helper Utilities</td><td>24</td><td>_format_time()</td></tr>
+                <tr><td>Background Processes</td><td>25</td><td>_update_clock()</td></tr>
+                <tr><td>Time Engine</td><td>26–33</td><td>_tick() loop, elapsed time, alarm detection</td></tr>
+                <tr><td>UI Rendering</td><td>34–39</td><td>_update_timer_display(), colors, button states</td></tr>
+                <tr><td>Control Semantics</td><td>40–45</td><td>_trigger_alarm(), _on_start/stop/reset handlers</td></tr>
+                <tr><td>Entry Point</td><td>46–47</td><td>main() and __name__ guard</td></tr>
+                <tr><td>Verification</td><td>48–60</td><td>Feature verification checklist</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Configuration (110 pages)</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Chunk</th>
+                    <th>Pages</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Module &amp; Runtime Boundary</td><td>1–5</td><td>Adds messagebox, dataclass imports</td></tr>
+                <tr><td>Settings Domain Model</td><td>6</td><td>Settings dataclass</td></tr>
+                <tr><td>Domain State</td><td>7</td><td>TimerState (unchanged)</td></tr>
+                <tr><td>Application Shell</td><td>8–9</td><td>Class, timing constants (no DEFAULT_DURATION)</td></tr>
+                <tr><td>Application Initialization</td><td>10–15</td><td>Settings(), TimerState from settings</td></tr>
+                <tr><td>UI Composition → Header</td><td>16–19</td><td>Clock (unchanged)</td></tr>
+                <tr><td>UI Composition → Countdown Display</td><td>20–22</td><td>Timer display (unchanged)</td></tr>
+                <tr><td>UI Composition → Controls</td><td>23–26</td><td>Buttons with bottom padding for settings</td></tr>
+                <tr><td>UI Composition → Settings Section</td><td>27–33</td><td>LabelFrame, duration entry, alarm checkbox</td></tr>
+                <tr><td>UI Composition → Apply Controls</td><td>34–35</td><td>Apply Settings button</td></tr>
+                <tr><td>Helper Utilities</td><td>36</td><td>_format_time() (unchanged)</td></tr>
+                <tr><td>Input &amp; Validation Pipeline</td><td>37–42</td><td>_parse_duration_input() with range checks</td></tr>
+                <tr><td>Background Processes</td><td>43</td><td>_update_clock() (unchanged)</td></tr>
+                <tr><td>Time Engine</td><td>44–51</td><td>_tick() (unchanged)</td></tr>
+                <tr><td>UI Rendering</td><td>52–57</td><td>Status uses settings.default_duration_seconds</td></tr>
+                <tr><td>Control Semantics</td><td>58–63</td><td>Handlers use settings, conditional alarm</td></tr>
+                <tr><td>Apply Workflow</td><td>64–71</td><td>_on_apply() with validation, smart sync</td></tr>
+                <tr><td>Entry Point</td><td>72–73</td><td>main() and guard (unchanged)</td></tr>
+                <tr><td>Verification</td><td>74–110</td><td>Extended verification for settings features</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Persistence (142 pages)</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Chunk</th>
+                    <th>Pages</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Module &amp; Runtime Boundary</td><td>1–5</td><td>Adds json, pathlib imports</td></tr>
+                <tr><td>Settings Domain Model</td><td>6–8</td><td>Settings with to_dict(), from_dict()</td></tr>
+                <tr><td>Domain State</td><td>9</td><td>TimerState (unchanged)</td></tr>
+                <tr><td>Persistence Domain</td><td>10–18</td><td>PersistenceManager class with load/save</td></tr>
+                <tr><td>Application Shell</td><td>19–20</td><td>Class, constants, SETTINGS_FILE path</td></tr>
+                <tr><td>Application Initialization</td><td>21–28</td><td>Load settings on startup, dirty tracking</td></tr>
+                <tr><td>UI Composition → Header</td><td>29–32</td><td>Clock (unchanged)</td></tr>
+                <tr><td>UI Composition → Countdown Display</td><td>33–37</td><td>Adds Saved/Unsaved indicator</td></tr>
+                <tr><td>UI Composition → Controls</td><td>38–41</td><td>Buttons (unchanged)</td></tr>
+                <tr><td>UI Composition → Settings Section</td><td>42–48</td><td>Settings inputs (unchanged)</td></tr>
+                <tr><td>UI Composition → Save Controls</td><td>49–52</td><td>Save button (replaces Apply)</td></tr>
+                <tr><td>Helper Utilities</td><td>53</td><td>_format_time() (unchanged)</td></tr>
+                <tr><td>Input &amp; Validation Pipeline</td><td>54–59</td><td>_parse_duration_input() (unchanged)</td></tr>
+                <tr><td>Background Processes</td><td>60</td><td>_update_clock() (unchanged)</td></tr>
+                <tr><td>Time Engine</td><td>61–68</td><td>_tick() (unchanged)</td></tr>
+                <tr><td>UI Rendering</td><td>69–78</td><td>Adds dirty indicator update</td></tr>
+                <tr><td>Control Semantics</td><td>79–90</td><td>Handlers track dirty state</td></tr>
+                <tr><td>Save Workflow</td><td>91–100</td><td>_on_save() with validation, persist, feedback</td></tr>
+                <tr><td>Entry Point</td><td>101–102</td><td>main() and guard (unchanged)</td></tr>
+                <tr><td>Verification</td><td>103–142</td><td>Extended verification for persistence features</td></tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>4. Feature Checklist</h2>
+
+        <h3>Foundation Features</h3>
+
+        <ul class="checklist">
+            <li>Window titled "Academic Study Timer"</li>
+            <li>Window is non-resizable</li>
+            <li>Live clock displays current time (HH:MM:SS, 24-hour)</li>
+            <li>Clock updates every second</li>
+            <li>Countdown displays in MM:SS format with zero-padding</li>
+            <li>Status shows: Ready, Running, Paused, Time's Up!</li>
+            <li>Start button begins countdown</li>
+            <li>Stop button pauses countdown (preserves remaining time)</li>
+            <li>Reset button returns to 25:00 and Ready state</li>
+            <li>Start disabled while running; Stop disabled while not running</li>
+            <li>Timer frame shows light red background (#ffcccc) on alarm</li>
+            <li>Status shows dark red text (#cc0000) on alarm</li>
+            <li>System bell plays when countdown reaches zero</li>
+            <li>Alarm fires exactly once per countdown cycle</li>
+            <li>Timer uses monotonic clock (no drift)</li>
+            <li>No settings UI present</li>
+            <li>No file I/O present</li>
+        </ul>
+
+        <h3>Configuration Features (adds to Foundation)</h3>
+
+        <ul class="checklist">
+            <li>Settings section with labeled border</li>
+            <li>Duration entry field (minutes, 1–999 valid range)</li>
+            <li>Alarm checkbox ("Enable alarm sound")</li>
+            <li>Apply Settings button</li>
+            <li>Error dialog for invalid duration input</li>
+            <li>Success dialog after valid Apply</li>
+            <li>Smart sync: timer updates only when in Ready state</li>
+            <li>Paused/Running timers not affected by Apply</li>
+            <li>Reset uses configured duration</li>
+            <li>Alarm sound respects checkbox setting</li>
+            <li>Settings persist in memory only (lost on restart)</li>
+            <li>No file I/O present</li>
+        </ul>
+
+        <h3>Persistence Features (adds to Configuration)</h3>
+
+        <ul class="checklist">
+            <li>Settings saved to JSON file</li>
+            <li>Settings loaded on startup</li>
+            <li>Save button replaces Apply button</li>
+            <li>Saved/Unsaved status indicator</li>
+            <li>Dirty tracking (compares current to saved snapshot)</li>
+            <li>Indicator updates on any settings change</li>
+            <li>Corrupted file recovers to defaults</li>
+            <li>Missing file creates defaults</li>
+            <li>File location: user config directory</li>
+        </ul>
+
+        <hr>
+
+        <h2>5. Variable Naming Table</h2>
+
+        <h3>Classes</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Stage</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>TimerState</code></td><td>Foundation+</td><td>Transient runtime state</td></tr>
+                <tr><td><code>Settings</code></td><td>Configuration+</td><td>Configuration data</td></tr>
+                <tr><td><code>StudyTimerApp</code></td><td>Foundation+</td><td>Main application controller</td></tr>
+                <tr><td><code>PersistenceManager</code></td><td>Persistence</td><td>File I/O coordinator</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Class Constants (inside StudyTimerApp)</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Constant</th>
+                    <th>Value</th>
+                    <th>Stage</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>TICK_INTERVAL_MS</code></td><td>200</td><td>Foundation+</td><td>Timer tick rate (ms)</td></tr>
+                <tr><td><code>CLOCK_UPDATE_MS</code></td><td>1000</td><td>Foundation+</td><td>Clock refresh rate (ms)</td></tr>
+                <tr><td><code>DEFAULT_DURATION</code></td><td>1500</td><td>Foundation only</td><td>Hardcoded 25 minutes</td></tr>
+                <tr><td><code>SETTINGS_FILE</code></td><td>Path(...)</td><td>Persistence</td><td>Config file location</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Settings Fields</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Stage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>default_duration_seconds</code></td><td>int</td><td>1500</td><td>Configuration+</td></tr>
+                <tr><td><code>alarm_enabled</code></td><td>bool</td><td>True</td><td>Configuration+</td></tr>
+            </tbody>
+        </table>
+
+        <h3>TimerState Fields</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Type</th>
+                    <th>Initial</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>remaining_seconds</code></td><td>int</td><td>(from settings)</td><td>Countdown value</td></tr>
+                <tr><td><code>is_running</code></td><td>bool</td><td>False</td><td>Active countdown flag</td></tr>
+                <tr><td><code>alarm_triggered</code></td><td>bool</td><td>False</td><td>One-shot alarm flag</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Instance Variables (self.*)</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Variable</th>
+                    <th>Type</th>
+                    <th>Stage</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>root</code></td><td>tk.Tk</td><td>Foundation+</td><td>Main window</td></tr>
+                <tr><td><code>settings</code></td><td>Settings</td><td>Configuration+</td><td>Configuration object</td></tr>
+                <tr><td><code>timer_state</code></td><td>TimerState</td><td>Foundation+</td><td>Runtime state</td></tr>
+                <tr><td><code>_last_tick_time</code></td><td>Optional[float]</td><td>Foundation+</td><td>Timing reference</td></tr>
+                <tr><td><code>_accumulated_time</code></td><td>float</td><td>Foundation+</td><td>Fractional seconds</td></tr>
+                <tr><td><code>clock_label</code></td><td>tk.Label</td><td>Foundation+</td><td>Live clock display</td></tr>
+                <tr><td><code>countdown_label</code></td><td>tk.Label</td><td>Foundation+</td><td>MM:SS display</td></tr>
+                <tr><td><code>status_label</code></td><td>tk.Label</td><td>Foundation+</td><td>State text</td></tr>
+                <tr><td><code>timer_frame</code></td><td>tk.Frame</td><td>Foundation+</td><td>Bordered container</td></tr>
+                <tr><td><code>start_button</code></td><td>tk.Button</td><td>Foundation+</td><td>Start control</td></tr>
+                <tr><td><code>stop_button</code></td><td>tk.Button</td><td>Foundation+</td><td>Stop control</td></tr>
+                <tr><td><code>reset_button</code></td><td>tk.Button</td><td>Foundation+</td><td>Reset control</td></tr>
+                <tr><td><code>duration_var</code></td><td>tk.StringVar</td><td>Configuration+</td><td>Entry binding</td></tr>
+                <tr><td><code>duration_entry</code></td><td>tk.Entry</td><td>Configuration+</td><td>Duration input</td></tr>
+                <tr><td><code>alarm_var</code></td><td>tk.BooleanVar</td><td>Configuration+</td><td>Checkbox binding</td></tr>
+                <tr><td><code>alarm_check</code></td><td>tk.Checkbutton</td><td>Configuration+</td><td>Alarm toggle</td></tr>
+                <tr><td><code>apply_button</code></td><td>tk.Button</td><td>Configuration</td><td>Apply control</td></tr>
+                <tr><td><code>save_button</code></td><td>tk.Button</td><td>Persistence</td><td>Save control</td></tr>
+                <tr><td><code>saved_label</code></td><td>tk.Label</td><td>Persistence</td><td>Dirty indicator</td></tr>
+                <tr><td><code>_saved_snapshot</code></td><td>Settings</td><td>Persistence</td><td>Comparison baseline</td></tr>
+                <tr><td><code>persistence</code></td><td>PersistenceManager</td><td>Persistence</td><td>File I/O handler</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Methods</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Stage</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><code>__init__(root)</code></td><td>Foundation+</td><td>Initialize application</td></tr>
+                <tr><td><code>_build_ui()</code></td><td>Foundation+</td><td>Construct all widgets</td></tr>
+                <tr><td><code>_format_time(seconds)</code></td><td>Foundation+</td><td>Convert to MM:SS</td></tr>
+                <tr><td><code>_update_clock()</code></td><td>Foundation+</td><td>Refresh clock display</td></tr>
+                <tr><td><code>_tick()</code></td><td>Foundation+</td><td>Process countdown tick</td></tr>
+                <tr><td><code>_update_timer_display()</code></td><td>Foundation+</td><td>Sync UI with state</td></tr>
+                <tr><td><code>_trigger_alarm()</code></td><td>Foundation+</td><td>Handle completion</td></tr>
+                <tr><td><code>_on_start()</code></td><td>Foundation+</td><td>Start button handler</td></tr>
+                <tr><td><code>_on_stop()</code></td><td>Foundation+</td><td>Stop button handler</td></tr>
+                <tr><td><code>_on_reset()</code></td><td>Foundation+</td><td>Reset button handler</td></tr>
+                <tr><td><code>_parse_duration_input()</code></td><td>Configuration+</td><td>Validate duration entry</td></tr>
+                <tr><td><code>_on_apply()</code></td><td>Configuration</td><td>Apply button handler</td></tr>
+                <tr><td><code>_on_save()</code></td><td>Persistence</td><td>Save button handler</td></tr>
+                <tr><td><code>_is_dirty()</code></td><td>Persistence</td><td>Compare to snapshot</td></tr>
+                <tr><td><code>_update_dirty_indicator()</code></td><td>Persistence</td><td>Refresh saved/unsaved</td></tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>6. Reference Code Files</h2>
+
+        <p>Each stage produces a verified, runnable Python file:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>File</th>
+                    <th>Lines (approx)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Foundation</td>
+                    <td><a href="https://github.com/0ne29kro/build-it/blob/main/academic/study-timer/foundation.py">foundation.py</a></td>
+                    <td>~180</td>
+                </tr>
+                <tr>
+                    <td>Configuration</td>
+                    <td><a href="https://github.com/0ne29kro/build-it/blob/main/academic/study-timer/configuration.py">configuration.py</a></td>
+                    <td>~280</td>
+                </tr>
+                <tr>
+                    <td>Persistence</td>
+                    <td><a href="https://github.com/0ne29kro/build-it/blob/main/academic/study-timer/persistence.py">persistence.py</a></td>
+                    <td>~350</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Reference implementations are tested against the feature checklists above. Each file is standalone and runnable with <code>python &lt;filename&gt;.py</code>.</p>
+
+        <p><strong>View the complete reference code:</strong> <a href="https://github.com/0ne29kro/build-it/blob/main/academic/study-timer/README.md">study-timer/README.md</a></p>
+
+        <hr>
+
+        <h2>7. Stage Boundary Summary</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Boundary</th>
+                    <th>What's Added</th>
+                    <th>What's NOT Added</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Foundation</strong></td>
+                    <td>Core timer, hardcoded 25 min, always-on alarm</td>
+                    <td>Settings UI, validation, file I/O</td>
+                </tr>
+                <tr>
+                    <td><strong>Configuration</strong></td>
+                    <td>Settings dataclass, UI inputs, Apply workflow, conditional alarm</td>
+                    <td>File I/O, dirty tracking, Save button</td>
+                </tr>
+                <tr>
+                    <td><strong>Persistence</strong></td>
+                    <td>JSON save/load, PersistenceManager, dirty tracking, Save button</td>
+                    <td>(Complete application)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="end-marker">END OF ADDENDUM</div>
+
+    </main>
+
+    <footer>
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p><em>Learn by building. One page at a time.</em></p>
+    </footer>
+</body>
+</html>
