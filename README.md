@@ -105,50 +105,38 @@ Every guide follows the [Build It Constitution](./CONSTITUTION.md) — a locked 
 
 <details>
 <summary><strong>How These Guides Are Made</strong></summary>
-
-<br>
-
-**Authoring Process**
-
-Build It guides are created using a **structured production workflow** — not just AI-generated code presented as-is.
-
-Each guide transforms a working application into a **step-structured learning system** where every step:
-
-- Introduces exactly one concept
-- Explains intent and constraints
-- Includes a checkpoint and failure recovery path
-- Preserves architectural boundaries
-
-<br>
-
-**The Pipeline**
-
-1. **Stage freeze & constraints** — Define what's in scope and explicitly out of scope
-2. **Atomic decomposition** — Break the system into "one step = one unit of change"
-3. **Instruction-as-verification** — Embed checkpoints so the guide doubles as a QA harness
-4. **End-to-end validation** — Confirm runtime behavior matches the guide's claims
-5. **Feature verification suite** — Add checklists to guard against regression
-
-<br>
-
-**Quality Controls**
-
-- **Contracted step schema:** purpose, fit, code, explanation, why-it-matters, checkpoint, recovery
-- **Dependency tracking:** each step declares prerequisites
-- **Run-based validation:** final code is executed to confirm key behaviors
-- **Scope enforcement:** "does not include" constraints are asserted and re-verified
-
-<br>
-
-**AI Collaboration**
-
-These guides are co-authored with AI systems (ChatGPT and Claude) under human-owned standards:
-
-- **0ne29 (author/producer):** system design, constraints, stage boundaries, QA expectations, acceptance criteria
-- **AI systems:** structured synthesis under constraints, consistent formatting, alignment of prose to code
-
-For the full authoring methodology, see [AUTHORING.md](./AUTHORING.md).
-
+<p></p>
+<h4>Authoring Process</h4>
+<p>Build It guides are created using a <strong>structured production workflow</strong> — not just AI-generated code presented as-is.</p>
+<p>Each guide transforms a working application into a <strong>step-structured learning system</strong> where every step:</p>
+<ul>
+<li>Introduces exactly one concept</li>
+<li>Explains intent and constraints</li>
+<li>Includes a checkpoint and failure recovery path</li>
+<li>Preserves architectural boundaries</li>
+</ul>
+<h4>The Pipeline</h4>
+<ol>
+<li><strong>Stage freeze & constraints</strong> — Define what's in scope and explicitly out of scope</li>
+<li><strong>Atomic decomposition</strong> — Break the system into "one step = one unit of change"</li>
+<li><strong>Instruction-as-verification</strong> — Embed checkpoints so the guide doubles as a QA harness</li>
+<li><strong>End-to-end validation</strong> — Confirm runtime behavior matches the guide's claims</li>
+<li><strong>Feature verification suite</strong> — Add checklists to guard against regression</li>
+</ol>
+<h4>Quality Controls</h4>
+<ul>
+<li><strong>Contracted step schema:</strong> purpose, fit, code, explanation, why-it-matters, checkpoint, recovery</li>
+<li><strong>Dependency tracking:</strong> each step declares prerequisites</li>
+<li><strong>Run-based validation:</strong> final code is executed to confirm key behaviors</li>
+<li><strong>Scope enforcement:</strong> "does not include" constraints are asserted and re-verified</li>
+</ul>
+<h4>AI Collaboration</h4>
+<p>These guides are co-authored with AI systems (ChatGPT and Claude) under human-owned standards:</p>
+<ul>
+<li><strong>0ne29 (author/producer):</strong> system design, constraints, stage boundaries, QA expectations, acceptance criteria</li>
+<li><strong>AI systems:</strong> structured synthesis under constraints, consistent formatting, alignment of prose to code</li>
+</ul>
+<p>For the full authoring methodology, see <a href="./AUTHORING.md">AUTHORING.md</a>.</p>
 </details>
 
 ---
