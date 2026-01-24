@@ -97,6 +97,10 @@ build-it/
 
 We believe programming should be taught the way it's actually done: by building real things, making mistakes, and learning from them. No toy examples. No "hello world" padding. Just working software, explained completely.
 
+## The Build It Constitution
+
+Every guide follows the [Build It Constitution](./CONSTITUTION.md) — a locked instructional framework defining stage boundaries, page structure, and atomic step rules.
+
 ---
 
 <details>
