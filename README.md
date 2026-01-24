@@ -1,1 +1,105 @@
-# build-it
+# Build It
+
+**A MoreSalamander StudioLabs Production**
+
+*Learn by building. One page at a time.*
+
+---
+
+## What is Build It?
+
+Build It is an educational series that teaches programming through complete, working projects. Each project is broken down into atomic steps — one concept per page — so you always know exactly what you're doing and why.
+
+No hand-waving. No "the rest is left as an exercise." Every line of code is explained, every decision is justified, and every checkpoint confirms you're on track.
+
+## Philosophy
+
+Traditional tutorials fail in predictable ways:
+
+- **Too fast** — Steps get skipped, leaving gaps in understanding
+- **Too abstract** — Theory without practice doesn't stick
+- **Too fragile** — One mistake and you're lost with no way to recover
+
+Build It solves these problems with a structured approach:
+
+1. **Atomic Steps** — Each page introduces exactly one concept
+2. **Working Checkpoints** — Your code runs at every stage
+3. **Recovery Paths** — Every page includes troubleshooting for common issues
+4. **Progressive Enhancement** — Start simple, add complexity in layers
+
+## The Three Stages
+
+Every Build It project follows the same progression:
+
+| Stage | Name | What You Build |
+|-------|------|----------------|
+| **Foundation** | See It Work | A complete, working application with hardcoded values |
+| **Configuration** | Use It Today | User-adjustable settings with validation and UI |
+| **Persistence** | Keep It Forever | Save and load settings between sessions |
+
+Each stage produces a standalone, runnable application. You can stop at any stage and have something useful.
+
+## Available Projects
+
+### Academic Series
+
+Projects designed for students and productivity.
+
+| Project | Description | Status |
+|---------|-------------|--------|
+| [Study Timer](./academic/study-timer/) | Pomodoro-style countdown timer with alarm | ✅ Available |
+
+*More projects coming soon.*
+
+## How to Use These Guides
+
+1. **Pick a project** that interests you
+2. **Start with Foundation** — always begin here
+3. **Follow page by page** — don't skip ahead
+4. **Run your code** at every checkpoint
+5. **Stop when satisfied** — each stage is complete on its own
+
+## Project Structure
+
+```
+build-it/
+├── index.html              # Landing page
+├── academic/               # Academic series
+│   ├── index.html          # Series overview
+│   └── study-timer/        # Study Timer project
+│       ├── index.html      # Project overview
+│       ├── foundation.html # Stage 1: See It Work
+│       ├── configuration.html # Stage 2: Use It Today
+│       └── persistence.html   # Stage 3: Keep It Forever
+└── assets/
+    ├── css/
+    │   └── guide.css       # Shared styles
+    └── js/
+        └── guide.js        # Shared interactivity
+```
+
+## What You'll Need
+
+- **Python 3.8+** — All projects use Python
+- **A text editor** — VS Code, PyCharm, or even Notepad
+- **A terminal** — To run your code
+- **Patience** — One page at a time
+
+## About MoreSalamander StudioLabs
+
+We believe programming should be taught the way it's actually done: by building real things, making mistakes, and learning from them. No toy examples. No "hello world" padding. Just working software, explained completely.
+
+---
+
+## Quick Links
+
+- [Study Timer — Foundation Guide](./academic/study-timer/foundation.html)
+- [Study Timer — Configuration Guide](./academic/study-timer/configuration.html)
+- [Study Timer — Persistence Guide](./academic/study-timer/persistence.html)
+
+---
+
+<p align="center">
+  <strong>Build It</strong> — A MoreSalamander StudioLabs Production<br>
+  <em>Learn by building. One page at a time.</em>
+</p>
