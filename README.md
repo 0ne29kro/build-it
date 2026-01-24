@@ -59,6 +59,14 @@ Projects designed for students and productivity.
 4. **Run your code** at every checkpoint
 5. **Stop when satisfied** — each stage is complete on its own
 
+## Quick Links
+
+- [Study Timer — Foundation Guide](./academic/study-timer/foundation.html)
+- [Study Timer — Configuration Guide](./academic/study-timer/configuration.html)
+- [Study Timer — Persistence Guide](./academic/study-timer/persistence.html)
+
+---
+
 ## Project Structure
 
 ```
@@ -91,11 +99,45 @@ We believe programming should be taught the way it's actually done: by building 
 
 ---
 
-## Quick Links
+<details>
+<summary><strong>How These Guides Are Made</strong></summary>
 
-- [Study Timer — Foundation Guide](./academic/study-timer/foundation.html)
-- [Study Timer — Configuration Guide](./academic/study-timer/configuration.html)
-- [Study Timer — Persistence Guide](./academic/study-timer/persistence.html)
+### Authoring Process
+
+Build It guides are created using a **structured production workflow** — not just AI-generated code presented as-is.
+
+Each guide transforms a working application into a **step-structured learning system** where every step:
+
+- Introduces exactly one concept
+- Explains intent and constraints
+- Includes a checkpoint and failure recovery path
+- Preserves architectural boundaries
+
+### The Pipeline
+
+1. **Stage freeze & constraints** — Define what's in scope and explicitly out of scope
+2. **Atomic decomposition** — Break the system into "one step = one unit of change"
+3. **Instruction-as-verification** — Embed checkpoints so the guide doubles as a QA harness
+4. **End-to-end validation** — Confirm runtime behavior matches the guide's claims
+5. **Feature verification suite** — Add checklists to guard against regression
+
+### Quality Controls
+
+- **Contracted step schema:** purpose, fit, code, explanation, why-it-matters, checkpoint, recovery
+- **Dependency tracking:** each step declares prerequisites
+- **Run-based validation:** final code is executed to confirm key behaviors
+- **Scope enforcement:** "does not include" constraints are asserted and re-verified
+
+### AI Collaboration
+
+These guides are co-authored with AI systems (ChatGPT and Claude) under human-owned standards:
+
+- **0ne29 (author/producer):** system design, constraints, stage boundaries, QA expectations, acceptance criteria
+- **AI systems:** structured synthesis under constraints, consistent formatting, alignment of prose to code
+
+For the full authoring methodology, see [AUTHORING.md](./AUTHORING.md).
+
+</details>
 
 ---
 
