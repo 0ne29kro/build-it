@@ -45,9 +45,9 @@ Each stage produces a standalone, runnable application. You can stop at any stag
 
 Projects designed for students and productivity.
 
-| Project | Description | Status |
-|---------|-------------|--------|
-| [Study Timer](./academic/study-timer/) | Pomodoro-style countdown timer with alarm | ✅ Available |
+| Project | Description | Foundation | Configuration | Persistence |
+|---------|-------------|:----------:|:-------------:|:-----------:|
+| [Study Timer](./academic/study-timer/) | Pomodoro-style countdown timer with alarm | ✅ | ✅ | ✅ |
 
 *More projects coming soon.*
 
