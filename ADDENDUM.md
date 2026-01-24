@@ -249,7 +249,6 @@ Each stage produces a verified, runnable Python file:
 
 Reference implementations are tested against the feature checklists above. Each file is standalone and runnable with `python <filename>.py`.
 
-**View the complete reference code:** [study-timer/README.md](/academic/study-timer/README.md)
 
 ---
 
