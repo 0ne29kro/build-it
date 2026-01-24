@@ -106,7 +106,9 @@ Every guide follows the [Build It Constitution](./CONSTITUTION.md) — a locked 
 <details>
 <summary><strong>How These Guides Are Made</strong></summary>
 
-### Authoring Process
+<br>
+
+**Authoring Process**
 
 Build It guides are created using a **structured production workflow** — not just AI-generated code presented as-is.
 
@@ -117,7 +119,9 @@ Each guide transforms a working application into a **step-structured learning sy
 - Includes a checkpoint and failure recovery path
 - Preserves architectural boundaries
 
-### The Pipeline
+<br>
+
+**The Pipeline**
 
 1. **Stage freeze & constraints** — Define what's in scope and explicitly out of scope
 2. **Atomic decomposition** — Break the system into "one step = one unit of change"
@@ -125,14 +129,18 @@ Each guide transforms a working application into a **step-structured learning sy
 4. **End-to-end validation** — Confirm runtime behavior matches the guide's claims
 5. **Feature verification suite** — Add checklists to guard against regression
 
-### Quality Controls
+<br>
+
+**Quality Controls**
 
 - **Contracted step schema:** purpose, fit, code, explanation, why-it-matters, checkpoint, recovery
 - **Dependency tracking:** each step declares prerequisites
 - **Run-based validation:** final code is executed to confirm key behaviors
 - **Scope enforcement:** "does not include" constraints are asserted and re-verified
 
-### AI Collaboration
+<br>
+
+**AI Collaboration**
 
 These guides are co-authored with AI systems (ChatGPT and Claude) under human-owned standards:
 
