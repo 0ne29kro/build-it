@@ -12,7 +12,7 @@
             <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
             <nav class="breadcrumb">
                 <a href="/build-it/">Home</a> / 
-                <a href="/build-it/fundamentals/">fundamentals</a> / 
+                <a href="/build-it/fundamentals/">Fundamentals</a> / 
                 <a href="/build-it/fundamentals/vscode-mac/">VS Code on Mac</a> / 
                 Foundation
             </nav>
@@ -35,23 +35,1709 @@
 
     <main class="guide-content">
         
-    <article class="page-section" id="page-21">
+    <article class="page-section" id="page-1">
       <div class="page-header">
-        <span class="page-number">Page 21 of 39</span>
-        <h1 class="page-title">Syntax Highlighting## What this page doesShows how VS Code colors your code for readability.---## Where this fitsPython extension installed. Now see it in action.---## ExplanationOpen `hello.py` or create a new Python file with:```pythondef greet(name):    message = f"Hello, {name}!"    print(message)greet("World")```Notice the colors:- **Purple/Blue** — Keywords (`def`, `print`)- **Yellow** — Function names- **Green** — Strings- **White** — VariablesColors vary by theme but always distinguish code elements.---## Why this mattersSyntax highlighting makes code readable. Errors become obvious when colors are wrong.---## Checkpoint- [ ] I see different colors for different code elements- [ ] Keywords, strings, and functions have distinct colors---## If something breaks here- No colors: Make sure file is saved as `.py` (check Status Bar shows "Python")- Wrong colors: The Python extension may still be loading, wait a moment---# Page 22: IntelliSense: Autocomplete## What this page doesDemonstrates VS Code's intelligent code completion.---## Where this fitsSyntax highlighting works. Now experience autocomplete.---## Code (this page)```pythonimport osos.```---## ExplanationType `import os` and press Enter.Then type `os.` (with the dot).A popup appears showing all available methods:- `os.path`- `os.getcwd`- `os.listdir`- ...and moreUse arrow keys to browse, Enter to select, Escape to dismiss.Start typing to filter: `os.getc` shows only methods starting with "getc".---## Why this mattersIntelliSense saves typing and prevents typos. You don't need to memorize every method.---## Checkpoint- [ ] I typed `os.` and saw the autocomplete popup- [ ] I can navigate with arrow keys- [ ] I selected an option with Enter---## If something breaks here- No popup: Press `Control + Space` to manually trigger- Limited options: Python extension may still be indexing, wait a moment---# Page 23: Error Squiggles## What this page doesShows how VS Code highlights errors in your code.---## Where this fitsAutocomplete works. Now see error detection.---## Code (this page)```pythonpritn("Hello")```---## ExplanationType `pritn("Hello")` (intentional typo).A red squiggly line appears under `pritn`. This indicates an error.Hover your mouse over the squiggle to see the error message:- "Undefined name 'pritn'"Fix it to `print` and the squiggle disappears.Yellow squiggles indicate warnings (not errors, but worth checking).---## Why this mattersCatching errors while typing saves debugging time later.---## Checkpoint- [ ] I typed `pritn` and saw a red squiggle- [ ] I hovered and saw the error message- [ ] Fixing to `print` removed the squiggle---## If something breaks here- No squiggles: The linter may be disabled. Install Pylance extension.- Takes time: Error checking runs after a short delay---# Page 24: Selecting a Python Interpreter## What this page doesShows how to choose which Python VS Code uses.---## Where this fitsError detection works. Now configure the Python version.---## Code (this page)```Command + Shift + PType: Python: Select InterpreterPress Enter```---## ExplanationVS Code needs to know which Python to use.1. Open Command Palette (`Command + Shift + P`)2. Type "Python: Select Interpreter"3. Press Enter4. Choose from the list:   - Global Python (`/opt/homebrew/bin/python3`)   - Virtual environment (`./venv/bin/python`)If you're in a project with a venv, select the venv Python.The selected interpreter shows in the Status Bar.---## Why this mattersSelecting the right interpreter ensures VS Code uses the correct Python and packages.---## Checkpoint- [ ] I opened Python: Select Interpreter- [ ] I see a list of Python installations- [ ] I selected one (preferably a venv if available)---## If something breaks here- No interpreters listed: Python not installed, complete Project Setup guide- venv not listed: Make sure the venv exists in your open folder---# Page 25: Running Python Files## What this page doesShows multiple ways to run Python files.---## Where this fitsInterpreter selected. Now run code.---## Code (this page)```Method 1: Terminalpython3 filename.pyMethod 2: Right-clickRight-click in editor → Run Python File in TerminalMethod 3: Play buttonClick ▶ in top-right corner```---## ExplanationThree ways to run:1. **Terminal** — Type `python3 filename.py` (you know this)2. **Right-click** — Right-click in the editor, select "Run Python File in Terminal"3. **Play button** — Click the ▶ triangle in the top-right of the editorAll three open the Terminal and run your file.---## Why this mattersMultiple options let you choose what's fastest for your workflow.---## Checkpoint- [ ] I ran a Python file using the Terminal- [ ] I ran it using right-click menu- [ ] I ran it using the Play button---## If something breaks here- No Play button: Python extension not installed or file isn't `.py`- Wrong Python: Check the interpreter (Page 24)---# Page 26: The Run Button## What this page doesExplains the Run button in detail.---## Where this fitsYou know it exists. Now understand its options.---## ExplanationThe Run button (▶) in the top-right has a dropdown arrow.Click the arrow to see options:- **Run Python File** — Runs the entire file- **Run Python File in Dedicated Terminal** — New terminal for this file- **Debug Python File** — Run with debugger attachedFor now, use "Run Python File" for quick execution.---## Why this mattersDifferent run modes serve different purposes. Know what's available.---## Checkpoint- [ ] I found the Run button dropdown- [ ] I see the different run options---## If something breaks here- No dropdown: Click the small arrow next to the play button, not the button itself---# Page 27: Python Checkpoint## What this page doesVerifies you can write and run Python in VS Code.---## Where this fitsYou have completed the Python features section.---## ExplanationYou should now be able to:| Task | Method ||------|--------|| See syntax colors | Automatic for .py files || Get autocomplete | Type and see suggestions, or `Control + Space` || See errors | Red squiggles appear automatically || Select interpreter | Command Palette → Python: Select Interpreter || Run Python | Terminal, right-click, or Play button |---## Why this mattersThese features make VS Code a complete Python development environment.---## Checkpoint- [ ] Syntax highlighting works- [ ] Autocomplete works- [ ] Error detection works- [ ] I can run Python files---## If something breaks hereReview pages 21-26. Most issues are solved by ensuring the Python extension is installed.---# Page 28: Multiple Tabs## What this page doesShows how to work with multiple files.---## Where this fitsYou can run Python. Now manage multiple files.---## Code (this page)```New tab: Command + NSwitch tabs: Command + Option + Left/RightClose tab: Command + W```---## ExplanationOpen multiple files — each gets a tab.Navigation:- Click tabs to switch- `Command + Option + Left/Right` to move between tabs- `Command + W` to close current tab- `Command + Shift + T` to reopen last closed tabTabs can be dragged to reorder.---## Why this mattersReal projects have many files. Efficient tab management keeps you productive.---## Checkpoint- [ ] I have multiple tabs open- [ ] I can switch with `Command + Option + Left/Right`- [ ] I can close with `Command + W`---## If something breaks here- Only one tab: Open more files from Explorer (double-click)---# Page 29: Split Editor## What this page doesShows how to view multiple files side by side.---## Where this fitsYou have multiple tabs. Now view them simultaneously.---## Code (this page)```Split right: Command + BackslashOr: Drag a tab to the side of the editor```---## ExplanationTo split the editor:1. Open two files in tabs2. Press Command + Backslash to split right3. Or drag a tab to the right edge until you see a highlight4. Drop to create a split viewNow you can see two files at once. Great for:- Comparing files- Referencing one file while editing another- Viewing code and output---## Why this mattersSide-by-side editing is essential for real development work.---## Checkpoint- [ ] I split the editor with Command + Backslash- [ ] I can see two files side by side- [ ] I can click in either pane to edit---## If something breaks here- Split doesn't work: Make sure you have at least one file open- To unsplit: Close files in one pane or drag tabs back together---# Page 30: Keyboard Shortcuts: Save## What this page doesReinforces the most important shortcut.---## Where this fitsBeginning the shortcuts section.---## Code (this page)```Save: Command + SSave All: Command + Option + SSave As: Command + Shift + S```---## ExplanationYou already know `Command + S`. Use it constantly.Additional save commands:- `Command + Option + S` — Save all open files at once- `Command + Shift + S` — Save current file with a new name/location**Pro tip:** Save after every meaningful change. It becomes automatic.---## Why this mattersSaving frequently prevents lost work. Make it a reflex.---## Checkpoint- [ ] I use `Command + S` regularly- [ ] I know `Command + Option + S` saves all files---## If something breaks hereNothing to break. Practice these shortcuts.---# Page 31: Keyboard Shortcuts: Find## What this page doesTeaches find and replace shortcuts.---## Where this fitsYou can save. Now learn to find.---## Code (this page)```Find in file: Command + FFind and replace: Command + Option + FFind in all files: Command + Shift + F```---## Explanation**Find in current file:** `Command + F`- Type search term- Enter to find next- Shift + Enter to find previous- Escape to close**Find and replace:** `Command + Option + F`- Adds a "Replace" field- Replace one or replace all**Find in all files:** `Command + Shift + F`- Searches entire project- Results show in sidebar---## Why this mattersFinding code quickly is essential as projects grow.---## Checkpoint- [ ] I can find in file with `Command + F`- [ ] I can find across files with `Command + Shift + F`---## If something breaks here- Search not working: Make sure the search box is focused (cursor blinking)---# Page 32: Keyboard Shortcuts: Comment## What this page doesShows how to quickly comment/uncomment code.---## Where this fitsYou can find code. Now comment it.---## Code (this page)```Toggle comment: Command + /Block comment: Command + Option + /```---## ExplanationPlace your cursor on a line and press `Command + /`.The line becomes a comment:```python# print("Hello")```Press again to uncomment.**Multiple lines:** Select several lines, then `Command + /` to comment all.**Block comment:** `Command + Option + /` creates multi-line comment syntax (if language supports it).---## Why this mattersQuickly commenting code is essential for testing and debugging.---## Checkpoint- [ ] I commented a line with `Command + /`- [ ] I uncommented it with the same shortcut- [ ] I commented multiple lines at once---## If something breaks here- Wrong comment style: VS Code uses the correct style for each language---# Page 33: Keyboard Shortcuts: Duplicate Line## What this page doesShows how to duplicate lines instantly.---## Where this fitsYou can comment. Now duplicate.---## Code (this page)```Duplicate line: Command + Shift + DMove line up: Option + UpMove line down: Option + Down```---## ExplanationPlace cursor on any line:- `Command + Shift + D` — Copies the line below itself- `Option + Up` — Moves the entire line up- `Option + Down` — Moves the entire line downWorks with multiple selected lines too.---## Why this mattersThese shortcuts are faster than copy/paste for quick edits.---## Checkpoint- [ ] I duplicated a line with `Command + Shift + D`- [ ] I moved a line with `Option + Up/Down`---## If something breaks here- Nothing happens: Make sure cursor is on a line (not in a selection)---# Page 34: Settings Overview## What this page doesIntroduces VS Code settings.---## Where this fitsYou know shortcuts. Now customize VS Code.---## Code (this page)```Open Settings: Command + ,```---## ExplanationPress `Command + ,` to open Settings.Two views:- **UI** — Searchable graphical interface (default)- **JSON** — Raw configuration file (click `{}` icon)Search for any setting by name. Changes save automatically.Settings have two scopes:- **User** — Apply to all projects- **Workspace** — Apply to current project only---## Why this mattersSettings let you customize VS Code to your preferences.---## Checkpoint- [ ] I opened Settings with `Command + ,`- [ ] I see the search box at the top- [ ] I can find settings by typing---## If something breaks here- Settings not opening: Try Code → Settings → Settings from menu bar---# Page 35: Changing Theme## What this page doesShows how to change the color theme.---## Where this fitsYou can access Settings. Now change appearance.---## Code (this page)```Command + K, then Command + TOr: Settings → search "theme"```---## ExplanationPress `Command + K`, release, then press `Command + T`.A list of themes appears:- Use arrow keys to preview- Enter to selectPopular themes:- **Dark+ (default dark)** — VS Code default- **Light+ (default light)** — Light version- **One Dark Pro** — Popular community theme- **Dracula** — Another popular dark themeInstall more themes from Extensions.---## Why this mattersA comfortable theme reduces eye strain during long coding sessions.---## Checkpoint- [ ] I opened the theme selector- [ ] I previewed different themes- [ ] I selected one I like---## If something breaks here- Keyboard shortcut not working: Use Command Palette → "Preferences: Color Theme"---# Page 36: Changing Font Size## What this page doesShows how to adjust editor font size.---## Where this fitsTheme selected. Now adjust readability.---## Code (this page)```Zoom in: Command + =Zoom out: Command + -Reset zoom: Command + 0Or: Settings → search "font size"```---## ExplanationQuick zoom:- `Command + =` makes everything larger- `Command + -` makes everything smaller- `Command + 0` resets to defaultFor permanent change:1. Open Settings (`Command + ,`)2. Search "font size"3. Change "Editor: Font Size" (default is 12)14-16 is comfortable for most people.---## Why this mattersReadable code reduces mistakes and eye strain.---## Checkpoint- [ ] I zoomed in and out- [ ] I know how to change font size in Settings---## If something breaks here- Zoom affects everything: That's expected, it's a global zoom- Font size setting: Only affects the editor, not the whole interface---# Page 37: Auto Save## What this page doesEnables automatic file saving.---## Where this fitsFont configured. Now automate saving.---## Code (this page)```Settings → search "auto save"Change: Files: Auto SaveOptions: off, afterDelay, onFocusChange, onWindowChange```---## Explanation1. Open Settings (`Command + ,`)2. Search "auto save"3. Find "Files: Auto Save"4. Choose an option:   - **off** — Manual save only (default)   - **afterDelay** — Saves after you stop typing (1 second default)   - **onFocusChange** — Saves when you click away from the file   - **onWindowChange** — Saves when you switch applicationsRecommended: `afterDelay` or `onFocusChange`---## Why this mattersAuto save eliminates "forgot to save" errors.---## Checkpoint- [ ] I found the Auto Save setting- [ ] I changed it to afterDelay or onFocusChange- [ ] Files now save automatically---## If something breaks here- Can't find setting: Search exactly "files auto save"- Not saving: Check the delay time in "Files: Auto Save Delay"---# Page 38: Settings Checkpoint## What this page doesVerifies you can customize VS Code.---## Where this fitsYou have completed the settings section.---## ExplanationYou should now be able to:| Task | Method ||------|--------|| Open Settings | `Command + ,` || Change theme | `Command + K, Command + T` || Zoom | `Command + =/-/0` || Change font size | Settings → "font size" || Enable auto save | Settings → "auto save" |---## Why this mattersA customized editor is more comfortable and productive.---## Checkpoint- [ ] I can access and search Settings- [ ] I have chosen a comfortable theme- [ ] Font size is readable- [ ] Auto save is configured---## If something breaks hereReview pages 34-37 for any setting you couldn't find.---# Page 39: Final Verification## What this page doesConfirms you have mastered VS Code basics.---## Where this fitsThis is the end. Verify everything works.---## ExplanationComplete this checklist:**Setup**- [ ] VS Code is installed in Applications- [ ] Python extension is installed- [ ] A Python interpreter is selected**Navigation**- [ ] I can open folders and files- [ ] I can use the Command Palette- [ ] I can toggle the Sidebar and Terminal**Python**- [ ] Syntax highlighting works- [ ] Autocomplete appears when typing- [ ] Errors show as red squiggles- [ ] I can run Python files**Shortcuts I Know**- [ ] `Command + S` — Save- [ ] `Command + B` — Toggle Sidebar- [ ] Control + Backtick — Toggle Terminal- [ ] `Command + Shift + P` — Command Palette- [ ] `Command + /` — Comment- [ ] `Command + F` — Find**Customization**- [ ] Theme is comfortable- [ ] Font size is readable- [ ] Auto save is enabled---## Why this mattersYou now have a professional Python development environment.---## Congratulations!You have completed **VS Code on Mac: Foundation**.Combined with **Project Setup**, you have everything needed to build Python projects.**Your environment:**- Terminal for navigation- Python 3 with pip- Virtual environments for isolation- VS Code for writing codeYou are ready to build.</h1>
+        <span class="page-number">Page 1 of 39</span>
+        <h1 class="page-title">What This Guide Covers</h1>
       </div>
       <div class="page-body">
         <h2>What this page does</h2>
-        <p></p>
+        <p>Introduces what you will learn in this guide.</p>
         
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the starting point. Assumes you completed Project Setup.</p>
+        </div>
         
         <h2>Explanation</h2>
-        
+        <p>By the end of this guide, you will know how to:</p><ul><li><strong>Install VS Code</strong> — Download and set up on Mac</li>
+<li><strong>Navigate the Interface</strong> — Understand every panel and view</li>
+<li><strong>Work with Files</strong> — Create, open, save, and organize</li>
+<li><strong>Use the Terminal</strong> — Run Python directly in VS Code</li>
+<li><strong>Install Extensions</strong> — Add Python support and more</li>
+<li><strong>Use Shortcuts</strong> — Work faster with keyboard commands</li>
+<li><strong>Customize Settings</strong> — Make VS Code your own</li></ul>
         <h2>Why this matters</h2>
-        <p></p>
+        <p>VS Code is the most popular code editor. Learning it well makes you more productive.</p>
         
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand this guide covers VS Code installation and usage</label>
+<label class="checkbox-item"><input type="checkbox"> I have completed the Project Setup guide (or know Terminal basics)</label></p>
+        </div>
         
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break yet. Move to Page 2.</p>
+        </div>
+        <div class="next-page"><a href="#page-2">Page 2 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 39</span>
+        <h1 class="page-title">Download VS Code</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Downloads VS Code to your Mac.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>First step: get the installer.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Open browser
+Go to: https://code.visualstudio.com
+Click: Download for Mac
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <ul><li>Open Safari or Chrome</li>
+<li>Go to <code>code.visualstudio.com</code></li>
+<li>The site detects you're on Mac</li>
+<li>Click the big blue "Download" button</li>
+</ul>
+A <code>.zip</code> file downloads to your Downloads folder.</p>
+        <h2>Why this matters</h2>
+        <p>VS Code is free and actively maintained by Microsoft. It's the industry standard.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I went to code.visualstudio.com</label>
+<label class="checkbox-item"><input type="checkbox"> I clicked Download for Mac</label>
+<label class="checkbox-item"><input type="checkbox"> A .zip file is in my Downloads folder</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Site not loading: Check internet connection</li>
+<li>Wrong version: Make sure it says "Mac" on the download button</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-3">Page 3 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 39</span>
+        <h1 class="page-title">Install VS Code</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Installs VS Code on your Mac.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>File downloaded. Now install it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>1. Open Downloads folder
+<ul><li>Double-click the .zip file</li>
+<li>Drag &quot;Visual Studio Code&quot; to Applications</li>
+</ul></code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <ul><li>Open Finder → Downloads</li>
+<li>Find the VS Code <code>.zip</code> file</li>
+<li>Double-click to extract (creates "Visual Studio Code.app")</li>
+<li>Drag the app to your Applications folder</li>
+</ul>
+This makes VS Code available system-wide.</p>
+        <h2>Why this matters</h2>
+        <p>Proper installation in Applications ensures VS Code updates correctly and integrates with macOS.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I extracted the .zip file</label>
+<label class="checkbox-item"><input type="checkbox"> VS Code is in my Applications folder</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Can't open .zip: Right-click → Open With → Archive Utility</li>
+<li>"App is damaged": System Settings → Privacy & Security → Open Anyway</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-4">Page 4 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 39</span>
+        <h1 class="page-title">Launch VS Code</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Opens VS Code for the first time.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>VS Code is installed. Now launch it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Press: Command + Space
+Type: Visual Studio Code
+Press: Enter
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Use Spotlight (Command + Space) to quickly launch apps.</p><p>Alternatively:
+<ul><li>Open Finder → Applications → Visual Studio Code</li>
+</ul>
+First launch may ask for permissions. Click "Allow" or "Open."</p>
+        <h2>Why this matters</h2>
+        <p>You'll launch VS Code daily. Spotlight is the fastest method.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> VS Code opened successfully</label>
+<label class="checkbox-item"><input type="checkbox"> I see the VS Code window</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>"Cannot be opened": Go to System Settings → Privacy & Security → Open Anyway</li>
+<li>Slow to open: First launch is slow, subsequent launches are faster</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-5">Page 5 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 39</span>
+        <h1 class="page-title">The Welcome Screen</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains what you see when VS Code first opens.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>VS Code is open. Understand the welcome view.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>The Welcome tab shows:</p><ul><li><strong>Start</strong> — New File, Open Folder, Clone Repository</li>
+<li><strong>Recent</strong> — Recently opened folders and files</li>
+<li><strong>Learn</strong> — Links to documentation and tutorials</li>
+<li><strong>Customize</strong> — Theme and settings quick links</li>
+</ul>
+You can close this tab. It reappears each launch unless disabled.</p>
+        <h2>Why this matters</h2>
+        <p>The Welcome screen provides quick access to common actions. Useful for beginners.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I see the Welcome tab</label>
+<label class="checkbox-item"><input type="checkbox"> I can identify the Start, Recent, and Learn sections</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No Welcome tab: Click Help → Welcome in the menu bar</li>
+<li>Different layout: You may have opened it before, that's fine</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-6">Page 6 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 39</span>
+        <h1 class="page-title">The Interface: Overview</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Maps out the main areas of VS Code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You see VS Code. Now understand its layout.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>VS Code has five main areas:</p><pre><code>┌─────────────────────────────────────────┐
+│            Menu Bar                     │
+├─────┬───────────────────────────────────┤
+│     │                                   │
+│  A  │            Editor                 │
+│  c  │            Area                   │
+│  t  │                                   │
+│  i  │                                   │
+│  v  ├───────────────────────────────────┤
+│  i  │          Panel                    │
+│  t  │      (Terminal, Output)           │
+│  y  │                                   │
+├─────┴───────────────────────────────────┤
+│            Status Bar                   │
+└─────────────────────────────────────────┘
+</code></pre><ul><li><strong>Activity Bar</strong> — Left icons (Files, Search, Extensions)</li>
+<li><strong>Sidebar</strong> — File explorer, search results, etc.</li>
+<li><strong>Editor Area</strong> — Where you write code</li>
+<li><strong>Panel</strong> — Terminal, Problems, Output</li>
+<li><strong>Status Bar</strong> — Bottom info bar</li></ul>
+        <h2>Why this matters</h2>
+        <p>Knowing the layout helps you find features and navigate efficiently.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can identify the Activity Bar (left icons)</label>
+<label class="checkbox-item"><input type="checkbox"> I can identify the Editor Area (main space)</label>
+<label class="checkbox-item"><input type="checkbox"> I can identify the Status Bar (bottom)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is orientation.</p>
+        </div>
+        <div class="next-page"><a href="#page-7">Page 7 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 39</span>
+        <h1 class="page-title">The Sidebar</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains the Sidebar and how to toggle it.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know the layout. Now explore the Sidebar.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Toggle Sidebar: Command + B
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>The Sidebar shows contextual content based on which Activity Bar icon is selected:</p><table>
+<tr><td>Icon</td><td>View</td></tr>
+<tr><td>📄</td><td>Explorer — Files and folders</td></tr>
+<tr><td>🔍</td><td>Search — Find across files</td></tr>
+<tr><td>🔀</td><td>Source Control — Git integration</td></tr>
+<tr><td>🐛</td><td>Run and Debug — Debugging tools</td></tr>
+<tr><td>🧩</td><td>Extensions — Install add-ons</td></tr>
+</table><p>Press <code>Command + B</code> to hide or show the Sidebar.</p>
+        <h2>Why this matters</h2>
+        <p>The Sidebar is your navigation hub. Learn to toggle it for more editor space.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I pressed <code>Command + B</code> to hide the Sidebar</label>
+<label class="checkbox-item"><input type="checkbox"> I pressed it again to show it</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Sidebar won't toggle: Click View → Appearance → Show Primary Sidebar</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-8">Page 8 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 39</span>
+        <h1 class="page-title">The Editor Area</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains where you write and edit code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know the Sidebar. Now focus on the Editor.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>The Editor Area is the main workspace. Features:</p><ul><li><strong>Tabs</strong> — Open files appear as tabs at the top</li>
+<li><strong>Line numbers</strong> — Left column shows line numbers</li>
+<li><strong>Minimap</strong> — Right side shows code overview (optional)</li>
+<li><strong>Cursor</strong> — Blinking line where you type</li>
+</ul>
+Multiple files can be open in tabs. Click a tab to switch.</p>
+        <h2>Why this matters</h2>
+        <p>You'll spend 90% of your time in the Editor Area.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand tabs show open files</label>
+<label class="checkbox-item"><input type="checkbox"> I can see line numbers on the left</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No line numbers: View → Appearance → Show Line Numbers</li>
+<li>No minimap: That's fine, it's optional</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-9">Page 9 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-9">
+      <div class="page-header">
+        <span class="page-number">Page 9 of 39</span>
+        <h1 class="page-title">The Status Bar</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains the information shown in the Status Bar.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know the Editor. Now understand the bottom bar.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>The Status Bar (bottom of window) shows:</p><table>
+<tr><td>Position</td><td>Information</td></tr>
+<tr><td>Left</td><td>Git branch, sync status</td></tr>
+<tr><td>Center</td><td>Errors and warnings count</td></tr>
+<tr><td>Right</td><td>Line/column, encoding, language</td></tr>
+</table><p>Click items for quick actions:
+<ul><li>Click "Python" to change language mode</li>
+<li>Click "Ln/Col" to jump to a line</li></ul>
+        <h2>Why this matters</h2>
+        <p>The Status Bar gives quick info without leaving your code.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can see the Status Bar at the bottom</label>
+<label class="checkbox-item"><input type="checkbox"> I notice it shows language (e.g., "Plain Text" or "Python")</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No Status Bar: View → Appearance → Show Status Bar</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-10">Page 10 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-10">
+      <div class="page-header">
+        <span class="page-number">Page 10 of 39</span>
+        <h1 class="page-title">Opening a Folder</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to open a project folder in VS Code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know the interface. Now open a real project.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Press: Command + O (that&#x27;s the letter O)
+Or: File → Open Folder
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>VS Code works best when you open a <strong>folder</strong>, not individual files.</p><ul><li>Press <code>Command + O</code> or click File → Open Folder</li>
+<li>Navigate to your <code>projects</code> folder (from Project Setup guide)</li>
+<li>Select <code>my-first-project</code> (or any folder)</li>
+<li>Click "Open"</li>
+</ul>
+The folder appears in the Explorer sidebar.</p>
+        <h2>Why this matters</h2>
+        <p>Opening a folder gives VS Code context. It enables features like search, Git, and file navigation.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I opened a folder (not just a file)</label>
+<label class="checkbox-item"><input type="checkbox"> I see folder contents in the Explorer sidebar</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Empty sidebar: Make sure you opened a folder, not a file</li>
+<li>Wrong folder: File → Open Folder and try again</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-11">Page 11 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-11">
+      <div class="page-header">
+        <span class="page-number">Page 11 of 39</span>
+        <h1 class="page-title">Creating a New File</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a new file inside your project.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Folder is open. Now create a file.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Press: Command + N (new file)
+Then: Command + S (save)
+Name it: hello.py
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <ul><li>Press <code>Command + N</code> to create a new untitled file</li>
+<li>Type some code: <code>print("Hello, VS Code!")</code></li>
+<li>Press <code>Command + S</code> to save</li>
+<li>Name it <code>hello.py</code> and save in your project folder</li>
+</ul>
+The file appears in the Explorer sidebar.</p>
+        <h2>Why this matters</h2>
+        <p>Creating files is fundamental. The <code>.py</code> extension tells VS Code it's Python.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created a new file with <code>Command + N</code></label>
+<label class="checkbox-item"><input type="checkbox"> I saved it as <code>hello.py</code> with <code>Command + S</code></label>
+<label class="checkbox-item"><input type="checkbox"> The file appears in the sidebar</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Can't save: Make sure you have write permission to the folder</li>
+<li>Wrong location: Check the save dialog shows your project folder</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-12">Page 12 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-12">
+      <div class="page-header">
+        <span class="page-number">Page 12 of 39</span>
+        <h1 class="page-title">Saving Files</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains save options and indicators.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You created a file. Understand saving.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Save: Command + S
+Save All: Command + Option + S
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p><strong>Unsaved indicator:</strong> A white dot appears on the tab when a file has unsaved changes.</p><p>Save options:
+<ul><li><code>Command + S</code> — Save current file</li>
+<li><code>Command + Option + S</code> — Save all open files</li>
+</ul>
+<strong>Auto Save:</strong> VS Code can save automatically (covered in Settings later).</p>
+        <h2>Why this matters</h2>
+        <p>Losing work is frustrating. Know how to save and recognize unsaved files.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I see the white dot on tabs with unsaved changes</label>
+<label class="checkbox-item"><input type="checkbox"> I can save with <code>Command + S</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Dot doesn't appear: Make a change to the file, then check the tab</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-13">Page 13 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-13">
+      <div class="page-header">
+        <span class="page-number">Page 13 of 39</span>
+        <h1 class="page-title">File Explorer Navigation</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to navigate files in the Explorer.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Files created. Navigate between them efficiently.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Open Explorer: Command + Shift + E
+Open file: Click it, or press Enter when selected
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>In the Explorer sidebar:</p><ul><li><strong>Single-click</strong> — Preview file (italicized tab, replaced by next preview)</li>
+<li><strong>Double-click</strong> — Open file permanently (normal tab)</li>
+<li><strong>Arrow keys</strong> — Navigate up/down through files</li>
+<li><strong>Enter</strong> — Open selected file</li>
+</ul>
+Right-click a file for options: Rename, Delete, Copy Path, etc.</p>
+        <h2>Why this matters</h2>
+        <p>Fast navigation between files keeps you in flow.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can single-click to preview</label>
+<label class="checkbox-item"><input type="checkbox"> I can double-click to open permanently</label>
+<label class="checkbox-item"><input type="checkbox"> I pressed <code>Command + Shift + E</code> to focus Explorer</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Explorer not visible: Click the top icon in the Activity Bar (or <code>Command + Shift + E</code>)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-14">Page 14 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-14">
+      <div class="page-header">
+        <span class="page-number">Page 14 of 39</span>
+        <h1 class="page-title">Navigation Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you can navigate VS Code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have learned the interface basics.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Task</td><td>Method</td></tr>
+<tr><td>Toggle Sidebar</td><td><code>Command + B</code></td></tr>
+<tr><td>Open folder</td><td><code>Command + O</code></td></tr>
+<tr><td>New file</td><td><code>Command + N</code></td></tr>
+<tr><td>Save file</td><td><code>Command + S</code></td></tr>
+<tr><td>Open Explorer</td><td><code>Command + Shift + E</code></td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>Navigation is the foundation. These shortcuts become muscle memory.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can toggle the Sidebar</label>
+<label class="checkbox-item"><input type="checkbox"> I can create and save files</label>
+<label class="checkbox-item"><input type="checkbox"> I can navigate with the Explorer</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 7-13 for any action you're unsure about.</p>
+        </div>
+        <div class="next-page"><a href="#page-15">Page 15 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-15">
+      <div class="page-header">
+        <span class="page-number">Page 15 of 39</span>
+        <h1 class="page-title">The Command Palette</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Introduces the most powerful feature in VS Code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know basic navigation. Now discover the Command Palette.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Open Command Palette: Command + Shift + P
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Press <code>Command + Shift + P</code> to open the Command Palette.</p><p>This is a search box for <strong>every VS Code command</strong>:
+<ul><li>Type to search</li>
+<li>Use arrow keys to select</li>
+<li>Press Enter to run</li>
+</ul>
+Try it: Type "toggle sidebar" and press Enter.</p><p>The Command Palette replaces memorizing dozens of menus.</p>
+        <h2>Why this matters</h2>
+        <p>If you forget a shortcut, the Command Palette finds it. It's your universal search.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I opened the Command Palette with <code>Command + Shift + P</code></label>
+<label class="checkbox-item"><input type="checkbox"> I typed "toggle sidebar" and ran the command</label>
+<label class="checkbox-item"><input type="checkbox"> The sidebar toggled</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Nothing happens: Make sure you press Command + Shift + P (not just Command + P)</li>
+<li>Command not found: Check spelling</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-16">Page 16 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-16">
+      <div class="page-header">
+        <span class="page-number">Page 16 of 39</span>
+        <h1 class="page-title">Opening the Terminal</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Opens the built-in Terminal in VS Code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know the Command Palette. Now access the Terminal.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Open Terminal: Control + Backtick (the key below Escape)
+Or: View → Terminal
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Press Control + Backtick to toggle the Terminal panel.</p><p>The Terminal opens at the bottom. It's the same as Mac Terminal but inside VS Code.</p><p>Your current directory is automatically set to your open folder.</p>
+        <h2>Why this matters</h2>
+        <p>Running Python without leaving VS Code keeps you focused.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I pressed Control + Backtick to open Terminal</label>
+<label class="checkbox-item"><input type="checkbox"> Terminal panel appeared at the bottom</label>
+<label class="checkbox-item"><input type="checkbox"> The path shows my project folder</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Wrong key: The backtick is below Escape, left of the 1 key</li>
+<li>Terminal in wrong folder: Close and reopen VS Code with your folder</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-17">Page 17 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-17">
+      <div class="page-header">
+        <span class="page-number">Page 17 of 39</span>
+        <h1 class="page-title">Running Python in VS Code Terminal</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Runs your Python file from the integrated Terminal.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Terminal is open. Now run Python.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>python3 hello.py
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Make sure you have <code>hello.py</code> open with:</p><pre><code>print(&quot;Hello, VS Code!&quot;)
+</code></pre><p>In the Terminal, type:</p><pre><code>python3 hello.py
+</code></pre><p>Press Enter. You should see:</p><pre><code>Hello, VS Code!
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>This is the core workflow: write code in the Editor, run it in the Terminal.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I typed <code>python3 hello.py</code> in the Terminal</label>
+<label class="checkbox-item"><input type="checkbox"> I saw "Hello, VS Code!" printed</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>No such file</code>: Make sure you're in the folder containing hello.py</li>
+<li><code>command not found</code>: Python not installed, complete Project Setup guide</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-18">Page 18 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-18">
+      <div class="page-header">
+        <span class="page-number">Page 18 of 39</span>
+        <h1 class="page-title">Installing Extensions</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to install VS Code extensions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Basic VS Code works. Now enhance it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Open Extensions: Command + Shift + X
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Extensions add features to VS Code.</p><ul><li>Press <code>Command + Shift + X</code> to open Extensions view</li>
+<li>The sidebar shows search box and installed extensions</li>
+<li>Search for extensions by name</li>
+<li>Click "Install" to add them</li>
+</ul>
+Extensions are free and managed by the community and Microsoft.</p>
+        <h2>Why this matters</h2>
+        <p>Extensions transform VS Code from a text editor into a full development environment.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I pressed <code>Command + Shift + X</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see the Extensions sidebar with a search box</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Extensions not loading: Check internet connection</li>
+<li>Sidebar not changing: Click the Extensions icon (4 squares) in Activity Bar</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-19">Page 19 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-19">
+      <div class="page-header">
+        <span class="page-number">Page 19 of 39</span>
+        <h1 class="page-title">Install Python Extension</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Installs the essential Python extension.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can install extensions. Now install the most important one.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>1. Open Extensions (Command + Shift + X)
+<ul><li>Search: Python</li>
+<li>Find &quot;Python&quot; by Microsoft</li>
+<li>Click Install</li>
+</ul></code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>The Python extension by Microsoft adds:</p><ul><li>Syntax highlighting for <code>.py</code> files</li>
+<li>IntelliSense (autocomplete)</li>
+<li>Linting (error detection)</li>
+<li>Debugging support</li>
+<li>Jupyter notebook support</li>
+</ul>
+Look for the extension with "Microsoft" as the publisher and millions of downloads.</p>
+        <h2>Why this matters</h2>
+        <p>Without this extension, VS Code doesn't understand Python. With it, VS Code becomes a Python IDE.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I searched for "Python"</label>
+<label class="checkbox-item"><input type="checkbox"> I installed the one by Microsoft</label>
+<label class="checkbox-item"><input type="checkbox"> The Install button changed to a gear icon</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Multiple results: Choose the one by "Microsoft" with the most downloads</li>
+<li>Install fails: Check internet connection, try again</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-20">Page 20 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-20">
+      <div class="page-header">
+        <span class="page-number">Page 20 of 39</span>
+        <h1 class="page-title">Extension Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you understand extensions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You installed the Python extension.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Task</td><td>Method</td></tr>
+<tr><td>Open Extensions</td><td><code>Command + Shift + X</code></td></tr>
+<tr><td>Search extensions</td><td>Type in search box</td></tr>
+<tr><td>Install</td><td>Click Install button</td></tr>
+<tr><td>Manage</td><td>Click gear icon on installed extensions</td></tr>
+</table><p><strong>Recommended extensions for Python:</strong>
+<ul><li>Python (Microsoft) ✅ Installed</li>
+<li>Pylance (Microsoft) — Enhanced IntelliSense</li>
+<li>Python Debugger (Microsoft) — Debugging</li>
+</ul>
+The Python extension often installs Pylance automatically.</p>
+        <h2>Why this matters</h2>
+        <p>Extensions make VS Code powerful. Start with essentials, add more as needed.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> Python extension is installed</label>
+<label class="checkbox-item"><input type="checkbox"> I can open the Extensions view</label>
+<label class="checkbox-item"><input type="checkbox"> I understand how to search and install</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 18-19 if extensions aren't working.</p>
+        </div>
+        <div class="next-page"><a href="#page-21">Page 21 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-21">
+      <div class="page-header">
+        <span class="page-number">Page 21 of 39</span>
+        <h1 class="page-title">Syntax Highlighting</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how VS Code colors your code for readability.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Python extension installed. Now see it in action.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>Open <code>hello.py</code> or create a new Python file with:</p><pre><code>def greet(name):
+    message = f&quot;Hello, {name}!&quot;
+    print(message)</p><p>greet(&quot;World&quot;)
+</code></pre><p>Notice the colors:
+<ul><li><strong>Purple/Blue</strong> — Keywords (<code>def</code>, <code>print</code>)</li>
+<li><strong>Yellow</strong> — Function names</li>
+<li><strong>Green</strong> — Strings</li>
+<li><strong>White</strong> — Variables</li>
+</ul>
+Colors vary by theme but always distinguish code elements.</p>
+        <h2>Why this matters</h2>
+        <p>Syntax highlighting makes code readable. Errors become obvious when colors are wrong.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I see different colors for different code elements</label>
+<label class="checkbox-item"><input type="checkbox"> Keywords, strings, and functions have distinct colors</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No colors: Make sure file is saved as <code>.py</code> (check Status Bar shows "Python")</li>
+<li>Wrong colors: The Python extension may still be loading, wait a moment</li></ul>
+        </div>
         <div class="next-page"><a href="#page-22">Page 22 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-22">
+      <div class="page-header">
+        <span class="page-number">Page 22 of 39</span>
+        <h1 class="page-title">IntelliSense: Autocomplete</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Demonstrates VS Code's intelligent code completion.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Syntax highlighting works. Now experience autocomplete.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import os
+os.
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>import os</code> and press Enter.
+Then type <code>os.</code> (with the dot).</p><p>A popup appears showing all available methods:
+<ul><li><code>os.path</code></li>
+<li><code>os.getcwd</code></li>
+<li><code>os.listdir</code></li>
+<li>...and more</li>
+</ul>
+Use arrow keys to browse, Enter to select, Escape to dismiss.</p><p>Start typing to filter: <code>os.getc</code> shows only methods starting with "getc".</p>
+        <h2>Why this matters</h2>
+        <p>IntelliSense saves typing and prevents typos. You don't need to memorize every method.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I typed <code>os.</code> and saw the autocomplete popup</label>
+<label class="checkbox-item"><input type="checkbox"> I can navigate with arrow keys</label>
+<label class="checkbox-item"><input type="checkbox"> I selected an option with Enter</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No popup: Press <code>Control + Space</code> to manually trigger</li>
+<li>Limited options: Python extension may still be indexing, wait a moment</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-23">Page 23 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-23">
+      <div class="page-header">
+        <span class="page-number">Page 23 of 39</span>
+        <h1 class="page-title">Error Squiggles</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how VS Code highlights errors in your code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Autocomplete works. Now see error detection.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pritn(&quot;Hello&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>pritn("Hello")</code> (intentional typo).</p><p>A red squiggly line appears under <code>pritn</code>. This indicates an error.</p><p>Hover your mouse over the squiggle to see the error message:
+<ul><li>"Undefined name 'pritn'"</li>
+</ul>
+Fix it to <code>print</code> and the squiggle disappears.</p><p>Yellow squiggles indicate warnings (not errors, but worth checking).</p>
+        <h2>Why this matters</h2>
+        <p>Catching errors while typing saves debugging time later.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I typed <code>pritn</code> and saw a red squiggle</label>
+<label class="checkbox-item"><input type="checkbox"> I hovered and saw the error message</label>
+<label class="checkbox-item"><input type="checkbox"> Fixing to <code>print</code> removed the squiggle</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No squiggles: The linter may be disabled. Install Pylance extension.</li>
+<li>Takes time: Error checking runs after a short delay</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-24">Page 24 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-24">
+      <div class="page-header">
+        <span class="page-number">Page 24 of 39</span>
+        <h1 class="page-title">Selecting a Python Interpreter</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to choose which Python VS Code uses.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Error detection works. Now configure the Python version.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Command + Shift + P
+Type: Python: Select Interpreter
+Press Enter
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>VS Code needs to know which Python to use.</p><ul><li>Open Command Palette (<code>Command + Shift + P</code>)</li>
+<li>Type "Python: Select Interpreter"</li>
+<li>Press Enter</li>
+<li>Choose from the list:</li>
+</ul>   - Global Python (<code>/opt/homebrew/bin/python3</code>)
+   - Virtual environment (<code>./venv/bin/python</code>)</p><p>If you're in a project with a venv, select the venv Python.</p><p>The selected interpreter shows in the Status Bar.</p>
+        <h2>Why this matters</h2>
+        <p>Selecting the right interpreter ensures VS Code uses the correct Python and packages.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I opened Python: Select Interpreter</label>
+<label class="checkbox-item"><input type="checkbox"> I see a list of Python installations</label>
+<label class="checkbox-item"><input type="checkbox"> I selected one (preferably a venv if available)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No interpreters listed: Python not installed, complete Project Setup guide</li>
+<li>venv not listed: Make sure the venv exists in your open folder</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-25">Page 25 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-25">
+      <div class="page-header">
+        <span class="page-number">Page 25 of 39</span>
+        <h1 class="page-title">Running Python Files</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows multiple ways to run Python files.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Interpreter selected. Now run code.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Method 1: Terminal
+python3 filename.py</p><p>Method 2: Right-click
+Right-click in editor → Run Python File in Terminal</p><p>Method 3: Play button
+Click ▶ in top-right corner
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Three ways to run:</p><ul><li><strong>Terminal</strong> — Type <code>python3 filename.py</code> (you know this)</li>
+<li><strong>Right-click</strong> — Right-click in the editor, select "Run Python File in Terminal"</li>
+<li><strong>Play button</strong> — Click the ▶ triangle in the top-right of the editor</li>
+</ul>
+All three open the Terminal and run your file.</p>
+        <h2>Why this matters</h2>
+        <p>Multiple options let you choose what's fastest for your workflow.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran a Python file using the Terminal</label>
+<label class="checkbox-item"><input type="checkbox"> I ran it using right-click menu</label>
+<label class="checkbox-item"><input type="checkbox"> I ran it using the Play button</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No Play button: Python extension not installed or file isn't <code>.py</code></li>
+<li>Wrong Python: Check the interpreter (Page 24)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-26">Page 26 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-26">
+      <div class="page-header">
+        <span class="page-number">Page 26 of 39</span>
+        <h1 class="page-title">The Run Button</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains the Run button in detail.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know it exists. Now understand its options.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>The Run button (▶) in the top-right has a dropdown arrow.</p><p>Click the arrow to see options:
+<ul><li><strong>Run Python File</strong> — Runs the entire file</li>
+<li><strong>Run Python File in Dedicated Terminal</strong> — New terminal for this file</li>
+<li><strong>Debug Python File</strong> — Run with debugger attached</li>
+</ul>
+For now, use "Run Python File" for quick execution.</p>
+        <h2>Why this matters</h2>
+        <p>Different run modes serve different purposes. Know what's available.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I found the Run button dropdown</label>
+<label class="checkbox-item"><input type="checkbox"> I see the different run options</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No dropdown: Click the small arrow next to the play button, not the button itself</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-27">Page 27 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-27">
+      <div class="page-header">
+        <span class="page-number">Page 27 of 39</span>
+        <h1 class="page-title">Python Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you can write and run Python in VS Code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the Python features section.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Task</td><td>Method</td></tr>
+<tr><td>See syntax colors</td><td>Automatic for .py files</td></tr>
+<tr><td>Get autocomplete</td><td>Type and see suggestions, or <code>Control + Space</code></td></tr>
+<tr><td>See errors</td><td>Red squiggles appear automatically</td></tr>
+<tr><td>Select interpreter</td><td>Command Palette → Python: Select Interpreter</td></tr>
+<tr><td>Run Python</td><td>Terminal, right-click, or Play button</td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>These features make VS Code a complete Python development environment.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> Syntax highlighting works</label>
+<label class="checkbox-item"><input type="checkbox"> Autocomplete works</label>
+<label class="checkbox-item"><input type="checkbox"> Error detection works</label>
+<label class="checkbox-item"><input type="checkbox"> I can run Python files</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 21-26. Most issues are solved by ensuring the Python extension is installed.</p>
+        </div>
+        <div class="next-page"><a href="#page-28">Page 28 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-28">
+      <div class="page-header">
+        <span class="page-number">Page 28 of 39</span>
+        <h1 class="page-title">Multiple Tabs</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to work with multiple files.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can run Python. Now manage multiple files.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>New tab: Command + N
+Switch tabs: Command + Option + Left/Right
+Close tab: Command + W
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Open multiple files — each gets a tab.</p><p>Navigation:
+<ul><li>Click tabs to switch</li>
+<li><code>Command + Option + Left/Right</code> to move between tabs</li>
+<li><code>Command + W</code> to close current tab</li>
+<li><code>Command + Shift + T</code> to reopen last closed tab</li>
+</ul>
+Tabs can be dragged to reorder.</p>
+        <h2>Why this matters</h2>
+        <p>Real projects have many files. Efficient tab management keeps you productive.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I have multiple tabs open</label>
+<label class="checkbox-item"><input type="checkbox"> I can switch with <code>Command + Option + Left/Right</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can close with <code>Command + W</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Only one tab: Open more files from Explorer (double-click)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-29">Page 29 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-29">
+      <div class="page-header">
+        <span class="page-number">Page 29 of 39</span>
+        <h1 class="page-title">Split Editor</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to view multiple files side by side.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have multiple tabs. Now view them simultaneously.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Split right: Command + Backslash
+Or: Drag a tab to the side of the editor
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>To split the editor:</p><ul><li>Open two files in tabs</li>
+<li>Press Command + Backslash to split right</li>
+<li>Or drag a tab to the right edge until you see a highlight</li>
+<li>Drop to create a split view</li>
+</ul>
+Now you can see two files at once. Great for:
+<ul><li>Comparing files</li>
+<li>Referencing one file while editing another</li>
+<li>Viewing code and output</li></ul>
+        <h2>Why this matters</h2>
+        <p>Side-by-side editing is essential for real development work.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I split the editor with Command + Backslash</label>
+<label class="checkbox-item"><input type="checkbox"> I can see two files side by side</label>
+<label class="checkbox-item"><input type="checkbox"> I can click in either pane to edit</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Split doesn't work: Make sure you have at least one file open</li>
+<li>To unsplit: Close files in one pane or drag tabs back together</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-30">Page 30 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-30">
+      <div class="page-header">
+        <span class="page-number">Page 30 of 39</span>
+        <h1 class="page-title">Keyboard Shortcuts: Save</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Reinforces the most important shortcut.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Beginning the shortcuts section.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Save: Command + S
+Save All: Command + Option + S
+Save As: Command + Shift + S
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>You already know <code>Command + S</code>. Use it constantly.</p><p>Additional save commands:
+<ul><li><code>Command + Option + S</code> — Save all open files at once</li>
+<li><code>Command + Shift + S</code> — Save current file with a new name/location</li>
+</ul>
+<strong>Pro tip:</strong> Save after every meaningful change. It becomes automatic.</p>
+        <h2>Why this matters</h2>
+        <p>Saving frequently prevents lost work. Make it a reflex.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I use <code>Command + S</code> regularly</label>
+<label class="checkbox-item"><input type="checkbox"> I know <code>Command + Option + S</code> saves all files</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. Practice these shortcuts.</p>
+        </div>
+        <div class="next-page"><a href="#page-31">Page 31 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-31">
+      <div class="page-header">
+        <span class="page-number">Page 31 of 39</span>
+        <h1 class="page-title">Keyboard Shortcuts: Find</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches find and replace shortcuts.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can save. Now learn to find.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Find in file: Command + F
+Find and replace: Command + Option + F
+Find in all files: Command + Shift + F
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p><strong>Find in current file:</strong> <code>Command + F</code>
+<ul><li>Type search term</li>
+<li>Enter to find next</li>
+<li>Shift + Enter to find previous</li>
+<li>Escape to close</li>
+</ul>
+<strong>Find and replace:</strong> <code>Command + Option + F</code>
+<ul><li>Adds a "Replace" field</li>
+<li>Replace one or replace all</li>
+</ul>
+<strong>Find in all files:</strong> <code>Command + Shift + F</code>
+<ul><li>Searches entire project</li>
+<li>Results show in sidebar</li></ul>
+        <h2>Why this matters</h2>
+        <p>Finding code quickly is essential as projects grow.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can find in file with <code>Command + F</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can find across files with <code>Command + Shift + F</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Search not working: Make sure the search box is focused (cursor blinking)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-32">Page 32 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-32">
+      <div class="page-header">
+        <span class="page-number">Page 32 of 39</span>
+        <h1 class="page-title">Keyboard Shortcuts: Comment</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to quickly comment/uncomment code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can find code. Now comment it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Toggle comment: Command + /
+Block comment: Command + Option + /
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Place your cursor on a line and press <code>Command + /</code>.</p><p>The line becomes a comment:</p><pre><code># print(&quot;Hello&quot;)
+</code></pre><p>Press again to uncomment.</p><p><strong>Multiple lines:</strong> Select several lines, then <code>Command + /</code> to comment all.</p><p><strong>Block comment:</strong> <code>Command + Option + /</code> creates multi-line comment syntax (if language supports it).</p>
+        <h2>Why this matters</h2>
+        <p>Quickly commenting code is essential for testing and debugging.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I commented a line with <code>Command + /</code></label>
+<label class="checkbox-item"><input type="checkbox"> I uncommented it with the same shortcut</label>
+<label class="checkbox-item"><input type="checkbox"> I commented multiple lines at once</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Wrong comment style: VS Code uses the correct style for each language</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-33">Page 33 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-33">
+      <div class="page-header">
+        <span class="page-number">Page 33 of 39</span>
+        <h1 class="page-title">Keyboard Shortcuts: Duplicate Line</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to duplicate lines instantly.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can comment. Now duplicate.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Duplicate line: Command + Shift + D
+Move line up: Option + Up
+Move line down: Option + Down
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Place cursor on any line:</p><ul><li><code>Command + Shift + D</code> — Copies the line below itself</li>
+<li><code>Option + Up</code> — Moves the entire line up</li>
+<li><code>Option + Down</code> — Moves the entire line down</li>
+</ul>
+Works with multiple selected lines too.</p>
+        <h2>Why this matters</h2>
+        <p>These shortcuts are faster than copy/paste for quick edits.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I duplicated a line with <code>Command + Shift + D</code></label>
+<label class="checkbox-item"><input type="checkbox"> I moved a line with <code>Option + Up/Down</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Nothing happens: Make sure cursor is on a line (not in a selection)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-34">Page 34 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-34">
+      <div class="page-header">
+        <span class="page-number">Page 34 of 39</span>
+        <h1 class="page-title">Settings Overview</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Introduces VS Code settings.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know shortcuts. Now customize VS Code.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Open Settings: Command + ,
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Press <code>Command + ,</code> to open Settings.</p><p>Two views:
+<ul><li><strong>UI</strong> — Searchable graphical interface (default)</li>
+<li><strong>JSON</strong> — Raw configuration file (click <code>{}</code> icon)</li>
+</ul>
+Search for any setting by name. Changes save automatically.</p><p>Settings have two scopes:
+<ul><li><strong>User</strong> — Apply to all projects</li>
+<li><strong>Workspace</strong> — Apply to current project only</li></ul>
+        <h2>Why this matters</h2>
+        <p>Settings let you customize VS Code to your preferences.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I opened Settings with <code>Command + ,</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see the search box at the top</label>
+<label class="checkbox-item"><input type="checkbox"> I can find settings by typing</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Settings not opening: Try Code → Settings → Settings from menu bar</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-35">Page 35 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-35">
+      <div class="page-header">
+        <span class="page-number">Page 35 of 39</span>
+        <h1 class="page-title">Changing Theme</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to change the color theme.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can access Settings. Now change appearance.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Command + K, then Command + T
+Or: Settings → search &quot;theme&quot;
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Press <code>Command + K</code>, release, then press <code>Command + T</code>.</p><p>A list of themes appears:
+<ul><li>Use arrow keys to preview</li>
+<li>Enter to select</li>
+</ul>
+Popular themes:
+<ul><li><strong>Dark+ (default dark)</strong> — VS Code default</li>
+<li><strong>Light+ (default light)</strong> — Light version</li>
+<li><strong>One Dark Pro</strong> — Popular community theme</li>
+<li><strong>Dracula</strong> — Another popular dark theme</li>
+</ul>
+Install more themes from Extensions.</p>
+        <h2>Why this matters</h2>
+        <p>A comfortable theme reduces eye strain during long coding sessions.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I opened the theme selector</label>
+<label class="checkbox-item"><input type="checkbox"> I previewed different themes</label>
+<label class="checkbox-item"><input type="checkbox"> I selected one I like</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Keyboard shortcut not working: Use Command Palette → "Preferences: Color Theme"</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-36">Page 36 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-36">
+      <div class="page-header">
+        <span class="page-number">Page 36 of 39</span>
+        <h1 class="page-title">Changing Font Size</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to adjust editor font size.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Theme selected. Now adjust readability.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Zoom in: Command + =
+Zoom out: Command + -
+Reset zoom: Command + 0</p><p>Or: Settings → search &quot;font size&quot;
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Quick zoom:
+<ul><li><code>Command + =</code> makes everything larger</li>
+<li><code>Command + -</code> makes everything smaller</li>
+<li><code>Command + 0</code> resets to default</li>
+</ul>
+For permanent change:
+<ul><li>Open Settings (<code>Command + ,</code>)</li>
+<li>Search "font size"</li>
+<li>Change "Editor: Font Size" (default is 12)</li>
+</ul>
+14-16 is comfortable for most people.</p>
+        <h2>Why this matters</h2>
+        <p>Readable code reduces mistakes and eye strain.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I zoomed in and out</label>
+<label class="checkbox-item"><input type="checkbox"> I know how to change font size in Settings</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Zoom affects everything: That's expected, it's a global zoom</li>
+<li>Font size setting: Only affects the editor, not the whole interface</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-37">Page 37 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-37">
+      <div class="page-header">
+        <span class="page-number">Page 37 of 39</span>
+        <h1 class="page-title">Auto Save</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Enables automatic file saving.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Font configured. Now automate saving.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Settings → search &quot;auto save&quot;
+Change: Files: Auto Save
+Options: off, afterDelay, onFocusChange, onWindowChange
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <ul><li>Open Settings (<code>Command + ,</code>)</li>
+<li>Search "auto save"</li>
+<li>Find "Files: Auto Save"</li>
+<li>Choose an option:</li>
+</ul>   - <strong>off</strong> — Manual save only (default)
+   - <strong>afterDelay</strong> — Saves after you stop typing (1 second default)
+   - <strong>onFocusChange</strong> — Saves when you click away from the file
+   - <strong>onWindowChange</strong> — Saves when you switch applications</p><p>Recommended: <code>afterDelay</code> or <code>onFocusChange</code></p>
+        <h2>Why this matters</h2>
+        <p>Auto save eliminates "forgot to save" errors.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I found the Auto Save setting</label>
+<label class="checkbox-item"><input type="checkbox"> I changed it to afterDelay or onFocusChange</label>
+<label class="checkbox-item"><input type="checkbox"> Files now save automatically</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Can't find setting: Search exactly "files auto save"</li>
+<li>Not saving: Check the delay time in "Files: Auto Save Delay"</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-38">Page 38 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-38">
+      <div class="page-header">
+        <span class="page-number">Page 38 of 39</span>
+        <h1 class="page-title">Settings Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you can customize VS Code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the settings section.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Task</td><td>Method</td></tr>
+<tr><td>Open Settings</td><td><code>Command + ,</code></td></tr>
+<tr><td>Change theme</td><td><code>Command + K, Command + T</code></td></tr>
+<tr><td>Zoom</td><td><code>Command + =/-/0</code></td></tr>
+<tr><td>Change font size</td><td>Settings → "font size"</td></tr>
+<tr><td>Enable auto save</td><td>Settings → "auto save"</td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>A customized editor is more comfortable and productive.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can access and search Settings</label>
+<label class="checkbox-item"><input type="checkbox"> I have chosen a comfortable theme</label>
+<label class="checkbox-item"><input type="checkbox"> Font size is readable</label>
+<label class="checkbox-item"><input type="checkbox"> Auto save is configured</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 34-37 for any setting you couldn't find.</p>
+        </div>
+        <div class="next-page"><a href="#page-39">Page 39 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-39">
+      <div class="page-header">
+        <span class="page-number">Page 39 of 39</span>
+        <h1 class="page-title">Final Verification</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms you have mastered VS Code basics.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the end. Verify everything works.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>Complete this checklist:</p><p><strong>Setup</strong>
+<label class="checkbox-item"><input type="checkbox"> VS Code is installed in Applications</label>
+<label class="checkbox-item"><input type="checkbox"> Python extension is installed</label>
+<label class="checkbox-item"><input type="checkbox"> A Python interpreter is selected</label></p><p><strong>Navigation</strong>
+<label class="checkbox-item"><input type="checkbox"> I can open folders and files</label>
+<label class="checkbox-item"><input type="checkbox"> I can use the Command Palette</label>
+<label class="checkbox-item"><input type="checkbox"> I can toggle the Sidebar and Terminal</label></p><p><strong>Python</strong>
+<label class="checkbox-item"><input type="checkbox"> Syntax highlighting works</label>
+<label class="checkbox-item"><input type="checkbox"> Autocomplete appears when typing</label>
+<label class="checkbox-item"><input type="checkbox"> Errors show as red squiggles</label>
+<label class="checkbox-item"><input type="checkbox"> I can run Python files</label></p><p><strong>Shortcuts I Know</strong>
+<label class="checkbox-item"><input type="checkbox"> <code>Command + S</code> — Save</label>
+<label class="checkbox-item"><input type="checkbox"> <code>Command + B</code> — Toggle Sidebar</label>
+<label class="checkbox-item"><input type="checkbox"> Control + Backtick — Toggle Terminal</label>
+<label class="checkbox-item"><input type="checkbox"> <code>Command + Shift + P</code> — Command Palette</label>
+<label class="checkbox-item"><input type="checkbox"> <code>Command + /</code> — Comment</label>
+<label class="checkbox-item"><input type="checkbox"> <code>Command + F</code> — Find</label></p><p><strong>Customization</strong>
+<label class="checkbox-item"><input type="checkbox"> Theme is comfortable</label>
+<label class="checkbox-item"><input type="checkbox"> Font size is readable</label>
+<label class="checkbox-item"><input type="checkbox"> Auto save is enabled</label></p>
+        <h2>Why this matters</h2>
+        <p>You now have a professional Python development environment.</p>
+        
+        
+        
       </div>
     </article>
     </main>
@@ -64,7 +1750,45 @@
             <button class="toc-close" onclick="toggleTOC()">×</button>
         </div>
         <ul class="toc-list">
-            <li><a href="#page-21">Page 21: Syntax Highlighting## What this page doesShows how VS Code colors your code for readability.---## Where this fitsPython extension installed. Now see it in action.---## ExplanationOpen `hello.py` or create a new Python file with:```pythondef greet(name):    message = f"Hello, {name}!"    print(message)greet("World")```Notice the colors:- **Purple/Blue** — Keywords (`def`, `print`)- **Yellow** — Function names- **Green** — Strings- **White** — VariablesColors vary by theme but always distinguish code elements.---## Why this mattersSyntax highlighting makes code readable. Errors become obvious when colors are wrong.---## Checkpoint- [ ] I see different colors for different code elements- [ ] Keywords, strings, and functions have distinct colors---## If something breaks here- No colors: Make sure file is saved as `.py` (check Status Bar shows "Python")- Wrong colors: The Python extension may still be loading, wait a moment---# Page 22: IntelliSense: Autocomplete## What this page doesDemonstrates VS Code's intelligent code completion.---## Where this fitsSyntax highlighting works. Now experience autocomplete.---## Code (this page)```pythonimport osos.```---## ExplanationType `import os` and press Enter.Then type `os.` (with the dot).A popup appears showing all available methods:- `os.path`- `os.getcwd`- `os.listdir`- ...and moreUse arrow keys to browse, Enter to select, Escape to dismiss.Start typing to filter: `os.getc` shows only methods starting with "getc".---## Why this mattersIntelliSense saves typing and prevents typos. You don't need to memorize every method.---## Checkpoint- [ ] I typed `os.` and saw the autocomplete popup- [ ] I can navigate with arrow keys- [ ] I selected an option with Enter---## If something breaks here- No popup: Press `Control + Space` to manually trigger- Limited options: Python extension may still be indexing, wait a moment---# Page 23: Error Squiggles## What this page doesShows how VS Code highlights errors in your code.---## Where this fitsAutocomplete works. Now see error detection.---## Code (this page)```pythonpritn("Hello")```---## ExplanationType `pritn("Hello")` (intentional typo).A red squiggly line appears under `pritn`. This indicates an error.Hover your mouse over the squiggle to see the error message:- "Undefined name 'pritn'"Fix it to `print` and the squiggle disappears.Yellow squiggles indicate warnings (not errors, but worth checking).---## Why this mattersCatching errors while typing saves debugging time later.---## Checkpoint- [ ] I typed `pritn` and saw a red squiggle- [ ] I hovered and saw the error message- [ ] Fixing to `print` removed the squiggle---## If something breaks here- No squiggles: The linter may be disabled. Install Pylance extension.- Takes time: Error checking runs after a short delay---# Page 24: Selecting a Python Interpreter## What this page doesShows how to choose which Python VS Code uses.---## Where this fitsError detection works. Now configure the Python version.---## Code (this page)```Command + Shift + PType: Python: Select InterpreterPress Enter```---## ExplanationVS Code needs to know which Python to use.1. Open Command Palette (`Command + Shift + P`)2. Type "Python: Select Interpreter"3. Press Enter4. Choose from the list:   - Global Python (`/opt/homebrew/bin/python3`)   - Virtual environment (`./venv/bin/python`)If you're in a project with a venv, select the venv Python.The selected interpreter shows in the Status Bar.---## Why this mattersSelecting the right interpreter ensures VS Code uses the correct Python and packages.---## Checkpoint- [ ] I opened Python: Select Interpreter- [ ] I see a list of Python installations- [ ] I selected one (preferably a venv if available)---## If something breaks here- No interpreters listed: Python not installed, complete Project Setup guide- venv not listed: Make sure the venv exists in your open folder---# Page 25: Running Python Files## What this page doesShows multiple ways to run Python files.---## Where this fitsInterpreter selected. Now run code.---## Code (this page)```Method 1: Terminalpython3 filename.pyMethod 2: Right-clickRight-click in editor → Run Python File in TerminalMethod 3: Play buttonClick ▶ in top-right corner```---## ExplanationThree ways to run:1. **Terminal** — Type `python3 filename.py` (you know this)2. **Right-click** — Right-click in the editor, select "Run Python File in Terminal"3. **Play button** — Click the ▶ triangle in the top-right of the editorAll three open the Terminal and run your file.---## Why this mattersMultiple options let you choose what's fastest for your workflow.---## Checkpoint- [ ] I ran a Python file using the Terminal- [ ] I ran it using right-click menu- [ ] I ran it using the Play button---## If something breaks here- No Play button: Python extension not installed or file isn't `.py`- Wrong Python: Check the interpreter (Page 24)---# Page 26: The Run Button## What this page doesExplains the Run button in detail.---## Where this fitsYou know it exists. Now understand its options.---## ExplanationThe Run button (▶) in the top-right has a dropdown arrow.Click the arrow to see options:- **Run Python File** — Runs the entire file- **Run Python File in Dedicated Terminal** — New terminal for this file- **Debug Python File** — Run with debugger attachedFor now, use "Run Python File" for quick execution.---## Why this mattersDifferent run modes serve different purposes. Know what's available.---## Checkpoint- [ ] I found the Run button dropdown- [ ] I see the different run options---## If something breaks here- No dropdown: Click the small arrow next to the play button, not the button itself---# Page 27: Python Checkpoint## What this page doesVerifies you can write and run Python in VS Code.---## Where this fitsYou have completed the Python features section.---## ExplanationYou should now be able to:| Task | Method ||------|--------|| See syntax colors | Automatic for .py files || Get autocomplete | Type and see suggestions, or `Control + Space` || See errors | Red squiggles appear automatically || Select interpreter | Command Palette → Python: Select Interpreter || Run Python | Terminal, right-click, or Play button |---## Why this mattersThese features make VS Code a complete Python development environment.---## Checkpoint- [ ] Syntax highlighting works- [ ] Autocomplete works- [ ] Error detection works- [ ] I can run Python files---## If something breaks hereReview pages 21-26. Most issues are solved by ensuring the Python extension is installed.---# Page 28: Multiple Tabs## What this page doesShows how to work with multiple files.---## Where this fitsYou can run Python. Now manage multiple files.---## Code (this page)```New tab: Command + NSwitch tabs: Command + Option + Left/RightClose tab: Command + W```---## ExplanationOpen multiple files — each gets a tab.Navigation:- Click tabs to switch- `Command + Option + Left/Right` to move between tabs- `Command + W` to close current tab- `Command + Shift + T` to reopen last closed tabTabs can be dragged to reorder.---## Why this mattersReal projects have many files. Efficient tab management keeps you productive.---## Checkpoint- [ ] I have multiple tabs open- [ ] I can switch with `Command + Option + Left/Right`- [ ] I can close with `Command + W`---## If something breaks here- Only one tab: Open more files from Explorer (double-click)---# Page 29: Split Editor## What this page doesShows how to view multiple files side by side.---## Where this fitsYou have multiple tabs. Now view them simultaneously.---## Code (this page)```Split right: Command + BackslashOr: Drag a tab to the side of the editor```---## ExplanationTo split the editor:1. Open two files in tabs2. Press Command + Backslash to split right3. Or drag a tab to the right edge until you see a highlight4. Drop to create a split viewNow you can see two files at once. Great for:- Comparing files- Referencing one file while editing another- Viewing code and output---## Why this mattersSide-by-side editing is essential for real development work.---## Checkpoint- [ ] I split the editor with Command + Backslash- [ ] I can see two files side by side- [ ] I can click in either pane to edit---## If something breaks here- Split doesn't work: Make sure you have at least one file open- To unsplit: Close files in one pane or drag tabs back together---# Page 30: Keyboard Shortcuts: Save## What this page doesReinforces the most important shortcut.---## Where this fitsBeginning the shortcuts section.---## Code (this page)```Save: Command + SSave All: Command + Option + SSave As: Command + Shift + S```---## ExplanationYou already know `Command + S`. Use it constantly.Additional save commands:- `Command + Option + S` — Save all open files at once- `Command + Shift + S` — Save current file with a new name/location**Pro tip:** Save after every meaningful change. It becomes automatic.---## Why this mattersSaving frequently prevents lost work. Make it a reflex.---## Checkpoint- [ ] I use `Command + S` regularly- [ ] I know `Command + Option + S` saves all files---## If something breaks hereNothing to break. Practice these shortcuts.---# Page 31: Keyboard Shortcuts: Find## What this page doesTeaches find and replace shortcuts.---## Where this fitsYou can save. Now learn to find.---## Code (this page)```Find in file: Command + FFind and replace: Command + Option + FFind in all files: Command + Shift + F```---## Explanation**Find in current file:** `Command + F`- Type search term- Enter to find next- Shift + Enter to find previous- Escape to close**Find and replace:** `Command + Option + F`- Adds a "Replace" field- Replace one or replace all**Find in all files:** `Command + Shift + F`- Searches entire project- Results show in sidebar---## Why this mattersFinding code quickly is essential as projects grow.---## Checkpoint- [ ] I can find in file with `Command + F`- [ ] I can find across files with `Command + Shift + F`---## If something breaks here- Search not working: Make sure the search box is focused (cursor blinking)---# Page 32: Keyboard Shortcuts: Comment## What this page doesShows how to quickly comment/uncomment code.---## Where this fitsYou can find code. Now comment it.---## Code (this page)```Toggle comment: Command + /Block comment: Command + Option + /```---## ExplanationPlace your cursor on a line and press `Command + /`.The line becomes a comment:```python# print("Hello")```Press again to uncomment.**Multiple lines:** Select several lines, then `Command + /` to comment all.**Block comment:** `Command + Option + /` creates multi-line comment syntax (if language supports it).---## Why this mattersQuickly commenting code is essential for testing and debugging.---## Checkpoint- [ ] I commented a line with `Command + /`- [ ] I uncommented it with the same shortcut- [ ] I commented multiple lines at once---## If something breaks here- Wrong comment style: VS Code uses the correct style for each language---# Page 33: Keyboard Shortcuts: Duplicate Line## What this page doesShows how to duplicate lines instantly.---## Where this fitsYou can comment. Now duplicate.---## Code (this page)```Duplicate line: Command + Shift + DMove line up: Option + UpMove line down: Option + Down```---## ExplanationPlace cursor on any line:- `Command + Shift + D` — Copies the line below itself- `Option + Up` — Moves the entire line up- `Option + Down` — Moves the entire line downWorks with multiple selected lines too.---## Why this mattersThese shortcuts are faster than copy/paste for quick edits.---## Checkpoint- [ ] I duplicated a line with `Command + Shift + D`- [ ] I moved a line with `Option + Up/Down`---## If something breaks here- Nothing happens: Make sure cursor is on a line (not in a selection)---# Page 34: Settings Overview## What this page doesIntroduces VS Code settings.---## Where this fitsYou know shortcuts. Now customize VS Code.---## Code (this page)```Open Settings: Command + ,```---## ExplanationPress `Command + ,` to open Settings.Two views:- **UI** — Searchable graphical interface (default)- **JSON** — Raw configuration file (click `{}` icon)Search for any setting by name. Changes save automatically.Settings have two scopes:- **User** — Apply to all projects- **Workspace** — Apply to current project only---## Why this mattersSettings let you customize VS Code to your preferences.---## Checkpoint- [ ] I opened Settings with `Command + ,`- [ ] I see the search box at the top- [ ] I can find settings by typing---## If something breaks here- Settings not opening: Try Code → Settings → Settings from menu bar---# Page 35: Changing Theme## What this page doesShows how to change the color theme.---## Where this fitsYou can access Settings. Now change appearance.---## Code (this page)```Command + K, then Command + TOr: Settings → search "theme"```---## ExplanationPress `Command + K`, release, then press `Command + T`.A list of themes appears:- Use arrow keys to preview- Enter to selectPopular themes:- **Dark+ (default dark)** — VS Code default- **Light+ (default light)** — Light version- **One Dark Pro** — Popular community theme- **Dracula** — Another popular dark themeInstall more themes from Extensions.---## Why this mattersA comfortable theme reduces eye strain during long coding sessions.---## Checkpoint- [ ] I opened the theme selector- [ ] I previewed different themes- [ ] I selected one I like---## If something breaks here- Keyboard shortcut not working: Use Command Palette → "Preferences: Color Theme"---# Page 36: Changing Font Size## What this page doesShows how to adjust editor font size.---## Where this fitsTheme selected. Now adjust readability.---## Code (this page)```Zoom in: Command + =Zoom out: Command + -Reset zoom: Command + 0Or: Settings → search "font size"```---## ExplanationQuick zoom:- `Command + =` makes everything larger- `Command + -` makes everything smaller- `Command + 0` resets to defaultFor permanent change:1. Open Settings (`Command + ,`)2. Search "font size"3. Change "Editor: Font Size" (default is 12)14-16 is comfortable for most people.---## Why this mattersReadable code reduces mistakes and eye strain.---## Checkpoint- [ ] I zoomed in and out- [ ] I know how to change font size in Settings---## If something breaks here- Zoom affects everything: That's expected, it's a global zoom- Font size setting: Only affects the editor, not the whole interface---# Page 37: Auto Save## What this page doesEnables automatic file saving.---## Where this fitsFont configured. Now automate saving.---## Code (this page)```Settings → search "auto save"Change: Files: Auto SaveOptions: off, afterDelay, onFocusChange, onWindowChange```---## Explanation1. Open Settings (`Command + ,`)2. Search "auto save"3. Find "Files: Auto Save"4. Choose an option:   - **off** — Manual save only (default)   - **afterDelay** — Saves after you stop typing (1 second default)   - **onFocusChange** — Saves when you click away from the file   - **onWindowChange** — Saves when you switch applicationsRecommended: `afterDelay` or `onFocusChange`---## Why this mattersAuto save eliminates "forgot to save" errors.---## Checkpoint- [ ] I found the Auto Save setting- [ ] I changed it to afterDelay or onFocusChange- [ ] Files now save automatically---## If something breaks here- Can't find setting: Search exactly "files auto save"- Not saving: Check the delay time in "Files: Auto Save Delay"---# Page 38: Settings Checkpoint## What this page doesVerifies you can customize VS Code.---## Where this fitsYou have completed the settings section.---## ExplanationYou should now be able to:| Task | Method ||------|--------|| Open Settings | `Command + ,` || Change theme | `Command + K, Command + T` || Zoom | `Command + =/-/0` || Change font size | Settings → "font size" || Enable auto save | Settings → "auto save" |---## Why this mattersA customized editor is more comfortable and productive.---## Checkpoint- [ ] I can access and search Settings- [ ] I have chosen a comfortable theme- [ ] Font size is readable- [ ] Auto save is configured---## If something breaks hereReview pages 34-37 for any setting you couldn't find.---# Page 39: Final Verification## What this page doesConfirms you have mastered VS Code basics.---## Where this fitsThis is the end. Verify everything works.---## ExplanationComplete this checklist:**Setup**- [ ] VS Code is installed in Applications- [ ] Python extension is installed- [ ] A Python interpreter is selected**Navigation**- [ ] I can open folders and files- [ ] I can use the Command Palette- [ ] I can toggle the Sidebar and Terminal**Python**- [ ] Syntax highlighting works- [ ] Autocomplete appears when typing- [ ] Errors show as red squiggles- [ ] I can run Python files**Shortcuts I Know**- [ ] `Command + S` — Save- [ ] `Command + B` — Toggle Sidebar- [ ] Control + Backtick — Toggle Terminal- [ ] `Command + Shift + P` — Command Palette- [ ] `Command + /` — Comment- [ ] `Command + F` — Find**Customization**- [ ] Theme is comfortable- [ ] Font size is readable- [ ] Auto save is enabled---## Why this mattersYou now have a professional Python development environment.---## Congratulations!You have completed **VS Code on Mac: Foundation**.Combined with **Project Setup**, you have everything needed to build Python projects.**Your environment:**- Terminal for navigation- Python 3 with pip- Virtual environments for isolation- VS Code for writing codeYou are ready to build.</a></li>
+            <li><a href="#page-1">Page 1: What This Guide Covers</a></li>
+<li><a href="#page-2">Page 2: Download VS Code</a></li>
+<li><a href="#page-3">Page 3: Install VS Code</a></li>
+<li><a href="#page-4">Page 4: Launch VS Code</a></li>
+<li><a href="#page-5">Page 5: The Welcome Screen</a></li>
+<li><a href="#page-6">Page 6: The Interface: Overview</a></li>
+<li><a href="#page-7">Page 7: The Sidebar</a></li>
+<li><a href="#page-8">Page 8: The Editor Area</a></li>
+<li><a href="#page-9">Page 9: The Status Bar</a></li>
+<li><a href="#page-10">Page 10: Opening a Folder</a></li>
+<li><a href="#page-11">Page 11: Creating a New File</a></li>
+<li><a href="#page-12">Page 12: Saving Files</a></li>
+<li><a href="#page-13">Page 13: File Explorer Navigation</a></li>
+<li><a href="#page-14">Page 14: Navigation Checkpoint</a></li>
+<li><a href="#page-15">Page 15: The Command Palette</a></li>
+<li><a href="#page-16">Page 16: Opening the Terminal</a></li>
+<li><a href="#page-17">Page 17: Running Python in VS Code Terminal</a></li>
+<li><a href="#page-18">Page 18: Installing Extensions</a></li>
+<li><a href="#page-19">Page 19: Install Python Extension</a></li>
+<li><a href="#page-20">Page 20: Extension Checkpoint</a></li>
+<li><a href="#page-21">Page 21: Syntax Highlighting</a></li>
+<li><a href="#page-22">Page 22: IntelliSense: Autocomplete</a></li>
+<li><a href="#page-23">Page 23: Error Squiggles</a></li>
+<li><a href="#page-24">Page 24: Selecting a Python Interpreter</a></li>
+<li><a href="#page-25">Page 25: Running Python Files</a></li>
+<li><a href="#page-26">Page 26: The Run Button</a></li>
+<li><a href="#page-27">Page 27: Python Checkpoint</a></li>
+<li><a href="#page-28">Page 28: Multiple Tabs</a></li>
+<li><a href="#page-29">Page 29: Split Editor</a></li>
+<li><a href="#page-30">Page 30: Keyboard Shortcuts: Save</a></li>
+<li><a href="#page-31">Page 31: Keyboard Shortcuts: Find</a></li>
+<li><a href="#page-32">Page 32: Keyboard Shortcuts: Comment</a></li>
+<li><a href="#page-33">Page 33: Keyboard Shortcuts: Duplicate Line</a></li>
+<li><a href="#page-34">Page 34: Settings Overview</a></li>
+<li><a href="#page-35">Page 35: Changing Theme</a></li>
+<li><a href="#page-36">Page 36: Changing Font Size</a></li>
+<li><a href="#page-37">Page 37: Auto Save</a></li>
+<li><a href="#page-38">Page 38: Settings Checkpoint</a></li>
+<li><a href="#page-39">Page 39: Final Verification</a></li>
         </ul>
     </div>
 
