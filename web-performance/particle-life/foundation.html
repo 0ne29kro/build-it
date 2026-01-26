@@ -1,0 +1,3866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Guide — Particle Life | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / 
+                <a href="/build-it/web-performance/">web-performance</a> / 
+                <a href="/build-it/web-performance/particle-life/">Particle Life</a> / 
+                Foundation
+            </nav>
+        </div>
+    </header>
+
+    <div class="guide-header">
+        <h1>Foundation Guide</h1>
+        <p class="subtitle">Particle Life</p>
+        <div class="guide-meta">
+            <span>📄 80 Pages</span>
+            <span>🎯 Stage: See It Work</span>
+            <span>📦 Output: ParticleLifeFoundation.jsx</span>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="guide-content">
+        
+    <article class="page-section" id="page-1">
+      <div class="page-header">
+        <span class="page-number">Page 1 of 80</span>
+        <h1 class="page-title">Import React</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Imports the core React library that provides component architecture and rendering capabilities.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Module Imports  
+<strong>Depends on:</strong> None  </p><p>This step is part of the larger process of establishing which tools the application is allowed to use.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>import React from 'react';</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>React</code> is the core library for building user interfaces</li>
+<li>Required for JSX syntax transformation</li>
+<li>Provides the component model we'll use throughout</li>
+<li>No application logic runs yet—this only makes React available</li></ul>
+        <h2>Why this matters</h2>
+        <p>Without this import, the browser cannot interpret JSX syntax or create React components. This single line unlocks the entire React ecosystem for our simulation.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> File exists without import errors</label></p>
+<label class="checkbox-item"><input type="checkbox"> React is available in scope</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li><code>Module not found: 'react'</code> — React not installed in project</li>
+<li>Using <code>require()</code> instead of <code>import</code> (use ES modules)</li></p><p><strong>How to recover:</strong></p><p><li>Run <code>npm install react</code> if not installed</li>
+<li>Ensure file has <code>.jsx</code> extension</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-2">Page 2 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 80</span>
+        <h1 class="page-title">Import useRef Hook</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Imports the useRef hook for creating mutable references that persist across renders.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Module Imports  
+<strong>Depends on:</strong> Page 1  </p><p>This step is part of the larger process of importing React hooks for state management.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>import React, { useRef } from 'react';</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>useRef</code> creates a mutable object that persists between renders</li>
+<li>The <code>.current</code> property can hold any value</li>
+<li>Changes to refs don't trigger re-renders</li>
+<li>Essential for animation data that updates every frame</li></ul>
+        <h2>Why this matters</h2>
+        <p>Particle positions change 60 times per second. Using `useState` would cause 60 re-renders per second, killing performance. `useRef` lets us update data without re-rendering.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>useRef</code> is available for use</label></p>
+<label class="checkbox-item"><input type="checkbox"> Import statement has no errors</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting curly braces: <code>{ useRef }</code></li>
+<li>Misspelling as <code>useref</code> (case-sensitive)</li></p><p><strong>How to recover:</strong></p><p><li>Named imports require curly braces</li>
+<li>Use exact capitalization: <code>useRef</code></li></ul>
+    </div>
+        <div class="next-page"><a href="#page-3">Page 3 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 80</span>
+        <h1 class="page-title">Import useEffect Hook</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Imports the useEffect hook for running side effects after render.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Module Imports  
+<strong>Depends on:</strong> Page 2  </p><p>This step is part of the larger process of importing React hooks for lifecycle management.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>import React, { useRef, useEffect } from 'react';</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>useEffect</code> runs code after the component renders</li>
+<li>Used to start animation loops, set up event listeners</li>
+<li>The return function handles cleanup (stopping animations)</li>
+<li>Dependency array controls when effect re-runs</li></ul>
+        <h2>Why this matters</h2>
+        <p>Our animation loop needs to start after the canvas exists in the DOM. `useEffect` guarantees the canvas is ready before we try to draw to it.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>useEffect</code> is available for use</label></p>
+<label class="checkbox-item"><input type="checkbox"> Import statement includes both <code>useRef</code> and <code>useEffect</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing comma between imports</li>
+<li>Duplicate import statements</li></p><p><strong>How to recover:</strong></p><p><li>Use single import with comma-separated hooks</li>
+<li>Format: <code>{ useRef, useEffect }</code></li></ul>
+    </div>
+        <div class="next-page"><a href="#page-4">Page 4 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 80</span>
+        <h1 class="page-title">Import useCallback Hook</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Imports the useCallback hook for memoizing function references.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Module Imports  
+<strong>Depends on:</strong> Page 3  </p><p>This step is part of the larger process of importing React hooks for performance optimization.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>import React, { useRef, useEffect, useCallback } from 'react';</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>useCallback</code> returns a memoized version of a callback function</li>
+<li>The function reference stays stable between renders</li>
+<li>Prevents unnecessary re-creation of functions</li>
+<li>Critical for animation loops that reference each other</li></ul>
+        <h2>Why this matters</h2>
+        <p>Our `gameLoop`, `updatePhysics`, and `render` functions call each other. Without stable references, React would create new function instances every render, breaking the animation cycle.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>useCallback</code> is available for use</label></p>
+<label class="checkbox-item"><input type="checkbox"> All three hooks imported on one line</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li><code>useCallback is not defined</code> — missing from import</li>
+<li>Too many separate import statements</li></p><p><strong>How to recover:</strong></p><p><li>Add <code>useCallback</code> to the destructured import</li>
+<li>Combine all hooks in one import statement</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-5">Page 5 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 80</span>
+        <h1 class="page-title">Define Canvas Width Constant</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the fixed width of the simulation canvas in pixels.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 4  </p><p>This step is part of the larger process of defining hardcoded simulation parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const WIDTH = 700;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>WIDTH</code> sets the horizontal dimension of our simulation space</li>
+<li>700 pixels provides good visibility without being too large</li>
+<li>Used for canvas size, particle boundaries, and spatial grid</li>
+<li>Constant defined at module level for easy access</li></ul>
+        <h2>Why this matters</h2>
+        <p>Every part of the simulation needs to know the boundaries. Defining once and reusing prevents inconsistencies between rendering and physics calculations.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>WIDTH</code> equals <code>700</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Constant is defined at module level (outside any function)</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Placing inside component function (wrong scope)</li>
+<li>Using <code>let</code> instead of <code>const</code></li></p><p><strong>How to recover:</strong></p><p><li>Define constants before the component function</li>
+<li>Use <code>const</code> for values that never change</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-6">Page 6 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 80</span>
+        <h1 class="page-title">Define Canvas Height Constant</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the fixed height of the simulation canvas in pixels.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 5  </p><p>This step is part of the larger process of defining hardcoded simulation parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const HEIGHT = 700;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>HEIGHT</code> sets the vertical dimension of our simulation space</li>
+<li>Square canvas (700×700) provides uniform behavior in all directions</li>
+<li>Particles wrap or bounce at this boundary</li>
+<li>Matches width for symmetrical simulation</li></ul>
+        <h2>Why this matters</h2>
+        <p>A square simulation space ensures particles behave the same horizontally and vertically. This simplifies physics calculations and creates more natural-looking patterns.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>HEIGHT</code> equals <code>700</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Both <code>WIDTH</code> and <code>HEIGHT</code> are defined</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Typo in constant name</li>
+<li>Different value than WIDTH (unintentional)</li></p><p><strong>How to recover:</strong></p><p><li>Use exact name: <code>HEIGHT</code></li>
+<li>Verify both dimensions match for square canvas</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-7">Page 7 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 80</span>
+        <h1 class="page-title">Define Particle Count Constant</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the total number of particles in the simulation.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 6  </p><p>This step is part of the larger process of defining hardcoded simulation parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const PARTICLE_COUNT = 1500;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>PARTICLE_COUNT</code> determines how many particles exist in the simulation</li>
+<li>1500 provides rich emergent behavior without performance issues</li>
+<li>Particles are distributed evenly across species</li>
+<li>More particles = more complex patterns, but slower performance</li></ul>
+        <h2>Why this matters</h2>
+        <p>The particle count directly affects both visual complexity and computational cost. 1500 is the sweet spot for interesting behavior at 60fps on most devices.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>PARTICLE_COUNT</code> equals <code>1500</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Constant is accessible throughout the module</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Value too high (performance issues)</li>
+<li>Using string instead of number</li></p><p><strong>How to recover:</strong></p><p><li>Start with 1500, adjust based on device performance</li>
+<li>Use numeric literal without quotes</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-8">Page 8 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 80</span>
+        <h1 class="page-title">Define Number of Species Constant</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares how many distinct particle types (colors) exist in the simulation.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 7  </p><p>This step is part of the larger process of defining hardcoded simulation parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const NUM_SPECIES = 6;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>NUM_SPECIES</code> defines how many different particle types exist</li>
+<li>Each species has unique attraction/repulsion relationships</li>
+<li>6 species creates 36 possible interaction pairs (6×6 matrix)</li>
+<li>More species = more complex rules, more varied behavior</li></ul>
+        <h2>Why this matters</h2>
+        <p>The number of species determines the complexity of the rules matrix. Six species provides enough variety for interesting emergent patterns without overwhelming complexity.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>NUM_SPECIES</code> equals <code>6</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand this creates a 6×6 interaction matrix</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Value exceeds COLORS array length (later)</li>
+<li>Zero or negative value</li></p><p><strong>How to recover:</strong></p><p><li>Keep between 2 and 8 for best results</li>
+<li>Must be positive integer</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-9">Page 9 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-9">
+      <div class="page-header">
+        <span class="page-number">Page 9 of 80</span>
+        <h1 class="page-title">Define Friction Constant</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the velocity damping factor applied each frame.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 8  </p><p>This step is part of the larger process of defining physics parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const FRICTION = 0.5;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>FRICTION</code> multiplies velocity each frame (0.5 = 50% retained)</li>
+<li>Lower values = more damping, particles slow quickly</li>
+<li>Higher values = less damping, particles maintain momentum</li>
+<li>Value between 0 and 1 (exclusive)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Without friction, particles would accelerate infinitely. The friction value controls how "loose" or "tight" the simulation feels. 0.5 provides responsive but controlled movement.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>FRICTION</code> equals <code>0.5</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand this is a multiplier (not a subtraction)</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Value >= 1 (particles accelerate forever)</li>
+<li>Value <= 0 (particles stop instantly)</li></p><p><strong>How to recover:</strong></p><p><li>Keep between 0.1 and 0.99</li>
+<li>0.5 is a safe default</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-10">Page 10 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-10">
+      <div class="page-header">
+        <span class="page-number">Page 10 of 80</span>
+        <h1 class="page-title">Define Maximum Interaction Distance</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the maximum distance at which particles can affect each other.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 9  </p><p>This step is part of the larger process of defining physics parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const MAX_DISTANCE = 100;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>MAX_DISTANCE</code> sets the range of particle interactions (in pixels)</li>
+<li>Particles beyond this distance don't affect each other</li>
+<li>Also used as the cell size for spatial hashing</li>
+<li>Larger values = longer-range forces, more computation</li></ul>
+        <h2>Why this matters</h2>
+        <p>This value directly impacts both behavior and performance. The spatial hash grid uses this as cell size, so it determines how many neighbors each particle checks.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>MAX_DISTANCE</code> equals <code>100</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand this defines interaction range</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Value too small (no interactions)</li>
+<li>Value too large (poor performance)</li></p><p><strong>How to recover:</strong></p><p><li>Keep between 50 and 200 for good results</li>
+<li>Must be less than canvas dimensions</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-11">Page 11 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-11">
+      <div class="page-header">
+        <span class="page-number">Page 11 of 80</span>
+        <h1 class="page-title">Define Force Multiplier Constant</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the strength multiplier for all particle interactions.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 10  </p><p>This step is part of the larger process of defining physics parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const FORCE_FACTOR = 1;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>FORCE_FACTOR</code> scales all attraction and repulsion forces</li>
+<li>Higher values = stronger forces, faster movement</li>
+<li>Lower values = weaker forces, gentler movement</li>
+<li>Applied to both attraction and repulsion equally</li></ul>
+        <h2>Why this matters</h2>
+        <p>This single multiplier lets us tune the overall "intensity" of the simulation without changing individual rules. Foundation uses 1 (neutral); Configuration will make this adjustable.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>FORCE_FACTOR</code> equals <code>1</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand this multiplies all forces</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Value of 0 (no movement)</li>
+<li>Negative value (inverts all forces)</li></p><p><strong>How to recover:</strong></p><p><li>Use positive values only</li>
+<li>1 is the neutral default</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-12">Page 12 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-12">
+      <div class="page-header">
+        <span class="page-number">Page 12 of 80</span>
+        <h1 class="page-title">Define Minimum Distance Constant</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the distance below which particles always repel (prevents overlap).</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 11  </p><p>This step is part of the larger process of defining physics parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const MIN_DISTANCE = 20;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>MIN_DISTANCE</code> defines the "personal space" of particles</li>
+<li>Particles closer than this always repel, regardless of rules</li>
+<li>Prevents particles from overlapping or clumping into singularities</li>
+<li>Creates a soft collision boundary</li></ul>
+        <h2>Why this matters</h2>
+        <p>Without minimum distance repulsion, attractive particles would collapse into a single point. This creates natural spacing and prevents the simulation from degenerating.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>MIN_DISTANCE</code> equals <code>20</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand this prevents particle overlap</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Value of 0 (particles can overlap completely)</li>
+<li>Value >= MAX_DISTANCE (no attraction possible)</li></p><p><strong>How to recover:</strong></p><p><li>Keep much smaller than MAX_DISTANCE</li>
+<li>20 works well with MAX_DISTANCE of 100</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-13">Page 13 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-13">
+      <div class="page-header">
+        <span class="page-number">Page 13 of 80</span>
+        <h1 class="page-title">Define Species Colors Array</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the color palette used to render different particle species.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Constants  
+<strong>Depends on:</strong> Page 12  </p><p>This step is part of the larger process of defining visual parameters.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const COLORS = [
+  '#ff6b6b',
+  '#4ecdc4',
+  '#ffe66d',
+  '#95e1d3',
+  '#f38181',
+  '#aa96da',
+  '#fcbad3',
+  '#a8d8ea',
+];</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>COLORS</code> array provides visually distinct colors for each species</li>
+<li>8 colors available (more than NUM_SPECIES for flexibility)</li>
+<li>Hex color codes for canvas rendering</li>
+<li>Species index maps to array index: <code>COLORS[species]</code></li></ul>
+        <h2>Why this matters</h2>
+        <p>Distinct colors let users visually track how different species interact. The palette is chosen for good contrast and visibility on dark backgrounds.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>COLORS</code> array has 8 elements</label></p>
+<label class="checkbox-item"><input type="checkbox"> Each color is a valid hex string starting with <code>#</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing <code>#</code> prefix on colors</li>
+<li>Fewer colors than NUM_SPECIES</li></p><p><strong>How to recover:</strong></p><p><li>All hex colors need <code>#</code> prefix</li>
+<li>Array length must be >= NUM_SPECIES</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-14">Page 14 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-14">
+      <div class="page-header">
+        <span class="page-number">Page 14 of 80</span>
+        <h1 class="page-title">Create Particle Factory Function Signature</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Defines the function that creates individual particle objects.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Particle System  
+<strong>Depends on:</strong> Page 13  </p><p>This step is part of the larger process of building the particle data structure.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>function createParticle(species) {</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>createParticle</code> is a factory function that produces particle objects</li>
+<li>Takes <code>species</code> parameter (integer 0 to NUM_SPECIES-1)</li>
+<li>Returns a complete particle object with position and velocity</li>
+<li>Called once per particle during initialization</li></ul>
+        <h2>Why this matters</h2>
+        <p>Factory functions centralize object creation logic. If we need to change the particle structure, we only modify this one function.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Function declaration exists with <code>species</code> parameter</label></p>
+<label class="checkbox-item"><input type="checkbox"> Opening brace is present (body added next)</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing parameter name</li>
+<li>Using arrow function inconsistently</li></p><p><strong>How to recover:</strong></p><p><li>Include <code>species</code> parameter</li>
+<li>Either style works; be consistent</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-15">Page 15 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-15">
+      <div class="page-header">
+        <span class="page-number">Page 15 of 80</span>
+        <h1 class="page-title">Return Particle Object Structure</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Returns the complete particle object with all required properties.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Particle System  
+<strong>Depends on:</strong> Page 14  </p><p>This step is part of the larger process of building the particle data structure.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>return {
+    x: Math.random() * WIDTH,
+    y: Math.random() * HEIGHT,
+    vx: 0,
+    vy: 0,
+    species: species,
+  };
+}</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>x</code>, <code>y</code>: Random position within canvas bounds</li>
+<li><code>vx</code>, <code>vy</code>: Initial velocity (zero — particles start stationary)</li>
+<li><code>species</code>: The species index passed to the factory</li>
+<li><code>Math.random() * WIDTH</code> produces value from 0 to WIDTH</li></ul>
+        <h2>Why this matters</h2>
+        <p>Each particle needs position, velocity, and species to participate in the simulation. Starting with zero velocity lets the rules dictate initial movement.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Call <code>createParticle(0)</code> and get an object with x, y, vx, vy, species</label></p>
+<label class="checkbox-item"><input type="checkbox"> Verify x is between 0 and WIDTH</label>
+<label class="checkbox-item"><input type="checkbox"> Verify y is between 0 and HEIGHT</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing comma after properties</li>
+<li>Using <code>width</code> instead of <code>WIDTH</code></li></p><p><strong>How to recover:</strong></p><p><li>Each property needs trailing comma (except last)</li>
+<li>Use the constant names exactly</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-16">Page 16 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-16">
+      <div class="page-header">
+        <span class="page-number">Page 16 of 80</span>
+        <h1 class="page-title">Define Rules Generation Function Signature</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Defines the function that creates the attraction/repulsion rules matrix.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rules System  
+<strong>Depends on:</strong> Page 15  </p><p>This step is part of the larger process of building the rules matrix.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>function generateRandomRules(numSpecies) {</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>generateRandomRules</code> creates the interaction matrix</li>
+<li>Takes <code>numSpecies</code> to determine matrix dimensions</li>
+<li>Returns an object where <code>rules[i][j]</code> is how species <code>i</code> reacts to species <code>j</code></li>
+<li>Called once at initialization and on reset</li></ul>
+        <h2>Why this matters</h2>
+        <p>The rules matrix is the heart of particle life. This function generates random rules that create emergent behavior.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Function declaration exists with <code>numSpecies</code> parameter</label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand this creates the rules matrix</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Hardcoding species count instead of parameter</li>
+<li>Missing function keyword</li></p><p><strong>How to recover:</strong></p><p><li>Accept <code>numSpecies</code> as parameter for flexibility</li>
+<li>Use <code>function</code> keyword for declaration</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-17">Page 17 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-17">
+      <div class="page-header">
+        <span class="page-number">Page 17 of 80</span>
+        <h1 class="page-title">Initialize Empty Rules Object</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the empty container object that will hold all species rules.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rules System  
+<strong>Depends on:</strong> Page 16  </p><p>This step is part of the larger process of building the rules matrix.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const rules = {};</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>rules</code> is an object that will hold nested objects</li>
+<li>Structure: <code>rules[speciesA][speciesB] = attractionValue</code></li>
+<li>Using object instead of 2D array for cleaner access syntax</li>
+<li>Will be populated by nested loops</li></ul>
+        <h2>Why this matters</h2>
+        <p>The rules object is the data structure that stores all 36 interaction values (for 6 species). Object syntax makes lookups readable: `rules[0][1]`.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>rules</code> variable exists as empty object</label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand it will hold nested objects</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using array <code>[]</code> instead of object <code>{}</code></li>
+<li>Defining outside the function</li></p><p><strong>How to recover:</strong></p><p><li>Use <code>{}</code> for object initialization</li>
+<li>Keep inside the function body</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-18">Page 18 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-18">
+      <div class="page-header">
+        <span class="page-number">Page 18 of 80</span>
+        <h1 class="page-title">Create Outer Loop for Source Species</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Iterates over each species as the "source" of the interaction.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rules System  
+<strong>Depends on:</strong> Page 17  </p><p>This step is part of the larger process of building the rules matrix.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (let i = 0; i &lt; numSpecies; i++) {
+    rules[i] = {};</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Outer loop iterates <code>i</code> from 0 to numSpecies-1</li>
+<li><code>i</code> represents the species that is *reacting* to others</li>
+<li><code>rules[i] = {}</code> creates a nested object for this species</li>
+<li>Each species gets its own set of reactions</li></ul>
+        <h2>Why this matters</h2>
+        <p>The rules matrix has two dimensions: who is reacting (i) and who they're reacting to (j). The outer loop handles the first dimension.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Loop iterates from 0 to numSpecies-1</label></p>
+<label class="checkbox-item"><input type="checkbox"> Each iteration creates <code>rules[i]</code> as empty object</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code><=</code> instead of <code><</code> (off-by-one)</li>
+<li>Forgetting to initialize <code>rules[i]</code></li></p><p><strong>How to recover:</strong></p><p><li>Use <code>< numSpecies</code> not <code><= numSpecies</code></li>
+<li>Must create nested object before assigning to it</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-19">Page 19 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-19">
+      <div class="page-header">
+        <span class="page-number">Page 19 of 80</span>
+        <h1 class="page-title">Create Inner Loop for Target Species</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Iterates over each species as the "target" and assigns random attraction values.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rules System  
+<strong>Depends on:</strong> Page 18  </p><p>This step is part of the larger process of building the rules matrix.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (let j = 0; j &lt; numSpecies; j++) {
+      rules[i][j] = Math.random() * 2 - 1;
+    }
+  }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Inner loop iterates <code>j</code> from 0 to numSpecies-1</li>
+<li><code>j</code> represents the species being *reacted to*</li>
+<li><code>Math.random() * 2 - 1</code> produces value from -1 to +1</li>
+<li>Negative = repulsion, Positive = attraction</li></ul>
+        <h2>Why this matters</h2>
+        <p>This creates all 36 interaction rules (6×6). Each value is random, so every simulation produces unique emergent behavior.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>rules[0][0]</code> through <code>rules[5][5]</code> all have values</label></p>
+<label class="checkbox-item"><input type="checkbox"> All values are between -1 and +1</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code>Math.random()</code> alone (only 0 to 1)</li>
+<li>Wrong formula for range</li></p><p><strong>How to recover:</strong></p><p><li>Formula <code>Math.random() * 2 - 1</code> gives -1 to +1</li>
+<li>Verify with console.log if needed</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-20">Page 20 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-20">
+      <div class="page-header">
+        <span class="page-number">Page 20 of 80</span>
+        <h1 class="page-title">Return Completed Rules Object</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Returns the fully populated rules matrix from the function.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rules System  
+<strong>Depends on:</strong> Page 19  </p><p>This step is part of the larger process of building the rules matrix.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>return rules;
+}</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Returns the complete rules object</li>
+<li>Contains all species-to-species interaction values</li>
+<li>Caller stores this for use in physics calculations</li>
+<li>Can be regenerated anytime for new random rules</li></ul>
+        <h2>Why this matters</h2>
+        <p>Returning the rules object makes it available to the simulation. The Reset button will call this function again to generate fresh random rules.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Call <code>generateRandomRules(6)</code> and get a complete rules object</label></p>
+<label class="checkbox-item"><input type="checkbox"> Access any value like <code>rules[2][4]</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Returning before loops complete</li>
+<li>Returning wrong variable</li></p><p><strong>How to recover:</strong></p><p><li><code>return rules</code> must be after both loops close</li>
+<li>Verify both closing braces are before return</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-21">Page 21 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-21">
+      <div class="page-header">
+        <span class="page-number">Page 21 of 80</span>
+        <h1 class="page-title">Define SpatialHashGrid Class</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the class that optimizes neighbor lookups using spatial partitioning.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 20  </p><p>This step is part of the larger process of building the performance optimization system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>class SpatialHashGrid {</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>SpatialHashGrid</code> divides space into cells for fast neighbor queries</li>
+<li>Without it, checking every particle against every other is O(n²)</li>
+<li>With it, we only check particles in nearby cells: O(n)</li>
+<li>Critical for performance with 1500+ particles</li></ul>
+        <h2>Why this matters</h2>
+        <p>At 1500 particles, O(n²) means 2.25 million distance checks per frame. The spatial hash reduces this to roughly 15,000 checks—a 150x improvement.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Class declaration exists</label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand why spatial hashing is needed</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing <code>class</code> keyword</li>
+<li>Lowercase class name (convention is PascalCase)</li></p><p><strong>How to recover:</strong></p><p><li>Use <code>class SpatialHashGrid</code></li>
+<li>Class names should be PascalCase</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-22">Page 22 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-22">
+      <div class="page-header">
+        <span class="page-number">Page 22 of 80</span>
+        <h1 class="page-title">Define SpatialHashGrid Constructor</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the constructor that initializes the grid with dimensions.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 21  </p><p>This step is part of the larger process of building the spatial hash grid.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>constructor(cellSize, width, height) {
+    this.cellSize = cellSize;
+    this.width = width;
+    this.height = height;
+    this.cells = new Map();
+  }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>cellSize</code>: Size of each grid cell (typically MAX_DISTANCE)</li>
+<li><code>width</code>, <code>height</code>: Canvas dimensions for bounds checking</li>
+<li><code>this.cells</code>: Map storing arrays of particles by cell key</li>
+<li>Map provides fast key-based lookup</li></ul>
+        <h2>Why this matters</h2>
+        <p>The cell size should match MAX_DISTANCE so each cell contains all particles that could possibly interact with each other.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Construct <code>new SpatialHashGrid(100, 700, 700)</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Access <code>grid.cellSize</code>, <code>grid.width</code>, <code>grid.height</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting <code>this.</code> prefix</li>
+<li>Using object <code>{}</code> instead of <code>Map()</code></li></p><p><strong>How to recover:</strong></p><p><li>All instance properties need <code>this.</code></li>
+<li>Map provides better performance for frequent clear/set operations</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-23">Page 23 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-23">
+      <div class="page-header">
+        <span class="page-number">Page 23 of 80</span>
+        <h1 class="page-title">Define Grid Clear Method</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the method that empties all cells for the next frame.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 22  </p><p>This step is part of the larger process of building the spatial hash grid.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>clear() {
+    this.cells.clear();
+  }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>clear()</code> empties the Map of all cell data</li>
+<li>Called at the start of each physics update</li>
+<li>Particles are re-inserted with current positions</li>
+<li>Map's native <code>clear()</code> is very fast</li></ul>
+        <h2>Why this matters</h2>
+        <p>Particles move every frame, so their cell assignments change. Clearing and rebuilding is faster than tracking individual movements.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Call <code>grid.clear()</code> without errors</label></p>
+<label class="checkbox-item"><input type="checkbox"> Verify <code>grid.cells.size</code> equals 0 after clear</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Calling <code>this.cells = new Map()</code> instead (slower)</li>
+<li>Missing parentheses on <code>clear()</code></li></p><p><strong>How to recover:</strong></p><p><li>Use <code>.clear()</code> method, not reassignment</li>
+<li>Method calls need parentheses</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-24">Page 24 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-24">
+      <div class="page-header">
+        <span class="page-number">Page 24 of 80</span>
+        <h1 class="page-title">Define Grid Key Generation Method</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the method that converts coordinates to a cell key string.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 23  </p><p>This step is part of the larger process of building the spatial hash grid.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>getKey(x, y) {
+    const col = Math.floor(x / this.cellSize);
+    const row = Math.floor(y / this.cellSize);
+    return `${col},${row}`;
+  }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Converts x,y position to grid cell coordinates</li>
+<li><code>Math.floor</code> ensures consistent cell assignment</li>
+<li>Returns string key like "3,5" for cell at column 3, row 5</li>
+<li>String keys work with JavaScript Map</li></ul>
+        <h2>Why this matters</h2>
+        <p>The key uniquely identifies each cell. Particles with the same key are in the same cell and may interact with each other.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Call <code>grid.getKey(150, 250)</code> and get "1,2" (with cellSize 100)</label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand the cell coordinate calculation</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code>round</code> instead of <code>floor</code></li>
+<li>Missing template literal backticks</li></p><p><strong>How to recover:</strong></p><p><li><code>Math.floor</code> ensures particles on cell boundary go to lower cell</li>
+<li>Use backticks for template strings: `<code> </code>${col},${row}<code> </code>`</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-25">Page 25 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-25">
+      <div class="page-header">
+        <span class="page-number">Page 25 of 80</span>
+        <h1 class="page-title">Define Grid Insert Method</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the method that adds a particle to its corresponding cell.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 24  </p><p>This step is part of the larger process of building the spatial hash grid.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>insert(particle) {
+    const key = this.getKey(particle.x, particle.y);
+    if (!this.cells.has(key)) {
+      this.cells.set(key, []);
+    }
+    this.cells.get(key).push(particle);
+  }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Gets the cell key from particle position</li>
+<li>Creates empty array if cell doesn't exist yet</li>
+<li>Pushes particle into the cell's array</li>
+<li>Multiple particles can share the same cell</li></ul>
+        <h2>Why this matters</h2>
+        <p>Inserting all particles into the grid enables fast neighbor lookups. Only particles in nearby cells need to be checked for interactions.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Insert a particle and verify it's in the correct cell</label></p>
+<label class="checkbox-item"><input type="checkbox"> Insert multiple particles into same cell</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting to create array for new cell</li>
+<li>Using <code>cells[key]</code> instead of <code>cells.get(key)</code></li></p><p><strong>How to recover:</strong></p><p><li>Check <code>has()</code> before first insert to cell</li>
+<li>Map uses <code>.get()</code> and <code>.set()</code>, not bracket notation</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-26">Page 26 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-26">
+      <div class="page-header">
+        <span class="page-number">Page 26 of 80</span>
+        <h1 class="page-title">Define Grid Neighbor Query Method Signature</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Begins the method that retrieves all particles in neighboring cells.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 25  </p><p>This step is part of the larger process of building the spatial hash grid.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>getNearby(x, y) {
+    const nearby = [];
+    const col = Math.floor(x / this.cellSize);
+    const row = Math.floor(y / this.cellSize);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>getNearby</code> finds all particles that might interact with position (x,y)</li>
+<li>Creates empty array to collect results</li>
+<li>Calculates the cell coordinates of the query position</li>
+<li>Will check 3×3 grid of cells around this position</li></ul>
+        <h2>Why this matters</h2>
+        <p>This is the key optimization. Instead of checking all 1500 particles, we only check the ~50-100 particles in nearby cells.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Method signature exists</label></p>
+<label class="checkbox-item"><input type="checkbox"> Local variables <code>nearby</code>, <code>col</code>, <code>row</code> are initialized</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing return statement (added later)</li>
+<li>Duplicate variable names from other methods</li></p><p><strong>How to recover:</strong></p><p><li>Each method has its own scope</li>
+<li>Return will be added after the loops</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-27">Page 27 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-27">
+      <div class="page-header">
+        <span class="page-number">Page 27 of 80</span>
+        <h1 class="page-title">Create Neighbor Cell Iteration Loops</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Iterates over the 3×3 grid of cells surrounding the query position.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 26  </p><p>This step is part of the larger process of building the spatial hash grid.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (let dx = -1; dx &lt;= 1; dx++) {
+      for (let dy = -1; dy &lt;= 1; dy++) {
+        const key = `${col + dx},${row + dy}`;
+        const cell = this.cells.get(key);
+        if (cell) {
+          nearby.push(...cell);
+        }
+      }
+    }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>dx</code> and <code>dy</code> iterate from -1 to +1 (9 combinations)</li>
+<li>Checks the center cell plus all 8 adjacent cells</li>
+<li>Uses spread operator to add all particles from cell to <code>nearby</code></li>
+<li>Skips cells that don't exist (no particles there)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Checking 9 cells ensures we find all particles within MAX_DISTANCE. Particles near cell boundaries could interact with particles in adjacent cells.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Loops check 9 cells total</label></p>
+<label class="checkbox-item"><input type="checkbox"> Particles from all non-empty cells are collected</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code><</code> instead of <code><=</code> (misses cells)</li>
+<li>Forgetting null check on cell</li></p><p><strong>How to recover:</strong></p><p><li>Loop must include -1, 0, and +1 for both dx and dy</li>
+<li><code>if (cell)</code> prevents error on empty cells</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-28">Page 28 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-28">
+      <div class="page-header">
+        <span class="page-number">Page 28 of 80</span>
+        <h1 class="page-title">Return Nearby Particles Array</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Returns the collected array of nearby particles.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Spatial Optimization  
+<strong>Depends on:</strong> Page 27  </p><p>This step is part of the larger process of building the spatial hash grid.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>return nearby;
+  }
+}</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Returns the array containing all particles from 9 neighboring cells</li>
+<li>Caller will iterate through this array for physics calculations</li>
+<li>Closing brace ends the <code>getNearby</code> method</li>
+<li>Final closing brace ends the <code>SpatialHashGrid</code> class</li></ul>
+        <h2>Why this matters</h2>
+        <p>This completes the spatial hash grid. We now have all the tools needed for O(n) neighbor queries instead of O(n²) brute force.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Create a grid, insert particles, query neighbors</label></p>
+<label class="checkbox-item"><input type="checkbox"> Verify query returns only particles from nearby cells</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing closing braces</li>
+<li>Returning before loops complete</li></p><p><strong>How to recover:</strong></p><p><li>Count braces: method needs one, class needs one</li>
+<li>Return must be after both loops</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-29">Page 29 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-29">
+      <div class="page-header">
+        <span class="page-number">Page 29 of 80</span>
+        <h1 class="page-title">Define Main Component Function</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Declares the main React component that contains the entire simulation.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Application Shell  
+<strong>Depends on:</strong> Page 28  </p><p>This step is part of the larger process of building the React component structure.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>export default function ParticleLifeFoundation() {</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>export default</code> makes this the main export of the module</li>
+<li>Function component (not class) for hook compatibility</li>
+<li>Name indicates this is the Foundation stage version</li>
+<li>All simulation logic will live inside this function</li></ul>
+        <h2>Why this matters</h2>
+        <p>This is the entry point for the entire simulation. React will render this component, which creates the canvas and runs the animation.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Component function is declared</label></p>
+<label class="checkbox-item"><input type="checkbox"> <code>export default</code> is present</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting <code>export default</code></li>
+<li>Using arrow function (works, but less conventional)</li></p><p><strong>How to recover:</strong></p><p><li>Include <code>export default</code> for module import</li>
+<li>Function declaration is clearer for main components</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-30">Page 30 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-30">
+      <div class="page-header">
+        <span class="page-number">Page 30 of 80</span>
+        <h1 class="page-title">Create Canvas Reference</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a ref to hold the canvas DOM element.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Application Shell  
+<strong>Depends on:</strong> Page 29  </p><p>This step is part of the larger process of setting up refs for animation data.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const canvasRef = useRef(null);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>canvasRef</code> will point to the canvas DOM element</li>
+<li>Initial value is <code>null</code> (element doesn't exist yet)</li>
+<li>After render, <code>canvasRef.current</code> is the actual canvas</li>
+<li>Needed to get the 2D rendering context</li></ul>
+        <h2>Why this matters</h2>
+        <p>To draw on the canvas, we need access to its 2D context. The ref provides direct DOM access without querySelector.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>canvasRef</code> is created with <code>useRef</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Initial value is <code>null</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Calling outside component function</li>
+<li>Missing <code>null</code> initial value</li></p><p><strong>How to recover:</strong></p><p><li>Hooks must be called inside component</li>
+<li><code>useRef(null)</code> is the standard pattern for DOM refs</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-31">Page 31 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-31">
+      <div class="page-header">
+        <span class="page-number">Page 31 of 80</span>
+        <h1 class="page-title">Create Particles Reference</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a ref to hold the array of all particle objects.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Application Shell  
+<strong>Depends on:</strong> Page 30  </p><p>This step is part of the larger process of setting up refs for animation data.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const particlesRef = useRef([]);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>particlesRef.current</code> will hold all 1500 particle objects</li>
+<li>Initial value is empty array (populated during init)</li>
+<li>Using ref instead of state prevents re-renders on position changes</li>
+<li>Particles are modified directly without triggering React updates</li></ul>
+        <h2>Why this matters</h2>
+        <p>State updates trigger re-renders. With 60 FPS animation updating 1500 particles, refs prevent thousands of unnecessary re-renders per second.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>particlesRef</code> is created with <code>useRef</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Initial value is empty array <code>[]</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code>useState</code> instead (performance issue)</li>
+<li>Initializing with <code>null</code> instead of <code>[]</code></li></p><p><strong>How to recover:</strong></p><p><li>Always use <code>useRef</code> for high-frequency updates</li>
+<li>Empty array is safer than null for iteration</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-32">Page 32 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-32">
+      <div class="page-header">
+        <span class="page-number">Page 32 of 80</span>
+        <h1 class="page-title">Create Rules Reference</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a ref to hold the rules matrix object.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Application Shell  
+<strong>Depends on:</strong> Page 31  </p><p>This step is part of the larger process of setting up refs for animation data.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const rulesRef = useRef({});</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>rulesRef.current</code> will hold the attraction/repulsion rules</li>
+<li>Initial value is empty object (populated during init)</li>
+<li>Rules change on reset, but not during animation</li>
+<li>Ref access is faster than state lookup</li></ul>
+        <h2>Why this matters</h2>
+        <p>The rules matrix is accessed thousands of times per frame during physics calculations. Ref access has minimal overhead compared to state.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>rulesRef</code> is created with <code>useRef</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Initial value is empty object <code>{}</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using wrong initial value type</li>
+<li>Creating inside a loop or conditional</li></p><p><strong>How to recover:</strong></p><p><li>Initial value should be <code>{}</code> for object</li>
+<li>All hooks must be at top level of component</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-33">Page 33 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-33">
+      <div class="page-header">
+        <span class="page-number">Page 33 of 80</span>
+        <h1 class="page-title">Create Spatial Grid Reference</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a ref to hold the spatial hash grid instance.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Application Shell  
+<strong>Depends on:</strong> Page 32  </p><p>This step is part of the larger process of setting up refs for animation data.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const gridRef = useRef(null);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>gridRef.current</code> will hold the SpatialHashGrid instance</li>
+<li>Initial value is <code>null</code> (created during initialization)</li>
+<li>Grid is rebuilt every frame (clear + insert all)</li>
+<li>Single instance reused throughout simulation lifetime</li></ul>
+        <h2>Why this matters</h2>
+        <p>The spatial grid is cleared and rebuilt 60 times per second. Keeping it in a ref avoids recreating the object constantly.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>gridRef</code> is created with <code>useRef</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Initial value is <code>null</code></label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Creating new grid instance here (too early)</li>
+<li>Using array instead of null</li></p><p><strong>How to recover:</strong></p><p><li>Grid instance created in init function</li>
+<li>Null indicates "not yet initialized"</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-34">Page 34 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-34">
+      <div class="page-header">
+        <span class="page-number">Page 34 of 80</span>
+        <h1 class="page-title">Create Animation Frame Reference</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a ref to hold the animation frame request ID.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Application Shell  
+<strong>Depends on:</strong> Page 33  </p><p>This step is part of the larger process of setting up refs for animation data.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const animationRef = useRef(null);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>animationRef.current</code> stores the ID from <code>requestAnimationFrame</code></li>
+<li>Needed to cancel the animation on cleanup</li>
+<li>Initial value is <code>null</code> (no animation running yet)</li>
+<li>Updated every frame with new ID</li></ul>
+        <h2>Why this matters</h2>
+        <p>When the component unmounts, we must cancel pending animation frames. Without the ID, we couldn't stop the animation loop.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>animationRef</code> is created with <code>useRef</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand it's used for cleanup</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting this ref (memory leak on unmount)</li>
+<li>Using wrong variable name in cleanup</li></p><p><strong>How to recover:</strong></p><p><li>Always store animation IDs for cleanup</li>
+<li>Match variable names exactly in cleanup code</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-35">Page 35 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-35">
+      <div class="page-header">
+        <span class="page-number">Page 35 of 80</span>
+        <h1 class="page-title">Define Initialization Function Signature</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the memoized function that initializes the simulation.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Initialization  
+<strong>Depends on:</strong> Page 34  </p><p>This step is part of the larger process of setting up the simulation.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const initSimulation = useCallback(() =&gt; {</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>initSimulation</code> sets up particles, rules, and grid</li>
+<li>Wrapped in <code>useCallback</code> for stable function reference</li>
+<li>Called on mount and when user clicks Reset</li>
+<li>Empty dependency array means function never changes</li></ul>
+        <h2>Why this matters</h2>
+        <p>useCallback ensures the function identity stays stable. This prevents unnecessary effect re-runs and allows safe use as a dependency.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Function declaration begins with <code>useCallback</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Arrow function syntax is used</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing <code>useCallback</code> wrapper</li>
+<li>Using regular function declaration</li></p><p><strong>How to recover:</strong></p><p><li>Wrap with <code>useCallback(() => { ... }, [])</code></li>
+<li>Callback ensures stable reference</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-36">Page 36 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-36">
+      <div class="page-header">
+        <span class="page-number">Page 36 of 80</span>
+        <h1 class="page-title">Create Particles Array</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Initializes the array that will hold all particles and calculates particles per species.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Initialization  
+<strong>Depends on:</strong> Page 35  </p><p>This step is part of the larger process of creating the particle system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const particles = [];
+    const perSpecies = Math.floor(PARTICLE_COUNT / NUM_SPECIES);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>particles</code> is the local array we'll populate</li>
+<li><code>perSpecies</code> calculates how many particles each species gets</li>
+<li><code>Math.floor</code> ensures integer division (1500 / 6 = 250)</li>
+<li>Total will be 1500 particles evenly distributed</li></ul>
+        <h2>Why this matters</h2>
+        <p>Even distribution ensures each species has equal representation. This creates balanced emergent behavior where no single species dominates.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>perSpecies</code> equals 250 (with default constants)</label></p>
+<label class="checkbox-item"><input type="checkbox"> <code>particles</code> array exists and is empty</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Not using <code>Math.floor</code> (floating point issues)</li>
+<li>Declaring variables outside the function</li></p><p><strong>How to recover:</strong></p><p><li>Always floor division for particle counts</li>
+<li>Keep initialization logic inside the function</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-37">Page 37 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-37">
+      <div class="page-header">
+        <span class="page-number">Page 37 of 80</span>
+        <h1 class="page-title">Create Particle Generation Loops</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Generates all particles distributed evenly across species.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Initialization  
+<strong>Depends on:</strong> Page 36  </p><p>This step is part of the larger process of creating the particle system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (let species = 0; species &lt; NUM_SPECIES; species++) {
+      for (let i = 0; i &lt; perSpecies; i++) {
+        particles.push(createParticle(species));
+      }
+    }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Outer loop iterates through each species (0 to 5)</li>
+<li>Inner loop creates <code>perSpecies</code> particles of that type</li>
+<li><code>createParticle(species)</code> returns particle with random position</li>
+<li>Total: 6 species × 250 particles = 1500 particles</li></ul>
+        <h2>Why this matters</h2>
+        <p>Nested loops ensure equal distribution. Each species gets exactly the same number of particles for fair emergent competition.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>particles.length</code> equals 1500 after loops</label></p>
+<label class="checkbox-item"><input type="checkbox"> Each species has exactly 250 particles</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Off-by-one errors in loop bounds</li>
+<li>Calling wrong factory function</li></p><p><strong>How to recover:</strong></p><p><li>Outer: <code>< NUM_SPECIES</code>, Inner: <code>< perSpecies</code></li>
+<li>Use <code>createParticle(species)</code> with correct argument</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-38">Page 38 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-38">
+      <div class="page-header">
+        <span class="page-number">Page 38 of 80</span>
+        <h1 class="page-title">Store Particles in Ref</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Assigns the created particles array to the ref for persistence.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Initialization  
+<strong>Depends on:</strong> Page 37  </p><p>This step is part of the larger process of creating the particle system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>particlesRef.current = particles;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Assigns local array to ref's <code>.current</code> property</li>
+<li>Ref now holds all 1500 particles</li>
+<li>This reference persists across renders</li>
+<li>Physics update accesses particles through this ref</li></ul>
+        <h2>Why this matters</h2>
+        <p>The ref is how we maintain particle state without triggering renders. All physics calculations read and write through `particlesRef.current`.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>particlesRef.current</code> contains 1500 particles</label></p>
+<label class="checkbox-item"><input type="checkbox"> Particles have x, y, vx, vy, species properties</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Assigning to <code>particlesRef</code> instead of <code>.current</code></li>
+<li>Forgetting this line (particles lost)</li></p><p><strong>How to recover:</strong></p><p><li>Always assign to <code>.current</code> property</li>
+<li>This line is essential for persistence</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-39">Page 39 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-39">
+      <div class="page-header">
+        <span class="page-number">Page 39 of 80</span>
+        <h1 class="page-title">Generate and Store Rules</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates random rules and stores them in the rules ref.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Initialization  
+<strong>Depends on:</strong> Page 38  </p><p>This step is part of the larger process of setting up the rules system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>rulesRef.current = generateRandomRules(NUM_SPECIES);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Calls <code>generateRandomRules</code> to create the interaction matrix</li>
+<li>Stores result in <code>rulesRef.current</code></li>
+<li>Each call generates different random rules</li>
+<li>Rules persist until next reset</li></ul>
+        <h2>Why this matters</h2>
+        <p>The rules matrix defines all particle behavior. Random rules mean every simulation run produces unique emergent patterns.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>rulesRef.current[0][0]</code> returns a number between -1 and 1</label></p>
+<label class="checkbox-item"><input type="checkbox"> All species combinations have rules defined</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Passing wrong argument to generator</li>
+<li>Assigning to ref instead of <code>.current</code></li></p><p><strong>How to recover:</strong></p><p><li>Use <code>NUM_SPECIES</code> constant as argument</li>
+<li>Assign to <code>.current</code> property</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-40">Page 40 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-40">
+      <div class="page-header">
+        <span class="page-number">Page 40 of 80</span>
+        <h1 class="page-title">Create Spatial Grid Instance</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Instantiates the spatial hash grid and stores it in the grid ref.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Initialization  
+<strong>Depends on:</strong> Page 39  </p><p>This step is part of the larger process of setting up the optimization system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>gridRef.current = new SpatialHashGrid(MAX_DISTANCE, WIDTH, HEIGHT);
+  }, []);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Creates new <code>SpatialHashGrid</code> with cell size = MAX_DISTANCE</li>
+<li>Passes canvas dimensions for bounds awareness</li>
+<li>Stores in <code>gridRef.current</code> for physics access</li>
+<li>Empty dependency array <code>[]</code> means stable function reference</li></ul>
+        <h2>Why this matters</h2>
+        <p>The grid's cell size matching MAX_DISTANCE ensures all interacting particles are in adjacent cells. This is key to the O(n) optimization.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>gridRef.current</code> is a SpatialHashGrid instance</label></p>
+<label class="checkbox-item"><input type="checkbox"> Grid has cellSize of 100, width/height of 700</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Wrong order of constructor arguments</li>
+<li>Missing closing <code>}, [])</code> for useCallback</li></p><p><strong>How to recover:</strong></p><p><li>Order: cellSize, width, height</li>
+<li>useCallback needs closing with dependency array</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-41">Page 41 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-41">
+      <div class="page-header">
+        <span class="page-number">Page 41 of 80</span>
+        <h1 class="page-title">Define Physics Update Function Signature</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the memoized function that updates all particle physics.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 40  </p><p>This step is part of the larger process of building the physics system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const updatePhysics = useCallback(() =&gt; {
+    const particles = particlesRef.current;
+    const rules = rulesRef.current;
+    const grid = gridRef.current;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>updatePhysics</code> calculates forces and updates positions</li>
+<li>Wrapped in <code>useCallback</code> for stable reference</li>
+<li>Extracts current values from refs for cleaner code</li>
+<li>Local constants avoid repeated <code>.current</code> access</li></ul>
+        <h2>Why this matters</h2>
+        <p>Extracting to local constants improves readability and potentially performance. This function runs 60 times per second.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Function begins with <code>useCallback</code></label></p>
+<label class="checkbox-item"><input type="checkbox"> Local variables reference all three refs</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Accessing refs directly throughout (verbose)</li>
+<li>Missing <code>useCallback</code> wrapper</li></p><p><strong>How to recover:</strong></p><p><li>Extract to local constants at function start</li>
+<li>Always wrap animation functions with useCallback</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-42">Page 42 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-42">
+      <div class="page-header">
+        <span class="page-number">Page 42 of 80</span>
+        <h1 class="page-title">Add Grid Null Check</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Guards against running physics before initialization completes.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 41  </p><p>This step is part of the larger process of building the physics system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>if (!grid) return;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Checks if grid exists before proceeding</li>
+<li>Grid is <code>null</code> until <code>initSimulation</code> runs</li>
+<li>Early return prevents errors on first frame</li>
+<li>Simple guard pattern for safety</li></ul>
+        <h2>Why this matters</h2>
+        <p>The animation loop starts immediately, but initialization is asynchronous. This guard prevents crashes if physics runs before setup completes.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Function safely returns if grid is null</label></p>
+<label class="checkbox-item"><input type="checkbox"> No errors if called before initialization</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Checking wrong variable</li>
+<li>Using <code>=== null</code> instead of falsy check</li></p><p><strong>How to recover:</strong></p><p><li>Check <code>grid</code> (the local variable)</li>
+<li><code>!grid</code> handles both null and undefined</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-43">Page 43 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-43">
+      <div class="page-header">
+        <span class="page-number">Page 43 of 80</span>
+        <h1 class="page-title">Rebuild Spatial Grid</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Clears the grid and re-inserts all particles at current positions.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 42  </p><p>This step is part of the larger process of building the physics system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>grid.clear();
+    for (const particle of particles) {
+      grid.insert(particle);
+    }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>clear()</code> empties all cells from previous frame</li>
+<li>Loop inserts each particle into its current cell</li>
+<li>Particles may have moved, so cell assignments change</li>
+<li>This is faster than tracking individual movements</li></ul>
+        <h2>Why this matters</h2>
+        <p>Rebuilding the grid each frame ensures accurate neighbor queries. Particles move constantly, so their cell memberships must update.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Grid is cleared before insertions</label></p>
+<label class="checkbox-item"><input type="checkbox"> All particles are inserted into grid</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting to clear (duplicate particles)</li>
+<li>Inserting before clearing</li></p><p><strong>How to recover:</strong></p><p><li>Always clear first, then insert</li>
+<li>Order matters for correctness</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-44">Page 44 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-44">
+      <div class="page-header">
+        <span class="page-number">Page 44 of 80</span>
+        <h1 class="page-title">Begin Force Calculation Loop</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Starts the loop that calculates forces for each particle.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 43  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (const particle of particles) {
+      let fx = 0;
+      let fy = 0;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Iterates through all 1500 particles</li>
+<li><code>fx</code>, <code>fy</code> accumulate forces for this particle</li>
+<li>Start at zero, add contributions from neighbors</li>
+<li>Will be applied to velocity after all forces calculated</li></ul>
+        <h2>Why this matters</h2>
+        <p>Each particle experiences forces from many neighbors. Accumulating into fx/fy collects all contributions before applying.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Loop iterates through all particles</label></p>
+<label class="checkbox-item"><input type="checkbox"> Force accumulators start at zero</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code>let</code> for particle (should be <code>const</code>)</li>
+<li>Missing force accumulators</li></p><p><strong>How to recover:</strong></p><p><li>Particle reference doesn't change, use <code>const</code></li>
+<li>Forces must accumulate, use <code>let</code> with initial 0</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-45">Page 45 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-45">
+      <div class="page-header">
+        <span class="page-number">Page 45 of 80</span>
+        <h1 class="page-title">Query Nearby Particles</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Retrieves all particles that could potentially interact with the current one.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 44  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const nearby = grid.getNearby(particle.x, particle.y);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Queries the spatial grid at particle's position</li>
+<li>Returns array of particles in 9 neighboring cells</li>
+<li>Much smaller than full 1500 particles (typically 50-100)</li>
+<li>This is where the O(n) optimization pays off</li></ul>
+        <h2>Why this matters</h2>
+        <p>Instead of checking all 1500 particles (O(n²)), we only check ~80 nearby particles. This is the key to 60fps performance.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>nearby</code> contains particles from neighboring cells</label></p>
+<label class="checkbox-item"><input type="checkbox"> Query uses current particle's position</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Querying wrong coordinates</li>
+<li>Not storing result</li></p><p><strong>How to recover:</strong></p><p><li>Use <code>particle.x</code> and <code>particle.y</code></li>
+<li>Store in <code>const nearby</code> for iteration</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-46">Page 46 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-46">
+      <div class="page-header">
+        <span class="page-number">Page 46 of 80</span>
+        <h1 class="page-title">Begin Neighbor Interaction Loop</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Starts the inner loop that processes each nearby particle.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 45  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (const other of nearby) {
+        if (particle === other) continue;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Iterates through all nearby particles</li>
+<li>Skip self-interaction (particle can't affect itself)</li>
+<li><code>continue</code> jumps to next iteration</li>
+<li>Reference equality check is fast</li></ul>
+        <h2>Why this matters</h2>
+        <p>A particle exists in its own cell, so it appears in its own nearby list. We must skip self-interaction to avoid undefined behavior.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Loop iterates through nearby particles</label></p>
+<label class="checkbox-item"><input type="checkbox"> Self-particle is skipped</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code>==</code> instead of <code>===</code></li>
+<li>Forgetting self-check (forces explode)</li></p><p><strong>How to recover:</strong></p><p><li>Use strict equality <code>===</code></li>
+<li>Self-check is essential for stability</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-47">Page 47 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-47">
+      <div class="page-header">
+        <span class="page-number">Page 47 of 80</span>
+        <h1 class="page-title">Calculate Distance Vector</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Computes the direction and distance to the other particle.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 46  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const dx = other.x - particle.x;
+        const dy = other.y - particle.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>dx</code>, <code>dy</code> are the vector from particle to other</li>
+<li><code>dist</code> is the Euclidean distance (Pythagorean theorem)</li>
+<li>Positive dx means other is to the right</li>
+<li>Distance is always positive</li></ul>
+        <h2>Why this matters</h2>
+        <p>We need both direction (dx, dy) and magnitude (dist) to apply forces. Direction tells us which way to push, distance affects strength.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>dx</code> and <code>dy</code> can be positive or negative</label></p>
+<label class="checkbox-item"><input type="checkbox"> <code>dist</code> is always positive</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Subtracting in wrong order</li>
+<li>Forgetting <code>Math.sqrt</code></li></p><p><strong>How to recover:</strong></p><p><li><code>other - particle</code> points toward other</li>
+<li>Must sqrt for actual distance</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-48">Page 48 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-48">
+      <div class="page-header">
+        <span class="page-number">Page 48 of 80</span>
+        <h1 class="page-title">Skip Distant Particles</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Skips particles that are too far or at zero distance.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 47  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>if (dist === 0 || dist &gt; MAX_DISTANCE) continue;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Skip if distance is zero (same position, avoid division by zero)</li>
+<li>Skip if beyond interaction range</li>
+<li>Particles in neighboring cells may still be too far</li>
+<li><code>continue</code> proceeds to next neighbor</li></ul>
+        <h2>Why this matters</h2>
+        <p>Zero distance would cause division by zero errors. Distance check ensures only truly nearby particles interact.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Zero-distance particles are skipped</label></p>
+<label class="checkbox-item"><input type="checkbox"> Out-of-range particles are skipped</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code><</code> instead of <code>></code> for range check</li>
+<li>Forgetting zero check (NaN errors)</li></p><p><strong>How to recover:</strong></p><p><li>Skip if <code>dist > MAX_DISTANCE</code></li>
+<li>Always check <code>dist === 0</code> first</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-49">Page 49 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-49">
+      <div class="page-header">
+        <span class="page-number">Page 49 of 80</span>
+        <h1 class="page-title">Get Interaction Rule</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Looks up the attraction/repulsion value for this species pair.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 48  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const rule = rules[particle.species]?.[other.species] || 0;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Looks up <code>rules[i][j]</code> for this species pair</li>
+<li>Optional chaining <code>?.</code> handles missing entries safely</li>
+<li>Falls back to 0 if rule undefined</li>
+<li>Value between -1 (repel) and +1 (attract)</li></ul>
+        <h2>Why this matters</h2>
+        <p>The rule determines if these two particles attract or repel. This is the core of particle life's emergent behavior.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> <code>rule</code> is a number between -1 and 1</label></p>
+<label class="checkbox-item"><input type="checkbox"> Safe fallback to 0 if undefined</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Not handling undefined rules</li>
+<li>Wrong index order</li></p><p><strong>How to recover:</strong></p><p><li>Use optional chaining and <code>|| 0</code> fallback</li>
+<li>Order: <code>rules[reactor][target]</code></li></ul>
+    </div>
+        <div class="next-page"><a href="#page-50">Page 50 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-50">
+      <div class="page-header">
+        <span class="page-number">Page 50 of 80</span>
+        <h1 class="page-title">Calculate Force Magnitude</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Computes the strength of the force based on distance and rules.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 49  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>let force;
+
+        if (dist &lt; MIN_DISTANCE) {
+          force = (dist / MIN_DISTANCE - 1) * 0.5;
+        } else {
+          const normalizedDist = (dist - MIN_DISTANCE) / (MAX_DISTANCE - MIN_DISTANCE);
+          force = rule * (1 - normalizedDist) * FORCE_FACTOR;
+        }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Two distance zones: close (repel) and medium (rule-based)</li>
+<li>Close range: always repel, force increases as distance decreases</li>
+<li>Medium range: rule-based force, strength decreases with distance</li>
+<li><code>normalizedDist</code> maps distance to 0-1 range</li></ul>
+        <h2>Why this matters</h2>
+        <p>Close-range repulsion prevents particle overlap. Distance-scaled force creates natural clustering without singularities.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Close particles experience repulsion (negative force)</label></p>
+<label class="checkbox-item"><input type="checkbox"> Medium-range particles use the rule value</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Wrong formula for normalized distance</li>
+<li>Missing <code>let</code> for force variable</li></p><p><strong>How to recover:</strong></p><p><li>Normalized: <code>(dist - MIN) / (MAX - MIN)</code></li>
+<li><code>force</code> must be declared with <code>let</code> (assigned conditionally)</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-51">Page 51 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-51">
+      <div class="page-header">
+        <span class="page-number">Page 51 of 80</span>
+        <h1 class="page-title">Apply Force to Accumulators</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Adds this neighbor's contribution to the particle's force accumulators.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 50  </p><p>This step is part of the larger process of calculating particle interactions.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>fx += (dx / dist) * force;
+        fy += (dy / dist) * force;
+      }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>dx / dist</code> and <code>dy / dist</code> are the unit direction vector</li>
+<li>Multiplying by <code>force</code> scales to correct magnitude</li>
+<li><code>+=</code> accumulates contributions from all neighbors</li>
+<li>Closing brace ends the neighbor loop</li></ul>
+        <h2>Why this matters</h2>
+        <p>Direction comes from the normalized vector, magnitude from force calculation. Accumulating allows multiple neighbors to influence each particle.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Force is applied in the correct direction</label></p>
+<label class="checkbox-item"><input type="checkbox"> Multiple neighbors accumulate correctly</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code>=</code> instead of <code>+=</code></li>
+<li>Dividing by wrong value</li></p><p><strong>How to recover:</strong></p><p><li>Must use <code>+=</code> for accumulation</li>
+<li>Divide by <code>dist</code> to get unit vector</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-52">Page 52 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-52">
+      <div class="page-header">
+        <span class="page-number">Page 52 of 80</span>
+        <h1 class="page-title">Apply Velocity with Friction</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Updates particle velocity based on accumulated forces and applies friction.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 51  </p><p>This step is part of the larger process of updating particle state.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>particle.vx = (particle.vx + fx) * FRICTION;
+      particle.vy = (particle.vy + fy) * FRICTION;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Add force to current velocity</li>
+<li>Multiply by FRICTION to dampen</li>
+<li>FRICTION < 1 means velocity decays over time</li>
+<li>Order matters: add force, then apply friction</li></ul>
+        <h2>Why this matters</h2>
+        <p>Forces change velocity, not position directly. Friction prevents infinite acceleration and creates smooth, natural movement.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Velocity increases toward attractors</label></p>
+<label class="checkbox-item"><input type="checkbox"> Friction gradually slows particles</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Applying friction before force</li>
+<li>Forgetting friction entirely</li></p><p><strong>How to recover:</strong></p><p><li>Formula: <code>(v + f) * friction</code></li>
+<li>Friction must be applied each frame</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-53">Page 53 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-53">
+      <div class="page-header">
+        <span class="page-number">Page 53 of 80</span>
+        <h1 class="page-title">Implement Speed Limiting</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Caps particle velocity to prevent runaway speeds.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 52  </p><p>This step is part of the larger process of updating particle state.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
+      const maxSpeed = 5;
+      if (speed &gt; maxSpeed) {
+        particle.vx = (particle.vx / speed) * maxSpeed;
+        particle.vy = (particle.vy / speed) * maxSpeed;
+      }
+    }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Calculate current speed (magnitude of velocity)</li>
+<li>If exceeding max, scale down to maxSpeed</li>
+<li>Preserves direction while limiting magnitude</li>
+<li>Closing brace ends the particle force loop</li></ul>
+        <h2>Why this matters</h2>
+        <p>Without speed limits, particles in strong attraction wells could accelerate infinitely. Capping ensures stable, viewable motion.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> No particle moves faster than maxSpeed per frame</label></p>
+<label class="checkbox-item"><input type="checkbox"> Direction is preserved when limiting</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Not preserving direction when scaling</li>
+<li>Using wrong speed formula</li></p><p><strong>How to recover:</strong></p><p><li>Divide by speed, multiply by maxSpeed</li>
+<li>Speed = sqrt(vx² + vy²)</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-54">Page 54 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-54">
+      <div class="page-header">
+        <span class="page-number">Page 54 of 80</span>
+        <h1 class="page-title">Begin Position Update Loop</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Starts the loop that updates all particle positions.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 53  </p><p>This step is part of the larger process of updating particle state.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (const particle of particles) {
+      particle.x += particle.vx;
+      particle.y += particle.vy;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Second loop through all particles</li>
+<li>Position += velocity (basic kinematics)</li>
+<li>Separate from force loop for cleaner code</li>
+<li>All forces calculated before any positions update</li></ul>
+        <h2>Why this matters</h2>
+        <p>Separating force calculation from position update ensures consistent behavior. All particles "see" the same state when calculating forces.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Position updates by velocity</label></p>
+<label class="checkbox-item"><input type="checkbox"> Update is separate from force calculation</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Updating position during force loop</li>
+<li>Forgetting to add velocity</li></p><p><strong>How to recover:</strong></p><p><li>Keep loops separate</li>
+<li>Position changes by <code>+= vx/vy</code></li></ul>
+    </div>
+        <div class="next-page"><a href="#page-55">Page 55 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-55">
+      <div class="page-header">
+        <span class="page-number">Page 55 of 80</span>
+        <h1 class="page-title">Implement World Wrapping</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Wraps particles that exit one edge to appear on the opposite edge.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Physics Engine  
+<strong>Depends on:</strong> Page 54  </p><p>This step is part of the larger process of handling boundaries.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>if (particle.x &lt; 0) particle.x += WIDTH;
+      if (particle.x &gt;= WIDTH) particle.x -= WIDTH;
+      if (particle.y &lt; 0) particle.y += HEIGHT;
+      if (particle.y &gt;= HEIGHT) particle.y -= HEIGHT;
+    }
+  }, []);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Particles exiting left appear on right (add WIDTH)</li>
+<li>Particles exiting right appear on left (subtract WIDTH)</li>
+<li>Same for top/bottom with HEIGHT</li>
+<li>Creates toroidal (donut-shaped) world</li></ul>
+        <h2>Why this matters</h2>
+        <p>Wrapping creates an infinite world without edges. Patterns can flow continuously without bouncing off walls.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Particles wrap smoothly at edges</label></p>
+<label class="checkbox-item"><input type="checkbox"> No particles escape the canvas bounds</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Using <code>></code> instead of <code>>=</code> for right/bottom</li>
+<li>Adding instead of subtracting (or vice versa)</li></p><p><strong>How to recover:</strong></p><p><li>Right edge: <code>>= WIDTH</code>, subtract WIDTH</li>
+<li>Left edge: <code>< 0</code>, add WIDTH</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-56">Page 56 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-56">
+      <div class="page-header">
+        <span class="page-number">Page 56 of 80</span>
+        <h1 class="page-title">Define Render Function Signature</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the memoized function that draws the simulation to canvas.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rendering  
+<strong>Depends on:</strong> Page 55  </p><p>This step is part of the larger process of building the render system.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const render = useCallback(() =&gt; {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    const particles = particlesRef.current;
+    const rules = rulesRef.current;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>render</code> draws everything to the canvas</li>
+<li>Gets canvas element and 2D drawing context</li>
+<li>Extracts current particles and rules from refs</li>
+<li>Runs every frame after physics update</li></ul>
+        <h2>Why this matters</h2>
+        <p>Rendering is separate from physics for clean architecture. The render function only reads state, never modifies it.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Canvas and context are accessible</label></p>
+<label class="checkbox-item"><input type="checkbox"> Particles and rules are available for rendering</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Getting context before canvas exists</li>
+<li>Missing <code>.current</code> on refs</li></p><p><strong>How to recover:</strong></p><p><li>Canvas exists after first render</li>
+<li>Always access <code>.current</code> property</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-57">Page 57 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-57">
+      <div class="page-header">
+        <span class="page-number">Page 57 of 80</span>
+        <h1 class="page-title">Clear Canvas Background</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Fills the canvas with a dark background color.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rendering  
+<strong>Depends on:</strong> Page 56  </p><p>This step is part of the larger process of drawing the frame.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>ctx.fillStyle = '#0a0a14';
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Sets fill color to dark blue-black</li>
+<li>Fills entire canvas, erasing previous frame</li>
+<li>Must clear before drawing new positions</li>
+<li>Dark background makes colored particles visible</li></ul>
+        <h2>Why this matters</h2>
+        <p>Without clearing, particles would leave trails (which could be a feature, but not for Foundation). Each frame starts fresh.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Canvas fills with dark background</label></p>
+<label class="checkbox-item"><input type="checkbox"> Previous frame is erased</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Wrong color format</li>
+<li>Not covering full canvas</li></p><p><strong>How to recover:</strong></p><p><li>Use hex color with <code>#</code> prefix</li>
+<li>fillRect from 0,0 to WIDTH,HEIGHT</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-58">Page 58 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-58">
+      <div class="page-header">
+        <span class="page-number">Page 58 of 80</span>
+        <h1 class="page-title">Draw All Particles</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders each particle as a colored circle at its current position.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rendering  
+<strong>Depends on:</strong> Page 57  </p><p>This step is part of the larger process of drawing the frame.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (const particle of particles) {
+      ctx.fillStyle = COLORS[particle.species % COLORS.length];
+      ctx.beginPath();
+      ctx.arc(particle.x, particle.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Loop through all particles</li>
+<li>Set color based on species (modulo handles overflow)</li>
+<li><code>arc</code> draws a circle: center, radius 3, full circle</li>
+<li><code>fill</code> renders the circle solid</li></ul>
+        <h2>Why this matters</h2>
+        <p>This is where the simulation becomes visible. Each particle is a small colored dot, and together they form emergent patterns.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> All particles appear on canvas</label></p>
+<label class="checkbox-item"><input type="checkbox"> Each species has distinct color</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting <code>beginPath</code> (paths connect)</li>
+<li>Wrong arc parameters</li></p><p><strong>How to recover:</strong></p><p><li>Always <code>beginPath</code> before each shape</li>
+<li>Arc: x, y, radius, startAngle, endAngle</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-59">Page 59 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-59">
+      <div class="page-header">
+        <span class="page-number">Page 59 of 80</span>
+        <h1 class="page-title">Draw Rules Matrix Visualization</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders a small visualization of the rules matrix in the corner.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rendering  
+<strong>Depends on:</strong> Page 58  </p><p>This step is part of the larger process of providing visual feedback.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const cellSize = 12;
+    const matrixX = 10;
+    const matrixY = HEIGHT - NUM_SPECIES * cellSize - 40;
+
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(
+      matrixX - 5,
+      matrixY - 20,
+      NUM_SPECIES * cellSize + 25,
+      NUM_SPECIES * cellSize + 35
+    );
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '10px monospace';
+    ctx.fillText('Rules Matrix:', matrixX, matrixY - 5);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Position matrix in bottom-left corner</li>
+<li>Semi-transparent black background for readability</li>
+<li>White label text above the matrix</li>
+<li>Matrix shows how species interact visually</li></ul>
+        <h2>Why this matters</h2>
+        <p>The rules matrix helps users understand why particles behave as they do. Green = attract, red = repel.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Dark background box appears in corner</label></p>
+<label class="checkbox-item"><input type="checkbox"> "Rules Matrix:" label is visible</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Position calculation off-screen</li>
+<li>Wrong coordinate order in fillRect</li></p><p><strong>How to recover:</strong></p><p><li>Verify Y puts matrix above bottom edge</li>
+<li>fillRect: x, y, width, height</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-60">Page 60 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-60">
+      <div class="page-header">
+        <span class="page-number">Page 60 of 80</span>
+        <h1 class="page-title">Draw Rules Matrix Cells</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders the colored cells showing attraction/repulsion values.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rendering  
+<strong>Depends on:</strong> Page 59  </p><p>This step is part of the larger process of visualizing the rules.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>for (let i = 0; i &lt; NUM_SPECIES; i++) {
+      ctx.fillStyle = COLORS[i];
+      ctx.fillRect(matrixX, matrixY + (i + 1) * cellSize, cellSize - 2, cellSize - 2);
+      ctx.fillRect(matrixX + (i + 1) * cellSize, matrixY, cellSize - 2, cellSize - 2);
+
+      for (let j = 0; j &lt; NUM_SPECIES; j++) {
+        const rule = rules[i]?.[j] || 0;
+        const r = rule &lt; 0 ? Math.floor(-rule * 255) : 0;
+        const g = rule &gt; 0 ? Math.floor(rule * 255) : 0;
+
+        ctx.fillStyle = `rgb(${r}, ${g}, 50)`;
+        ctx.fillRect(
+          matrixX + (j + 1) * cellSize,
+          matrixY + (i + 1) * cellSize,
+          cellSize - 2,
+          cellSize - 2
+        );
+      }
+    }</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Row/column headers show species colors</li>
+<li>Inner cells show rule values as colors</li>
+<li>Red = negative (repulsion), Green = positive (attraction)</li>
+<li>Blue component (50) prevents pure black for zero</li></ul>
+        <h2>Why this matters</h2>
+        <p>The color-coded matrix provides instant visual feedback about the rules governing the simulation.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Matrix shows 6×6 colored cells</label></p>
+<label class="checkbox-item"><input type="checkbox"> Green cells = attraction, red cells = repulsion</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Color calculation produces invalid values</li>
+<li>Cell positions overlap</li></p><p><strong>How to recover:</strong></p><p><li>Ensure r, g are 0-255 integers</li>
+<li>cellSize - 2 creates gap between cells</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-61">Page 61 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-61">
+      <div class="page-header">
+        <span class="page-number">Page 61 of 80</span>
+        <h1 class="page-title">Draw HUD Text</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders informational text showing particle count and species.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Rendering  
+<strong>Depends on:</strong> Page 60  </p><p>This step is part of the larger process of providing visual feedback.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>ctx.fillStyle = '#fff';
+    ctx.font = '14px monospace';
+    ctx.fillText(`Particles: ${particles.length}`, 10, 20);
+    ctx.fillText(`Species: ${NUM_SPECIES}`, 10, 40);
+  }, []);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>White text for visibility on dark background</li>
+<li>Monospace font for consistent character width</li>
+<li>Shows particle count and species count</li>
+<li>Position at top-left corner</li></ul>
+        <h2>Why this matters</h2>
+        <p>The HUD provides context about the simulation parameters. Users can verify the correct number of particles is active.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> "Particles: 1500" appears at top-left</label></p>
+<label class="checkbox-item"><input type="checkbox"> "Species: 6" appears below it</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Template literal syntax error</li>
+<li>Missing closing for useCallback</li></p><p><strong>How to recover:</strong></p><p><li>Use backticks for template: `<code> </code>text ${var}<code> </code><code></li>
+<li></code>}, [])` closes the useCallback</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-62">Page 62 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-62">
+      <div class="page-header">
+        <span class="page-number">Page 62 of 80</span>
+        <h1 class="page-title">Define Game Loop Function</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the main animation loop that drives physics and rendering.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Animation Loop  
+<strong>Depends on:</strong> Page 61  </p><p>This step is part of the larger process of running the simulation.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const gameLoop = useCallback(() =&gt; {
+    updatePhysics();
+    render();
+    animationRef.current = requestAnimationFrame(gameLoop);
+  }, [updatePhysics, render]);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>gameLoop</code> runs physics then rendering each frame</li>
+<li><code>requestAnimationFrame</code> schedules next frame at ~60fps</li>
+<li>Stores animation ID for cleanup</li>
+<li>Dependencies ensure fresh function references</li></ul>
+        <h2>Why this matters</h2>
+        <p>This is the heart of the simulation. The loop runs continuously, updating physics and drawing the result 60 times per second.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Loop calls physics then render</label></p>
+<label class="checkbox-item"><input type="checkbox"> Animation ID is stored for cleanup</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing dependencies in array</li>
+<li>Calling gameLoop() instead of passing reference</li></p><p><strong>How to recover:</strong></p><p><li>Include <code>[updatePhysics, render]</code> in deps</li>
+<li>Pass <code>gameLoop</code> without parentheses to requestAnimationFrame</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-63">Page 63 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-63">
+      <div class="page-header">
+        <span class="page-number">Page 63 of 80</span>
+        <h1 class="page-title">Setup Effect Hook</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the effect that initializes and starts the simulation.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Lifecycle  
+<strong>Depends on:</strong> Page 62  </p><p>This step is part of the larger process of managing component lifecycle.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>useEffect(() =&gt; {
+    initSimulation();
+    animationRef.current = requestAnimationFrame(gameLoop);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Effect runs after component mounts</li>
+<li>Calls <code>initSimulation</code> to set up particles, rules, grid</li>
+<li>Starts the animation loop</li>
+<li>First frame begins rendering immediately</li></ul>
+        <h2>Why this matters</h2>
+        <p>useEffect ensures the canvas exists before we try to draw. Initialization happens once on mount.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Simulation initializes on mount</label></p>
+<label class="checkbox-item"><input type="checkbox"> Animation starts immediately</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Calling gameLoop() instead of passing to requestAnimationFrame</li>
+<li>Forgetting initSimulation call</li></p><p><strong>How to recover:</strong></p><p><li>Pass function reference, not result</li>
+<li>Init must run before animation starts</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-64">Page 64 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-64">
+      <div class="page-header">
+        <span class="page-number">Page 64 of 80</span>
+        <h1 class="page-title">Add Effect Cleanup</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Returns the cleanup function that stops animation on unmount.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Lifecycle  
+<strong>Depends on:</strong> Page 63  </p><p>This step is part of the larger process of managing component lifecycle.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>return () =&gt; {
+      cancelAnimationFrame(animationRef.current);
+    };
+  }, [initSimulation, gameLoop]);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Return function runs when component unmounts</li>
+<li><code>cancelAnimationFrame</code> stops the pending frame request</li>
+<li>Prevents memory leaks and errors after unmount</li>
+<li>Dependencies include all functions used in effect</li></ul>
+        <h2>Why this matters</h2>
+        <p>Without cleanup, the animation would continue after component removal, causing errors and memory leaks.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Animation stops when component unmounts</label></p>
+<label class="checkbox-item"><input type="checkbox"> No console errors after navigation away</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing return statement</li>
+<li>Wrong dependency array</li></p><p><strong>How to recover:</strong></p><p><li>Cleanup must be returned from effect</li>
+<li>Include <code>[initSimulation, gameLoop]</code></li></ul>
+    </div>
+        <div class="next-page"><a href="#page-65">Page 65 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-65">
+      <div class="page-header">
+        <span class="page-number">Page 65 of 80</span>
+        <h1 class="page-title">Define Reset Handler</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates the handler function for the Reset button.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Control Handlers  
+<strong>Depends on:</strong> Page 64  </p><p>This step is part of the larger process of user interaction.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>const handleReset = useCallback(() =&gt; {
+    initSimulation();
+  }, [initSimulation]);</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>handleReset</code> regenerates the simulation</li>
+<li>Calls <code>initSimulation</code> to create new particles and rules</li>
+<li>Wrapped in useCallback for stable reference</li>
+<li>Dependency on initSimulation ensures correct function</li></ul>
+        <h2>Why this matters</h2>
+        <p>The Reset button lets users generate new random rules without refreshing the page. Each reset creates unique emergent behavior.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Handler function exists</label></p>
+<label class="checkbox-item"><input type="checkbox"> Calling it regenerates simulation</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Forgetting useCallback wrapper</li>
+<li>Missing dependency</li></p><p><strong>How to recover:</strong></p><p><li>Wrap in useCallback for button stability</li>
+<li>Include <code>[initSimulation]</code> dependency</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-66">Page 66 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-66">
+      <div class="page-header">
+        <span class="page-number">Page 66 of 80</span>
+        <h1 class="page-title">Begin Component Return Statement</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Starts the JSX return that defines the component's rendered output.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> UI Composition  
+<strong>Depends on:</strong> Page 65  </p><p>This step is part of the larger process of building the user interface.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>return (
+    &lt;div className="flex flex-col items-center gap-4 p-4 bg-gray-900 min-h-screen"&gt;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>return (</code> begins the JSX output</li>
+<li>Outer div is the main container</li>
+<li>Tailwind classes: flex column, centered, gaps, padding</li>
+<li>Dark background matching canvas aesthetic</li></ul>
+        <h2>Why this matters</h2>
+        <p>The container div establishes the layout structure. Flexbox centering keeps the simulation visually balanced.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Component returns JSX</label></p>
+<label class="checkbox-item"><input type="checkbox"> Container has dark background</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing opening parenthesis</li>
+<li>Tailwind not available</li></p><p><strong>How to recover:</strong></p><p><li>JSX needs <code>return (</code> with parenthesis</li>
+<li>Tailwind classes work in supported environments</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-67">Page 67 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-67">
+      <div class="page-header">
+        <span class="page-number">Page 67 of 80</span>
+        <h1 class="page-title">Add Title Header</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders the simulation title at the top of the interface.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> UI Composition  
+<strong>Depends on:</strong> Page 66  </p><p>This step is part of the larger process of building the user interface.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>&lt;h1 className="text-2xl font-bold text-white"&gt;
+        Particle Life Simulation
+      &lt;/h1&gt;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>h1</code> is semantically correct for main title</li>
+<li>White text for contrast on dark background</li>
+<li>Bold weight for emphasis</li>
+<li>Text size appropriate for header</li></ul>
+        <h2>Why this matters</h2>
+        <p>The title identifies the simulation and establishes visual hierarchy. Semantic HTML improves accessibility.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Title appears above canvas</label></p>
+<label class="checkbox-item"><input type="checkbox"> Text is white and readable</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing closing tag</li>
+<li>Wrong class syntax (className vs class)</li></p><p><strong>How to recover:</strong></p><p><li>JSX uses <code>className</code> not <code>class</code></li>
+<li>Ensure tag is properly closed</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-68">Page 68 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-68">
+      <div class="page-header">
+        <span class="page-number">Page 68 of 80</span>
+        <h1 class="page-title">Add Canvas Element</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders the canvas element where the simulation draws.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> UI Composition  
+<strong>Depends on:</strong> Page 67  </p><p>This step is part of the larger process of building the user interface.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>&lt;canvas
+        ref={canvasRef}
+        width={WIDTH}
+        height={HEIGHT}
+        className="border border-gray-700 rounded"
+      /&gt;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>ref={canvasRef}</code> connects to our ref for drawing access</li>
+<li><code>width</code> and <code>height</code> set canvas resolution</li>
+<li>Border provides visual boundary</li>
+<li>Self-closing tag (no children)</li></ul>
+        <h2>Why this matters</h2>
+        <p>The canvas is where all rendering happens. The ref connection is essential for the render function to access the drawing context.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Canvas appears with border</label></p>
+<label class="checkbox-item"><input type="checkbox"> Size is 700×700 pixels</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing ref connection</li>
+<li>Using style instead of width/height attributes</li></p><p><strong>How to recover:</strong></p><p><li><code>ref={canvasRef}</code> is required</li>
+<li>Canvas dimensions must be attributes, not CSS</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-69">Page 69 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-69">
+      <div class="page-header">
+        <span class="page-number">Page 69 of 80</span>
+        <h1 class="page-title">Add Reset Button</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders the button that resets the simulation with new rules.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> UI Composition  
+<strong>Depends on:</strong> Page 68  </p><p>This step is part of the larger process of building the user interface.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>&lt;button
+        onClick={handleReset}
+        className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+      &gt;
+        Reset (New Rules)
+      &lt;/button&gt;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li><code>onClick={handleReset}</code> connects to our handler</li>
+<li>Blue button with hover effect</li>
+<li>Descriptive label explains what reset does</li>
+<li>Transition makes hover smooth</li></ul>
+        <h2>Why this matters</h2>
+        <p>The Reset button is the primary user interaction. It lets users explore different rule sets without reloading.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Button appears below canvas</label></p>
+<label class="checkbox-item"><input type="checkbox"> Clicking generates new rules</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Calling handler immediately: <code>onClick={handleReset()}</code></li>
+<li>Missing handler function</li></p><p><strong>How to recover:</strong></p><p><li>Pass reference without parentheses</li>
+<li>Ensure handleReset is defined above</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-70">Page 70 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-70">
+      <div class="page-header">
+        <span class="page-number">Page 70 of 80</span>
+        <h1 class="page-title">Add Instructions Text</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Renders helper text explaining how to use the simulation.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> UI Composition  
+<strong>Depends on:</strong> Page 69  </p><p>This step is part of the larger process of building the user interface.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>&lt;p className="text-gray-400 text-sm text-center max-w-md"&gt;
+        Watch particles self-organize based on attraction and repulsion rules.
+        Each color represents a species with unique interactions.
+        Click Reset to generate new random rules.
+      &lt;/p&gt;</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Gray text for secondary information</li>
+<li>Smaller font size for helper content</li>
+<li>Centered and max-width for readability</li>
+<li>Three sentences explain the simulation</li></ul>
+        <h2>Why this matters</h2>
+        <p>Instructions help new users understand what they're seeing. Clear explanation increases engagement with the simulation.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Instructions appear below button</label></p>
+<label class="checkbox-item"><input type="checkbox"> Text is readable but not prominent</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Text too long (wrapping issues)</li>
+<li>Wrong color class</li></p><p><strong>How to recover:</strong></p><p><li>max-w-md constrains width</li>
+<li>text-gray-400 for muted appearance</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-71">Page 71 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-71">
+      <div class="page-header">
+        <span class="page-number">Page 71 of 80</span>
+        <h1 class="page-title">Close Component Return</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Closes the JSX return and component function.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> UI Composition  
+<strong>Depends on:</strong> Page 70  </p><p>This step is part of the larger process of completing the component.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>&lt;/div&gt;
+  );
+}</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <ul><li>Closes the outer container div</li>
+<li>Closes the return statement parenthesis</li>
+<li>Closes the component function</li>
+<li>Component is now complete</li></ul>
+        <h2>Why this matters</h2>
+        <p>Proper closing ensures valid JSX and JavaScript syntax. The component is now ready to render.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> No syntax errors</label></p>
+<label class="checkbox-item"><input type="checkbox"> Component renders without crashing</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Mismatched tags/braces</li>
+<li>Missing semicolon (optional but conventional)</li></p><p><strong>How to recover:</strong></p><p><li>Count opening and closing tags</li>
+<li>Verify all braces match</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-72">Page 72 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-72">
+      <div class="page-header">
+        <span class="page-number">Page 72 of 80</span>
+        <h1 class="page-title">Foundation Code Verification</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Provides a verification checklist for the completed Foundation stage.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> All previous pages  </p><p>This step is part of the larger process of ensuring correctness.
+    </div>
+        
+    <h2>Code (this page)</h2>
+    <div class="code-block">
+      <div class="code-header">jsx</div>
+      <pre><code>// Complete Foundation code should include:
+// - 4 React imports (React, useRef, useEffect, useCallback)
+// - 8 constants (WIDTH, HEIGHT, PARTICLE_COUNT, etc.)
+// - createParticle factory function
+// - generateRandomRules function
+// - SpatialHashGrid class with 5 methods
+// - ParticleLifeFoundation component with:
+//   - 4 refs (canvas, particles, rules, grid, animation)
+//   - initSimulation, updatePhysics, render, gameLoop functions
+//   - useEffect for lifecycle
+//   - handleReset handler
+//   - JSX with canvas and reset button</code></pre>
+    </div>
+        <h2>Explanation</h2>
+        <p>This checklist summarizes all code that should exist after completing Foundation.</p>
+        <h2>Why this matters</h2>
+        <p>Verification ensures nothing was missed. A complete Foundation is the base for Configuration stage.</p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Run the complete application</label></p>
+<label class="checkbox-item"><input type="checkbox"> See 1500 particles moving</label>
+<label class="checkbox-item"><input type="checkbox"> See rules matrix in corner</label>
+<label class="checkbox-item"><input type="checkbox"> Click Reset to get new behavior</label>
+<label class="checkbox-item"><input type="checkbox"> Animation runs at 60fps</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues at this step:</strong></p><ul><li>Missing function or constant</li>
+<li>Incorrect hook dependencies</li></p><p><strong>How to recover:</strong></p><p><li>Compare against the checklist</li>
+<li>Review each section's pages</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-73">Page 73 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-73">
+      <div class="page-header">
+        <span class="page-number">Page 73 of 80</span>
+        <h1 class="page-title">Verify Particles Initialize</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms particles are created correctly on startup.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> Page 72  </p><p>This step is part of the verification process.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> 1500 particles appear on load</label></p>
+<label class="checkbox-item"><input type="checkbox"> 6 distinct colors visible</label>
+<label class="checkbox-item"><input type="checkbox"> Random distribution across canvas</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues:</strong></p><ul><li>Particles all in one corner (initialization bug)</li>
+<li>Wrong particle count (loop error)</li>
+<li>Missing colors (species assignment)</li></p><p><strong>How to recover:</strong></p><p><li>Check createParticle random ranges</li>
+<li>Verify loop bounds in initSimulation</li>
+<li>Confirm COLORS array has enough entries</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-74">Page 74 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-74">
+      <div class="page-header">
+        <span class="page-number">Page 74 of 80</span>
+        <h1 class="page-title">Verify Physics Updates</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms the physics simulation runs correctly.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> Page 73  </p><p>This step is part of the verification process.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Particles respond to each other</label></p>
+<label class="checkbox-item"><input type="checkbox"> Motion is smooth and continuous</label>
+<label class="checkbox-item"><input type="checkbox"> Emergent patterns form</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues:</strong></p><ul><li>No movement (physics not running)</li>
+<li>Jerky motion (performance issue)</li>
+<li>Particles disappear (wrapping bug)</li></p><p><strong>How to recover:</strong></p><p><li>Verify gameLoop is calling updatePhysics</li>
+<li>Check spatial grid is working</li>
+<li>Review boundary wrapping logic</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-75">Page 75 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-75">
+      <div class="page-header">
+        <span class="page-number">Page 75 of 80</span>
+        <h1 class="page-title">Verify Rules Matrix Display</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms the rules visualization renders correctly.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> Page 74  </p><p>This step is part of the verification process.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Matrix visible in corner</label></p>
+<label class="checkbox-item"><input type="checkbox"> Colors correspond to rule values</label>
+<label class="checkbox-item"><input type="checkbox"> Matrix updates after Reset</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues:</strong></p><ul><li>Matrix off-screen (position calculation)</li>
+<li>All cells same color (rule lookup error)</li>
+<li>Missing headers (loop range)</li></p><p><strong>How to recover:</strong></p><p><li>Check matrixY calculation</li>
+<li>Verify rules[i][j] access</li>
+<li>Confirm loop starts at correct index</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-76">Page 76 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-76">
+      <div class="page-header">
+        <span class="page-number">Page 76 of 80</span>
+        <h1 class="page-title">Verify Reset Functionality</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms the Reset button works correctly.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> Page 75  </p><p>This step is part of the verification process.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Reset redistributes particles</label></p>
+<label class="checkbox-item"><input type="checkbox"> New rules generate each click</label>
+<label class="checkbox-item"><input type="checkbox"> Behavior changes noticeably</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues:</strong></p><ul><li>Nothing happens (handler not connected)</li>
+<li>Animation stops (gameLoop interrupted)</li>
+<li>Same rules every time (random seed issue)</li></p><p><strong>How to recover:</strong></p><p><li>Verify onClick={handleReset}</li>
+<li>Ensure initSimulation doesn't stop animation</li>
+<li>Math.random() should vary naturally</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-77">Page 77 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-77">
+      <div class="page-header">
+        <span class="page-number">Page 77 of 80</span>
+        <h1 class="page-title">Verify Performance</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms the simulation runs at acceptable frame rates.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> Page 76  </p><p>This step is part of the verification process.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Frame rate stays above 50fps</label></p>
+<label class="checkbox-item"><input type="checkbox"> No visible stuttering</label>
+<label class="checkbox-item"><input type="checkbox"> CPU usage under 50%</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues:</strong></p><ul><li>Low frame rate (spatial grid not working)</li>
+<li>Memory growth (leaking objects)</li>
+<li>GPU bottleneck (too many draw calls)</li></p><p><strong>How to recover:</strong></p><p><li>Verify spatial grid reduces neighbor checks</li>
+<li>Ensure particles array isn't growing</li>
+<li>Canvas operations are efficient</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-78">Page 78 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-78">
+      <div class="page-header">
+        <span class="page-number">Page 78 of 80</span>
+        <h1 class="page-title">Verify No Configuration Features</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms Foundation does NOT include Configuration-stage features.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> Page 77  </p><p>This step is part of the verification process.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> No settings panel exists</label></p>
+<label class="checkbox-item"><input type="checkbox"> No adjustable parameters</label>
+<label class="checkbox-item"><input type="checkbox"> Only Reset button for interaction</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues:</strong></p><ul><li>Accidentally added Configuration features early</li>
+<li>Imported code from later stages</li></p><p><strong>How to recover:</strong></p><p><li>Remove any settings UI</li>
+<li>Foundation uses hardcoded constants only</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-79">Page 79 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-79">
+      <div class="page-header">
+        <span class="page-number">Page 79 of 80</span>
+        <h1 class="page-title">Verify No Persistence Features</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms Foundation does NOT include Persistence-stage features.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Verification  
+<strong>Depends on:</strong> Page 78  </p><p>This step is part of the verification process.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Refresh loses all state</label></p>
+<label class="checkbox-item"><input type="checkbox"> No localStorage data</label>
+<label class="checkbox-item"><input type="checkbox"> No save/load UI</label></p><p>If this is not true, stop and review before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+    <div class="troubleshooting">
+      <h3>⚠ If something breaks here</h3>
+      <strong>Common issues:</strong></p><ul><li>Accidentally added persistence early</li>
+<li>Third-party library storing data</li></p><p><strong>How to recover:</strong></p><p><li>Remove any storage code</li>
+<li>Foundation is entirely transient</li></ul>
+    </div>
+        <div class="next-page"><a href="#page-80">Page 80 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-80">
+      <div class="page-header">
+        <span class="page-number">Page 80 of 80</span>
+        <h1 class="page-title">Foundation Complete</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms Foundation stage is fully complete and ready for Configuration.</p>
+        
+    <div class="where-fits">
+      <strong>Part:</strong> Foundation  
+<strong>Section:</strong> Completion  
+<strong>Depends on:</strong> All previous pages  </p><p>This is the final page of the Foundation Guide.
+    </div>
+        
+        <h2>Explanation</h2>
+        
+        <h2>Why this matters</h2>
+        <p></p>
+        
+    <div class="checkpoint">
+      <h3>✓ Checkpoint</h3>
+      <p>After this page, you should be able to:</p>
+      <p>After this page, you should be able to:</p><p><label class="checkbox-item"><input type="checkbox"> Run a complete particle life simulation</label></p>
+<label class="checkbox-item"><input type="checkbox"> Understand all code you've written</label>
+<label class="checkbox-item"><input type="checkbox"> Explain how spatial hashing improves performance</label>
+<label class="checkbox-item"><input type="checkbox"> Ready to proceed to Configuration</label></p><p>If this is not true, review the relevant pages before continuing.
+      <p><em>If this is not true, stop and review before continuing.</em></p>
+    </div>
+        
+        
+      </div>
+    </article>
+    </main>
+
+    <button class="toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰</button>
+
+    <div class="toc-panel" id="tocPanel">
+        <div class="toc-header">
+            <h3>Contents</h3>
+            <button class="toc-close" onclick="toggleTOC()">×</button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="#page-1">Page 1: Import React</a></li>
+            <li><a href="#page-2">Page 2: Import useRef Hook</a></li>
+            <li><a href="#page-3">Page 3: Import useEffect Hook</a></li>
+            <li><a href="#page-4">Page 4: Import useCallback Hook</a></li>
+            <li><a href="#page-5">Page 5: Define Canvas Width Constant</a></li>
+            <li><a href="#page-6">Page 6: Define Canvas Height Constant</a></li>
+            <li><a href="#page-7">Page 7: Define Particle Count Constant</a></li>
+            <li><a href="#page-8">Page 8: Define Number of Species Constant</a></li>
+            <li><a href="#page-9">Page 9: Define Friction Constant</a></li>
+            <li><a href="#page-10">Page 10: Define Maximum Interaction Distance</a></li>
+            <li><a href="#page-11">Page 11: Define Force Multiplier Constant</a></li>
+            <li><a href="#page-12">Page 12: Define Minimum Distance Constant</a></li>
+            <li><a href="#page-13">Page 13: Define Species Colors Array</a></li>
+            <li><a href="#page-14">Page 14: Create Particle Factory Function Signature</a></li>
+            <li><a href="#page-15">Page 15: Return Particle Object Structure</a></li>
+            <li><a href="#page-16">Page 16: Define Rules Generation Function Signature</a></li>
+            <li><a href="#page-17">Page 17: Initialize Empty Rules Object</a></li>
+            <li><a href="#page-18">Page 18: Create Outer Loop for Source Species</a></li>
+            <li><a href="#page-19">Page 19: Create Inner Loop for Target Species</a></li>
+            <li><a href="#page-20">Page 20: Return Completed Rules Object</a></li>
+            <li><a href="#page-21">Page 21: Define SpatialHashGrid Class</a></li>
+            <li><a href="#page-22">Page 22: Define SpatialHashGrid Constructor</a></li>
+            <li><a href="#page-23">Page 23: Define Grid Clear Method</a></li>
+            <li><a href="#page-24">Page 24: Define Grid Key Generation Method</a></li>
+            <li><a href="#page-25">Page 25: Define Grid Insert Method</a></li>
+            <li><a href="#page-26">Page 26: Define Grid Neighbor Query Method Signature</a></li>
+            <li><a href="#page-27">Page 27: Create Neighbor Cell Iteration Loops</a></li>
+            <li><a href="#page-28">Page 28: Return Nearby Particles Array</a></li>
+            <li><a href="#page-29">Page 29: Define Main Component Function</a></li>
+            <li><a href="#page-30">Page 30: Create Canvas Reference</a></li>
+            <li><a href="#page-31">Page 31: Create Particles Reference</a></li>
+            <li><a href="#page-32">Page 32: Create Rules Reference</a></li>
+            <li><a href="#page-33">Page 33: Create Spatial Grid Reference</a></li>
+            <li><a href="#page-34">Page 34: Create Animation Frame Reference</a></li>
+            <li><a href="#page-35">Page 35: Define Initialization Function Signature</a></li>
+            <li><a href="#page-36">Page 36: Create Particles Array</a></li>
+            <li><a href="#page-37">Page 37: Create Particle Generation Loops</a></li>
+            <li><a href="#page-38">Page 38: Store Particles in Ref</a></li>
+            <li><a href="#page-39">Page 39: Generate and Store Rules</a></li>
+            <li><a href="#page-40">Page 40: Create Spatial Grid Instance</a></li>
+            <li><a href="#page-41">Page 41: Define Physics Update Function Signature</a></li>
+            <li><a href="#page-42">Page 42: Add Grid Null Check</a></li>
+            <li><a href="#page-43">Page 43: Rebuild Spatial Grid</a></li>
+            <li><a href="#page-44">Page 44: Begin Force Calculation Loop</a></li>
+            <li><a href="#page-45">Page 45: Query Nearby Particles</a></li>
+            <li><a href="#page-46">Page 46: Begin Neighbor Interaction Loop</a></li>
+            <li><a href="#page-47">Page 47: Calculate Distance Vector</a></li>
+            <li><a href="#page-48">Page 48: Skip Distant Particles</a></li>
+            <li><a href="#page-49">Page 49: Get Interaction Rule</a></li>
+            <li><a href="#page-50">Page 50: Calculate Force Magnitude</a></li>
+            <li><a href="#page-51">Page 51: Apply Force to Accumulators</a></li>
+            <li><a href="#page-52">Page 52: Apply Velocity with Friction</a></li>
+            <li><a href="#page-53">Page 53: Implement Speed Limiting</a></li>
+            <li><a href="#page-54">Page 54: Begin Position Update Loop</a></li>
+            <li><a href="#page-55">Page 55: Implement World Wrapping</a></li>
+            <li><a href="#page-56">Page 56: Define Render Function Signature</a></li>
+            <li><a href="#page-57">Page 57: Clear Canvas Background</a></li>
+            <li><a href="#page-58">Page 58: Draw All Particles</a></li>
+            <li><a href="#page-59">Page 59: Draw Rules Matrix Visualization</a></li>
+            <li><a href="#page-60">Page 60: Draw Rules Matrix Cells</a></li>
+            <li><a href="#page-61">Page 61: Draw HUD Text</a></li>
+            <li><a href="#page-62">Page 62: Define Game Loop Function</a></li>
+            <li><a href="#page-63">Page 63: Setup Effect Hook</a></li>
+            <li><a href="#page-64">Page 64: Add Effect Cleanup</a></li>
+            <li><a href="#page-65">Page 65: Define Reset Handler</a></li>
+            <li><a href="#page-66">Page 66: Begin Component Return Statement</a></li>
+            <li><a href="#page-67">Page 67: Add Title Header</a></li>
+            <li><a href="#page-68">Page 68: Add Canvas Element</a></li>
+            <li><a href="#page-69">Page 69: Add Reset Button</a></li>
+            <li><a href="#page-70">Page 70: Add Instructions Text</a></li>
+            <li><a href="#page-71">Page 71: Close Component Return</a></li>
+            <li><a href="#page-72">Page 72: Foundation Code Verification</a></li>
+            <li><a href="#page-73">Page 73: Verify Particles Initialize</a></li>
+            <li><a href="#page-74">Page 74: Verify Physics Updates</a></li>
+            <li><a href="#page-75">Page 75: Verify Rules Matrix Display</a></li>
+            <li><a href="#page-76">Page 76: Verify Reset Functionality</a></li>
+            <li><a href="#page-77">Page 77: Verify Performance</a></li>
+            <li><a href="#page-78">Page 78: Verify No Configuration Features</a></li>
+            <li><a href="#page-79">Page 79: Verify No Persistence Features</a></li>
+            <li><a href="#page-80">Page 80: Foundation Complete</a></li>
+        </ul>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+    </footer>
+
+    <script src="/build-it/assets/js/guide.js"></script>
+</body>
+</html>
