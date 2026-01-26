@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Guide — Particle Life | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / 
+                <a href="/build-it/web-performance/">Web Performance</a> / 
+                <a href="/build-it/web-performance/particle-life/">Particle Life</a> / 
+                Setup
+            </nav>
+        </div>
+    </header>
+
+    <div class="guide-header">
+        <h1>Setup Guide</h1>
+        <p class="subtitle">Particle Life</p>
+        <div class="guide-meta">
+            <span>📄 8 Pages</span>
+            <span>🎯 Run Locally on Mac</span>
+            <span>⏱️ 10-15 minutes</span>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="guide-content">
+
+    <article class="page-section" id="page-1">
+      <div class="page-header">
+        <span class="page-number">Page 1 of 8</span>
+        <h1 class="page-title">Install Homebrew</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Installs Homebrew, the Mac package manager.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Homebrew lets you install developer tools easily. You need it to install Node.js.</p>
+        </div>
+
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
+        </div>
+
+        <h2>Explanation</h2>
+        <p>Open Terminal (<code>Command + Space</code>, type "Terminal", press Enter).</p>
+        <p>Paste the command above and press Enter.</p>
+        <p>Enter your Mac password when asked. Nothing will appear as you type — that's normal.</p>
+        <p>Wait for installation to complete. This takes 2-3 minutes.</p>
+
+        <h2>Why this matters</h2>
+        <p>Homebrew is required to install Node.js, which runs React projects.</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> I pasted the command and pressed Enter</label>
+            <label class="checkbox-item"><input type="checkbox"> I entered my password</label>
+            <label class="checkbox-item"><input type="checkbox"> Installation completed without errors</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li>Password not accepted: Type carefully, it's your Mac login password</li>
+                <li>Already installed: You'll see "Homebrew is already installed" — that's fine, continue</li>
+                <li>Network error: Check your internet connection</li>
+            </ul>
+        </div>
+
+        <div class="next-page"><a href="#page-2">Page 2 →</a></div>
+      </div>
+    </article>
+
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 8</span>
+        <h1 class="page-title">Install Node.js</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Installs Node.js, which runs JavaScript and React projects.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Homebrew is installed. Now use it to install Node.js.</p>
+        </div>
+
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>brew install node</code></pre>
+        </div>
+
+        <h2>Explanation</h2>
+        <p>In Terminal, type the command above and press Enter.</p>
+        <p>Wait for installation to complete.</p>
+        <p>Verify it worked:</p>
+        <div class="code-block">
+            <pre><code>node --version</code></pre>
+        </div>
+        <p>You should see a version number like <code>v20.x.x</code>.</p>
+
+        <h2>Why this matters</h2>
+        <p>Node.js is required to run React applications. It includes npm (Node Package Manager).</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> I ran <code>brew install node</code></label>
+            <label class="checkbox-item"><input type="checkbox"> Running <code>node --version</code> shows a version number</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li><code>brew: command not found</code>: Homebrew didn't install, redo Page 1</li>
+                <li>Already installed: You'll see a message — that's fine, continue</li>
+            </ul>
+        </div>
+
+        <div class="next-page"><a href="#page-3">Page 3 →</a></div>
+      </div>
+    </article>
+
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 8</span>
+        <h1 class="page-title">Create a React Project</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a new React project folder with all required files.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Node.js is installed. Now create the project that will run Particle Life.</p>
+        </div>
+
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>mkdir ~/projects
+cd ~/projects
+npx create-react-app particle-life</code></pre>
+        </div>
+
+        <h2>Explanation</h2>
+        <p>Run these commands one at a time in Terminal:</p>
+        <ul>
+            <li><code>mkdir ~/projects</code> — Creates a projects folder</li>
+            <li><code>cd ~/projects</code> — Enters that folder</li>
+            <li><code>npx create-react-app particle-life</code> — Creates the React project</li>
+        </ul>
+        <p>The last command takes 2-3 minutes. Wait for it to finish.</p>
+
+        <h2>Why this matters</h2>
+        <p>React projects need a specific folder structure. This command sets it all up automatically.</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> I ran all three commands</label>
+            <label class="checkbox-item"><input type="checkbox"> I see "Success! Created particle-life"</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li><code>mkdir: File exists</code>: The projects folder already exists — that's fine, continue with <code>cd</code></li>
+                <li>Network errors: Check internet connection, try again</li>
+            </ul>
+        </div>
+
+        <div class="next-page"><a href="#page-4">Page 4 →</a></div>
+      </div>
+    </article>
+
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 8</span>
+        <h1 class="page-title">Start the Project</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Starts the React development server and opens it in your browser.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>The project is created. Now run it to confirm everything works.</p>
+        </div>
+
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>cd particle-life
+npm start</code></pre>
+        </div>
+
+        <h2>Explanation</h2>
+        <p>Run these commands in Terminal:</p>
+        <ul>
+            <li><code>cd particle-life</code> — Enter the project folder</li>
+            <li><code>npm start</code> — Start the development server</li>
+        </ul>
+        <p>A browser window opens automatically showing a spinning React logo.</p>
+        <p><strong>Keep this Terminal window open.</strong> It's running your app.</p>
+
+        <h2>Why this matters</h2>
+        <p>This confirms React is working. The browser will auto-refresh when you change code.</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> Browser opened automatically</label>
+            <label class="checkbox-item"><input type="checkbox"> I see a spinning React logo</label>
+            <label class="checkbox-item"><input type="checkbox"> Terminal is still running (don't close it)</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li>Browser didn't open: Go to <code>http://localhost:3000</code> manually</li>
+                <li>Port in use: Another app is using port 3000, close it and try again</li>
+            </ul>
+        </div>
+
+        <div class="next-page"><a href="#page-5">Page 5 →</a></div>
+      </div>
+    </article>
+
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 8</span>
+        <h1 class="page-title">Open in VS Code</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Opens the project folder in VS Code.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>React is running. Now open VS Code to edit the code.</p>
+        </div>
+
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Command + Space
+Type: Visual Studio Code
+Press Enter</code></pre>
+        </div>
+
+        <h2>Explanation</h2>
+        <p>Open VS Code using Spotlight Search.</p>
+        <p>Then open the project folder:</p>
+        <ol>
+            <li>Press <code>Command + O</code></li>
+            <li>Navigate to: <strong>Users → [your username] → projects → particle-life</strong></li>
+            <li>Click <strong>Open</strong></li>
+        </ol>
+        <p>You should see the project files in the left sidebar.</p>
+
+        <h2>Why this matters</h2>
+        <p>VS Code is where you'll paste the Particle Life code.</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> VS Code is open</label>
+            <label class="checkbox-item"><input type="checkbox"> I see the particle-life folder contents in the sidebar</label>
+            <label class="checkbox-item"><input type="checkbox"> I can see a <code>src</code> folder</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li>VS Code not installed: Download from <a href="https://code.visualstudio.com">code.visualstudio.com</a></li>
+                <li>Can't find the folder: It's at <code>/Users/[your username]/projects/particle-life</code></li>
+            </ul>
+        </div>
+
+        <div class="next-page"><a href="#page-6">Page 6 →</a></div>
+      </div>
+    </article>
+
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 8</span>
+        <h1 class="page-title">Open App.js</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Opens the main application file that you'll replace.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>VS Code has the project open. Now find the file to edit.</p>
+        </div>
+
+        <h2>Explanation</h2>
+        <p>In the VS Code sidebar (left side):</p>
+        <ol>
+            <li>Click the <code>src</code> folder to expand it</li>
+            <li>Double-click <code>App.js</code></li>
+        </ol>
+        <p>The file opens in the editor. You'll see the default React code.</p>
+
+        <h2>Why this matters</h2>
+        <p>This is the file you'll replace with the Particle Life code.</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> I clicked the <code>src</code> folder</label>
+            <label class="checkbox-item"><input type="checkbox"> I double-clicked <code>App.js</code></label>
+            <label class="checkbox-item"><input type="checkbox"> The file is open in the editor</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li>No sidebar: Press <code>Command + B</code> to show it</li>
+                <li>Can't find <code>src</code>: Make sure you opened the particle-life folder, not a parent folder</li>
+            </ul>
+        </div>
+
+        <div class="next-page"><a href="#page-7">Page 7 →</a></div>
+      </div>
+    </article>
+
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 8</span>
+        <h1 class="page-title">Replace the Code</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Replaces the default React code with Particle Life.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>App.js is open. Now paste the Particle Life code.</p>
+        </div>
+
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Command + A    (select all)
+Delete         (remove it)
+Command + V    (paste)
+Command + S    (save)</code></pre>
+        </div>
+
+        <h2>Explanation</h2>
+        <ol>
+            <li>In VS Code with App.js open, press <code>Command + A</code> to select all</li>
+            <li>Press <code>Delete</code> to remove the code</li>
+            <li>Go to the <a href="./complete.html">Particle Life Complete Code</a> page</li>
+            <li>Click <strong>Copy Code</strong></li>
+            <li>Back in VS Code, press <code>Command + V</code> to paste</li>
+            <li>Press <code>Command + S</code> to save</li>
+        </ol>
+
+        <h2>Why this matters</h2>
+        <p>This replaces the demo code with the full Particle Life simulation.</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> I selected all and deleted</label>
+            <label class="checkbox-item"><input type="checkbox"> I copied the code from the Complete Code page</label>
+            <label class="checkbox-item"><input type="checkbox"> I pasted and saved</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li>Paste didn't work: Make sure you clicked "Copy Code" on the complete code page</li>
+                <li>File won't save: Check for a white dot on the tab, press <code>Command + S</code> again</li>
+            </ul>
+        </div>
+
+        <div class="next-page"><a href="#page-8">Page 8 →</a></div>
+      </div>
+    </article>
+
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 8</span>
+        <h1 class="page-title">View the Simulation</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms Particle Life is running.</p>
+
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>The code is saved. The browser should update automatically.</p>
+        </div>
+
+        <h2>Explanation</h2>
+        <p>Look at your browser (the one showing localhost:3000).</p>
+        <p>The page auto-refreshes when you save. You should see colorful particles interacting.</p>
+        <p>Use the controls on the right to:</p>
+        <ul>
+            <li>Change presets (Random, Symmetric, Chains, etc.)</li>
+            <li>Adjust settings (particles, friction, force)</li>
+            <li>Enable trails</li>
+            <li>Save and load configurations</li>
+        </ul>
+
+        <h2>Why this matters</h2>
+        <p>You did it. Particle Life is running locally on your Mac.</p>
+
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <label class="checkbox-item"><input type="checkbox"> Browser shows colorful particles</label>
+            <label class="checkbox-item"><input type="checkbox"> Particles are moving and interacting</label>
+            <label class="checkbox-item"><input type="checkbox"> Controls panel is visible on the right</label>
+        </div>
+
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul>
+                <li>Browser shows errors: Make sure you copied ALL the code and saved</li>
+                <li>Nothing changed: Check Terminal is still running <code>npm start</code></li>
+                <li>Black screen: Wait a moment, or refresh the browser</li>
+            </ul>
+        </div>
+
+        <div style="background: #e8f5e9; border-left: 4px solid #4caf50; padding: 1rem 1.5rem; margin: 2rem 0; border-radius: 0 8px 8px 0;">
+            <h3 style="margin-top: 0; color: #2e7d32;">🎉 Congratulations!</h3>
+            <p>Particle Life is running on your Mac.</p>
+            <p><strong>To run again later:</strong></p>
+            <pre style="background: #c8e6c9; padding: 0.5rem; border-radius: 4px;"><code>cd ~/projects/particle-life
+npm start</code></pre>
+            <p><strong>To stop:</strong> Press <code>Control + C</code> in Terminal.</p>
+        </div>
+      </div>
+    </article>
+
+    </main>
+
+    <button class="toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰</button>
+
+    <div class="toc-panel" id="tocPanel">
+        <div class="toc-header">
+            <h3>Contents</h3>
+            <button class="toc-close" onclick="toggleTOC()">×</button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="#page-1">Page 1: Install Homebrew</a></li>
+            <li><a href="#page-2">Page 2: Install Node.js</a></li>
+            <li><a href="#page-3">Page 3: Create a React Project</a></li>
+            <li><a href="#page-4">Page 4: Start the Project</a></li>
+            <li><a href="#page-5">Page 5: Open in VS Code</a></li>
+            <li><a href="#page-6">Page 6: Open App.js</a></li>
+            <li><a href="#page-7">Page 7: Replace the Code</a></li>
+            <li><a href="#page-8">Page 8: View the Simulation</a></li>
+        </ul>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+    </footer>
+
+    <script src="/build-it/assets/js/guide.js"></script>
+</body>
+</html>
