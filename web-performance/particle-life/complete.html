@@ -1,124 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Particle Life — Complete Code | Build It</title>
-    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
-    <style>
-        .code-container {
-            background: #1e1e1e;
-            border-radius: 8px;
-            margin: 2rem 0;
-            overflow: hidden;
-        }
-        .code-header {
-            background: #2d2d2d;
-            padding: 0.75rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #3d3d3d;
-        }
-        .code-header span {
-            color: #888;
-            font-size: 0.875rem;
-        }
-        .copy-btn {
-            background: #4a9eff;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.875rem;
-        }
-        .copy-btn:hover {
-            background: #3a8eef;
-        }
-        .copy-btn.copied {
-            background: #4caf50;
-        }
-        .code-content {
-            padding: 1rem;
-            overflow-x: auto;
-            max-height: 600px;
-            overflow-y: auto;
-        }
-        .code-content pre {
-            margin: 0;
-            color: #d4d4d4;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 0.875rem;
-            line-height: 1.5;
-        }
-        .instructions {
-            background: #f0f7ff;
-            border-left: 4px solid #4a9eff;
-            padding: 1rem 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .instructions h3 {
-            margin-top: 0;
-            color: #2d5a8b;
-        }
-        .instructions ol {
-            margin-bottom: 0;
-        }
-        .instructions code {
-            background: #e0ecf7;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-        }
-    </style>
-</head>
-<body>
-    <header class="site-header">
-        <div class="header-content">
-            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
-            <nav class="breadcrumb">
-                <a href="/build-it/">Home</a> / 
-                <a href="/build-it/web-performance/">Web Performance</a> / 
-                <a href="/build-it/web-performance/particle-life/">Particle Life</a> / 
-                Complete Code
-            </nav>
-        </div>
-    </header>
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 
-    <div class="guide-header">
-        <h1>Particle Life — Complete Code</h1>
-        <p class="subtitle">Full working simulation with all features</p>
-        <div class="guide-meta">
-            <span>📄 Single File</span>
-            <span>🎯 Copy & Run</span>
-            <span>💾 Includes Save/Load</span>
-        </div>
-    </div>
-
-    <main class="guide-content">
-        <article class="page-section">
-            <div class="page-body">
-                <h2>About This Code</h2>
-                <p>This is the complete Particle Life simulation with all three stages implemented:</p>
-                <ul>
-                    <li><strong>Foundation</strong> — Particle physics, species interactions, spatial hashing</li>
-                    <li><strong>Configuration</strong> — Settings panel, presets, trails effect, adjustable parameters</li>
-                    <li><strong>Persistence</strong> — Save/load configurations to localStorage</li>
-                </ul>
-                
-             <div class="instructions">
-                    <h3>How to Run</h3>
-                    <p>Follow the <a href="./setup.html">Setup Guide</a> for step-by-step instructions to run this on your Mac.</p>
-                </div>
-                
 // ============================================
 // CONSTANTS
 // ============================================
 
-const WIDTH = 800;
-const HEIGHT = 600;
-const NUM_PARTICLES = 1500;
+const WIDTH = 1400;
+const HEIGHT = 1000;
+const NUM_PARTICLES = 10000;
 const NUM_SPECIES = 6;
 const MAX_DISTANCE = 100;
 const MIN_DISTANCE = 20;
@@ -134,7 +22,7 @@ const COLORS = [
 ];
 
 const DEFAULT_SETTINGS = {
-  particleCount: 1500,
+  particleCount: 10000,
   friction: 0.5,
   forceFactor: 1,
   maxDistance: 100,
@@ -151,9 +39,9 @@ const DEFAULT_SETTINGS = {
 const PRESET_RULES = {
   random: () => {
     const rules = [];
-    for (let i = 0; i &lt; NUM_SPECIES; i++) {
+    for (let i = 0; i < NUM_SPECIES; i++) {
       rules[i] = [];
-      for (let j = 0; j &lt; NUM_SPECIES; j++) {
+      for (let j = 0; j < NUM_SPECIES; j++) {
         rules[i][j] = Math.random() * 2 - 1;
       }
     }
@@ -162,10 +50,10 @@ const PRESET_RULES = {
 
   symmetric: () => {
     const rules = [];
-    for (let i = 0; i &lt; NUM_SPECIES; i++) {
+    for (let i = 0; i < NUM_SPECIES; i++) {
       rules[i] = [];
-      for (let j = 0; j &lt; NUM_SPECIES; j++) {
-        if (j &lt;= i) {
+      for (let j = 0; j < NUM_SPECIES; j++) {
+        if (j <= i) {
           rules[i][j] = Math.random() * 2 - 1;
         } else {
           rules[i][j] = rules[j]?.[i] ?? Math.random() * 2 - 1;
@@ -177,9 +65,9 @@ const PRESET_RULES = {
 
   chains: () => {
     const rules = [];
-    for (let i = 0; i &lt; NUM_SPECIES; i++) {
+    for (let i = 0; i < NUM_SPECIES; i++) {
       rules[i] = [];
-      for (let j = 0; j &lt; NUM_SPECIES; j++) {
+      for (let j = 0; j < NUM_SPECIES; j++) {
         if (j === (i + 1) % NUM_SPECIES) {
           rules[i][j] = 0.8;
         } else if (j === i) {
@@ -194,9 +82,9 @@ const PRESET_RULES = {
 
   clusters: () => {
     const rules = [];
-    for (let i = 0; i &lt; NUM_SPECIES; i++) {
+    for (let i = 0; i < NUM_SPECIES; i++) {
       rules[i] = [];
-      for (let j = 0; j &lt; NUM_SPECIES; j++) {
+      for (let j = 0; j < NUM_SPECIES; j++) {
         if (i === j) {
           rules[i][j] = 0.5;
         } else {
@@ -209,9 +97,9 @@ const PRESET_RULES = {
 
   snakes: () => {
     const rules = [];
-    for (let i = 0; i &lt; NUM_SPECIES; i++) {
+    for (let i = 0; i < NUM_SPECIES; i++) {
       rules[i] = [];
-      for (let j = 0; j &lt; NUM_SPECIES; j++) {
+      for (let j = 0; j < NUM_SPECIES; j++) {
         if (j === (i + 1) % NUM_SPECIES) {
           rules[i][j] = 1;
         } else if (j === i) {
@@ -228,9 +116,9 @@ const PRESET_RULES = {
 
   orbits: () => {
     const rules = [];
-    for (let i = 0; i &lt; NUM_SPECIES; i++) {
+    for (let i = 0; i < NUM_SPECIES; i++) {
       rules[i] = [];
-      for (let j = 0; j &lt; NUM_SPECIES; j++) {
+      for (let j = 0; j < NUM_SPECIES; j++) {
         const diff = (j - i + NUM_SPECIES) % NUM_SPECIES;
         if (diff === 1) {
           rules[i][j] = 0.6;
@@ -283,8 +171,8 @@ class SpatialHashGrid {
     const row = Math.floor(particle.y / this.cellSize);
     const nearby = [];
 
-    for (let dc = -1; dc &lt;= 1; dc++) {
-      for (let dr = -1; dr &lt;= 1; dr++) {
+    for (let dc = -1; dc <= 1; dc++) {
+      for (let dr = -1; dr <= 1; dr++) {
         const key = this.getKey(col + dc, row + dr);
         const cell = this.cells.get(key);
         if (cell) {
@@ -314,7 +202,7 @@ function createParticle(id) {
 
 function createParticles(count) {
   const particles = [];
-  for (let i = 0; i &lt; count; i++) {
+  for (let i = 0; i < count; i++) {
     particles.push(createParticle(i));
   }
   return particles;
@@ -407,19 +295,19 @@ export default function ParticleLife() {
         let dy = other.y - p.y;
 
         if (wrapEdges) {
-          if (dx &gt; WIDTH / 2) dx -= WIDTH;
-          if (dx &lt; -WIDTH / 2) dx += WIDTH;
-          if (dy &gt; HEIGHT / 2) dy -= HEIGHT;
-          if (dy &lt; -HEIGHT / 2) dy += HEIGHT;
+          if (dx > WIDTH / 2) dx -= WIDTH;
+          if (dx < -WIDTH / 2) dx += WIDTH;
+          if (dy > HEIGHT / 2) dy -= HEIGHT;
+          if (dy < -HEIGHT / 2) dy += HEIGHT;
         }
 
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist &gt; 0 &amp;&amp; dist &lt; maxDistance) {
+        if (dist > 0 && dist < maxDistance) {
           const rule = rules[p.species][other.species];
           let force = 0;
 
-          if (dist &lt; minDistance) {
+          if (dist < minDistance) {
             force = (dist / minDistance - 1) * forceFactor;
           } else {
             force = rule * (1 - (dist - minDistance) / (maxDistance - minDistance)) * forceFactor;
@@ -437,15 +325,15 @@ export default function ParticleLife() {
       p.y += p.vy;
 
       if (wrapEdges) {
-        if (p.x &lt; 0) p.x += WIDTH;
-        if (p.x &gt;= WIDTH) p.x -= WIDTH;
-        if (p.y &lt; 0) p.y += HEIGHT;
-        if (p.y &gt;= HEIGHT) p.y -= HEIGHT;
+        if (p.x < 0) p.x += WIDTH;
+        if (p.x >= WIDTH) p.x -= WIDTH;
+        if (p.y < 0) p.y += HEIGHT;
+        if (p.y >= HEIGHT) p.y -= HEIGHT;
       } else {
-        if (p.x &lt; 0) { p.x = 0; p.vx *= -0.5; }
-        if (p.x &gt;= WIDTH) { p.x = WIDTH - 1; p.vx *= -0.5; }
-        if (p.y &lt; 0) { p.y = 0; p.vy *= -0.5; }
-        if (p.y &gt;= HEIGHT) { p.y = HEIGHT - 1; p.vy *= -0.5; }
+        if (p.x < 0) { p.x = 0; p.vx *= -0.5; }
+        if (p.x >= WIDTH) { p.x = WIDTH - 1; p.vx *= -0.5; }
+        if (p.y < 0) { p.y = 0; p.vy *= -0.5; }
+        if (p.y >= HEIGHT) { p.y = HEIGHT - 1; p.vy *= -0.5; }
       }
     }
   }, [settings]);
@@ -467,7 +355,7 @@ export default function ParticleLife() {
       for (const p of particles) {
         trailCtx.fillStyle = COLORS[p.species];
         trailCtx.beginPath();
-        trailCtx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+        trailCtx.arc(p.x, p.y, 1, 0, Math.PI * 2);
         trailCtx.fill();
       }
 
@@ -479,7 +367,7 @@ export default function ParticleLife() {
       for (const p of particles) {
         ctx.fillStyle = COLORS[p.species];
         ctx.beginPath();
-        ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
         ctx.fill();
       }
     }
@@ -493,10 +381,10 @@ export default function ParticleLife() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     ctx.fillRect(matrixX - 5, matrixY - 5, matrixSize + 10, matrixSize + 10);
 
-    for (let i = 0; i &lt; NUM_SPECIES; i++) {
-      for (let j = 0; j &lt; NUM_SPECIES; j++) {
+    for (let i = 0; i < NUM_SPECIES; i++) {
+      for (let j = 0; j < NUM_SPECIES; j++) {
         const rule = rules[i][j];
-        const hue = rule &gt; 0 ? 120 : 0;
+        const hue = rule > 0 ? 120 : 0;
         const lightness = 30 + Math.abs(rule) * 40;
         ctx.fillStyle = `hsl(${hue}, 70%, ${lightness}%)`;
         ctx.fillRect(
@@ -585,23 +473,23 @@ export default function ParticleLife() {
   };
 
   return (
-    &lt;div style={{ 
+    <div style={{ 
       display: 'flex', 
       gap: '20px', 
       padding: '20px', 
       background: '#1a1a2e',
       minHeight: '100vh',
       fontFamily: 'system-ui, sans-serif'
-    }}&gt;
+    }}>
       {/* Canvas Container */}
-      &lt;div style={{ position: 'relative' }}&gt;
-        &lt;canvas
+      <div style={{ position: 'relative' }}>
+        <canvas
           ref={trailCanvasRef}
           width={WIDTH}
           height={HEIGHT}
           style={{ display: 'none' }}
-        /&gt;
-        &lt;canvas
+        />
+        <canvas
           ref={canvasRef}
           width={WIDTH}
           height={HEIGHT}
@@ -609,11 +497,11 @@ export default function ParticleLife() {
             border: '2px solid #333',
             borderRadius: '8px',
           }}
-        /&gt;
-      &lt;/div&gt;
+        />
+      </div>
 
       {/* Controls Panel */}
-      &lt;div style={{
+      <div style={{
         background: '#16213e',
         padding: '20px',
         borderRadius: '8px',
@@ -621,17 +509,17 @@ export default function ParticleLife() {
         width: '280px',
         maxHeight: '600px',
         overflowY: 'auto',
-      }}&gt;
-        &lt;h2 style={{ margin: '0 0 15px 0', color: '#4ECDC4' }}&gt;Particle Life&lt;/h2&gt;
+      }}>
+        <h2 style={{ margin: '0 0 15px 0', color: '#4ECDC4' }}>Particle Life</h2>
 
         {/* Presets */}
-        &lt;div style={{ marginBottom: '20px' }}&gt;
-          &lt;h3 style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#888' }}&gt;Presets&lt;/h3&gt;
-          &lt;div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}&gt;
-            {Object.keys(PRESET_RULES).map(preset =&gt; (
-              &lt;button
+        <div style={{ marginBottom: '20px' }}>
+          <h3 style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#888' }}>Presets</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
+            {Object.keys(PRESET_RULES).map(preset => (
+              <button
                 key={preset}
-                onClick={() =&gt; handlePresetChange(preset)}
+                onClick={() => handlePresetChange(preset)}
                 style={{
                   padding: '5px 10px',
                   background: currentPreset === preset ? '#4ECDC4' : '#2a3a5e',
@@ -641,78 +529,78 @@ export default function ParticleLife() {
                   cursor: 'pointer',
                   fontSize: '12px',
                 }}
-              &gt;
+              >
                 {preset}
-              &lt;/button&gt;
+              </button>
             ))}
-          &lt;/div&gt;
-        &lt;/div&gt;
+          </div>
+        </div>
 
         {/* Settings */}
-        &lt;div style={{ marginBottom: '20px' }}&gt;
-          &lt;h3 style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#888' }}&gt;Settings&lt;/h3&gt;
+        <div style={{ marginBottom: '20px' }}>
+          <h3 style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#888' }}>Settings</h3>
           
-          &lt;label style={{ display: 'block', marginBottom: '10px' }}&gt;
-            &lt;span style={{ fontSize: '12px' }}&gt;Particles: {settings.particleCount}&lt;/span&gt;
-            &lt;input
+          <label style={{ display: 'block', marginBottom: '10px' }}>
+            <span style={{ fontSize: '12px' }}>Particles: {settings.particleCount}</span>
+            <input
               type="range"
-              min="100"
-              max="3000"
-              step="100"
+              min="200"
+              max="10000"
+              step="200"
               value={settings.particleCount}
-              onChange={(e) =&gt; handleSettingChange('particleCount', parseInt(e.target.value))}
+              onChange={(e) => handleSettingChange('particleCount', parseInt(e.target.value))}
               style={{ width: '100%' }}
-            /&gt;
-          &lt;/label&gt;
+            />
+          </label>
 
-          &lt;label style={{ display: 'block', marginBottom: '10px' }}&gt;
-            &lt;span style={{ fontSize: '12px' }}&gt;Friction: {settings.friction.toFixed(2)}&lt;/span&gt;
-            &lt;input
+          <label style={{ display: 'block', marginBottom: '10px' }}>
+            <span style={{ fontSize: '12px' }}>Friction: {settings.friction.toFixed(2)}</span>
+            <input
               type="range"
               min="0"
               max="1"
               step="0.05"
               value={settings.friction}
-              onChange={(e) =&gt; handleSettingChange('friction', parseFloat(e.target.value))}
+              onChange={(e) => handleSettingChange('friction', parseFloat(e.target.value))}
               style={{ width: '100%' }}
-            /&gt;
-          &lt;/label&gt;
+            />
+          </label>
 
-          &lt;label style={{ display: 'block', marginBottom: '10px' }}&gt;
-            &lt;span style={{ fontSize: '12px' }}&gt;Force: {settings.forceFactor.toFixed(2)}&lt;/span&gt;
-            &lt;input
+          <label style={{ display: 'block', marginBottom: '10px' }}>
+            <span style={{ fontSize: '12px' }}>Force: {settings.forceFactor.toFixed(2)}</span>
+            <input
               type="range"
-              min="0.1"
-              max="3"
-              step="0.1"
+              min="0.01"
+              max="0.02"
+              step="0.001"
               value={settings.forceFactor}
-              onChange={(e) =&gt; handleSettingChange('forceFactor', parseFloat(e.target.value))}
+              onChange={(e) => handleSettingChange('forceFactor', parseFloat(e.target.value))}
               style={{ width: '100%' }}
-            /&gt;
-          &lt;/label&gt;
+            />
+          </label>
 
-          &lt;label style={{ display: 'block', marginBottom: '10px' }}&gt;
-            &lt;input
+          <label style={{ display: 'block', marginBottom: '10px' }}>
+            <input
               type="checkbox"
               checked={settings.trailsEnabled}
-              onChange={(e) =&gt; handleSettingChange('trailsEnabled', e.target.checked)}
-            /&gt;
-            &lt;span style={{ fontSize: '12px', marginLeft: '5px' }}&gt;Enable Trails&lt;/span&gt;
-          &lt;/label&gt;
+              onChange={(e) => handleSettingChange('trailsEnabled', e.target.checked)}
+            />
+            <span style={{ fontSize: '12px', marginLeft: '5px' }}>Enable Trails</span>
+          </label>
 
-          &lt;label style={{ display: 'block', marginBottom: '10px' }}&gt;
-            &lt;input
+          <label style={{ display: 'block', marginBottom: '10px' }}>
+            <input
               type="checkbox"
               checked={settings.wrapEdges}
-              onChange={(e) =&gt; handleSettingChange('wrapEdges', e.target.checked)}
-            /&gt;
-            &lt;span style={{ fontSize: '12px', marginLeft: '5px' }}&gt;Wrap Edges&lt;/span&gt;
-          &lt;/label&gt;
-        &lt;/div&gt;
+              onChange={(e) => handleSettingChange('wrapEdges', e.target.checked)}
+            />
+            <span style={{ fontSize: '12px', marginLeft: '5px' }}>Wrap Edges</span>
+          </label>
+        </div>
 
         {/* Action Buttons */}
-        &lt;div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}&gt;
-          &lt;button
+        <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+          <button
             onClick={handleApply}
             style={{
               flex: 1,
@@ -724,10 +612,10 @@ export default function ParticleLife() {
               cursor: 'pointer',
               fontWeight: 'bold',
             }}
-          &gt;
+          >
             Apply
-          &lt;/button&gt;
-          &lt;button
+          </button>
+          <button
             onClick={handleReset}
             style={{
               flex: 1,
@@ -738,21 +626,21 @@ export default function ParticleLife() {
               borderRadius: '4px',
               cursor: 'pointer',
             }}
-          &gt;
+          >
             Reset
-          &lt;/button&gt;
-        &lt;/div&gt;
+          </button>
+        </div>
 
         {/* Save/Load */}
-        &lt;div style={{ borderTop: '1px solid #333', paddingTop: '15px' }}&gt;
-          &lt;h3 style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#888' }}&gt;Save / Load&lt;/h3&gt;
+        <div style={{ borderTop: '1px solid #333', paddingTop: '15px' }}>
+          <h3 style={{ margin: '0 0 10px 0', fontSize: '14px', color: '#888' }}>Save / Load</h3>
           
-          &lt;div style={{ display: 'flex', gap: '5px', marginBottom: '10px' }}&gt;
-            &lt;input
+          <div style={{ display: 'flex', gap: '5px', marginBottom: '10px' }}>
+            <input
               type="text"
               placeholder="Config name..."
               value={saveName}
-              onChange={(e) =&gt; setSaveName(e.target.value)}
+              onChange={(e) => setSaveName(e.target.value)}
               style={{
                 flex: 1,
                 padding: '5px',
@@ -761,8 +649,8 @@ export default function ParticleLife() {
                 borderRadius: '4px',
                 color: '#fff',
               }}
-            /&gt;
-            &lt;button
+            />
+            <button
               onClick={handleSave}
               style={{
                 padding: '5px 15px',
@@ -772,15 +660,15 @@ export default function ParticleLife() {
                 borderRadius: '4px',
                 cursor: 'pointer',
               }}
-            &gt;
+            >
               Save
-            &lt;/button&gt;
-          &lt;/div&gt;
+            </button>
+          </div>
 
-          {Object.keys(savedConfigs).length &gt; 0 &amp;&amp; (
-            &lt;div style={{ fontSize: '12px' }}&gt;
-              {Object.keys(savedConfigs).map(name =&gt; (
-                &lt;div
+          {Object.keys(savedConfigs).length > 0 && (
+            <div style={{ fontSize: '12px' }}>
+              {Object.keys(savedConfigs).map(name => (
+                <div
                   key={name}
                   style={{
                     display: 'flex',
@@ -791,11 +679,11 @@ export default function ParticleLife() {
                     borderRadius: '4px',
                     marginBottom: '5px',
                   }}
-                &gt;
-                  &lt;span&gt;{name}&lt;/span&gt;
-                  &lt;div&gt;
-                    &lt;button
-                      onClick={() =&gt; handleLoad(name)}
+                >
+                  <span>{name}</span>
+                  <div>
+                    <button
+                      onClick={() => handleLoad(name)}
                       style={{
                         padding: '2px 8px',
                         background: '#4ECDC4',
@@ -805,11 +693,11 @@ export default function ParticleLife() {
                         cursor: 'pointer',
                         marginRight: '5px',
                       }}
-                    &gt;
+                    >
                       Load
-                    &lt;/button&gt;
-                    &lt;button
-                      onClick={() =&gt; handleDelete(name)}
+                    </button>
+                    <button
+                      onClick={() => handleDelete(name)}
                       style={{
                         padding: '2px 8px',
                         background: '#FF6B6B',
@@ -818,17 +706,17 @@ export default function ParticleLife() {
                         borderRadius: '3px',
                         cursor: 'pointer',
                       }}
-                    &gt;
+                    >
                       ×
-                    &lt;/button&gt;
-                  &lt;/div&gt;
-                &lt;/div&gt;
+                    </button>
+                  </div>
+                </div>
               ))}
-            &lt;/div&gt;
+            </div>
           )}
-        &lt;/div&gt;
+        </div>
 
-        &lt;button
+        <button
           onClick={handleResetDefaults}
           style={{
             width: '100%',
@@ -841,62 +729,10 @@ export default function ParticleLife() {
             cursor: 'pointer',
             fontSize: '12px',
           }}
-        &gt;
+        >
           Reset to Defaults
-        &lt;/button&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+        </button>
+      </div>
+    </div>
   );
-}</pre>
-                    </div>
-                </div>
-
-                <h2>Features</h2>
-                <ul>
-                    <li><strong>1500 particles</strong> across 6 species with unique interaction rules</li>
-                    <li><strong>Spatial hashing</strong> for O(n) performance instead of O(n²)</li>
-                    <li><strong>6 built-in presets</strong>: Random, Symmetric, Chains, Clusters, Snakes, Orbits</li>
-                    <li><strong>Adjustable settings</strong>: particle count, friction, force, trails, edge wrapping</li>
-                    <li><strong>Save/Load configurations</strong> to localStorage</li>
-                    <li><strong>Live rules matrix</strong> visualization</li>
-                    <li><strong>60fps performance</strong> on modern hardware</li>
-                </ul>
-
-                <h2>Want to Learn How It Works?</h2>
-                <p>Follow the Build It tutorial to understand every line of code:</p>
-                <ul>
-                    <li><a href="./foundation.html">Foundation Guide</a> — Build the core simulation from scratch (80 pages)</li>
-                    <li><a href="./configuration.html">Configuration Guide</a> — Add settings and presets (coming soon)</li>
-                    <li><a href="./persistence.html">Persistence Guide</a> — Add save/load functionality (coming soon)</li>
-                </ul>
-            </div>
-        </article>
-    </main>
-
-    <footer class="site-footer">
-        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
-        <p>Learn by building. One page at a time.</p>
-    </footer>
-
-    <script>
-        function copyCode() {
-            const codeBlock = document.getElementById('codeBlock');
-            const code = codeBlock.textContent
-                .replace(/&lt;/g, '<')
-                .replace(/&gt;/g, '>')
-                .replace(/&amp;/g, '&');
-            
-            navigator.clipboard.writeText(code).then(() => {
-                const btn = document.querySelector('.copy-btn');
-                btn.textContent = 'Copied!';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = 'Copy Code';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
-        }
-    </script>
-    <script src="/build-it/assets/js/guide.js"></script>
-</body>
-</html>
+}
