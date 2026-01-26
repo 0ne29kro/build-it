@@ -64,9 +64,9 @@ Projects designed for students and productivity.
 
 High-performance simulations and visualizations using React and Canvas.
 
-| Project | Description | Foundation | Configuration | Persistence |
-|---------|-------------|:----------:|:-------------:|:-----------:|
-| [Particle Life](./web-performance/particle-life/) | Artificial life simulation with emergent behaviors | ✅ | 🚧 | 🚧 |
+| Project | Description | Foundation | Configuration | Persistence | Complete Code |
+|---------|-------------|:----------:|:-------------:|:-----------:|:-------------:|
+| [Particle Life](./web-performance/particle-life/) | Artificial life simulation with emergent behaviors | ✅ | 🚧 | 🚧 | [Copy & Run](./web-performance/particle-life/complete.html) |
 
 *More projects coming soon.*
 
@@ -77,6 +77,8 @@ High-performance simulations and visualizations using React and Canvas.
 3. **Follow page by page** — don't skip ahead
 4. **Run your code** at every checkpoint
 5. **Stop when satisfied** — each stage is complete on its own
+
+**For non-Python projects:** A "Complete Code" link is provided so you can copy-paste and run immediately, then follow the tutorial to learn how it works.
 
 ## Quick Links
 
@@ -92,6 +94,7 @@ High-performance simulations and visualizations using React and Canvas.
 
 ### Particle Life
 - [Particle Life — Foundation Guide](./web-performance/particle-life/foundation.html)
+- [Particle Life — Complete Code](./web-performance/particle-life/complete.html)
 
 ---
 
@@ -107,6 +110,8 @@ build-it/
 │   └── study-timer/        # Study Timer project
 ├── web-performance/        # Web Performance series
 │   └── particle-life/      # Particle Life project
+│       ├── foundation.html
+│       └── complete.html   # Full code, copy & run
 └── assets/
     ├── css/
     │   └── guide.css       # Shared styles
