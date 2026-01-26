@@ -12,7 +12,7 @@
             <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
             <nav class="breadcrumb">
                 <a href="/build-it/">Home</a> / 
-                <a href="/build-it/fundamentals/">fundamentals</a> / 
+                <a href="/build-it/fundamentals/">Fundamentals</a> / 
                 <a href="/build-it/fundamentals/project-setup/">Project Setup</a> / 
                 Foundation
             </nav>
@@ -35,23 +35,1468 @@
 
     <main class="guide-content">
         
-    <article class="page-section" id="page-19">
+    <article class="page-section" id="page-1">
       <div class="page-header">
-        <span class="page-number">Page 19 of 36</span>
-        <h1 class="page-title">Exiting Python## What this page doesShows how to exit the Python interpreter.---## Where this fitsYou are in Python's interactive mode. Now exit back to Terminal.---## Code (this page)```python>>> exit()```---## ExplanationType `exit()` and press Enter.You return to the normal Terminal prompt:```username@MacBook-Pro ~ %```Alternative: Press `Control + D` to exit.---## Why this mattersYou need to switch between Python and Terminal. Know how to exit.---## Checkpoint- [ ] I typed `exit()` or pressed `Control + D`- [ ] I see the normal Terminal prompt again---## If something breaks here- Still seeing `>>>`: Type `exit()` with parentheses, not just `exit`- Keyboard shortcut: `Control + D` always works---# Page 20: Python Checkpoint## What this page doesVerifies you have installed and can run Python.---## Where this fitsYou have completed the Python installation section.---## ExplanationYou should now be able to:| Task | Command ||------|---------|| Check Python version | `python3 --version` || Check pip version | `pip3 --version` || Start Python | `python3` || Exit Python | `exit()` |---## Why this mattersPython is installed and working. You can now install packages and run scripts.---## Checkpoint- [ ] Python 3.10+ is installed- [ ] pip is installed- [ ] I can enter and exit the Python interpreter---## If something breaks hereReview pages 13-19 for any step you missed.---# Page 21: What Is pip?## What this page doesExplains what pip is and why you need it.---## Where this fitsPython is installed. Now understand how to add functionality.---## Explanation**pip** stands for "Pip Installs Packages."Python itself is basic. Pip lets you install **packages** — pre-written code that adds features:| Package | What It Does ||---------|--------------|| `requests` | Make web requests || `pandas` | Work with data tables || `pygame` | Create games || `flask` | Build websites |Instead of writing everything from scratch, you install packages others have made.---## Why this mattersEvery real Python project uses packages. pip is how you get them.---## Checkpoint- [ ] I understand pip installs packages- [ ] I understand packages add functionality to Python---## If something breaks hereNothing to break. This is informational.---# Page 22: Check pip Version## What this page doesConfirms pip is working on your system.---## Where this fitsYou understand what pip is. Now verify it works.---## Code (this page)```bashpip3 --version```---## ExplanationRun `pip3 --version` in Terminal.You should see something like:```pip 24.0 from /opt/homebrew/lib/python3.12/site-packages/pip (python 3.12)```This confirms:- pip is installed- Which Python it's connected to- Where it's located---## Why this mattersVerifying pip works before using it saves debugging time later.---## Checkpoint- [ ] I ran `pip3 --version`- [ ] I see version information (not an error)---## If something breaks here- `command not found`: Run `python3 -m pip --version` instead- Old version: Run `pip3 install --upgrade pip`---# Page 23: Installing a Package## What this page doesTeaches how to install a Python package.---## Where this fitspip is verified. Now use it to install something.---## Code (this page)```bashpip3 install requests```---## ExplanationType `pip3 install requests` and press Enter.pip will:1. Download the `requests` package from the internet2. Install it on your system3. Show "Successfully installed requests-2.x.x"`requests` is a popular package for making web requests. We're using it as an example.---## Why this mattersThis is how you add any package to Python. The syntax is always `pip3 install packagename`.---## Checkpoint- [ ] I ran `pip3 install requests`- [ ] I see "Successfully installed"---## If something breaks here- `Permission denied`: You may need to use a virtual environment (covered soon)- Network error: Check your internet connection---# Page 24: Listing Installed Packages## What this page doesShows how to see what packages are installed.---## Where this fitsYou installed a package. Now see all installed packages.---## Code (this page)```bashpip3 list```---## ExplanationType `pip3 list` and press Enter.You will see a table:```Package    Version---------- -------pip        24.0requests   2.31.0...```This shows every package installed for your Python.---## Why this mattersKnowing what's installed helps you manage your environment and debug issues.---## Checkpoint- [ ] I ran `pip3 list`- [ ] I see `requests` in the list---## If something breaks here- Empty list: That's unusual, but pip itself should appear- Long list: System Python may have many pre-installed packages---# Page 25: Uninstalling a Package## What this page doesShows how to remove a package.---## Where this fitsYou can install and list packages. Now remove one.---## Code (this page)```bashpip3 uninstall requests```---## ExplanationType `pip3 uninstall requests` and press Enter.pip will ask: `Proceed (Y/n)?`Type `Y` and press Enter to confirm.You will see "Successfully uninstalled requests-2.x.x"---## Why this mattersSometimes you need to remove packages — to fix conflicts or clean up.---## Checkpoint- [ ] I ran `pip3 uninstall requests`- [ ] I typed `Y` to confirm- [ ] I see "Successfully uninstalled"---## If something breaks here- `Not installed`: Package wasn't there (check spelling)- Re-install it: `pip3 install requests` (we'll use it later)---# Page 26: What Is requirements.txt?## What this page doesExplains the requirements.txt file.---## Where this fitsYou can install packages one at a time. But projects need many packages.---## ExplanationA `requirements.txt` file lists all packages a project needs:```requests==2.31.0pandas==2.0.3numpy==1.24.3```Each line is a package name and version.When you share your project, others can install everything with one command.---## Why this mattersrequirements.txt ensures everyone has the exact same packages. This prevents "it works on my machine" problems.---## Checkpoint- [ ] I understand requirements.txt lists project dependencies- [ ] I understand it helps others set up the same environment---## If something breaks hereNothing to break. This is informational.---# Page 27: Creating requirements.txt## What this page doesShows how to create a requirements.txt file.---## Where this fitsYou understand what requirements.txt is. Now create one.---## Code (this page)```bashpip3 freeze > requirements.txt```---## ExplanationFirst, make sure you're in your projects folder:```bashcd ~/projects```Then run `pip3 freeze > requirements.txt`.- `pip3 freeze` lists all installed packages with versions- `>` redirects output to a file- `requirements.txt` is the filenameView the file:```bashcat requirements.txt```---## Why this mattersThis is how you document your project's dependencies for others (or yourself later).---## Checkpoint- [ ] I ran `pip3 freeze > requirements.txt`- [ ] Running `cat requirements.txt` shows package list---## If something breaks here- Empty file: No packages installed (that's okay for now)- `No such file or directory`: Make sure you're in a folder you can write to---# Page 28: Installing from requirements.txt## What this page doesShows how to install all packages from requirements.txt.---## Where this fitsYou created a requirements.txt. Now use one.---## Code (this page)```bashpip3 install -r requirements.txt```---## ExplanationThe `-r` flag tells pip to read from a file.pip will install every package listed in requirements.txt.This is how you:- Set up a project someone shared with you- Restore your environment on a new computer- Match a teammate's setup exactly---## Why this mattersOne command installs everything. No manual package-by-package installation.---## Checkpoint- [ ] I understand `pip3 install -r requirements.txt` installs from a file- [ ] I can use this when setting up projects---## If something breaks here- `No such file`: Make sure requirements.txt exists in current folder- Version conflicts: The file may have outdated versions---# Page 29: pip Checkpoint## What this page doesVerifies you understand pip and package management.---## Where this fitsYou have completed the pip section.---## ExplanationYou should now be able to:| Task | Command ||------|---------|| Install a package | `pip3 install packagename` || List packages | `pip3 list` || Uninstall a package | `pip3 uninstall packagename` || Save dependencies | `pip3 freeze > requirements.txt` || Install from file | `pip3 install -r requirements.txt` |---## Why this mattersPackage management is essential for every Python project.---## Checkpoint- [ ] I can install packages with pip3- [ ] I can list installed packages- [ ] I can create and use requirements.txt---## If something breaks hereReview pages 21-28 for any command you're unsure about.---# Page 30: What Is a Virtual Environment?## What this page doesExplains why virtual environments exist.---## Where this fitsYou can install packages globally. But that causes problems.---## Explanation**Problem:** Different projects need different package versions.- Project A needs `requests==2.25.0`- Project B needs `requests==2.31.0`If you install globally, one project breaks.**Solution:** Virtual environments.A **venv** is an isolated Python environment. Each project gets its own:- Python interpreter- Installed packages- requirements.txtProjects don't interfere with each other.---## Why this mattersProfessional Python development requires virtual environments. Always use them.---## Checkpoint- [ ] I understand global packages can cause conflicts- [ ] I understand venv isolates each project---## If something breaks hereNothing to break. This is informational.---# Page 31: Creating a venv## What this page doesCreates your first virtual environment.---## Where this fitsYou understand why venv matters. Now create one.---## Code (this page)```bashcd ~/projectsmkdir my-first-projectcd my-first-projectpython3 -m venv venv```---## ExplanationStep by step:1. `cd ~/projects` — Go to your projects folder2. `mkdir my-first-project` — Create a project folder3. `cd my-first-project` — Enter the folder4. `python3 -m venv venv` — Create a virtual environmentThe `-m venv` runs Python's venv module. The second `venv` is the folder name (convention).Check it was created:```bashls```You should see a `venv` folder.---## Why this mattersEvery project should start with creating a venv.---## Checkpoint- [ ] I created a folder `my-first-project`- [ ] I ran `python3 -m venv venv`- [ ] Running `ls` shows a `venv` folder---## If something breaks here- `No module named venv`: Run `brew install python` again- Permission denied: Check folder permissions---# Page 32: Activating the venv## What this page doesShows how to activate your virtual environment.---## Where this fitsYou created a venv. Now activate it.---## Code (this page)```bashsource venv/bin/activate```---## ExplanationType `source venv/bin/activate` and press Enter.Your prompt changes:```(venv) username@MacBook-Pro my-first-project %```The `(venv)` prefix means the virtual environment is active.Now when you run `pip3 install`, packages go into this venv only.---## Why this mattersYou must activate the venv before working on a project. Otherwise packages install globally.---## Checkpoint- [ ] I ran `source venv/bin/activate`- [ ] My prompt shows `(venv)` at the beginning---## If something breaks here- `No such file`: Make sure you're in the folder containing `venv`- Wrong path: It's `venv/bin/activate` not `venv/activate`---# Page 33: Deactivating the venv## What this page doesShows how to exit the virtual environment.---## Where this fitsThe venv is active. Now learn to deactivate it.---## Code (this page)```bashdeactivate```---## ExplanationType `deactivate` and press Enter.Your prompt returns to normal:```username@MacBook-Pro my-first-project %```The `(venv)` prefix is gone. You are back to the global Python.---## Why this mattersWhen switching projects, deactivate one venv before activating another.---## Checkpoint- [ ] I ran `deactivate`- [ ] The `(venv)` prefix is gone from my prompt---## If something breaks here- `command not found`: You weren't in an active venv- This command only works when a venv is active---# Page 34: Why Use venv?## What this page doesSummarizes the benefits of virtual environments.---## Where this fitsYou can create, activate, and deactivate venvs. Understand why.---## ExplanationAlways use venv because:| Benefit | Explanation ||---------|-------------|| **Isolation** | Project A's packages don't affect Project B || **Reproducibility** | requirements.txt captures exact versions || **Clean uninstall** | Delete the venv folder, everything's gone || **No sudo** | Install packages without admin rights || **Version testing** | Test different package versions easily |**Best practice:** Create a venv as the first step for every new project.---## Why this mattersProfessional developers always use virtual environments. It's an industry standard.---## Checkpoint- [ ] I understand the benefits of using venv- [ ] I will create a venv for every project---## If something breaks hereNothing to break. This is informational.---# Page 35: venv Checkpoint## What this page doesVerifies you can manage virtual environments.---## Where this fitsYou have completed the venv section.---## ExplanationYou should now be able to:| Task | Command ||------|---------|| Create a venv | `python3 -m venv venv` || Activate (Mac) | `source venv/bin/activate` || Deactivate | `deactivate` || Check if active | Look for `(venv)` in prompt |**Typical workflow:**```bashmkdir new-projectcd new-projectpython3 -m venv venvsource venv/bin/activatepip3 install requestspip3 freeze > requirements.txt```---## Why this mattersThis workflow is the foundation of every Python project.---## Checkpoint- [ ] I can create a virtual environment- [ ] I can activate and deactivate it- [ ] I understand when to use venv (always)---## If something breaks hereReview pages 30-34 for any concept you're unsure about.---# Page 36: Final Verification## What this page doesConfirms you have mastered all skills in this guide.---## Where this fitsThis is the end. Verify everything works together.---## ExplanationComplete this final test:```bashcd ~/projectsmkdir test-projectcd test-projectpython3 -m venv venvsource venv/bin/activatepip3 install requestspip3 freeze > requirements.txtcat requirements.txtpython3 -c "import requests; print('Success!')"deactivate```If you see "Success!" — you have completed the guide.**You can now:**- Navigate with Terminal- Install and run Python- Manage packages with pip- Isolate projects with venv---## Why this mattersYou are ready to build Python projects. This foundation supports everything you'll create.---## Checkpoint- [ ] I completed the final test- [ ] I saw "Success!" printed- [ ] I am ready to start building projects---## If something breaks here- Review the specific section where the error occurred- Each skill builds on the previous one---## Congratulations!You have completed **Project Setup: Foundation**.You are ready to build Python projects on your Mac.**Next:** Learn VS Code to write code more efficiently.</h1>
+        <span class="page-number">Page 1 of 36</span>
+        <h1 class="page-title">What This Guide Covers</h1>
       </div>
       <div class="page-body">
         <h2>What this page does</h2>
-        <p></p>
+        <p>Introduces the four skills you will learn in this guide.</p>
         
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the starting point. No prior knowledge required.</p>
+        </div>
         
         <h2>Explanation</h2>
-        
+        <p>By the end of this guide, you will know how to:</p><ul><li><strong>Use Mac Terminal</strong> — Navigate folders, run commands, manage files</li>
+<li><strong>Install Python</strong> — Get the latest Python on your Mac using Homebrew</li>
+<li><strong>Use pip</strong> — Install, list, and remove Python packages</li>
+<li><strong>Use venv</strong> — Create isolated environments for each project</li>
+</ul>
+These are foundational skills. Every Python project you build will use them.</p>
         <h2>Why this matters</h2>
-        <p></p>
+        <p>Without these skills, you cannot run Python projects. This guide ensures you have a solid foundation before writing any code.</p>
         
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand this guide covers Terminal, Python, pip, and venv</label></p>
+        </div>
         
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break yet. Move to Page 2.</p>
+        </div>
+        <div class="next-page"><a href="#page-2">Page 2 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 36</span>
+        <h1 class="page-title">Open Terminal</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows you how to open Terminal on your Mac.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is your first action. Terminal is where you will run all commands.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>Press: Command + Space
+Type: Terminal
+Press: Enter
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p><strong>Command + Space</strong> opens Spotlight Search. Type "Terminal" and press Enter to launch it.</p><p>Alternatively:
+<ul><li>Open Finder</li>
+<li>Go to Applications → Utilities → Terminal</li>
+</ul>
+Terminal is a text-based interface to your computer. Instead of clicking icons, you type commands.</p>
+        <h2>Why this matters</h2>
+        <p>Terminal is how developers interact with their computer. You will use it constantly.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> Terminal window is open on my screen</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>If Spotlight doesn't open: Go to System Settings → Keyboard → Shortcuts → Spotlight</li>
+<li>If Terminal not found: Open Finder → Applications → Utilities → Terminal</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-3">Page 3 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 36</span>
+        <h1 class="page-title">The Terminal Window</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains what you see when Terminal opens.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have Terminal open. Now understand what you're looking at.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You will see something like:</p><pre><code>username@MacBook-Pro ~ %
+</code></pre><p>Breaking it down:
+<ul><li><code>username</code> — Your Mac username</li>
+<li><code>MacBook-Pro</code> — Your computer name</li>
+<li><code>~</code> — Your current location (home folder)</li>
+<li><code>%</code> — The prompt (Terminal is ready for input)</li>
+</ul>
+The blinking cursor after <code>%</code> is where you type commands.</p>
+        <h2>Why this matters</h2>
+        <p>Understanding the prompt helps you know where you are and confirms Terminal is ready.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can see my username and the <code>%</code> prompt</label>
+<label class="checkbox-item"><input type="checkbox"> There is a blinking cursor</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>If you see <code>$</code> instead of <code>%</code>: That's fine, older Mac or different shell</li>
+<li>If no prompt appears: Close Terminal and reopen it</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-4">Page 4 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 36</span>
+        <h1 class="page-title">Your First Command: pwd</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches your first Terminal command: <code>pwd</code>.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Terminal is open. Now run your first command.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pwd
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>pwd</code> and press Enter.</p><p><code>pwd</code> stands for "print working directory." It shows your current location in the file system.</p><p>You will see something like:</p><pre><code>/Users/kevin
+</code></pre><p>This is your home folder. All your files live somewhere inside this.</p>
+        <h2>Why this matters</h2>
+        <p>Knowing where you are is essential. Many commands depend on your current location.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I typed <code>pwd</code> and pressed Enter</label>
+<label class="checkbox-item"><input type="checkbox"> I see a path starting with <code>/Users/</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>command not found</code>: Make sure you typed <code>pwd</code> exactly (lowercase)</li>
+<li>No output: Press Enter after typing the command</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-5">Page 5 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 36</span>
+        <h1 class="page-title">Listing Files: ls</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches the <code>ls</code> command to see folder contents.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know where you are. Now see what's there.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>ls
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>ls</code> and press Enter.</p><p><code>ls</code> stands for "list." It shows all files and folders in your current location.</p><p>You will see something like:</p><pre><code>Desktop    Documents    Downloads    Movies    Music    Pictures
+</code></pre><p>These are folders inside your home directory.</p>
+        <h2>Why this matters</h2>
+        <p><code>ls</code> is how you explore. You will use it constantly to see what files exist.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I typed <code>ls</code> and pressed Enter</label>
+<label class="checkbox-item"><input type="checkbox"> I see a list of folders (Desktop, Documents, etc.)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Nothing listed: Your folder might be empty (unlikely for home folder)</li>
+<li><code>command not found</code>: Make sure you typed <code>ls</code> exactly (lowercase L, lowercase S)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-6">Page 6 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 36</span>
+        <h1 class="page-title">Changing Directories: cd</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches the <code>cd</code> command to move between folders.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can see folders. Now move into one.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>cd Desktop
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>cd Desktop</code> and press Enter.</p><p><code>cd</code> stands for "change directory." It moves you into a folder.</p><p>Your prompt will change:</p><pre><code>username@MacBook-Pro Desktop %
+</code></pre><p>Now <code>Desktop</code> appears instead of <code>~</code>. You are inside the Desktop folder.</p><p>Run <code>pwd</code> to confirm:</p><pre><code>pwd
+</code></pre><p>Output:</p><pre><code>/Users/kevin/Desktop
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>Navigation is fundamental. You must be in the right folder to work with files.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>cd Desktop</code></label>
+<label class="checkbox-item"><input type="checkbox"> My prompt shows <code>Desktop</code> instead of <code>~</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>pwd</code> shows a path ending in <code>/Desktop</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>No such file or directory</code>: Check spelling, capitalization matters</li>
+<li>Use <code>ls</code> first to see exact folder names</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-7">Page 7 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 36</span>
+        <h1 class="page-title">Going Back: cd ..</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches how to move up one folder level.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You are in Desktop. Now go back to home.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>cd ..
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>cd ..</code> and press Enter.</p><p><code>..</code> means "parent folder" — the folder containing your current folder.</p><p>Your prompt returns to:</p><pre><code>username@MacBook-Pro ~ %
+</code></pre><p>The <code>~</code> confirms you are back in your home folder.</p>
+        <h2>Why this matters</h2>
+        <p>You need to move both into folders and back out of them.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>cd ..</code></label>
+<label class="checkbox-item"><input type="checkbox"> My prompt shows <code>~</code> again</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Still in Desktop: Make sure there's a space between <code>cd</code> and <code>..</code></li>
+<li>Type <code>cd ~</code> to go directly home from anywhere</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-8">Page 8 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 36</span>
+        <h1 class="page-title">Creating Folders: mkdir</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches how to create a new folder.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can navigate. Now create folders for your projects.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>mkdir projects
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>mkdir projects</code> and press Enter.</p><p><code>mkdir</code> stands for "make directory." It creates a new folder.</p><p>Verify it exists:</p><pre><code>ls
+</code></pre><p>You will see <code>projects</code> in the list.</p>
+        <h2>Why this matters</h2>
+        <p>You will create folders for every project. This keeps your work organized.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>mkdir projects</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>ls</code> shows a folder named <code>projects</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>File exists</code>: A folder named <code>projects</code> already exists (that's fine)</li>
+<li><code>Permission denied</code>: You might be in a protected folder, run <code>cd ~</code> first</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-9">Page 9 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-9">
+      <div class="page-header">
+        <span class="page-number">Page 9 of 36</span>
+        <h1 class="page-title">Creating Files: touch</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches how to create an empty file.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can create folders. Now create files inside them.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>cd projects
+touch test.txt
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>First, move into your projects folder with <code>cd projects</code>.</p><p>Then, <code>touch test.txt</code> creates an empty file named <code>test.txt</code>.</p><p>Verify:</p><pre><code>ls
+</code></pre><p>You will see <code>test.txt</code> listed.</p>
+        <h2>Why this matters</h2>
+        <p>Creating files from Terminal is faster than using Finder for quick tasks.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I am in the <code>projects</code> folder</label>
+<label class="checkbox-item"><input type="checkbox"> I ran <code>touch test.txt</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>ls</code> shows <code>test.txt</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>File not appearing: Make sure you're in the right folder (<code>pwd</code> to check)</li>
+<li><code>Permission denied</code>: Check folder permissions</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-10">Page 10 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-10">
+      <div class="page-header">
+        <span class="page-number">Page 10 of 36</span>
+        <h1 class="page-title">Removing Files: rm</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches how to delete a file.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You created a test file. Now remove it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>rm test.txt
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>rm test.txt</code> and press Enter.</p><p><code>rm</code> stands for "remove." It deletes files permanently.</p><p><strong>Warning:</strong> There is no trash. Deleted files are gone forever.</p><p>Verify:</p><pre><code>ls
+</code></pre><p>The file is gone.</p>
+        <h2>Why this matters</h2>
+        <p>Cleaning up test files keeps your projects tidy. But be careful — deletion is permanent.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>rm test.txt</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>ls</code> no longer shows <code>test.txt</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>No such file</code>: File already deleted or wrong name</li>
+<li>To delete folders: Use <code>rm -r foldername</code> (the <code>-r</code> means recursive)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-11">Page 11 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-11">
+      <div class="page-header">
+        <span class="page-number">Page 11 of 36</span>
+        <h1 class="page-title">Clearing the Screen: clear</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches how to clean up your Terminal window.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Your Terminal is full of old commands. Clean it up.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>clear
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>clear</code> and press Enter.</p><p>Your Terminal window becomes blank, with just a fresh prompt.</p><p>Keyboard shortcut: <code>Command + K</code> does the same thing.</p>
+        <h2>Why this matters</h2>
+        <p>A clean screen helps you focus. Use it often.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>clear</code> or pressed <code>Command + K</code></label>
+<label class="checkbox-item"><input type="checkbox"> My Terminal screen is clean</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing can break here. If <code>clear</code> doesn't work, <code>Command + K</code> always will.</p>
+        </div>
+        <div class="next-page"><a href="#page-12">Page 12 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-12">
+      <div class="page-header">
+        <span class="page-number">Page 12 of 36</span>
+        <h1 class="page-title">Terminal Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you have learned the essential Terminal commands.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the Terminal section. Confirm your skills.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Command</td><td>Purpose</td></tr>
+<tr><td><code>pwd</code></td><td>Print current location</td></tr>
+<tr><td><code>ls</code></td><td>List folder contents</td></tr>
+<tr><td><code>cd folder</code></td><td>Move into a folder</td></tr>
+<tr><td><code>cd ..</code></td><td>Move up one level</td></tr>
+<tr><td><code>mkdir name</code></td><td>Create a folder</td></tr>
+<tr><td><code>touch name</code></td><td>Create a file</td></tr>
+<tr><td><code>rm name</code></td><td>Delete a file</td></tr>
+<tr><td><code>clear</code></td><td>Clean the screen</td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>These eight commands are the foundation. You will use them every day.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can navigate folders with <code>cd</code> and <code>cd ..</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can see where I am with <code>pwd</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can list contents with <code>ls</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can create folders with <code>mkdir</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can create files with <code>touch</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can delete files with <code>rm</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 4-11 for any command you're unsure about.</p>
+        </div>
+        <div class="next-page"><a href="#page-13">Page 13 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-13">
+      <div class="page-header">
+        <span class="page-number">Page 13 of 36</span>
+        <h1 class="page-title">Check If Python Is Installed</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Checks whether Python is already on your Mac.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Terminal basics complete. Now check for Python.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>python3 --version
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>python3 --version</code> and press Enter.</p><p>If Python is installed, you will see:</p><pre><code>Python 3.12.4
+</code></pre><p>(Your version number may differ.)</p><p>If you see <code>command not found</code>, Python is not installed. That's fine — we will install it next.</p>
+        <h2>Why this matters</h2>
+        <p>Many Macs have Python pre-installed. Check before installing.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>python3 --version</code></label>
+<label class="checkbox-item"><input type="checkbox"> I either see a version number OR <code>command not found</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>command not found</code> is expected if Python isn't installed</li>
+<li>Continue to Page 14 to install Python</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-14">Page 14 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-14">
+      <div class="page-header">
+        <span class="page-number">Page 14 of 36</span>
+        <h1 class="page-title">Installing Homebrew</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Installs Homebrew, the Mac package manager.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Before installing Python, we need Homebrew.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Copy and paste this entire command into Terminal and press Enter.</p><p>Homebrew is a "package manager" — it installs software for you.</p><p>The installation will:
+<ul><li>Ask for your Mac password (type it, nothing will appear)</li>
+<li>Ask you to press Enter to confirm</li>
+<li>Take a few minutes to download and install</li>
+</ul>
+When done, you will see "Installation successful!"</p>
+        <h2>Why this matters</h2>
+        <p>Homebrew makes installing Python (and many other tools) easy and clean.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran the Homebrew install command</label>
+<label class="checkbox-item"><input type="checkbox"> I see "Installation successful!" or Homebrew is already installed</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Password not accepted: Type carefully, it's your Mac login password</li>
+<li>Already installed: Message says "Homebrew is already installed" — that's fine</li>
+<li>Network error: Check your internet connection</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-15">Page 15 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-15">
+      <div class="page-header">
+        <span class="page-number">Page 15 of 36</span>
+        <h1 class="page-title">Installing Python with Homebrew</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Installs the latest Python using Homebrew.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Homebrew is installed. Now use it to install Python.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>brew install python
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>brew install python</code> and press Enter.</p><p>Homebrew will:
+<ul><li>Download Python</li>
+<li>Install it to the correct location</li>
+<li>Set up the <code>python3</code> and <code>pip3</code> commands</li>
+</ul>
+This takes 1-2 minutes.</p>
+        <h2>Why this matters</h2>
+        <p>This installs the latest, properly configured Python on your Mac.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>brew install python</code></label>
+<label class="checkbox-item"><input type="checkbox"> Installation completed without errors</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>brew: command not found</code>: Homebrew didn't install correctly, redo Page 14</li>
+<li>Already installed: <code>Warning: python is already installed</code> — that's fine</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-16">Page 16 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-16">
+      <div class="page-header">
+        <span class="page-number">Page 16 of 36</span>
+        <h1 class="page-title">Verifying Python Installation</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms Python is installed correctly.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Python was installed. Now verify it works.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>python3 --version
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run <code>python3 --version</code> again.</p><p>You should see:</p><pre><code>Python 3.12.4
+</code></pre><p>(Or a newer version.)</p><p>Also check pip:</p><pre><code>pip3 --version
+</code></pre><p>You should see:</p><pre><code>pip 24.0 from /opt/homebrew/lib/python3.12/site-packages/pip (python 3.12)
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>Verification confirms everything is set up correctly before you continue.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> <code>python3 --version</code> shows Python 3.10 or higher</label>
+<label class="checkbox-item"><input type="checkbox"> <code>pip3 --version</code> shows pip is installed</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Version not showing: Close Terminal, reopen, try again</li>
+<li>Wrong version: Run <code>brew upgrade python</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-17">Page 17 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-17">
+      <div class="page-header">
+        <span class="page-number">Page 17 of 36</span>
+        <h1 class="page-title">Python vs Python3</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains why we use <code>python3</code> instead of <code>python</code>.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Python is installed. Understand the naming convention.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>On Mac, there are often two Pythons:</p><table>
+<tr><td>Command</td><td>Version</td></tr>
+<tr><td><code>python</code></td><td>Python 2 (old, deprecated)</td></tr>
+<tr><td><code>python3</code></td><td>Python 3 (current, use this)</td></tr>
+</table><p>Always use <code>python3</code> and <code>pip3</code> to ensure you're using the modern version.</p><p>You can check what <code>python</code> points to:</p><pre><code>python --version
+</code></pre><p>If it shows Python 2.x, that's the old system Python. Ignore it.</p>
+        <h2>Why this matters</h2>
+        <p>Using the wrong Python causes confusing errors. Always use <code>python3</code>.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand to always use <code>python3</code> and <code>pip3</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is informational.</p>
+        </div>
+        <div class="next-page"><a href="#page-18">Page 18 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-18">
+      <div class="page-header">
+        <span class="page-number">Page 18 of 36</span>
+        <h1 class="page-title">Running Python in Terminal</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to start Python's interactive mode.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Python is verified. Now run it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>python3
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>python3</code> and press Enter.</p><p>Your prompt changes:</p><pre><code>&gt;&gt;&gt;
+</code></pre><p>This is the Python interpreter. You can type Python code directly:</p><pre><code>&gt;&gt;&gt; print(&quot;Hello, World!&quot;)
+Hello, World!
+&gt;&gt;&gt; 2 + 2
+4
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>The interactive mode is great for testing small pieces of code quickly.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>python3</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see the <code>>>></code> prompt</label>
+<label class="checkbox-item"><input type="checkbox"> I can type <code>print("Hello")</code> and see output</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No <code>>>></code> prompt: Make sure you typed <code>python3</code> not <code>python</code></li>
+<li>Syntax error: Python code must be exact, check spelling and quotes</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-19">Page 19 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-19">
+      <div class="page-header">
+        <span class="page-number">Page 19 of 36</span>
+        <h1 class="page-title">Exiting Python</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to exit the Python interpreter.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You are in Python's interactive mode. Now exit back to Terminal.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>&gt;&gt;&gt; exit()
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>exit()</code> and press Enter.</p><p>You return to the normal Terminal prompt:</p><pre><code>username@MacBook-Pro ~ %
+</code></pre><p>Alternative: Press <code>Control + D</code> to exit.</p>
+        <h2>Why this matters</h2>
+        <p>You need to switch between Python and Terminal. Know how to exit.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I typed <code>exit()</code> or pressed <code>Control + D</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see the normal Terminal prompt again</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Still seeing <code>>>></code>: Type <code>exit()</code> with parentheses, not just <code>exit</code></li>
+<li>Keyboard shortcut: <code>Control + D</code> always works</li></ul>
+        </div>
         <div class="next-page"><a href="#page-20">Page 20 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-20">
+      <div class="page-header">
+        <span class="page-number">Page 20 of 36</span>
+        <h1 class="page-title">Python Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you have installed and can run Python.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the Python installation section.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Task</td><td>Command</td></tr>
+<tr><td>Check Python version</td><td><code>python3 --version</code></td></tr>
+<tr><td>Check pip version</td><td><code>pip3 --version</code></td></tr>
+<tr><td>Start Python</td><td><code>python3</code></td></tr>
+<tr><td>Exit Python</td><td><code>exit()</code></td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>Python is installed and working. You can now install packages and run scripts.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> Python 3.10+ is installed</label>
+<label class="checkbox-item"><input type="checkbox"> pip is installed</label>
+<label class="checkbox-item"><input type="checkbox"> I can enter and exit the Python interpreter</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 13-19 for any step you missed.</p>
+        </div>
+        <div class="next-page"><a href="#page-21">Page 21 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-21">
+      <div class="page-header">
+        <span class="page-number">Page 21 of 36</span>
+        <h1 class="page-title">What Is pip?</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains what pip is and why you need it.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Python is installed. Now understand how to add functionality.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p><strong>pip</strong> stands for "Pip Installs Packages."</p><p>Python itself is basic. Pip lets you install <strong>packages</strong> — pre-written code that adds features:</p><table>
+<tr><td>Package</td><td>What It Does</td></tr>
+<tr><td><code>requests</code></td><td>Make web requests</td></tr>
+<tr><td><code>pandas</code></td><td>Work with data tables</td></tr>
+<tr><td><code>pygame</code></td><td>Create games</td></tr>
+<tr><td><code>flask</code></td><td>Build websites</td></tr>
+</table><p>Instead of writing everything from scratch, you install packages others have made.</p>
+        <h2>Why this matters</h2>
+        <p>Every real Python project uses packages. pip is how you get them.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand pip installs packages</label>
+<label class="checkbox-item"><input type="checkbox"> I understand packages add functionality to Python</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is informational.</p>
+        </div>
+        <div class="next-page"><a href="#page-22">Page 22 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-22">
+      <div class="page-header">
+        <span class="page-number">Page 22 of 36</span>
+        <h1 class="page-title">Check pip Version</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms pip is working on your system.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You understand what pip is. Now verify it works.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pip3 --version
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run <code>pip3 --version</code> in Terminal.</p><p>You should see something like:</p><pre><code>pip 24.0 from /opt/homebrew/lib/python3.12/site-packages/pip (python 3.12)
+</code></pre><p>This confirms:
+<ul><li>pip is installed</li>
+<li>Which Python it's connected to</li>
+<li>Where it's located</li></ul>
+        <h2>Why this matters</h2>
+        <p>Verifying pip works before using it saves debugging time later.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>pip3 --version</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see version information (not an error)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>command not found</code>: Run <code>python3 -m pip --version</code> instead</li>
+<li>Old version: Run <code>pip3 install --upgrade pip</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-23">Page 23 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-23">
+      <div class="page-header">
+        <span class="page-number">Page 23 of 36</span>
+        <h1 class="page-title">Installing a Package</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Teaches how to install a Python package.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>pip is verified. Now use it to install something.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pip3 install requests
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>pip3 install requests</code> and press Enter.</p><p>pip will:
+<ul><li>Download the <code>requests</code> package from the internet</li>
+<li>Install it on your system</li>
+<li>Show "Successfully installed requests-2.x.x"</li>
+</ul>
+<code>requests</code> is a popular package for making web requests. We're using it as an example.</p>
+        <h2>Why this matters</h2>
+        <p>This is how you add any package to Python. The syntax is always <code>pip3 install packagename</code>.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>pip3 install requests</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see "Successfully installed"</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>Permission denied</code>: You may need to use a virtual environment (covered soon)</li>
+<li>Network error: Check your internet connection</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-24">Page 24 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-24">
+      <div class="page-header">
+        <span class="page-number">Page 24 of 36</span>
+        <h1 class="page-title">Listing Installed Packages</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to see what packages are installed.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You installed a package. Now see all installed packages.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pip3 list
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>pip3 list</code> and press Enter.</p><p>You will see a table:</p><p>```
+Package    Version</p>
+        <h2>Why this matters</h2>
+        <p>Knowing what's installed helps you manage your environment and debug issues.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>pip3 list</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see <code>requests</code> in the list</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Empty list: That's unusual, but pip itself should appear</li>
+<li>Long list: System Python may have many pre-installed packages</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-25">Page 25 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-25">
+      <div class="page-header">
+        <span class="page-number">Page 25 of 36</span>
+        <h1 class="page-title">Uninstalling a Package</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to remove a package.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can install and list packages. Now remove one.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pip3 uninstall requests
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>pip3 uninstall requests</code> and press Enter.</p><p>pip will ask: <code>Proceed (Y/n)?</code></p><p>Type <code>Y</code> and press Enter to confirm.</p><p>You will see "Successfully uninstalled requests-2.x.x"</p>
+        <h2>Why this matters</h2>
+        <p>Sometimes you need to remove packages — to fix conflicts or clean up.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>pip3 uninstall requests</code></label>
+<label class="checkbox-item"><input type="checkbox"> I typed <code>Y</code> to confirm</label>
+<label class="checkbox-item"><input type="checkbox"> I see "Successfully uninstalled"</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>Not installed</code>: Package wasn't there (check spelling)</li>
+<li>Re-install it: <code>pip3 install requests</code> (we'll use it later)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-26">Page 26 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-26">
+      <div class="page-header">
+        <span class="page-number">Page 26 of 36</span>
+        <h1 class="page-title">What Is requirements.txt?</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains the requirements.txt file.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can install packages one at a time. But projects need many packages.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>A <code>requirements.txt</code> file lists all packages a project needs:</p><pre><code>requests==2.31.0
+pandas==2.0.3
+numpy==1.24.3
+</code></pre><p>Each line is a package name and version.</p><p>When you share your project, others can install everything with one command.</p>
+        <h2>Why this matters</h2>
+        <p>requirements.txt ensures everyone has the exact same packages. This prevents "it works on my machine" problems.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand requirements.txt lists project dependencies</label>
+<label class="checkbox-item"><input type="checkbox"> I understand it helps others set up the same environment</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is informational.</p>
+        </div>
+        <div class="next-page"><a href="#page-27">Page 27 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-27">
+      <div class="page-header">
+        <span class="page-number">Page 27 of 36</span>
+        <h1 class="page-title">Creating requirements.txt</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to create a requirements.txt file.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You understand what requirements.txt is. Now create one.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pip3 freeze &gt; requirements.txt
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>First, make sure you're in your projects folder:</p><pre><code>cd ~/projects
+</code></pre><p>Then run <code>pip3 freeze > requirements.txt</code>.</p><ul><li><code>pip3 freeze</code> lists all installed packages with versions</li>
+<li><code>></code> redirects output to a file</li>
+<li><code>requirements.txt</code> is the filename</li>
+</ul>
+View the file:</p><pre><code>cat requirements.txt
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>This is how you document your project's dependencies for others (or yourself later).</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>pip3 freeze > requirements.txt</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>cat requirements.txt</code> shows package list</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Empty file: No packages installed (that's okay for now)</li>
+<li><code>No such file or directory</code>: Make sure you're in a folder you can write to</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-28">Page 28 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-28">
+      <div class="page-header">
+        <span class="page-number">Page 28 of 36</span>
+        <h1 class="page-title">Installing from requirements.txt</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to install all packages from requirements.txt.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You created a requirements.txt. Now use one.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pip3 install -r requirements.txt
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>The <code>-r</code> flag tells pip to read from a file.</p><p>pip will install every package listed in requirements.txt.</p><p>This is how you:
+<ul><li>Set up a project someone shared with you</li>
+<li>Restore your environment on a new computer</li>
+<li>Match a teammate's setup exactly</li></ul>
+        <h2>Why this matters</h2>
+        <p>One command installs everything. No manual package-by-package installation.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand <code>pip3 install -r requirements.txt</code> installs from a file</label>
+<label class="checkbox-item"><input type="checkbox"> I can use this when setting up projects</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>No such file</code>: Make sure requirements.txt exists in current folder</li>
+<li>Version conflicts: The file may have outdated versions</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-29">Page 29 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-29">
+      <div class="page-header">
+        <span class="page-number">Page 29 of 36</span>
+        <h1 class="page-title">pip Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you understand pip and package management.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the pip section.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Task</td><td>Command</td></tr>
+<tr><td>Install a package</td><td><code>pip3 install packagename</code></td></tr>
+<tr><td>List packages</td><td><code>pip3 list</code></td></tr>
+<tr><td>Uninstall a package</td><td><code>pip3 uninstall packagename</code></td></tr>
+<tr><td>Save dependencies</td><td><code>pip3 freeze > requirements.txt</code></td></tr>
+<tr><td>Install from file</td><td><code>pip3 install -r requirements.txt</code></td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>Package management is essential for every Python project.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can install packages with pip3</label>
+<label class="checkbox-item"><input type="checkbox"> I can list installed packages</label>
+<label class="checkbox-item"><input type="checkbox"> I can create and use requirements.txt</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 21-28 for any command you're unsure about.</p>
+        </div>
+        <div class="next-page"><a href="#page-30">Page 30 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-30">
+      <div class="page-header">
+        <span class="page-number">Page 30 of 36</span>
+        <h1 class="page-title">What Is a Virtual Environment?</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains why virtual environments exist.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can install packages globally. But that causes problems.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p><strong>Problem:</strong> Different projects need different package versions.</p><ul><li>Project A needs <code>requests==2.25.0</code></li>
+<li>Project B needs <code>requests==2.31.0</code></li>
+</ul>
+If you install globally, one project breaks.</p><p><strong>Solution:</strong> Virtual environments.</p><p>A <strong>venv</strong> is an isolated Python environment. Each project gets its own:
+<ul><li>Python interpreter</li>
+<li>Installed packages</li>
+<li>requirements.txt</li>
+</ul>
+Projects don't interfere with each other.</p>
+        <h2>Why this matters</h2>
+        <p>Professional Python development requires virtual environments. Always use them.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand global packages can cause conflicts</label>
+<label class="checkbox-item"><input type="checkbox"> I understand venv isolates each project</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is informational.</p>
+        </div>
+        <div class="next-page"><a href="#page-31">Page 31 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-31">
+      <div class="page-header">
+        <span class="page-number">Page 31 of 36</span>
+        <h1 class="page-title">Creating a venv</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates your first virtual environment.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You understand why venv matters. Now create one.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>cd ~/projects
+mkdir my-first-project
+cd my-first-project
+python3 -m venv venv
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Step by step:</p><ul><li><code>cd ~/projects</code> — Go to your projects folder</li>
+<li><code>mkdir my-first-project</code> — Create a project folder</li>
+<li><code>cd my-first-project</code> — Enter the folder</li>
+<li><code>python3 -m venv venv</code> — Create a virtual environment</li>
+</ul>
+The <code>-m venv</code> runs Python's venv module. The second <code>venv</code> is the folder name (convention).</p><p>Check it was created:</p><pre><code>ls
+</code></pre><p>You should see a <code>venv</code> folder.</p>
+        <h2>Why this matters</h2>
+        <p>Every project should start with creating a venv.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created a folder <code>my-first-project</code></label>
+<label class="checkbox-item"><input type="checkbox"> I ran <code>python3 -m venv venv</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>ls</code> shows a <code>venv</code> folder</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>No module named venv</code>: Run <code>brew install python</code> again</li>
+<li>Permission denied: Check folder permissions</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-32">Page 32 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-32">
+      <div class="page-header">
+        <span class="page-number">Page 32 of 36</span>
+        <h1 class="page-title">Activating the venv</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to activate your virtual environment.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You created a venv. Now activate it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>source venv/bin/activate
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>source venv/bin/activate</code> and press Enter.</p><p>Your prompt changes:</p><pre><code>(venv) username@MacBook-Pro my-first-project %
+</code></pre><p>The <code>(venv)</code> prefix means the virtual environment is active.</p><p>Now when you run <code>pip3 install</code>, packages go into this venv only.</p>
+        <h2>Why this matters</h2>
+        <p>You must activate the venv before working on a project. Otherwise packages install globally.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>source venv/bin/activate</code></label>
+<label class="checkbox-item"><input type="checkbox"> My prompt shows <code>(venv)</code> at the beginning</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>No such file</code>: Make sure you're in the folder containing <code>venv</code></li>
+<li>Wrong path: It's <code>venv/bin/activate</code> not <code>venv/activate</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-33">Page 33 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-33">
+      <div class="page-header">
+        <span class="page-number">Page 33 of 36</span>
+        <h1 class="page-title">Deactivating the venv</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to exit the virtual environment.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>The venv is active. Now learn to deactivate it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>deactivate
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Type <code>deactivate</code> and press Enter.</p><p>Your prompt returns to normal:</p><pre><code>username@MacBook-Pro my-first-project %
+</code></pre><p>The <code>(venv)</code> prefix is gone. You are back to the global Python.</p>
+        <h2>Why this matters</h2>
+        <p>When switching projects, deactivate one venv before activating another.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>deactivate</code></label>
+<label class="checkbox-item"><input type="checkbox"> The <code>(venv)</code> prefix is gone from my prompt</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>command not found</code>: You weren't in an active venv</li>
+<li>This command only works when a venv is active</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-34">Page 34 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-34">
+      <div class="page-header">
+        <span class="page-number">Page 34 of 36</span>
+        <h1 class="page-title">Why Use venv?</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Summarizes the benefits of virtual environments.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can create, activate, and deactivate venvs. Understand why.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>Always use venv because:</p><table>
+<tr><td>Benefit</td><td>Explanation</td></tr>
+<tr><td><strong>Isolation</strong></td><td>Project A's packages don't affect Project B</td></tr>
+<tr><td><strong>Reproducibility</strong></td><td>requirements.txt captures exact versions</td></tr>
+<tr><td><strong>Clean uninstall</strong></td><td>Delete the venv folder, everything's gone</td></tr>
+<tr><td><strong>No sudo</strong></td><td>Install packages without admin rights</td></tr>
+<tr><td><strong>Version testing</strong></td><td>Test different package versions easily</td></tr>
+</table><p><strong>Best practice:</strong> Create a venv as the first step for every new project.</p>
+        <h2>Why this matters</h2>
+        <p>Professional developers always use virtual environments. It's an industry standard.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand the benefits of using venv</label>
+<label class="checkbox-item"><input type="checkbox"> I will create a venv for every project</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is informational.</p>
+        </div>
+        <div class="next-page"><a href="#page-35">Page 35 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-35">
+      <div class="page-header">
+        <span class="page-number">Page 35 of 36</span>
+        <h1 class="page-title">venv Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you can manage virtual environments.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the venv section.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Task</td><td>Command</td></tr>
+<tr><td>Create a venv</td><td><code>python3 -m venv venv</code></td></tr>
+<tr><td>Activate (Mac)</td><td><code>source venv/bin/activate</code></td></tr>
+<tr><td>Deactivate</td><td><code>deactivate</code></td></tr>
+<tr><td>Check if active</td><td>Look for <code>(venv)</code> in prompt</td></tr>
+</table><p><strong>Typical workflow:</strong></p><pre><code>mkdir new-project
+cd new-project
+python3 -m venv venv
+source venv/bin/activate
+pip3 install requests
+pip3 freeze &gt; requirements.txt
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>This workflow is the foundation of every Python project.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can create a virtual environment</label>
+<label class="checkbox-item"><input type="checkbox"> I can activate and deactivate it</label>
+<label class="checkbox-item"><input type="checkbox"> I understand when to use venv (always)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 30-34 for any concept you're unsure about.</p>
+        </div>
+        <div class="next-page"><a href="#page-36">Page 36 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-36">
+      <div class="page-header">
+        <span class="page-number">Page 36 of 36</span>
+        <h1 class="page-title">Final Verification</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms you have mastered all skills in this guide.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the end. Verify everything works together.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>Complete this final test:</p><pre><code>cd ~/projects
+mkdir test-project
+cd test-project
+python3 -m venv venv
+source venv/bin/activate
+pip3 install requests
+pip3 freeze &gt; requirements.txt
+cat requirements.txt
+python3 -c &quot;import requests; print(&#x27;Success!&#x27;)&quot;
+deactivate
+</code></pre><p>If you see "Success!" — you have completed the guide.</p><p><strong>You can now:</strong>
+<ul><li>Navigate with Terminal</li>
+<li>Install and run Python</li>
+<li>Manage packages with pip</li>
+<li>Isolate projects with venv</li></ul>
+        <h2>Why this matters</h2>
+        <p>You are ready to build Python projects. This foundation supports everything you'll create.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I completed the final test</label>
+<label class="checkbox-item"><input type="checkbox"> I saw "Success!" printed</label>
+<label class="checkbox-item"><input type="checkbox"> I am ready to start building projects</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Review the specific section where the error occurred</li>
+<li>Each skill builds on the previous one</li></ul>
+        </div>
+        
       </div>
     </article>
     </main>
@@ -64,7 +1509,42 @@
             <button class="toc-close" onclick="toggleTOC()">×</button>
         </div>
         <ul class="toc-list">
-            <li><a href="#page-19">Page 19: Exiting Python## What this page doesShows how to exit the Python interpreter.---## Where this fitsYou are in Python's interactive mode. Now exit back to Terminal.---## Code (this page)```python>>> exit()```---## ExplanationType `exit()` and press Enter.You return to the normal Terminal prompt:```username@MacBook-Pro ~ %```Alternative: Press `Control + D` to exit.---## Why this mattersYou need to switch between Python and Terminal. Know how to exit.---## Checkpoint- [ ] I typed `exit()` or pressed `Control + D`- [ ] I see the normal Terminal prompt again---## If something breaks here- Still seeing `>>>`: Type `exit()` with parentheses, not just `exit`- Keyboard shortcut: `Control + D` always works---# Page 20: Python Checkpoint## What this page doesVerifies you have installed and can run Python.---## Where this fitsYou have completed the Python installation section.---## ExplanationYou should now be able to:| Task | Command ||------|---------|| Check Python version | `python3 --version` || Check pip version | `pip3 --version` || Start Python | `python3` || Exit Python | `exit()` |---## Why this mattersPython is installed and working. You can now install packages and run scripts.---## Checkpoint- [ ] Python 3.10+ is installed- [ ] pip is installed- [ ] I can enter and exit the Python interpreter---## If something breaks hereReview pages 13-19 for any step you missed.---# Page 21: What Is pip?## What this page doesExplains what pip is and why you need it.---## Where this fitsPython is installed. Now understand how to add functionality.---## Explanation**pip** stands for "Pip Installs Packages."Python itself is basic. Pip lets you install **packages** — pre-written code that adds features:| Package | What It Does ||---------|--------------|| `requests` | Make web requests || `pandas` | Work with data tables || `pygame` | Create games || `flask` | Build websites |Instead of writing everything from scratch, you install packages others have made.---## Why this mattersEvery real Python project uses packages. pip is how you get them.---## Checkpoint- [ ] I understand pip installs packages- [ ] I understand packages add functionality to Python---## If something breaks hereNothing to break. This is informational.---# Page 22: Check pip Version## What this page doesConfirms pip is working on your system.---## Where this fitsYou understand what pip is. Now verify it works.---## Code (this page)```bashpip3 --version```---## ExplanationRun `pip3 --version` in Terminal.You should see something like:```pip 24.0 from /opt/homebrew/lib/python3.12/site-packages/pip (python 3.12)```This confirms:- pip is installed- Which Python it's connected to- Where it's located---## Why this mattersVerifying pip works before using it saves debugging time later.---## Checkpoint- [ ] I ran `pip3 --version`- [ ] I see version information (not an error)---## If something breaks here- `command not found`: Run `python3 -m pip --version` instead- Old version: Run `pip3 install --upgrade pip`---# Page 23: Installing a Package## What this page doesTeaches how to install a Python package.---## Where this fitspip is verified. Now use it to install something.---## Code (this page)```bashpip3 install requests```---## ExplanationType `pip3 install requests` and press Enter.pip will:1. Download the `requests` package from the internet2. Install it on your system3. Show "Successfully installed requests-2.x.x"`requests` is a popular package for making web requests. We're using it as an example.---## Why this mattersThis is how you add any package to Python. The syntax is always `pip3 install packagename`.---## Checkpoint- [ ] I ran `pip3 install requests`- [ ] I see "Successfully installed"---## If something breaks here- `Permission denied`: You may need to use a virtual environment (covered soon)- Network error: Check your internet connection---# Page 24: Listing Installed Packages## What this page doesShows how to see what packages are installed.---## Where this fitsYou installed a package. Now see all installed packages.---## Code (this page)```bashpip3 list```---## ExplanationType `pip3 list` and press Enter.You will see a table:```Package    Version---------- -------pip        24.0requests   2.31.0...```This shows every package installed for your Python.---## Why this mattersKnowing what's installed helps you manage your environment and debug issues.---## Checkpoint- [ ] I ran `pip3 list`- [ ] I see `requests` in the list---## If something breaks here- Empty list: That's unusual, but pip itself should appear- Long list: System Python may have many pre-installed packages---# Page 25: Uninstalling a Package## What this page doesShows how to remove a package.---## Where this fitsYou can install and list packages. Now remove one.---## Code (this page)```bashpip3 uninstall requests```---## ExplanationType `pip3 uninstall requests` and press Enter.pip will ask: `Proceed (Y/n)?`Type `Y` and press Enter to confirm.You will see "Successfully uninstalled requests-2.x.x"---## Why this mattersSometimes you need to remove packages — to fix conflicts or clean up.---## Checkpoint- [ ] I ran `pip3 uninstall requests`- [ ] I typed `Y` to confirm- [ ] I see "Successfully uninstalled"---## If something breaks here- `Not installed`: Package wasn't there (check spelling)- Re-install it: `pip3 install requests` (we'll use it later)---# Page 26: What Is requirements.txt?## What this page doesExplains the requirements.txt file.---## Where this fitsYou can install packages one at a time. But projects need many packages.---## ExplanationA `requirements.txt` file lists all packages a project needs:```requests==2.31.0pandas==2.0.3numpy==1.24.3```Each line is a package name and version.When you share your project, others can install everything with one command.---## Why this mattersrequirements.txt ensures everyone has the exact same packages. This prevents "it works on my machine" problems.---## Checkpoint- [ ] I understand requirements.txt lists project dependencies- [ ] I understand it helps others set up the same environment---## If something breaks hereNothing to break. This is informational.---# Page 27: Creating requirements.txt## What this page doesShows how to create a requirements.txt file.---## Where this fitsYou understand what requirements.txt is. Now create one.---## Code (this page)```bashpip3 freeze > requirements.txt```---## ExplanationFirst, make sure you're in your projects folder:```bashcd ~/projects```Then run `pip3 freeze > requirements.txt`.- `pip3 freeze` lists all installed packages with versions- `>` redirects output to a file- `requirements.txt` is the filenameView the file:```bashcat requirements.txt```---## Why this mattersThis is how you document your project's dependencies for others (or yourself later).---## Checkpoint- [ ] I ran `pip3 freeze > requirements.txt`- [ ] Running `cat requirements.txt` shows package list---## If something breaks here- Empty file: No packages installed (that's okay for now)- `No such file or directory`: Make sure you're in a folder you can write to---# Page 28: Installing from requirements.txt## What this page doesShows how to install all packages from requirements.txt.---## Where this fitsYou created a requirements.txt. Now use one.---## Code (this page)```bashpip3 install -r requirements.txt```---## ExplanationThe `-r` flag tells pip to read from a file.pip will install every package listed in requirements.txt.This is how you:- Set up a project someone shared with you- Restore your environment on a new computer- Match a teammate's setup exactly---## Why this mattersOne command installs everything. No manual package-by-package installation.---## Checkpoint- [ ] I understand `pip3 install -r requirements.txt` installs from a file- [ ] I can use this when setting up projects---## If something breaks here- `No such file`: Make sure requirements.txt exists in current folder- Version conflicts: The file may have outdated versions---# Page 29: pip Checkpoint## What this page doesVerifies you understand pip and package management.---## Where this fitsYou have completed the pip section.---## ExplanationYou should now be able to:| Task | Command ||------|---------|| Install a package | `pip3 install packagename` || List packages | `pip3 list` || Uninstall a package | `pip3 uninstall packagename` || Save dependencies | `pip3 freeze > requirements.txt` || Install from file | `pip3 install -r requirements.txt` |---## Why this mattersPackage management is essential for every Python project.---## Checkpoint- [ ] I can install packages with pip3- [ ] I can list installed packages- [ ] I can create and use requirements.txt---## If something breaks hereReview pages 21-28 for any command you're unsure about.---# Page 30: What Is a Virtual Environment?## What this page doesExplains why virtual environments exist.---## Where this fitsYou can install packages globally. But that causes problems.---## Explanation**Problem:** Different projects need different package versions.- Project A needs `requests==2.25.0`- Project B needs `requests==2.31.0`If you install globally, one project breaks.**Solution:** Virtual environments.A **venv** is an isolated Python environment. Each project gets its own:- Python interpreter- Installed packages- requirements.txtProjects don't interfere with each other.---## Why this mattersProfessional Python development requires virtual environments. Always use them.---## Checkpoint- [ ] I understand global packages can cause conflicts- [ ] I understand venv isolates each project---## If something breaks hereNothing to break. This is informational.---# Page 31: Creating a venv## What this page doesCreates your first virtual environment.---## Where this fitsYou understand why venv matters. Now create one.---## Code (this page)```bashcd ~/projectsmkdir my-first-projectcd my-first-projectpython3 -m venv venv```---## ExplanationStep by step:1. `cd ~/projects` — Go to your projects folder2. `mkdir my-first-project` — Create a project folder3. `cd my-first-project` — Enter the folder4. `python3 -m venv venv` — Create a virtual environmentThe `-m venv` runs Python's venv module. The second `venv` is the folder name (convention).Check it was created:```bashls```You should see a `venv` folder.---## Why this mattersEvery project should start with creating a venv.---## Checkpoint- [ ] I created a folder `my-first-project`- [ ] I ran `python3 -m venv venv`- [ ] Running `ls` shows a `venv` folder---## If something breaks here- `No module named venv`: Run `brew install python` again- Permission denied: Check folder permissions---# Page 32: Activating the venv## What this page doesShows how to activate your virtual environment.---## Where this fitsYou created a venv. Now activate it.---## Code (this page)```bashsource venv/bin/activate```---## ExplanationType `source venv/bin/activate` and press Enter.Your prompt changes:```(venv) username@MacBook-Pro my-first-project %```The `(venv)` prefix means the virtual environment is active.Now when you run `pip3 install`, packages go into this venv only.---## Why this mattersYou must activate the venv before working on a project. Otherwise packages install globally.---## Checkpoint- [ ] I ran `source venv/bin/activate`- [ ] My prompt shows `(venv)` at the beginning---## If something breaks here- `No such file`: Make sure you're in the folder containing `venv`- Wrong path: It's `venv/bin/activate` not `venv/activate`---# Page 33: Deactivating the venv## What this page doesShows how to exit the virtual environment.---## Where this fitsThe venv is active. Now learn to deactivate it.---## Code (this page)```bashdeactivate```---## ExplanationType `deactivate` and press Enter.Your prompt returns to normal:```username@MacBook-Pro my-first-project %```The `(venv)` prefix is gone. You are back to the global Python.---## Why this mattersWhen switching projects, deactivate one venv before activating another.---## Checkpoint- [ ] I ran `deactivate`- [ ] The `(venv)` prefix is gone from my prompt---## If something breaks here- `command not found`: You weren't in an active venv- This command only works when a venv is active---# Page 34: Why Use venv?## What this page doesSummarizes the benefits of virtual environments.---## Where this fitsYou can create, activate, and deactivate venvs. Understand why.---## ExplanationAlways use venv because:| Benefit | Explanation ||---------|-------------|| **Isolation** | Project A's packages don't affect Project B || **Reproducibility** | requirements.txt captures exact versions || **Clean uninstall** | Delete the venv folder, everything's gone || **No sudo** | Install packages without admin rights || **Version testing** | Test different package versions easily |**Best practice:** Create a venv as the first step for every new project.---## Why this mattersProfessional developers always use virtual environments. It's an industry standard.---## Checkpoint- [ ] I understand the benefits of using venv- [ ] I will create a venv for every project---## If something breaks hereNothing to break. This is informational.---# Page 35: venv Checkpoint## What this page doesVerifies you can manage virtual environments.---## Where this fitsYou have completed the venv section.---## ExplanationYou should now be able to:| Task | Command ||------|---------|| Create a venv | `python3 -m venv venv` || Activate (Mac) | `source venv/bin/activate` || Deactivate | `deactivate` || Check if active | Look for `(venv)` in prompt |**Typical workflow:**```bashmkdir new-projectcd new-projectpython3 -m venv venvsource venv/bin/activatepip3 install requestspip3 freeze > requirements.txt```---## Why this mattersThis workflow is the foundation of every Python project.---## Checkpoint- [ ] I can create a virtual environment- [ ] I can activate and deactivate it- [ ] I understand when to use venv (always)---## If something breaks hereReview pages 30-34 for any concept you're unsure about.---# Page 36: Final Verification## What this page doesConfirms you have mastered all skills in this guide.---## Where this fitsThis is the end. Verify everything works together.---## ExplanationComplete this final test:```bashcd ~/projectsmkdir test-projectcd test-projectpython3 -m venv venvsource venv/bin/activatepip3 install requestspip3 freeze > requirements.txtcat requirements.txtpython3 -c "import requests; print('Success!')"deactivate```If you see "Success!" — you have completed the guide.**You can now:**- Navigate with Terminal- Install and run Python- Manage packages with pip- Isolate projects with venv---## Why this mattersYou are ready to build Python projects. This foundation supports everything you'll create.---## Checkpoint- [ ] I completed the final test- [ ] I saw "Success!" printed- [ ] I am ready to start building projects---## If something breaks here- Review the specific section where the error occurred- Each skill builds on the previous one---## Congratulations!You have completed **Project Setup: Foundation**.You are ready to build Python projects on your Mac.**Next:** Learn VS Code to write code more efficiently.</a></li>
+            <li><a href="#page-1">Page 1: What This Guide Covers</a></li>
+<li><a href="#page-2">Page 2: Open Terminal</a></li>
+<li><a href="#page-3">Page 3: The Terminal Window</a></li>
+<li><a href="#page-4">Page 4: Your First Command: pwd</a></li>
+<li><a href="#page-5">Page 5: Listing Files: ls</a></li>
+<li><a href="#page-6">Page 6: Changing Directories: cd</a></li>
+<li><a href="#page-7">Page 7: Going Back: cd ..</a></li>
+<li><a href="#page-8">Page 8: Creating Folders: mkdir</a></li>
+<li><a href="#page-9">Page 9: Creating Files: touch</a></li>
+<li><a href="#page-10">Page 10: Removing Files: rm</a></li>
+<li><a href="#page-11">Page 11: Clearing the Screen: clear</a></li>
+<li><a href="#page-12">Page 12: Terminal Checkpoint</a></li>
+<li><a href="#page-13">Page 13: Check If Python Is Installed</a></li>
+<li><a href="#page-14">Page 14: Installing Homebrew</a></li>
+<li><a href="#page-15">Page 15: Installing Python with Homebrew</a></li>
+<li><a href="#page-16">Page 16: Verifying Python Installation</a></li>
+<li><a href="#page-17">Page 17: Python vs Python3</a></li>
+<li><a href="#page-18">Page 18: Running Python in Terminal</a></li>
+<li><a href="#page-19">Page 19: Exiting Python</a></li>
+<li><a href="#page-20">Page 20: Python Checkpoint</a></li>
+<li><a href="#page-21">Page 21: What Is pip?</a></li>
+<li><a href="#page-22">Page 22: Check pip Version</a></li>
+<li><a href="#page-23">Page 23: Installing a Package</a></li>
+<li><a href="#page-24">Page 24: Listing Installed Packages</a></li>
+<li><a href="#page-25">Page 25: Uninstalling a Package</a></li>
+<li><a href="#page-26">Page 26: What Is requirements.txt?</a></li>
+<li><a href="#page-27">Page 27: Creating requirements.txt</a></li>
+<li><a href="#page-28">Page 28: Installing from requirements.txt</a></li>
+<li><a href="#page-29">Page 29: pip Checkpoint</a></li>
+<li><a href="#page-30">Page 30: What Is a Virtual Environment?</a></li>
+<li><a href="#page-31">Page 31: Creating a venv</a></li>
+<li><a href="#page-32">Page 32: Activating the venv</a></li>
+<li><a href="#page-33">Page 33: Deactivating the venv</a></li>
+<li><a href="#page-34">Page 34: Why Use venv?</a></li>
+<li><a href="#page-35">Page 35: venv Checkpoint</a></li>
+<li><a href="#page-36">Page 36: Final Verification</a></li>
         </ul>
     </div>
 
