@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Guide — random | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / 
+                <a href="/build-it/fundamentals/">Fundamentals</a> / 
+                <a href="/build-it/fundamentals/python-stdlib/">Python Standard Library</a> / 
+                random
+            </nav>
+        </div>
+    </header>
+
+    <div class="guide-header">
+        <h1>Foundation Guide</h1>
+        <p class="subtitle">Python Standard Library: random</p>
+        <div class="guide-meta">
+            <span>📄 28 Pages</span>
+            <span>🎯 Random numbers, choices, shuffling</span>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="guide-content">
+        
+    <article class="page-section" id="page-1">
+      <div class="page-header">
+        <span class="page-number">Page 1 of 28</span>
+        <h1 class="page-title">What This Guide Covers</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Introduces the random module and what you will learn.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the starting point. You should know basic Python (variables, lists, functions) before starting.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>The <code>random</code> module generates pseudo-random numbers and makes random selections. By the end of this guide, you will know how to:</p><ul><li><strong>Generate random numbers</strong> — Integers and floats in any range</li>
+<li><strong>Make random choices</strong> — Pick items from lists</li>
+<li><strong>Sample data</strong> — Select multiple items with or without replacement</li>
+<li><strong>Shuffle sequences</strong> — Randomize the order of lists</li>
+<li><strong>Control randomness</strong> — Use seeds for reproducible results</li>
+</ul>
+The random module is built into Python. No installation required.</p>
+        <h2>Why this matters</h2>
+        <p>Randomness is everywhere: games, simulations, testing, data sampling, password generation, and machine learning. The random module is your toolkit for all of it.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand the random module generates pseudo-random data</label>
+<label class="checkbox-item"><input type="checkbox"> I have basic Python knowledge (lists, functions)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break yet. Move to Page 2.</p>
+        </div>
+        <div class="next-page"><a href="#page-2">Page 2 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 28</span>
+        <h1 class="page-title">Create a Practice File</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Sets up a Python file for practicing the random module.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Before writing code, create a workspace.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>mkdir ~/projects/random-practice
+cd ~/projects/random-practice
+touch random_basics.py
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>These commands:
+<ul><li>Create a folder called <code>random-practice</code></li>
+<li>Enter that folder</li>
+<li>Create an empty Python file</li>
+</ul>
+From now on, you will write code in <code>random_basics.py</code> and run it with <code>python3 random_basics.py</code>.</p>
+        <h2>Why this matters</h2>
+        <p>Having a dedicated file lets you build up code incrementally and re-run to test changes.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created the folder and file</label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>ls</code> shows <code>random_basics.py</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>mkdir: File exists</code>: The folder exists. Just <code>cd</code> into it</li>
+<li>Permission denied: Check you're in a writable location</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-3">Page 3 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 28</span>
+        <h1 class="page-title">Import random</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Imports the random module into your Python file.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Your file is ready. Now add the import.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>print(&quot;random module imported successfully&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Open <code>random_basics.py</code> in VS Code and add this code.</p><p><code>import random</code> loads the module. Unlike NumPy, we typically don't use an alias — <code>random</code> is already short.</p><p>Run it:
+<pre><code>python3 random_basics.py
+</code></pre><p>Output:
+<pre><code>random module imported successfully
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>This import line starts every script that uses randomness. The random module is always available — no pip install needed.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> My file contains <code>import random</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running the file prints the success message</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ModuleNotFoundError</code>: This shouldn't happen — random is built-in. Check spelling.</li>
+<li>Typo: It's <code>random</code> not <code>Random</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-4">Page 4 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 28</span>
+        <h1 class="page-title">random.random()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Generates a random float between 0 and 1.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Module imported. Now generate your first random number.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>value = random.random()
+print(&quot;Random float:&quot;, value)</p><p># Generate several to see variation
+for i in range(5):
+    print(random.random())
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file (your numbers will differ):
+<pre><code>Random float: 0.7234567891234567
+0.12345678912345678
+0.89012345678901234
+0.45678901234567890
+0.23456789012345678
+0.67890123456789012
+</code></pre><p><code>random.random()</code> returns a float where:
+<ul><li>Minimum: 0.0 (inclusive)</li>
+<li>Maximum: 1.0 (exclusive — never exactly 1.0)</li>
+</ul>
+Every call produces a different number.</p>
+        <h2>Why this matters</h2>
+        <p>This is the foundation of all other random functions. Many random operations are built by scaling this 0-1 value.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can generate a random float with <code>random.random()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand the range is [0.0, 1.0)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Same number every time: You might have <code>random.seed()</code> somewhere. Check your code.</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-5">Page 5 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 28</span>
+        <h1 class="page-title">random.randint()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Generates a random integer in a specified range.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You made random floats. Now make random integers.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Random integer between 1 and 10 (inclusive)
+dice = random.randint(1, 6)
+print(&quot;Dice roll:&quot;, dice)</p><p># Generate several
+print(&quot;Five dice rolls:&quot;)
+for i in range(5):
+    print(random.randint(1, 6))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Dice roll: 4
+Five dice rolls:
+2
+6
+1
+3
+5
+</code></pre><p><code>random.randint(a, b)</code> returns an integer where:
+<ul><li>Minimum: a (inclusive)</li>
+<li>Maximum: b (inclusive) — unlike most Python ranges!</li>
+</ul>
+This is perfect for dice, card games, or any discrete random selection.</p>
+        <h2>Why this matters</h2>
+        <p>Integer randomness is more common than float randomness in practice. Dice rolls, random indices, ID generation — all use integers.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can generate a random integer with <code>random.randint()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand BOTH endpoints are included</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>TypeError</code>: Both arguments must be integers, not floats</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-6">Page 6 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 28</span>
+        <h1 class="page-title">random.uniform()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Generates a random float in a specified range.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>randint</code> for integers. Now <code>uniform</code> for floats.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Random float between 1.0 and 10.0
+value = random.uniform(1.0, 10.0)
+print(&quot;Random float 1-10:&quot;, value)</p><p># Temperature simulation (60-80 degrees)
+temp = random.uniform(60.0, 80.0)
+print(f&quot;Temperature: {temp:.1f}°F&quot;)</p><p># Can go negative
+value = random.uniform(-5.0, 5.0)
+print(&quot;Random -5 to 5:&quot;, value)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Random float 1-10: 7.234567891234567
+Temperature: 73.4°F
+Random -5 to 5: -2.345678901234567
+</code></pre><p><code>random.uniform(a, b)</code> returns a float where:
+<ul><li>Minimum: a</li>
+<li>Maximum: b</li>
+<li>Both endpoints can potentially be included (implementation detail)</li>
+</ul>
+Unlike <code>random.random()</code> which only gives 0-1, uniform scales to any range.</p>
+        <h2>Why this matters</h2>
+        <p>Simulations need specific ranges. Temperature, coordinates, percentages, prices — all need scaled random floats.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can generate floats in a range with <code>random.uniform()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand it works with negative numbers too</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Nothing should break. Arguments can be int or float.</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-7">Page 7 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 28</span>
+        <h1 class="page-title">random.choice()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Picks a random item from a list.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You generated numbers. Now select from existing data.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;purple&quot;]
+picked = random.choice(colors)
+print(&quot;Picked color:&quot;, picked)</p><p># Works with any sequence
+letters = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+letter = random.choice(letters)
+print(&quot;Random letter:&quot;, letter)</p><p># Numbers too
+numbers = [10, 20, 30, 40, 50]
+num = random.choice(numbers)
+print(&quot;Picked number:&quot;, num)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Picked color: blue
+Random letter: M
+Picked number: 30
+</code></pre><p><code>random.choice(sequence)</code>:
+<ul><li>Takes any sequence (list, string, tuple)</li>
+<li>Returns one randomly selected item</li>
+<li>Each item has equal probability</li></ul>
+        <h2>Why this matters</h2>
+        <p>Selecting random items is extremely common: random card from deck, random player goes first, random test case, random quote of the day.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can pick from a list with <code>random.choice()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand it works with strings and tuples too</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>IndexError: Cannot choose from an empty sequence</code>: The list is empty</li>
+<li><code>TypeError</code>: Argument must be a sequence, not a single value</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-8">Page 8 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 28</span>
+        <h1 class="page-title">random.choices()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Picks multiple random items WITH replacement.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>choice()</code> picks one. <code>choices()</code> picks many.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]</p><p># Pick 5 colors (can repeat)
+picks = random.choices(colors, k=5)
+print(&quot;5 picks with replacement:&quot;, picks)</p><p># Simulate 10 coin flips
+coin = [&quot;heads&quot;, &quot;tails&quot;]
+flips = random.choices(coin, k=10)
+print(&quot;10 coin flips:&quot;, flips)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>5 picks with replacement: [&#x27;blue&#x27;, &#x27;red&#x27;, &#x27;blue&#x27;, &#x27;green&#x27;, &#x27;blue&#x27;]
+10 coin flips: [&#x27;heads&#x27;, &#x27;tails&#x27;, &#x27;heads&#x27;, &#x27;heads&#x27;, &#x27;tails&#x27;, &#x27;heads&#x27;, &#x27;tails&#x27;, &#x27;tails&#x27;, &#x27;heads&#x27;, &#x27;heads&#x27;]
+</code></pre><p><code>random.choices(sequence, k=n)</code>:
+<ul><li>Returns a list of <code>k</code> random items</li>
+<li>WITH replacement — same item can appear multiple times</li>
+<li>Original list is not modified</li>
+</ul>
+Notice "blue" appeared 3 times in the first example. That's replacement.</p>
+        <h2>Why this matters</h2>
+        <p>Simulations often need repeated sampling. Coin flips, dice rolls, bootstrap sampling — all need replacement.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can pick multiple items with <code>random.choices()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand "with replacement" means repeats are allowed</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Forgot <code>k=</code>: You need <code>random.choices(list, k=5)</code> not <code>random.choices(list, 5)</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-9">Page 9 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-9">
+      <div class="page-header">
+        <span class="page-number">Page 9 of 28</span>
+        <h1 class="page-title">random.choices() with Weights</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to make some choices more likely than others.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Equal probability is default. Weights customize it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Weighted coin (70% heads, 30% tails)
+coin = [&quot;heads&quot;, &quot;tails&quot;]
+weights = [70, 30]
+flips = random.choices(coin, weights=weights, k=10)
+print(&quot;Biased coin:&quot;, flips)</p><p># Rarity system (common, rare, legendary)
+items = [&quot;common&quot;, &quot;rare&quot;, &quot;legendary&quot;]
+weights = [80, 18, 2]  # 80% common, 18% rare, 2% legendary
+drops = random.choices(items, weights=weights, k=20)
+print(&quot;Loot drops:&quot;, drops)
+print(&quot;Legendaries:&quot;, drops.count(&quot;legendary&quot;))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Biased coin: [&#x27;heads&#x27;, &#x27;heads&#x27;, &#x27;tails&#x27;, &#x27;heads&#x27;, &#x27;heads&#x27;, &#x27;heads&#x27;, &#x27;heads&#x27;, &#x27;tails&#x27;, &#x27;heads&#x27;, &#x27;heads&#x27;]
+Loot drops: [&#x27;common&#x27;, &#x27;common&#x27;, &#x27;rare&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;rare&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;rare&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;common&#x27;, &#x27;rare&#x27;, &#x27;common&#x27;, &#x27;common&#x27;]
+Legendaries: 0
+</code></pre><p><code>weights</code> parameter:
+<ul><li>Higher weight = more likely to be picked</li>
+<li>Weights don't need to sum to 100 — they're relative</li>
+<li><code>[70, 30]</code> is the same as <code>[7, 3]</code> or <code>[0.7, 0.3]</code></li></ul>
+        <h2>Why this matters</h2>
+        <p>Real systems aren't uniform. Loot drops, ad selection, A/B testing, genetic algorithms — all use weighted randomness.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>weights</code> to bias selections</label>
+<label class="checkbox-item"><input type="checkbox"> I understand weights are relative, not absolute</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ValueError</code>: Number of weights must match number of items</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-10">Page 10 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-10">
+      <div class="page-header">
+        <span class="page-number">Page 10 of 28</span>
+        <h1 class="page-title">random.sample()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Picks multiple random items WITHOUT replacement.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>choices()</code> allows repeats. <code>sample()</code> doesn't.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Pick 3 unique colors
+colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;yellow&quot;, &quot;purple&quot;]
+picks = random.sample(colors, k=3)
+print(&quot;3 unique colors:&quot;, picks)</p><p># Deal 5 cards from a deck
+deck = list(range(1, 53))  # Cards 1-52
+hand = random.sample(deck, k=5)
+print(&quot;5-card hand:&quot;, hand)</p><p># Lottery numbers (6 unique from 1-49)
+numbers = list(range(1, 50))
+lottery = random.sample(numbers, k=6)
+print(&quot;Lottery numbers:&quot;, sorted(lottery))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>3 unique colors: [&#x27;purple&#x27;, &#x27;red&#x27;, &#x27;green&#x27;]
+5-card hand: [23, 7, 45, 12, 38]
+Lottery numbers: [5, 17, 23, 31, 42, 48]
+</code></pre><p><code>random.sample(sequence, k=n)</code>:
+<ul><li>Returns a list of <code>k</code> unique items</li>
+<li>WITHOUT replacement — no repeats</li>
+<li>Original list is not modified</li>
+<li><code>k</code> cannot exceed the length of the sequence</li></ul>
+        <h2>Why this matters</h2>
+        <p>Card games, lottery systems, random team assignments, test question selection — anywhere you need unique picks.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can pick unique items with <code>random.sample()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>k</code> cannot exceed list length</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ValueError: Sample larger than population</code>: You asked for more items than exist</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-11">Page 11 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-11">
+      <div class="page-header">
+        <span class="page-number">Page 11 of 28</span>
+        <h1 class="page-title">random.shuffle()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Randomizes the order of a list in place.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Selecting items is done. Now rearrange them.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Shuffle a deck of cards
+deck = list(range(1, 53))
+print(&quot;Before shuffle:&quot;, deck[:10], &quot;...&quot;)</p><p>random.shuffle(deck)
+print(&quot;After shuffle:&quot;, deck[:10], &quot;...&quot;)</p><p># Shuffle names for random order
+names = [&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;, &quot;Diana&quot;]
+print(&quot;Original:&quot;, names)</p><p>random.shuffle(names)
+print(&quot;Shuffled:&quot;, names)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Before shuffle: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] ...
+After shuffle: [34, 12, 47, 3, 28, 51, 9, 41, 16, 22] ...
+Original: [&#x27;Alice&#x27;, &#x27;Bob&#x27;, &#x27;Charlie&#x27;, &#x27;Diana&#x27;]
+Shuffled: [&#x27;Charlie&#x27;, &#x27;Alice&#x27;, &#x27;Diana&#x27;, &#x27;Bob&#x27;]
+</code></pre><p><code>random.shuffle(list)</code>:
+<ul><li>Modifies the list IN PLACE</li>
+<li>Returns <code>None</code> (not the shuffled list)</li>
+<li>Only works on mutable sequences (lists, not tuples or strings)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Card games need shuffling. Randomized quizzes need shuffled questions. Playlists need shuffle mode. This is it.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can shuffle a list with <code>random.shuffle()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand it modifies the original list</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>TypeError: 'str' object does not support item assignment</code>: Can't shuffle strings. Convert to list first.</li>
+<li>Assigned result to variable and got <code>None</code>: Shuffle returns nothing. The list itself is changed.</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-12">Page 12 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-12">
+      <div class="page-header">
+        <span class="page-number">Page 12 of 28</span>
+        <h1 class="page-title">Shuffle Without Modifying Original</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to shuffle while keeping the original intact.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Sometimes you need both: original order and shuffled order.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Method 1: Use sample with full length
+original = [1, 2, 3, 4, 5]
+shuffled = random.sample(original, k=len(original))
+print(&quot;Original:&quot;, original)
+print(&quot;Shuffled:&quot;, shuffled)</p><p># Method 2: Copy then shuffle
+original = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;, &quot;E&quot;]
+shuffled = original.copy()
+random.shuffle(shuffled)
+print(&quot;Original:&quot;, original)
+print(&quot;Shuffled:&quot;, shuffled)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Original: [1, 2, 3, 4, 5]
+Shuffled: [3, 1, 5, 2, 4]
+Original: [&#x27;A&#x27;, &#x27;B&#x27;, &#x27;C&#x27;, &#x27;D&#x27;, &#x27;E&#x27;]
+Shuffled: [&#x27;D&#x27;, &#x27;A&#x27;, &#x27;E&#x27;, &#x27;C&#x27;, &#x27;B&#x27;]
+</code></pre><p>Two approaches:
+<ul><li><code>random.sample(list, k=len(list))</code> — returns a new shuffled list</li>
+<li><code>list.copy()</code> then <code>random.shuffle()</code> — explicit copy first</li>
+</ul>
+Both preserve the original. Method 1 is more concise.</p>
+        <h2>Why this matters</h2>
+        <p>Preserving original order is important for comparison, debugging, or showing "before and after."</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can shuffle without modifying the original</label>
+<label class="checkbox-item"><input type="checkbox"> I understand both methods produce the same result</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Both methods are safe.</p>
+        </div>
+        <div class="next-page"><a href="#page-13">Page 13 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-13">
+      <div class="page-header">
+        <span class="page-number">Page 13 of 28</span>
+        <h1 class="page-title">random.seed()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Makes random output reproducible.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Random is random. But sometimes you need predictable random.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Without seed: different every run
+print(&quot;Without seed:&quot;)
+print(random.randint(1, 100))
+print(random.randint(1, 100))</p><p># With seed: same every run
+print(&quot;\nWith seed(42):&quot;)
+random.seed(42)
+print(random.randint(1, 100))
+print(random.randint(1, 100))</p><p># Reset seed to get same sequence again
+print(&quot;\nSeed(42) again:&quot;)
+random.seed(42)
+print(random.randint(1, 100))
+print(random.randint(1, 100))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file multiple times:
+<pre><code>Without seed:
+73
+28</p><p>With seed(42):
+82
+15</p><p>Seed(42) again:
+82
+15
+</code></pre><p>The "without seed" numbers change each run. The "with seed" numbers are ALWAYS 82 and 15 (when seed is 42).</p><p><code>random.seed(value)</code>:
+<ul><li>Initializes the random number generator</li>
+<li>Same seed = same sequence of "random" numbers</li>
+<li>Any hashable value works (integers are common)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Testing needs reproducibility. "This bug happens with seed 42" is debuggable. Scientific experiments need reproducible results.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can make random output reproducible with <code>seed()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand the same seed always gives the same sequence</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Numbers differ from my example: Different Python versions may give different sequences. Consistency is within YOUR runs.</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-14">Page 14 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-14">
+      <div class="page-header">
+        <span class="page-number">Page 14 of 28</span>
+        <h1 class="page-title">random.randrange()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Generates random integers with step control.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>randint</code> includes both endpoints. <code>randrange</code> works like <code>range()</code>.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Random from 0 to 9 (like range(10))
+value = random.randrange(10)
+print(&quot;0-9:&quot;, value)</p><p># Random from 5 to 14 (like range(5, 15))
+value = random.randrange(5, 15)
+print(&quot;5-14:&quot;, value)</p><p># Random even number 0-20 (like range(0, 21, 2))
+value = random.randrange(0, 21, 2)
+print(&quot;Even 0-20:&quot;, value)</p><p># Random multiple of 5 from 0-100
+value = random.randrange(0, 101, 5)
+print(&quot;Multiple of 5:&quot;, value)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>0-9: 7
+5-14: 11
+Even 0-20: 14
+Multiple of 5: 65
+</code></pre><p><code>random.randrange(start, stop, step)</code>:
+<ul><li>Works exactly like <code>range()</code> but returns one random value</li>
+<li>Stop is EXCLUSIVE (unlike <code>randint</code>)</li>
+<li>Step allows patterns (evens, odds, multiples)</li></ul>
+        <h2>Why this matters</h2>
+        <p>When you need random values that follow a pattern (every 5th number, only evens), <code>randrange</code> is cleaner than filtering.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand <code>randrange</code> stop is exclusive</label>
+<label class="checkbox-item"><input type="checkbox"> I can use step to get patterned random values</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ValueError: empty range</code>: Your start/stop/step combination produces no valid values</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-15">Page 15 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-15">
+      <div class="page-header">
+        <span class="page-number">Page 15 of 28</span>
+        <h1 class="page-title">random.gauss()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Generates random numbers following a normal (bell curve) distribution.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Uniform distribution gives equal probability. Gaussian is for natural variation.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Human heights (mean=170cm, std=10cm)
+heights = [random.gauss(170, 10) for _ in range(10)]
+print(&quot;Heights (cm):&quot;)
+for h in heights:
+    print(f&quot;  {h:.1f}&quot;)</p><p># Test scores (mean=75, std=15)
+scores = [random.gauss(75, 15) for _ in range(10)]
+print(&quot;\nTest scores:&quot;)
+for s in scores:
+    print(f&quot;  {s:.1f}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Heights (cm):
+  168.3
+  175.2
+  162.7
+  171.0
+  ...</p><p>Test scores:
+  82.3
+  68.1
+  79.5
+  ...
+</code></pre><p><code>random.gauss(mu, sigma)</code>:
+<ul><li><code>mu</code> = mean (center of bell curve)</li>
+<li><code>sigma</code> = standard deviation (spread)</li>
+<li>~68% of values fall within 1 sigma of mean</li>
+<li>~95% fall within 2 sigma</li>
+</ul>
+Real-world data (heights, scores, errors) often follows this distribution.</p>
+        <h2>Why this matters</h2>
+        <p>Uniform random is unrealistic for natural phenomena. Gaussian randomness models reality better for simulations.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can generate gaussian random numbers</label>
+<label class="checkbox-item"><input type="checkbox"> I understand mu is center, sigma is spread</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Both arguments can be any number.</p>
+        </div>
+        <div class="next-page"><a href="#page-16">Page 16 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-16">
+      <div class="page-header">
+        <span class="page-number">Page 16 of 28</span>
+        <h1 class="page-title">Compare randint vs randrange</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Clarifies the difference between randint and randrange.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Both generate integers. Know which to use when.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>random.seed(100)</p><p># randint: both endpoints INCLUDED
+print(&quot;randint(1, 10) — includes 1 AND 10:&quot;)
+for _ in range(10):
+    print(random.randint(1, 10), end=&quot; &quot;)
+print()</p><p>random.seed(100)</p><p># randrange: stop is EXCLUDED (like range)
+print(&quot;\nrandrange(1, 11) — includes 1, excludes 11:&quot;)
+for _ in range(10):
+    print(random.randrange(1, 11), end=&quot; &quot;)
+print()
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>randint(1, 10) — includes 1 AND 10:
+2 5 7 1 10 3 8 4 9 6</p><p>randrange(1, 11) — includes 1, excludes 11:
+2 5 7 1 10 3 8 4 9 6
+</code></pre><p>Both produce the same results because:
+<ul><li><code>randint(1, 10)</code> = 1 to 10 inclusive</li>
+<li><code>randrange(1, 11)</code> = 1 to 10 (11 excluded)</li>
+</ul>
+<strong>Rule of thumb:</strong>
+<ul><li>Use <code>randint</code> for inclusive ranges (dice: 1-6)</li>
+<li>Use <code>randrange</code> when working with indices or range-like logic</li></ul>
+        <h2>Why this matters</h2>
+        <p>Off-by-one errors are common bugs. Knowing the exact behavior prevents them.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand randint includes both endpoints</label>
+<label class="checkbox-item"><input type="checkbox"> I understand randrange excludes the stop value</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. This is clarification.</p>
+        </div>
+        <div class="next-page"><a href="#page-17">Page 17 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-17">
+      <div class="page-header">
+        <span class="page-number">Page 17 of 28</span>
+        <h1 class="page-title">Password Generator</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Builds a practical password generator using random.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Apply what you learned to a real-world task.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random
+import string</p><p>def generate_password(length=12):
+    # All possible characters
+    chars = string.ascii_letters + string.digits + string.punctuation
+    # Pick random characters
+    password = &#x27;&#x27;.join(random.choices(chars, k=length))
+    return password</p><p># Generate passwords
+print(&quot;Random passwords:&quot;)
+for i in range(5):
+    print(f&quot;  {generate_password()}&quot;)</p><p># Custom length
+print(f&quot;\n20-character: {generate_password(20)}&quot;)
+print(f&quot;8-character:  {generate_password(8)}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Random passwords:
+  kQ7#mP2!xL9@
+  Nt5&amp;hR8*wJ3$
+  ...</p><p>20-character: Bx4#Lm9@Pq2!Wk7&amp;Hn5$
+8-character:  Jf3@Kp8!
+</code></pre><p>Key techniques used:
+<ul><li><code>string.ascii_letters</code> = a-zA-Z</li>
+<li><code>string.digits</code> = 0-9</li>
+<li><code>string.punctuation</code> = !@#$% etc.</li>
+<li><code>random.choices()</code> = pick multiple characters</li>
+<li><code>''.join()</code> = combine into string</li></ul>
+        <h2>Why this matters</h2>
+        <p>Password generation is a real use case. This pattern applies to any "generate random string" task.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can generate random passwords</label>
+<label class="checkbox-item"><input type="checkbox"> I understand how to combine string constants with random.choices()</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ModuleNotFoundError: string</code>: Add <code>import string</code> at the top</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-18">Page 18 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-18">
+      <div class="page-header">
+        <span class="page-number">Page 18 of 28</span>
+        <h1 class="page-title">Dice Game Simulation</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Simulates rolling dice and counting outcomes.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Games are the classic use case for randomness.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>def roll_dice(num_dice=2, sides=6):
+    &quot;&quot;&quot;Roll multiple dice and return the total.&quot;&quot;&quot;
+    rolls = [random.randint(1, sides) for _ in range(num_dice)]
+    return rolls, sum(rolls)</p><p># Roll 2 six-sided dice
+rolls, total = roll_dice()
+print(f&quot;Rolled: {rolls} = {total}&quot;)</p><p># Simulate 1000 rolls and count 7s
+sevens = 0
+for _ in range(1000):
+    _, total = roll_dice()
+    if total == 7:
+        sevens += 1</p><p>print(f&quot;\nIn 1000 rolls, got 7 exactly {sevens} times&quot;)
+print(f&quot;That&#x27;s {sevens/10:.1f}% (expected ~16.7%)&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Rolled: [3, 4] = 7</p><p>In 1000 rolls, got 7 exactly 162 times
+That&#x27;s 16.2% (expected ~16.7%)
+</code></pre><p>The simulation confirms probability theory:
+<ul><li>7 is the most common sum with 2 dice</li>
+<li>There are 6 ways to make 7 out of 36 possible outcomes</li>
+<li>6/36 = 16.67%</li></ul>
+        <h2>Why this matters</h2>
+        <p>Simulations verify probability calculations and model real-world scenarios.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can simulate dice rolls</label>
+<label class="checkbox-item"><input type="checkbox"> I understand how to count outcomes in a simulation</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Experiment with different dice configurations.</p>
+        </div>
+        <div class="next-page"><a href="#page-19">Page 19 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-19">
+      <div class="page-header">
+        <span class="page-number">Page 19 of 28</span>
+        <h1 class="page-title">Card Dealing</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Simulates shuffling and dealing a deck of cards.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Cards combine shuffle, sample, and choice.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Build a deck
+suits = [&#x27;♠&#x27;, &#x27;♥&#x27;, &#x27;♦&#x27;, &#x27;♣&#x27;]
+ranks = [&#x27;A&#x27;, &#x27;2&#x27;, &#x27;3&#x27;, &#x27;4&#x27;, &#x27;5&#x27;, &#x27;6&#x27;, &#x27;7&#x27;, &#x27;8&#x27;, &#x27;9&#x27;, &#x27;10&#x27;, &#x27;J&#x27;, &#x27;Q&#x27;, &#x27;K&#x27;]
+deck = [f&quot;{rank}{suit}&quot; for suit in suits for rank in ranks]</p><p>print(f&quot;Deck has {len(deck)} cards&quot;)</p><p># Shuffle
+random.shuffle(deck)</p><p># Deal 5 cards to 2 players
+player1 = [deck.pop() for _ in range(5)]
+player2 = [deck.pop() for _ in range(5)]</p><p>print(f&quot;\nPlayer 1: {player1}&quot;)
+print(f&quot;Player 2: {player2}&quot;)
+print(f&quot;Cards remaining: {len(deck)}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Deck has 52 cards</p><p>Player 1: [&#x27;7♦&#x27;, &#x27;K♠&#x27;, &#x27;3♥&#x27;, &#x27;A♣&#x27;, &#x27;9♦&#x27;]
+Player 2: [&#x27;Q♥&#x27;, &#x27;5♠&#x27;, &#x27;2♦&#x27;, &#x27;J♣&#x27;, &#x27;8♥&#x27;]
+Cards remaining: 42
+</code></pre><p>Key techniques:
+<ul><li>List comprehension builds the deck</li>
+<li><code>shuffle()</code> randomizes in place</li>
+<li><code>pop()</code> removes and returns the last card (dealing)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Card games are a perfect model for "sample without replacement" problems.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can build and shuffle a deck</label>
+<label class="checkbox-item"><input type="checkbox"> I understand pop() deals from the deck</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>IndexError: pop from empty list</code>: Dealt more cards than the deck contains</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-20">Page 20 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-20">
+      <div class="page-header">
+        <span class="page-number">Page 20 of 28</span>
+        <h1 class="page-title">Weighted Lottery</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a lottery where some tickets have better odds.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Real lotteries often have tiered prizes with different odds.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>def lottery_draw():
+    &quot;&quot;&quot;Draw a prize with weighted probabilities.&quot;&quot;&quot;
+    prizes = [&quot;$1,000,000&quot;, &quot;$10,000&quot;, &quot;$1,000&quot;, &quot;$100&quot;, &quot;$10&quot;, &quot;Nothing&quot;]
+    weights = [1, 10, 100, 1000, 5000, 93889]  # Out of 100,000
+    
+    return random.choices(prizes, weights=weights, k=1)[0]</p><p># Run the lottery 10 times
+print(&quot;Lottery results:&quot;)
+results = {}
+for _ in range(10):
+    prize = lottery_draw()
+    print(f&quot;  {prize}&quot;)
+    results[prize] = results.get(prize, 0) + 1</p><p># Simulate 100,000 draws
+print(&quot;\n100,000 draw simulation:&quot;)
+results = {}
+for _ in range(100000):
+    prize = lottery_draw()
+    results[prize] = results.get(prize, 0) + 1</p><p>for prize, count in sorted(results.items(), key=lambda x: -x[1]):
+    print(f&quot;  {prize}: {count} ({count/1000:.2f}%)&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Lottery results:
+  Nothing
+  Nothing
+  $10
+  Nothing
+  ...</p><p>100,000 draw simulation:
+  Nothing: 93876 (93.88%)
+  $10: 4987 (4.99%)
+  $100: 1021 (1.02%)
+  $1,000: 98 (0.10%)
+  $10,000: 11 (0.01%)
+  $1,000,000: 7 (0.01%)
+</code></pre><p>The simulation matches the weights:
+<ul><li>93.889% chance of nothing</li>
+<li>5% chance of $10</li>
+<li>Etc.</li></ul>
+        <h2>Why this matters</h2>
+        <p>Understanding weighted probability is crucial for game design, simulations, and detecting unfair systems.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can implement weighted probability</label>
+<label class="checkbox-item"><input type="checkbox"> I understand how to verify weights through simulation</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Try adjusting weights to change odds.</p>
+        </div>
+        <div class="next-page"><a href="#page-21">Page 21 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-21">
+      <div class="page-header">
+        <span class="page-number">Page 21 of 28</span>
+        <h1 class="page-title">Random Sampling from Data</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Demonstrates sampling techniques for data analysis.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Data scientists use random sampling constantly.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Simulated dataset: 1000 customer ages
+population = [random.randint(18, 80) for _ in range(1000)]</p><p># Simple random sample
+sample = random.sample(population, k=50)
+print(f&quot;Population mean: {sum(population)/len(population):.1f}&quot;)
+print(f&quot;Sample mean (n=50): {sum(sample)/len(sample):.1f}&quot;)</p><p># Multiple samples show variation
+print(&quot;\n10 different samples (n=50):&quot;)
+for i in range(10):
+    s = random.sample(population, k=50)
+    mean = sum(s)/len(s)
+    print(f&quot;  Sample {i+1}: mean = {mean:.1f}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Population mean: 48.7
+Sample mean (n=50): 47.2</p><p>10 different samples (n=50):
+  Sample 1: mean = 49.3
+  Sample 2: mean = 46.8
+  Sample 3: mean = 50.1
+  ...
+</code></pre><p>Key insight: Sample means cluster around the population mean but vary. Larger samples = less variation.</p>
+        <h2>Why this matters</h2>
+        <p>You can't always measure everything. Sampling lets you estimate population statistics from a subset.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can take random samples from data</label>
+<label class="checkbox-item"><input type="checkbox"> I understand samples approximate but don't equal population statistics</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Try different sample sizes.</p>
+        </div>
+        <div class="next-page"><a href="#page-22">Page 22 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-22">
+      <div class="page-header">
+        <span class="page-number">Page 22 of 28</span>
+        <h1 class="page-title">Shuffled Quiz Questions</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a quiz with randomized question order.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Educational software often randomizes to prevent memorization of order.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>questions = [
+    {&quot;q&quot;: &quot;What is 2 + 2?&quot;, &quot;a&quot;: &quot;4&quot;},
+    {&quot;q&quot;: &quot;Capital of France?&quot;, &quot;a&quot;: &quot;Paris&quot;},
+    {&quot;q&quot;: &quot;Largest planet?&quot;, &quot;a&quot;: &quot;Jupiter&quot;},
+    {&quot;q&quot;: &quot;H2O is?&quot;, &quot;a&quot;: &quot;Water&quot;},
+    {&quot;q&quot;: &quot;Year Python released?&quot;, &quot;a&quot;: &quot;1991&quot;},
+]</p><p>def run_quiz(questions):
+    # Shuffle without modifying original
+    shuffled = random.sample(questions, k=len(questions))
+    score = 0
+    
+    print(&quot;=== QUIZ ===\n&quot;)
+    for i, item in enumerate(shuffled, 1):
+        print(f&quot;Q{i}: {item[&#x27;q&#x27;]}&quot;)
+        answer = input(&quot;Your answer: &quot;).strip()
+        if answer.lower() == item[&#x27;a&#x27;].lower():
+            print(&quot;✓ Correct!\n&quot;)
+            score += 1
+        else:
+            print(f&quot;✗ Wrong. Answer: {item[&#x27;a&#x27;]}\n&quot;)
+    
+    print(f&quot;Final score: {score}/{len(questions)}&quot;)</p><p># Uncomment to run interactive quiz:
+# run_quiz(questions)</p><p># Demo: show shuffled order
+print(&quot;Question order (shuffled):&quot;)
+shuffled = random.sample(questions, k=len(questions))
+for i, item in enumerate(shuffled, 1):
+    print(f&quot;  {i}. {item[&#x27;q&#x27;]}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Question order (shuffled):
+  1. H2O is?
+  2. Capital of France?
+  3. Year Python released?
+  4. Largest planet?
+  5. What is 2 + 2?
+</code></pre><p>Every run shows a different order. This prevents students from memorizing "question 3 is always about France."</p>
+        <h2>Why this matters</h2>
+        <p>Randomization in education, surveys, and testing ensures fairness and prevents pattern exploitation.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can randomize a list of items while keeping data together</label>
+<label class="checkbox-item"><input type="checkbox"> I understand how to preserve original order when needed</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. The interactive part is commented out.</p>
+        </div>
+        <div class="next-page"><a href="#page-23">Page 23 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-23">
+      <div class="page-header">
+        <span class="page-number">Page 23 of 28</span>
+        <h1 class="page-title">Random Color Generator</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Generates random colors in different formats.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Graphics, data visualization, and UI design use random colors.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>def random_hex_color():
+    &quot;&quot;&quot;Generate random color as #RRGGBB&quot;&quot;&quot;
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    return f&quot;#{r:02x}{g:02x}{b:02x}&quot;</p><p>def random_rgb():
+    &quot;&quot;&quot;Generate random color as (R, G, B) tuple&quot;&quot;&quot;
+    return (random.randint(0, 255), 
+            random.randint(0, 255), 
+            random.randint(0, 255))</p><p>def random_pastel():
+    &quot;&quot;&quot;Generate soft pastel colors&quot;&quot;&quot;
+    r = random.randint(150, 255)
+    g = random.randint(150, 255)
+    b = random.randint(150, 255)
+    return f&quot;#{r:02x}{g:02x}{b:02x}&quot;</p><p>print(&quot;Random hex colors:&quot;)
+for _ in range(5):
+    print(f&quot;  {random_hex_color()}&quot;)</p><p>print(&quot;\nRandom RGB tuples:&quot;)
+for _ in range(5):
+    print(f&quot;  {random_rgb()}&quot;)</p><p>print(&quot;\nRandom pastels:&quot;)
+for _ in range(5):
+    print(f&quot;  {random_pastel()}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Random hex colors:
+  #3a7bc4
+  #f2941d
+  #8c2e5f
+  ...</p><p>Random RGB tuples:
+  (142, 87, 203)
+  (56, 189, 34)
+  ...</p><p>Random pastels:
+  #d4f0e8
+  #f7c9db
+  ...
+</code></pre><p>Techniques:
+<ul><li><code>randint(0, 255)</code> covers the full color range</li>
+<li><code>:02x</code> formats as 2-digit hex</li>
+<li>Constraining range (150-255) gives pastels</li></ul>
+        <h2>Why this matters</h2>
+        <p>Data visualization often needs distinct random colors. Game development uses random palettes.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can generate random colors in hex and RGB</label>
+<label class="checkbox-item"><input type="checkbox"> I understand how to constrain ranges for specific color effects</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Experiment with different ranges.</p>
+        </div>
+        <div class="next-page"><a href="#page-24">Page 24 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-24">
+      <div class="page-header">
+        <span class="page-number">Page 24 of 28</span>
+        <h1 class="page-title">Monte Carlo Pi Estimation</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Uses random sampling to estimate the value of π.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Monte Carlo methods use randomness to solve mathematical problems.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>def estimate_pi(num_points):
+    &quot;&quot;&quot;Estimate pi by throwing darts at a square.&quot;&quot;&quot;
+    inside_circle = 0
+    
+    for _ in range(num_points):
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
+        
+        # Check if point is inside unit circle
+        if x*x + y*y &lt;= 1:
+            inside_circle += 1
+    
+    # Area of circle / Area of square = pi/4
+    # So pi = 4 * (points in circle / total points)
+    return 4 * inside_circle / num_points</p><p>print(&quot;Estimating π with random points:\n&quot;)
+for n in [100, 1000, 10000, 100000, 1000000]:
+    estimate = estimate_pi(n)
+    error = abs(estimate - 3.14159265359)
+    print(f&quot;  {n:&gt;8} points: π ≈ {estimate:.6f} (error: {error:.6f})&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Estimating π with random points:</p><p>       100 points: π ≈ 3.120000 (error: 0.021593)
+      1000 points: π ≈ 3.148000 (error: 0.006407)
+     10000 points: π ≈ 3.141200 (error: 0.000393)
+    100000 points: π ≈ 3.142120 (error: 0.000527)
+   1000000 points: π ≈ 3.141752 (error: 0.000159)
+</code></pre><p>More points = better estimate. This demonstrates:
+<ul><li>Random sampling can solve geometric problems</li>
+<li>Law of large numbers: more samples → converges to true value</li></ul>
+        <h2>Why this matters</h2>
+        <p>Monte Carlo methods power financial modeling, physics simulations, and AI game playing.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand random sampling can estimate mathematical values</label>
+<label class="checkbox-item"><input type="checkbox"> I see how more samples improve accuracy</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Large num_points takes longer to run.</p>
+        </div>
+        <div class="next-page"><a href="#page-25">Page 25 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-25">
+      <div class="page-header">
+        <span class="page-number">Page 25 of 28</span>
+        <h1 class="page-title">Reproducible Tests with Seed</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to use seeds for testing random code.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Testing code that uses randomness requires reproducibility.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p>def get_random_user():
+    &quot;&quot;&quot;Generate a random user for testing.&quot;&quot;&quot;
+    names = [&quot;Alice&quot;, &quot;Bob&quot;, &quot;Charlie&quot;, &quot;Diana&quot;, &quot;Eve&quot;]
+    ages = range(18, 80)
+    
+    return {
+        &quot;name&quot;: random.choice(names),
+        &quot;age&quot;: random.choice(ages),
+        &quot;score&quot;: random.randint(0, 100)
+    }</p><p># Without seed: different each time
+print(&quot;Without seed (different each run):&quot;)
+for _ in range(3):
+    print(f&quot;  {get_random_user()}&quot;)</p><p># With seed: reproducible
+print(&quot;\nWith seed(42) (same each run):&quot;)
+random.seed(42)
+for _ in range(3):
+    print(f&quot;  {get_random_user()}&quot;)</p><p># Reset and get same results
+print(&quot;\nWith seed(42) again (identical):&quot;)
+random.seed(42)
+for _ in range(3):
+    print(f&quot;  {get_random_user()}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file multiple times:
+<pre><code>Without seed (different each run):
+  {&#x27;name&#x27;: &#x27;Charlie&#x27;, &#x27;age&#x27;: 45, &#x27;score&#x27;: 72}
+  ...</p><p>With seed(42) (same each run):
+  {&#x27;name&#x27;: &#x27;Charlie&#x27;, &#x27;age&#x27;: 35, &#x27;score&#x27;: 82}
+  {&#x27;name&#x27;: &#x27;Diana&#x27;, &#x27;age&#x27;: 67, &#x27;score&#x27;: 15}
+  {&#x27;name&#x27;: &#x27;Bob&#x27;, &#x27;age&#x27;: 28, &#x27;score&#x27;: 95}</p><p>With seed(42) again (identical):
+  {&#x27;name&#x27;: &#x27;Charlie&#x27;, &#x27;age&#x27;: 35, &#x27;score&#x27;: 82}
+  {&#x27;name&#x27;: &#x27;Diana&#x27;, &#x27;age&#x27;: 67, &#x27;score&#x27;: 15}
+  {&#x27;name&#x27;: &#x27;Bob&#x27;, &#x27;age&#x27;: 28, &#x27;score&#x27;: 95}
+</code></pre><p>The seed(42) sections are always identical, even across runs.</p>
+        <h2>Why this matters</h2>
+        <p>Unit tests need deterministic results. "Test failed with seed 42" is actionable.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use seed() to make tests reproducible</label>
+<label class="checkbox-item"><input type="checkbox"> I understand to reset seed before each test that needs reproducibility</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Seed values can be any integer.</p>
+        </div>
+        <div class="next-page"><a href="#page-26">Page 26 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-26">
+      <div class="page-header">
+        <span class="page-number">Page 26 of 28</span>
+        <h1 class="page-title">Function Reference</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Summarizes all random module functions covered.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Quick reference after completing the guide.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>### Number Generation</p><table>
+<tr><td>Function</td><td>Returns</td><td>Range</td></tr>
+<tr><td><code>random()</code></td><td>float</td><td>[0.0, 1.0)</td></tr>
+<tr><td><code>randint(a, b)</code></td><td>int</td><td>[a, b] inclusive</td></tr>
+<tr><td><code>randrange(start, stop, step)</code></td><td>int</td><td>[start, stop) exclusive</td></tr>
+<tr><td><code>uniform(a, b)</code></td><td>float</td><td>[a, b]</td></tr>
+<tr><td><code>gauss(mu, sigma)</code></td><td>float</td><td>normal distribution</td></tr>
+</table><p>### Selection</p><table>
+<tr><td>Function</td><td>Returns</td><td>Replacement</td></tr>
+<tr><td><code>choice(seq)</code></td><td>single item</td><td>N/A</td></tr>
+<tr><td><code>choices(seq, k=n)</code></td><td>list of n items</td><td>WITH replacement</td></tr>
+<tr><td><code>sample(seq, k=n)</code></td><td>list of n items</td><td>WITHOUT replacement</td></tr>
+</table><p>### Modification</p><table>
+<tr><td>Function</td><td>Effect</td></tr>
+<tr><td><code>shuffle(list)</code></td><td>Randomizes list IN PLACE</td></tr>
+<tr><td><code>seed(value)</code></td><td>Sets random state for reproducibility</td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>Reference tables accelerate lookup when you know what you need but forget the exact function.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can quickly find the right function for my task</label>
+<label class="checkbox-item"><input type="checkbox"> I understand the key differences between similar functions</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is reference material.</p>
+        </div>
+        <div class="next-page"><a href="#page-27">Page 27 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-27">
+      <div class="page-header">
+        <span class="page-number">Page 27 of 28</span>
+        <h1 class="page-title">Common Patterns</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows reusable code patterns for common tasks.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Copy-paste solutions for frequent needs.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import random</p><p># Pattern 1: Random item from list
+items = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+item = random.choice(items)</p><p># Pattern 2: Random integer in range (inclusive)
+dice = random.randint(1, 6)</p><p># Pattern 3: Random float in range
+temp = random.uniform(60.0, 80.0)</p><p># Pattern 4: Pick N unique items
+winners = random.sample(range(1, 100), k=5)</p><p># Pattern 5: Pick N items (may repeat)
+flips = random.choices([&quot;H&quot;, &quot;T&quot;], k=10)</p><p># Pattern 6: Shuffle a list (modifies in place)
+deck = list(range(52))
+random.shuffle(deck)</p><p># Pattern 7: Shuffle without modifying
+original = [1, 2, 3, 4, 5]
+shuffled = random.sample(original, k=len(original))</p><p># Pattern 8: Weighted selection
+prizes = random.choices(
+    [&quot;win&quot;, &quot;lose&quot;], 
+    weights=[10, 90], 
+    k=1
+)[0]</p><p># Pattern 9: Reproducible results
+random.seed(42)
+result = random.randint(1, 100)  # Always 82</p><p># Pattern 10: Random string
+import string
+password = &#x27;&#x27;.join(random.choices(
+    string.ascii_letters + string.digits, 
+    k=12
+))</p><p>print(&quot;All patterns demonstrated.&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>These 10 patterns cover most random module use cases. Each is a self-contained solution you can adapt.</p>
+        <h2>Why this matters</h2>
+        <p>Having ready patterns speeds up development. You don't need to rediscover solutions.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I recognize which pattern fits my current task</label>
+<label class="checkbox-item"><input type="checkbox"> I can adapt these patterns to my specific needs</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. These are proven patterns.</p>
+        </div>
+        <div class="next-page"><a href="#page-28">Page 28 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-28">
+      <div class="page-header">
+        <span class="page-number">Page 28 of 28</span>
+        <h1 class="page-title">Final Verification</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms you have mastered all skills in this guide.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the end. Verify everything works together.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>Complete this final test in your <code>random_basics.py</code>:</p><pre><code>import random
+import string</p><p># Set seed for reproducibility
+random.seed(2026)</p><p># 1. Generate 5 random integers 1-100
+print(&quot;1. Random integers:&quot;)
+for _ in range(5):
+    print(f&quot;   {random.randint(1, 100)}&quot;)</p><p># 2. Pick 3 unique items from a list
+colors = [&quot;red&quot;, &quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;blue&quot;, &quot;purple&quot;]
+picked = random.sample(colors, k=3)
+print(f&quot;\n2. Picked colors: {picked}&quot;)</p><p># 3. Simulate weighted dice (6 is twice as likely)
+weights = [1, 1, 1, 1, 1, 2]  # 6 has weight 2
+rolls = random.choices([1, 2, 3, 4, 5, 6], weights=weights, k=100)
+print(f&quot;\n3. In 100 weighted rolls, got 6 exactly {rolls.count(6)} times&quot;)</p><p># 4. Shuffle a deck and deal 5 cards
+deck = [f&quot;{r}{s}&quot; for s in &quot;♠♥♦♣&quot; for r in &quot;A23456789TJQK&quot;]
+random.shuffle(deck)
+hand = [deck.pop() for _ in range(5)]
+print(f&quot;\n4. Dealt hand: {hand}&quot;)</p><p># 5. Generate a random password
+chars = string.ascii_letters + string.digits
+password = &#x27;&#x27;.join(random.choices(chars, k=16))
+print(f&quot;\n5. Password: {password}&quot;)</p><p>print(&quot;\n✓ Random Module Fundamentals Complete!&quot;)
+</code></pre><p>Run it. If you understand every line, you've completed the guide.</p>
+        <h2>Why this matters</h2>
+        <p>You now have complete control over randomness in Python. From games to simulations to security, you can generate the random data you need.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I completed the final test</label>
+<label class="checkbox-item"><input type="checkbox"> I understand every operation used</label>
+<label class="checkbox-item"><input type="checkbox"> I am ready to use the random module in projects</label></p>
+        </div>
+        
+        
+      </div>
+    </article>
+    </main>
+
+    <button class="toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰</button>
+
+    <div class="toc-panel" id="tocPanel">
+        <div class="toc-header">
+            <h3>Contents</h3>
+            <button class="toc-close" onclick="toggleTOC()">×</button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="#page-1">Page 1: What This Guide Covers</a></li>
+<li><a href="#page-2">Page 2: Create a Practice File</a></li>
+<li><a href="#page-3">Page 3: Import random</a></li>
+<li><a href="#page-4">Page 4: random.random()</a></li>
+<li><a href="#page-5">Page 5: random.randint()</a></li>
+<li><a href="#page-6">Page 6: random.uniform()</a></li>
+<li><a href="#page-7">Page 7: random.choice()</a></li>
+<li><a href="#page-8">Page 8: random.choices()</a></li>
+<li><a href="#page-9">Page 9: random.choices() with Weights</a></li>
+<li><a href="#page-10">Page 10: random.sample()</a></li>
+<li><a href="#page-11">Page 11: random.shuffle()</a></li>
+<li><a href="#page-12">Page 12: Shuffle Without Modifying Original</a></li>
+<li><a href="#page-13">Page 13: random.seed()</a></li>
+<li><a href="#page-14">Page 14: random.randrange()</a></li>
+<li><a href="#page-15">Page 15: random.gauss()</a></li>
+<li><a href="#page-16">Page 16: Compare randint vs randrange</a></li>
+<li><a href="#page-17">Page 17: Password Generator</a></li>
+<li><a href="#page-18">Page 18: Dice Game Simulation</a></li>
+<li><a href="#page-19">Page 19: Card Dealing</a></li>
+<li><a href="#page-20">Page 20: Weighted Lottery</a></li>
+<li><a href="#page-21">Page 21: Random Sampling from Data</a></li>
+<li><a href="#page-22">Page 22: Shuffled Quiz Questions</a></li>
+<li><a href="#page-23">Page 23: Random Color Generator</a></li>
+<li><a href="#page-24">Page 24: Monte Carlo Pi Estimation</a></li>
+<li><a href="#page-25">Page 25: Reproducible Tests with Seed</a></li>
+<li><a href="#page-26">Page 26: Function Reference</a></li>
+<li><a href="#page-27">Page 27: Common Patterns</a></li>
+<li><a href="#page-28">Page 28: Final Verification</a></li>
+        </ul>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+        <p>© 2026 MoreSalamander StudioLabs. All rights reserved. <a href="/build-it/license.html">License</a></p>
+    </footer>
+
+    <script src="/build-it/assets/js/guide.js"></script>
+</body>
+</html>
