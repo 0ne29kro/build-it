@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authoring Methodology | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+    <style>
+        .authoring-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .authoring-container h1 {
+            color: #1a1a2e;
+            border-bottom: 3px solid #4ECDC4;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .authoring-container h2 {
+            color: #1a1a2e;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        .authoring-container h3 {
+            color: #16213e;
+            margin-top: 2rem;
+        }
+        .authoring-container h4 {
+            color: #333;
+            margin-top: 1.5rem;
+        }
+        .authoring-container p, .authoring-container li {
+            line-height: 1.7;
+            color: #333;
+        }
+        .authoring-container ul, .authoring-container ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        .authoring-container li {
+            margin-bottom: 0.5rem;
+        }
+        .summary-box {
+            background: #e3f2fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin-bottom: 2rem;
+        }
+        .summary-box h2 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+        .distinctive-box {
+            background: #fff3e0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            margin: 1.5rem 0;
+        }
+        .role-card {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid #4ECDC4;
+        }
+        .role-card strong {
+            color: #1a1a2e;
+        }
+        .pipeline-step {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 0.75rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .pipeline-step .step-number {
+            background: #4ECDC4;
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .pipeline-step .step-content {
+            flex: 1;
+        }
+        .pipeline-step .step-content strong {
+            color: #1a1a2e;
+        }
+        .quality-control {
+            background: #e8f5e9;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 0.75rem 0;
+            border-left: 4px solid #4caf50;
+        }
+        .collaboration-section {
+            background: #fafafa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid #eee;
+        }
+        .collaboration-section h3 {
+            margin-top: 0;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #4ECDC4;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .demonstrates-list {
+            background: #f3e5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #9c27b0;
+            margin: 1.5rem 0;
+        }
+        .demonstrates-list ul {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / Authoring Methodology
+            </nav>
+        </div>
+    </header>
+
+    <div class="authoring-container">
+        <a href="/build-it/" class="back-link">← Back to Home</a>
+        
+        <h1>Authoring Methodology</h1>
+
+        <div class="summary-box">
+            <h2>What Build It Guides Are</h2>
+            <p>A <strong>beginner-first, verification-driven instructional guide</strong> that transforms a working application into a <strong>step-structured learning system</strong> where each step:</p>
+            <ul>
+                <li>Introduces exactly one concept/change</li>
+                <li>Explains intent and constraints</li>
+                <li>Includes a checkpoint and failure recovery path</li>
+                <li>Preserves architectural boundaries (e.g., Configuration vs Runtime vs later Persistence)</li>
+            </ul>
+        </div>
+
+        <div class="distinctive-box">
+            <h3 style="margin-top: 0;">Why This Approach is Distinctive</h3>
+            <p>This is <strong>not</strong> "AI-generated code presented as-is." It is a <strong>structured production workflow</strong> that treats code as <em>the executable reference</em> and the guide as <em>a validated instructional layer</em>, with safeguards against drift, missing steps, and vague explanations.</p>
+        </div>
+
+        <h2>Inputs</h2>
+        <ul>
+            <li>A defined product goal (e.g., Academic Study Timer)</li>
+            <li>A constrained scope (e.g., Configuration stage: no persistence, single window, Tkinter-only)</li>
+            <li>A verification contract: each feature must be testable via explicit checklists and run behavior</li>
+        </ul>
+
+        <h2>Roles in the Collaboration</h2>
+
+        <div class="role-card">
+            <strong>0ne29 (author/producer):</strong> Owns system design, constraints, stage boundaries, QA expectations, and the "step contract" (what every step must include and prove). Also runs the early-stage stress testing and iteration loop to intentionally converge on a reliable format and workflow.
+        </div>
+
+        <div class="role-card">
+            <strong>ChatGPT (GPT-5.2):</strong> Contributes early-stage structuring—template logic, decomposition strategy, boundary enforcement, and "explain + verify + recover" scaffolding.
+        </div>
+
+        <div class="role-card">
+            <strong>Claude (Opus 4.5):</strong> Executes high-volume synthesis under constraints—consistent step-by-step prose, aligned code snippets, and internal consistency across the guide.
+        </div>
+
+        <h2>Method (Pipeline)</h2>
+
+        <div class="pipeline-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <strong>Stage freeze & constraints</strong>
+                <p>Define what is in scope and what is explicitly out of scope.</p>
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <strong>Atomic decomposition</strong>
+                <p>Break the system into "one step = one unit of change," including dependencies and architectural placement.</p>
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <strong>Instruction-as-verification</strong>
+                <p>Embed checkpoints and "if something breaks" recovery notes so the guide doubles as a QA harness.</p>
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <strong>End-to-end validation</strong>
+                <p>Consolidate into a runnable reference and validate that runtime behavior matches the guide's claims.</p>
+            </div>
+        </div>
+
+        <div class="pipeline-step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+                <strong>Feature verification suite</strong>
+                <p>Add feature-by-feature verification checklists to confirm expected behavior and guard against regression.</p>
+            </div>
+        </div>
+
+        <h2>Quality Controls</h2>
+        <p>These controls prevent "LLM fluff" and ensure consistency:</p>
+
+        <div class="quality-control">
+            <strong>Contracted step schema:</strong> Each step includes purpose, fit, code, explanation, why-it-matters, checkpoint, and recovery.
+        </div>
+
+        <div class="quality-control">
+            <strong>Dependency tracking:</strong> Each step declares prerequisites, preventing silent leaps.
+        </div>
+
+        <div class="quality-control">
+            <strong>Run-based validation:</strong> The final code is executed to confirm key behaviors (single window, timer accuracy, settings apply logic).
+        </div>
+
+        <div class="quality-control">
+            <strong>Scope enforcement:</strong> Explicit "does not include" constraints are asserted and re-verified near completion.
+        </div>
+
+        <h2>AI Collaboration Notes</h2>
+
+        <div class="collaboration-section">
+            <h3>Division of Labor</h3>
+            
+            <h4>0ne29 (Human):</h4>
+            <ul>
+                <li>Product definition, stage boundaries, instructional contract, acceptance criteria, verification requirements, final editorial decisions</li>
+                <li><strong>Early-stage stress testing:</strong> Aggressively tested candidate page formats and decomposition strategies against failure modes (drift, missing dependencies, vague explanations, scope leakage, inconsistent naming)</li>
+                <li><strong>Feedback loops:</strong> Used repeated critique cycles to refine constraints until the format became deterministic—i.e., the same rules consistently produce the same quality of output</li>
+                <li><strong>Prompt and constraint engineering:</strong> Translated observed failures into explicit rules (schema, dependency declaration, "stop and verify" checkpoints, recovery steps) to prevent recurrence</li>
+                <li><strong>Integration QA:</strong> Validated that guide text, code snippets, and runtime behavior all agree, and that the guide remains coherent when read linearly or referenced out of order</li>
+            </ul>
+
+            <h4>ChatGPT (GPT-5.2):</h4>
+            <ul>
+                <li>Guide format design</li>
+                <li>Decomposition strategy</li>
+                <li>Guardrails against scope drift</li>
+                <li>Verification framing</li>
+            </ul>
+
+            <h4>Claude (Opus 4.5):</h4>
+            <ul>
+                <li>Consistent step-by-step narrative generation</li>
+                <li>Alignment of prose to code units</li>
+                <li>Uniform checkpoint/recovery formatting</li>
+            </ul>
+        </div>
+
+        <h3>Verification Standard</h3>
+        <p>Guide assertions are backed by explicit verification checklists and execution of the reference code to confirm runtime behavior.</p>
+
+        <h3>Note on Authorship</h3>
+        <p>The core contribution is a <strong>repeatable pipeline</strong> that converts requirements into a verified, beginner-readable system with traceable rationale per change and per feature.</p>
+
+        <div class="demonstrates-list">
+            <h3 style="margin-top: 0;">What This Demonstrates</h3>
+            <ul>
+                <li><strong>Systems thinking:</strong> Converting an application into a staged curriculum without leaking scope</li>
+                <li><strong>Production discipline:</strong> Specification, decomposition, QA checklists, and reproducibility</li>
+                <li><strong>Modern workflow:</strong> Using AI as a constrained co-author while maintaining human-owned standards and acceptance criteria</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+        <p>© 2026 MoreSalamander StudioLabs. All rights reserved. <a href="./license.html">License</a></p>
+    </footer>
+</body>
+</html>
