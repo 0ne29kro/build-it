@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitution | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+    <style>
+        .constitution-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .constitution-container h1 {
+            color: #1a1a2e;
+            border-bottom: 3px solid #4ECDC4;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .constitution-container .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        .constitution-container .version {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .constitution-container h2 {
+            color: #1a1a2e;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        .constitution-container h3 {
+            color: #16213e;
+            margin-top: 2rem;
+        }
+        .constitution-container h4 {
+            color: #333;
+            margin-top: 1.5rem;
+        }
+        .constitution-container p, .constitution-container li {
+            line-height: 1.7;
+            color: #333;
+        }
+        .constitution-container ul, .constitution-container ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        .constitution-container li {
+            margin-bottom: 0.5rem;
+        }
+        .constitution-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .constitution-container th, .constitution-container td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .constitution-container th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .constitution-container code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .constitution-container pre {
+            background: #1a1a2e;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        .constitution-container pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        .purpose-box {
+            background: #e8f5e9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            margin-bottom: 2rem;
+        }
+        .key-rule {
+            background: #fff3e0;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            margin: 1rem 0;
+        }
+        .locked-badge {
+            display: inline-block;
+            background: #e53935;
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+        .includes-list {
+            background: #e8f5e9;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .excludes-list {
+            background: #ffebee;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .forbidden {
+            color: #c62828;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #4ECDC4;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+        .checklist li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .checklist li::before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / Constitution
+            </nav>
+        </div>
+    </header>
+
+    <div class="constitution-container">
+        <a href="/build-it/" class="back-link">← Back to Home</a>
+        
+        <h1>Build It — Constitution</h1>
+        <p class="subtitle">Instructional System Framework</p>
+        <p class="version">Version 2.0</p>
+
+        <div class="purpose-box">
+            <h2 style="margin-top: 0; border: none; padding: 0;">Purpose</h2>
+            <p>This Constitution defines the Build It instructional system — a methodology for teaching software construction through atomic, sequential steps. Each page teaches exactly one concept, adds exactly one piece of code, and produces a verifiable checkpoint.</p>
+        </div>
+
+        <h2>Core Principles</h2>
+
+        <h3>1. Three Standalone Stages</h3>
+        <p>Every Build It project produces <strong>three separate guides</strong>, each building a complete, runnable application:</p>
+        
+        <table>
+            <tr>
+                <th>Stage</th>
+                <th>Guide</th>
+                <th>Output</th>
+            </tr>
+            <tr>
+                <td><strong>Foundation</strong></td>
+                <td>Pages 1–N</td>
+                <td><code>foundation.py</code> — Core functionality, hardcoded values</td>
+            </tr>
+            <tr>
+                <td><strong>Configuration</strong></td>
+                <td>Pages 1–M</td>
+                <td><code>configuration.py</code> — User-adjustable settings (in-memory)</td>
+            </tr>
+            <tr>
+                <td><strong>Persistence</strong></td>
+                <td>Pages 1–P</td>
+                <td><code>persistence.py</code> — Settings saved to disk</td>
+            </tr>
+        </table>
+
+        <div class="key-rule">
+            <strong>Key rule:</strong> Each guide starts at Page 1. Each guide produces ONE window. Each guide is a complete standalone tutorial.
+        </div>
+
+        <p>Page counts (N, M, P) are determined by actual decomposition for each project — never locked in advance.</p>
+
+        <h3>2. Stage Boundaries <span class="locked-badge">LOCKED</span></h3>
+
+        <h4>Foundation includes:</h4>
+        <div class="includes-list">
+            <ul>
+                <li>All imports needed for core functionality</li>
+                <li>Domain state class (e.g., <code>TimerState</code>)</li>
+                <li>Application controller class with hardcoded constants</li>
+                <li>Complete UI without settings panel</li>
+                <li>All core behavior methods</li>
+                <li>Entry point (<code>main()</code> and <code>if __name__ == "__main__"</code>)</li>
+            </ul>
+        </div>
+
+        <h4>Foundation does NOT include:</h4>
+        <div class="excludes-list">
+            <ul>
+                <li>Settings dataclass</li>
+                <li>Configuration UI (settings panel, Apply button)</li>
+                <li>Validation methods for user input</li>
+                <li>Any reference to <code>self.settings</code></li>
+            </ul>
+        </div>
+
+        <h4>Configuration includes:</h4>
+        <div class="includes-list">
+            <ul>
+                <li>Everything needed to run (woven in, not imported from Foundation)</li>
+                <li><code>@dataclass</code> import and <code>Settings</code> class</li>
+                <li>Settings UI panel (inputs, Apply button)</li>
+                <li>Input validation methods</li>
+                <li>Smart sync logic (update timer only when safe)</li>
+                <li>Conditional behavior based on settings</li>
+            </ul>
+        </div>
+
+        <h4>Configuration does NOT include:</h4>
+        <div class="excludes-list">
+            <ul>
+                <li>JSON/Path imports</li>
+                <li>File I/O operations</li>
+                <li>PersistenceManager class</li>
+                <li>Save button or Saved/Unsaved indicator</li>
+                <li>Dirty tracking</li>
+            </ul>
+        </div>
+
+        <h4>Persistence includes:</h4>
+        <div class="includes-list">
+            <ul>
+                <li>Everything needed to run (woven in, not imported from Configuration)</li>
+                <li>JSON and Path imports</li>
+                <li><code>PersistenceManager</code> class with <code>load()</code> and <code>save()</code> methods</li>
+                <li>Settings file location constant</li>
+                <li>Load on startup, save on demand</li>
+                <li>Dirty tracking (comparing against saved snapshot)</li>
+                <li>Save button replacing Apply button</li>
+                <li>Saved/Unsaved status indicator</li>
+                <li>Corruption recovery (defaults on bad file)</li>
+            </ul>
+        </div>
+
+        <h2>Page Template <span class="locked-badge">LOCKED</span></h2>
+        <p>Every page follows this exact structure:</p>
+
+        <pre><code># Page N: [Action Title]
+
+## What this page does
+
+[One sentence describing the single action this page performs]
+
+---
+
+## Where this fits
+
+**Part:** [Foundation | Configuration | Persistence]  
+**Section:** [Chunk name]  
+**Depends on:** [Page numbers or "None"]  
+
+This step is part of the larger process of [context].
+
+---
+
+## Code (this page)
+
+```python
+[Exact code added on this page — no more, no less]
+```
+
+---
+
+## Explanation
+
+[2-4 sentences explaining what the code does and why]
+
+---
+
+## Why this matters
+
+[1-2 sentences connecting this to the larger system]
+
+---
+
+## Checkpoint
+
+After this page, you should be able to:
+
+- [ ] [Verifiable condition 1]
+- [ ] [Verifiable condition 2]
+
+If this is not true, stop and review before continuing.
+
+---
+
+## If something breaks here
+
+**Common issues at this step:**
+
+- [Issue 1]
+- [Issue 2]
+
+**How to recover:**
+
+[Recovery instructions]</code></pre>
+
+        <h2>Atomic Step Rules</h2>
+
+        <h3>What counts as ONE page:</h3>
+        <ul>
+            <li>One import statement</li>
+            <li>One class declaration (without body)</li>
+            <li>One method signature (without body)</li>
+            <li>One logical block inside a method (3-7 lines typically)</li>
+            <li>One widget creation and configuration</li>
+            <li>One constant or variable initialization</li>
+        </ul>
+
+        <h3>What requires MULTIPLE pages:</h3>
+        <ul>
+            <li>A method with multiple logical sections</li>
+            <li>A class with multiple methods</li>
+            <li>Multiple related but distinct operations</li>
+            <li>Any code block over 7 lines</li>
+        </ul>
+
+        <h3>Code appearance rules:</h3>
+        <ul>
+            <li>Code appears on exactly ONE page</li>
+            <li>No repeated code across pages</li>
+            <li>No "here's the full method" summaries mid-guide</li>
+            <li>Complete code only in final verification appendix</li>
+        </ul>
+
+        <h2>Chunk Structure</h2>
+        <p>Each stage is organized into logical chunks. Chunk names and counts vary by project, but follow this pattern:</p>
+
+        <h4>Foundation chunks (typical):</h4>
+        <ul>
+            <li>Imports and module boundary</li>
+            <li>Domain state classes</li>
+            <li>Application shell and constants</li>
+            <li>UI composition (header, display, controls)</li>
+            <li>Core logic / main loop</li>
+            <li>Control handlers</li>
+            <li>Entry point</li>
+        </ul>
+
+        <h4>Configuration chunks (typical):</h4>
+        <ul>
+            <li>Configuration boundary (new imports)</li>
+            <li>Settings domain model</li>
+            <li>Input validation pipeline</li>
+            <li>Settings UI composition</li>
+            <li>Apply/sync logic</li>
+        </ul>
+
+        <h4>Persistence chunks (typical):</h4>
+        <ul>
+            <li>Persistence boundary (new imports)</li>
+            <li>PersistenceManager class</li>
+            <li>Load pipeline</li>
+            <li>Save pipeline</li>
+            <li>Dirty tracking</li>
+            <li>UI changes (Save button, status indicator)</li>
+        </ul>
+
+        <h2>Verification Pages</h2>
+        <p>Each stage ends with verification pages that:</p>
+        <ol>
+            <li>List all features that should work</li>
+            <li>Provide a completion checklist</li>
+            <li>Confirm stage boundaries (what IS and ISN'T included)</li>
+            <li>Include complete code for that stage</li>
+        </ol>
+
+        <h2>Naming Conventions</h2>
+
+        <h4>Files</h4>
+        <ul>
+            <li><code>foundation.py</code> — Stage 1 output</li>
+            <li><code>configuration.py</code> — Stage 2 output</li>
+            <li><code>persistence.py</code> — Stage 3 output (final application)</li>
+        </ul>
+
+        <h4>Classes</h4>
+        <ul>
+            <li>Use PascalCase: <code>TimerState</code>, <code>Settings</code>, <code>PersistenceManager</code></li>
+            <li>App controller: <code>[Project]App</code> (e.g., <code>StudyTimerApp</code>)</li>
+        </ul>
+
+        <h4>Methods</h4>
+        <ul>
+            <li>Private methods: <code>_method_name</code></li>
+            <li>Event handlers: <code>_on_[event]</code> (e.g., <code>_on_start</code>, <code>_on_apply</code>)</li>
+            <li>Update methods: <code>_update_[thing]</code> (e.g., <code>_update_display</code>)</li>
+        </ul>
+
+        <h4>Constants</h4>
+        <ul>
+            <li>Class constants: <code>SCREAMING_SNAKE_CASE</code></li>
+            <li>Located inside the app class, not at module level</li>
+        </ul>
+
+        <h2>Anti-Patterns <span class="forbidden">FORBIDDEN</span></h2>
+
+        <h4>In guides:</h4>
+        <ul class="forbidden">
+            <li>❌ "Now let's add these 50 lines..."</li>
+            <li>❌ Showing the same code twice</li>
+            <li>❌ Skipping steps ("the rest is similar")</li>
+            <li>❌ Forward references to undefined code</li>
+            <li>❌ Pages without checkpoints</li>
+        </ul>
+
+        <h4>In code:</h4>
+        <ul class="forbidden">
+            <li>❌ Multiple <code>main()</code> functions</li>
+            <li>❌ Multiple <code>root.mainloop()</code> calls</li>
+            <li>❌ Global variables for state</li>
+            <li>❌ Threading for timing (use <code>root.after()</code>)</li>
+            <li>❌ Silent failures (always provide feedback)</li>
+        </ul>
+
+        <h2>Stage Output Requirements</h2>
+
+        <h4>Foundation output must:</h4>
+        <ul class="checklist">
+            <li>Open exactly ONE window</li>
+            <li>Function completely with hardcoded values</li>
+            <li>Have no settings UI</li>
+            <li>Have no file I/O</li>
+        </ul>
+
+        <h4>Configuration output must:</h4>
+        <ul class="checklist">
+            <li>Open exactly ONE window</li>
+            <li>Include all Foundation functionality</li>
+            <li>Have working settings UI</li>
+            <li>Validate user input</li>
+            <li>Have no file I/O</li>
+            <li>Lose settings on restart (expected)</li>
+        </ul>
+
+        <h4>Persistence output must:</h4>
+        <ul class="checklist">
+            <li>Open exactly ONE window</li>
+            <li>Include all Configuration functionality</li>
+            <li>Save settings to disk</li>
+            <li>Load settings on startup</li>
+            <li>Show Saved/Unsaved status</li>
+            <li>Handle corrupted files gracefully</li>
+        </ul>
+
+        <h2>Project-Specific Addendum</h2>
+        <p>Each Build It project creates a project-specific addendum defining:</p>
+        <ol>
+            <li><strong>Project name and description</strong></li>
+            <li><strong>Actual page counts</strong> (determined by decomposition)</li>
+            <li><strong>Chunk breakdown</strong> (specific to project complexity)</li>
+            <li><strong>Feature checklist</strong> (what the app does)</li>
+            <li><strong>Variable naming table</strong> (project-specific names)</li>
+            <li><strong>Reference code files</strong> (verified working checkpoints)</li>
+        </ol>
+        <p>The Constitution defines the system. The addendum defines the project.</p>
+
+        <h2>Version History</h2>
+        <table>
+            <tr>
+                <th>Version</th>
+                <th>Date</th>
+                <th>Changes</th>
+            </tr>
+            <tr>
+                <td>1.0</td>
+                <td>Initial</td>
+                <td>Original additive model with locked page counts</td>
+            </tr>
+            <tr>
+                <td>2.0</td>
+                <td>Current</td>
+                <td>Standalone guide model, flexible page counts, project-agnostic</td>
+            </tr>
+        </table>
+
+        <p style="text-align: center; margin-top: 3rem; color: #666;"><strong>END OF CONSTITUTION</strong></p>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+        <p>© 2026 MoreSalamander StudioLabs. All rights reserved. <a href="./license.html">License</a></p>
+    </footer>
+</body>
+</html>
