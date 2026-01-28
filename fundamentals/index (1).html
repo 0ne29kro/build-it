@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Standard Library | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+    <style>
+        .stdlib-header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #306998 0%, #FFD43B 100%);
+            color: white;
+        }
+        .stdlib-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .stdlib-header .tagline {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .section h2 {
+            color: #1a1a2e;
+            border-bottom: 3px solid #306998;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+        .library-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.25rem;
+            border-left: 4px solid #306998;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .library-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .library-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-family: monospace;
+            font-size: 1.2rem;
+        }
+        .library-card h3 a {
+            color: #306998;
+            text-decoration: none;
+        }
+        .library-card h3 a:hover {
+            text-decoration: underline;
+        }
+        .library-card .description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+        .library-card .meta {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .library-card.coming-soon {
+            opacity: 0.6;
+            border-left-color: #ccc;
+        }
+        .library-card.coming-soon h3 a {
+            color: #999;
+            pointer-events: none;
+        }
+        .intro-box {
+            background: #e8f4f8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #306998;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / 
+                <a href="/build-it/fundamentals/">Fundamentals</a> / 
+                Python Standard Library
+            </nav>
+        </div>
+    </header>
+
+    <div class="stdlib-header">
+        <h1>Python Standard Library</h1>
+        <p class="tagline">Master the built-in modules that come with every Python installation</p>
+    </div>
+
+    <div class="section">
+        <a href="/build-it/" class="back-link">← Back to Home</a>
+
+        <div class="intro-box">
+            <p><strong>No installation required.</strong> These modules are included with Python. Learn them once, use them everywhere.</p>
+            <p>Each guide teaches one library through hands-on examples, following the Build It methodology: one concept per page, checkpoints to verify understanding, and troubleshooting for common issues.</p>
+        </div>
+
+        <h2>Available Guides</h2>
+        
+        <div class="library-grid">
+            <div class="library-card">
+                <h3><a href="./random/foundation.html">random</a></h3>
+                <p class="description">Random numbers, choices, shuffling, and sampling</p>
+                <span class="meta">📄 28 pages</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./time/foundation.html">time</a></h3>
+                <p class="description">Sleep, timestamps, and measuring duration</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./datetime/foundation.html">datetime</a></h3>
+                <p class="description">Dates, times, formatting, and timezones</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./typing/foundation.html">typing</a></h3>
+                <p class="description">Type hints and annotations</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./json/foundation.html">json</a></h3>
+                <p class="description">Read and write JSON data</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./os/foundation.html">os</a></h3>
+                <p class="description">File system and environment variables</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./pathlib/foundation.html">pathlib</a></h3>
+                <p class="description">Modern file path handling</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./collections/foundation.html">collections</a></h3>
+                <p class="description">Counter, defaultdict, deque, and more</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+
+            <div class="library-card coming-soon">
+                <h3><a href="./math/foundation.html">math</a></h3>
+                <p class="description">Mathematical functions beyond basics</p>
+                <span class="meta">🚧 Coming soon</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+        <p>© 2026 MoreSalamander StudioLabs. All rights reserved. <a href="/build-it/license.html">License</a></p>
+    </footer>
+</body>
+</html>
