@@ -1,0 +1,2266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Guide — NumPy Fundamentals | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / 
+                <a href="/build-it/fundamentals/">Fundamentals</a> / 
+                <a href="/build-it/fundamentals/numpy/">NumPy</a> / 
+                Foundation
+            </nav>
+        </div>
+    </header>
+
+    <div class="guide-header">
+        <h1>Foundation Guide</h1>
+        <p class="subtitle">NumPy Fundamentals</p>
+        <div class="guide-meta">
+            <span>📄 45 Pages</span>
+            <span>🎯 Stage: Master the Basics</span>
+            <span>📦 Output: foundation.html</span>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="guide-content">
+        
+    <article class="page-section" id="page-1">
+      <div class="page-header">
+        <span class="page-number">Page 1 of 45</span>
+        <h1 class="page-title">What This Guide Covers</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Introduces NumPy and what you will learn in this guide.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the starting point. You should know basic Python (variables, lists, loops) before starting.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p><strong>NumPy</strong> (Numerical Python) is the foundation of scientific computing in Python. By the end of this guide, you will know how to:</p><ul><li><strong>Create arrays</strong> — Build 1D, 2D, and 3D arrays from scratch</li>
+<li><strong>Access elements</strong> — Index and slice arrays efficiently</li>
+<li><strong>Perform operations</strong> — Math on entire arrays at once</li>
+<li><strong>Reshape data</strong> — Transform array dimensions</li>
+<li><strong>Aggregate values</strong> — Sum, mean, min, max across arrays</li>
+<li><strong>Filter data</strong> — Boolean indexing and conditions</li>
+</ul>
+NumPy arrays are faster and more memory-efficient than Python lists. Every data science and machine learning library builds on NumPy.</p>
+        <h2>Why this matters</h2>
+        <p>NumPy is not optional. Pandas, Matplotlib, Scikit-learn, TensorFlow — they all use NumPy arrays internally. Learning NumPy is learning the language of scientific Python.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand NumPy is for numerical computing</label>
+<label class="checkbox-item"><input type="checkbox"> I have basic Python knowledge (lists, loops, functions)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break yet. Move to Page 2.</p>
+        </div>
+        <div class="next-page"><a href="#page-2">Page 2 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 45</span>
+        <h1 class="page-title">Prerequisites Check</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms your environment is ready for NumPy.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Before installing NumPy, verify Python and pip work.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>python3 --version
+pip3 --version
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Open Terminal and run these commands.</p><p>You should see:
+<pre><code>Python 3.10.x (or higher)
+pip 24.x.x (or similar)
+</code></pre><p>If you don't have Python set up, complete the [Project Setup Guide](../project-setup/foundation.html) first.</p>
+        <h2>Why this matters</h2>
+        <p>NumPy requires Python 3.8 or higher. Verifying your setup prevents installation issues.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> <code>python3 --version</code> shows 3.8 or higher</label>
+<label class="checkbox-item"><input type="checkbox"> <code>pip3 --version</code> shows pip is installed</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>command not found</code>: Complete the Project Setup guide first</li>
+<li>Old Python version: Run <code>brew install python</code> to update</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-3">Page 3 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 45</span>
+        <h1 class="page-title">Install NumPy</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Installs the NumPy library.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Python is ready. Now add NumPy.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>pip3 install numpy
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run <code>pip3 install numpy</code> in Terminal.</p><p>You will see:
+<pre><code>Collecting numpy
+Downloading numpy-1.26.x...
+Successfully installed numpy-1.26.x
+</code></pre><p>NumPy is now available for any Python script on your system.</p>
+        <h2>Why this matters</h2>
+        <p>This is a one-time setup. Once installed, NumPy is ready to import in any project.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran <code>pip3 install numpy</code></label>
+<label class="checkbox-item"><input type="checkbox"> I see "Successfully installed"</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>Permission denied</code>: Use <code>pip3 install numpy --user</code></li>
+<li>Already installed: That's fine, continue</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-4">Page 4 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 45</span>
+        <h1 class="page-title">Verify Installation</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms NumPy is working correctly.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>NumPy is installed. Now verify it imports.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>python3 -c &quot;import numpy; print(numpy.__version__)&quot;
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>This command starts Python, imports NumPy, and prints its version.</p><p>You should see:
+<pre><code>1.26.4
+</code></pre><p>(Your version may differ slightly.)</p>
+        <h2>Why this matters</h2>
+        <p>If NumPy imports without errors, your installation is correct.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I ran the verification command</label>
+<label class="checkbox-item"><input type="checkbox"> I see a version number (not an error)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ModuleNotFoundError</code>: NumPy didn't install. Re-run Page 3</li>
+<li>Version mismatch: Any 1.20+ version works for this guide</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-5">Page 5 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 45</span>
+        <h1 class="page-title">Create a Practice File</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Sets up a Python file for practicing NumPy.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>NumPy is installed. Now create a workspace.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>mkdir ~/projects/numpy-practice
+cd ~/projects/numpy-practice
+touch numpy_basics.py
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>These commands:
+<ul><li>Create a folder called <code>numpy-practice</code></li>
+<li>Enter that folder</li>
+<li>Create an empty Python file</li>
+</ul>
+From now on, you will write code in <code>numpy_basics.py</code> and run it with <code>python3 numpy_basics.py</code>.</p>
+        <h2>Why this matters</h2>
+        <p>Having a dedicated file lets you build up code incrementally and re-run to test changes.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created the folder and file</label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>ls</code> shows <code>numpy_basics.py</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>mkdir: File exists</code>: The folder exists. Just <code>cd</code> into it</li>
+<li>Permission denied: Check you're in a writable location</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-6">Page 6 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 45</span>
+        <h1 class="page-title">Import NumPy</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows the standard way to import NumPy.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Your file is ready. Now add the import.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>print(&quot;NumPy imported successfully&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Open <code>numpy_basics.py</code> in VS Code and add this code.</p><p><code>import numpy as np</code> is the universal convention. Everyone uses <code>np</code> as the alias. You will see <code>np.</code> everywhere in NumPy code.</p><p>Run it:
+<pre><code>python3 numpy_basics.py
+</code></pre><p>Output:
+<pre><code>NumPy imported successfully
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>This import line will start every NumPy script you ever write. The <code>np</code> alias saves typing and matches all documentation.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> My file contains <code>import numpy as np</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running the file prints "NumPy imported successfully"</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ModuleNotFoundError</code>: NumPy not installed. Return to Page 3</li>
+<li>Typo: Check spelling of <code>numpy</code> (lowercase)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-7">Page 7 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 45</span>
+        <h1 class="page-title">Your First Array</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a NumPy array from a Python list.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>NumPy is imported. Now create data.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>numbers = np.array([1, 2, 3, 4, 5])
+print(numbers)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p><code>np.array()</code> converts a Python list into a NumPy array.</p><p>Run the file:
+<pre><code>[1 2 3 4 5]
+</code></pre><p>Notice: no commas between elements. That's how NumPy displays arrays.</p>
+        <h2>Why this matters</h2>
+        <p>This is the most common way to create arrays. Any Python list becomes an array with <code>np.array()</code>.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created an array with <code>np.array()</code></label>
+<label class="checkbox-item"><input type="checkbox"> Output shows <code>[1 2 3 4 5]</code> (no commas)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Square brackets matter: <code>np.array([1,2,3])</code> not <code>np.array(1,2,3)</code></li>
+<li>Forgot <code>np.</code>: You need the alias prefix</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-8">Page 8 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 45</span>
+        <h1 class="page-title">Array vs List</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows the difference between NumPy arrays and Python lists.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You created an array. Now understand why it's different.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>py_list = [1, 2, 3, 4, 5]
+np_array = np.array([1, 2, 3, 4, 5])</p><p>print(&quot;List type:&quot;, type(py_list))
+print(&quot;Array type:&quot;, type(np_array))</p><p># Multiply by 2
+print(&quot;List * 2:&quot;, py_list * 2)
+print(&quot;Array * 2:&quot;, np_array * 2)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>List type: &lt;class &#x27;list&#x27;&gt;
+Array type: &lt;class &#x27;numpy.ndarray&#x27;&gt;
+List * 2: [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+Array * 2: [ 2  4  6  8 10]
+</code></pre><ul><li>List <code>* 2</code> duplicates the list</li>
+<li>Array <code>* 2</code> multiplies each element</li>
+</ul>
+This is the power of NumPy: operations apply to every element automatically.</p>
+        <h2>Why this matters</h2>
+        <p>NumPy arrays support <strong>vectorized operations</strong> — math on entire arrays without loops. This is faster and cleaner than looping through lists.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand lists duplicate when multiplied</label>
+<label class="checkbox-item"><input type="checkbox"> I understand arrays perform element-wise math</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Re-read if the difference isn't clear.</p>
+        </div>
+        <div class="next-page"><a href="#page-9">Page 9 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-9">
+      <div class="page-header">
+        <span class="page-number">Page 9 of 45</span>
+        <h1 class="page-title">Check Array Type</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to check an array's data type.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Arrays have a consistent data type. Learn to inspect it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>integers = np.array([1, 2, 3])
+floats = np.array([1.5, 2.5, 3.5])
+mixed = np.array([1, 2.5, 3])</p><p>print(&quot;Integers dtype:&quot;, integers.dtype)
+print(&quot;Floats dtype:&quot;, floats.dtype)
+print(&quot;Mixed dtype:&quot;, mixed.dtype)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Integers dtype: int64
+Floats dtype: float64
+Mixed dtype: float64
+</code></pre><p>Every element in a NumPy array has the same type. When you mix integers and floats, NumPy converts everything to floats (the more flexible type).</p>
+        <h2>Why this matters</h2>
+        <p>Knowing the dtype helps you understand memory usage and avoid unexpected type conversions.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand arrays have a single dtype</label>
+<label class="checkbox-item"><input type="checkbox"> I understand mixed types get converted</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. This is informational.</p>
+        </div>
+        <div class="next-page"><a href="#page-10">Page 10 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-10">
+      <div class="page-header">
+        <span class="page-number">Page 10 of 45</span>
+        <h1 class="page-title">Specify Data Type</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to explicitly set an array's data type.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>NumPy infers types automatically. Sometimes you need control.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p># Force float type
+as_float = np.array([1, 2, 3], dtype=float)
+print(&quot;As float:&quot;, as_float)</p><p># Force integer type
+as_int = np.array([1.9, 2.9, 3.9], dtype=int)
+print(&quot;As int:&quot;, as_int)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>As float: [1. 2. 3.]
+As int: [1 2 3]
+</code></pre><p>The <code>dtype</code> parameter forces the type:
+<ul><li>Integers become <code>1.</code> (float with decimal point)</li>
+<li>Floats become truncated integers (not rounded!)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Sometimes you need specific types for compatibility with other libraries or to reduce memory usage.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>dtype=float</code> to force floats</label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>dtype=int</code> truncates (not rounds)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Invalid dtype: Use <code>int</code>, <code>float</code>, <code>bool</code>, or NumPy types like <code>np.int32</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-11">Page 11 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-11">
+      <div class="page-header">
+        <span class="page-number">Page 11 of 45</span>
+        <h1 class="page-title">Array Shape</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to check an array's dimensions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can create arrays. Now understand their structure.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([1, 2, 3, 4, 5])</p><p>print(&quot;Shape:&quot;, arr.shape)
+print(&quot;Size:&quot;, arr.size)
+print(&quot;Dimensions:&quot;, arr.ndim)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Shape: (5,)
+Size: 5
+Dimensions: 1
+</code></pre><ul><li><strong>shape</strong>: Tuple showing size of each dimension. <code>(5,)</code> means 5 elements in 1 dimension</li>
+<li><strong>size</strong>: Total number of elements</li>
+<li><strong>ndim</strong>: Number of dimensions (1D, 2D, 3D, etc.)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Shape is critical when combining arrays or feeding data to machine learning models. Mismatched shapes cause errors.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can check shape with <code>.shape</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>(5,)</code> means a 1D array with 5 elements</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. These are read-only properties.</p>
+        </div>
+        <div class="next-page"><a href="#page-12">Page 12 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-12">
+      <div class="page-header">
+        <span class="page-number">Page 12 of 45</span>
+        <h1 class="page-title">Create 2D Array</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a two-dimensional array (matrix).</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You made 1D arrays. Now add a dimension.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])</p><p>print(matrix)
+print(&quot;Shape:&quot;, matrix.shape)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>[[1 2 3]
+ [4 5 6]]
+Shape: (2, 3)
+</code></pre><p>A 2D array is a list of lists. This one has:
+<ul><li>2 rows</li>
+<li>3 columns</li>
+<li>Shape <code>(2, 3)</code> — always (rows, columns)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Most real data is 2D: spreadsheets, images (height × width), datasets (samples × features).</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created a 2D array using nested lists</label>
+<label class="checkbox-item"><input type="checkbox"> I understand shape <code>(2, 3)</code> means 2 rows, 3 columns</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Uneven rows: Each inner list must have the same length</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-13">Page 13 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-13">
+      <div class="page-header">
+        <span class="page-number">Page 13 of 45</span>
+        <h1 class="page-title">Create 3D Array</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a three-dimensional array.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You made 2D arrays. Now understand 3D.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>cube = np.array([
+    [[1, 2], [3, 4]],
+    [[5, 6], [7, 8]]
+])</p><p>print(cube)
+print(&quot;Shape:&quot;, cube.shape)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>[[[1 2]
+  [3 4]]</p><p> [[5 6]
+  [7 8]]]
+Shape: (2, 2, 2)
+</code></pre><p>This is a 2×2×2 cube:
+<ul><li>2 "layers"</li>
+<li>Each layer has 2 rows</li>
+<li>Each row has 2 elements</li></ul>
+        <h2>Why this matters</h2>
+        <p>3D arrays are common for color images (height × width × RGB channels) and time series data.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created a 3D array</label>
+<label class="checkbox-item"><input type="checkbox"> I understand shape <code>(2, 2, 2)</code> means 2 layers of 2×2 matrices</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Hard to visualize: Think of it as a stack of 2D arrays</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-14">Page 14 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-14">
+      <div class="page-header">
+        <span class="page-number">Page 14 of 45</span>
+        <h1 class="page-title">Arrays of Zeros</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates arrays filled with zeros.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Creating arrays from lists is manual. NumPy has shortcuts.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>zeros_1d = np.zeros(5)
+zeros_2d = np.zeros((3, 4))</p><p>print(&quot;1D zeros:&quot;, zeros_1d)
+print(&quot;2D zeros:&quot;)
+print(zeros_2d)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>1D zeros: [0. 0. 0. 0. 0.]
+2D zeros:
+[[0. 0. 0. 0.]
+ [0. 0. 0. 0.]
+ [0. 0. 0. 0.]]
+</code></pre><p><code>np.zeros()</code> creates arrays filled with <code>0.0</code>:
+<ul><li>Pass an integer for 1D: <code>np.zeros(5)</code></li>
+<li>Pass a tuple for 2D+: <code>np.zeros((3, 4))</code></li></ul>
+        <h2>Why this matters</h2>
+        <p>Initialize arrays before filling them. Common pattern: create zeros, then assign values in a loop.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can create 1D zeros with <code>np.zeros(n)</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can create 2D zeros with <code>np.zeros((rows, cols))</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Missing parentheses: 2D needs double parens <code>np.zeros((3, 4))</code> not <code>np.zeros(3, 4)</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-15">Page 15 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-15">
+      <div class="page-header">
+        <span class="page-number">Page 15 of 45</span>
+        <h1 class="page-title">Arrays of Ones</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates arrays filled with ones.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Like zeros, but with ones.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>ones_1d = np.ones(4)
+ones_2d = np.ones((2, 3))</p><p>print(&quot;1D ones:&quot;, ones_1d)
+print(&quot;2D ones:&quot;)
+print(ones_2d)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>1D ones: [1. 1. 1. 1.]
+2D ones:
+[[1. 1. 1.]
+ [1. 1. 1.]]
+</code></pre><p>Same syntax as zeros. Useful for:
+<ul><li>Initializing weights</li>
+<li>Creating masks</li>
+<li>Placeholder data</li></ul>
+        <h2>Why this matters</h2>
+        <p>Combined with multiplication, ones let you create any constant array: <code>np.ones(5) * 7</code> gives <code>[7. 7. 7. 7. 7.]</code></p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can create arrays of ones with <code>np.ones()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand the shape tuple syntax</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Same pattern as zeros.</p>
+        </div>
+        <div class="next-page"><a href="#page-16">Page 16 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-16">
+      <div class="page-header">
+        <span class="page-number">Page 16 of 45</span>
+        <h1 class="page-title">Arrays with arange</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates arrays with sequential numbers.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You made constant arrays. Now make sequences.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>simple = np.arange(10)
+with_start = np.arange(5, 10)
+with_step = np.arange(0, 20, 2)</p><p>print(&quot;0 to 9:&quot;, simple)
+print(&quot;5 to 9:&quot;, with_start)
+print(&quot;Even 0-18:&quot;, with_step)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>0 to 9: [0 1 2 3 4 5 6 7 8 9]
+5 to 9: [5 6 7 8 9]
+Even 0-18: [ 0  2  4  6  8 10 12 14 16 18]
+</code></pre><p><code>np.arange(start, stop, step)</code>:
+<ul><li><code>arange(10)</code> — 0 to 9 (stop is exclusive)</li>
+<li><code>arange(5, 10)</code> — 5 to 9</li>
+<li><code>arange(0, 20, 2)</code> — 0 to 18 by 2s</li>
+</ul>
+Like Python's <code>range()</code> but returns an array.</p>
+        <h2>Why this matters</h2>
+        <p>Generate index arrays, test data, or any arithmetic sequence quickly.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>np.arange()</code> with 1, 2, or 3 arguments</label>
+<label class="checkbox-item"><input type="checkbox"> I understand stop is exclusive (not included)</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Unexpected result: Remember stop value is NOT included</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-17">Page 17 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-17">
+      <div class="page-header">
+        <span class="page-number">Page 17 of 45</span>
+        <h1 class="page-title">Arrays with linspace</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates arrays with evenly spaced numbers.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>arange uses step size. linspace uses number of points.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>five_points = np.linspace(0, 10, 5)
+eleven_points = np.linspace(0, 1, 11)</p><p>print(&quot;5 points from 0-10:&quot;, five_points)
+print(&quot;11 points from 0-1:&quot;, eleven_points)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>5 points from 0-10: [ 0.   2.5  5.   7.5 10. ]
+11 points from 0-1: [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+</code></pre><p><code>np.linspace(start, stop, num)</code>:
+<ul><li>Includes both start AND stop (unlike arange)</li>
+<li>Divides range into <code>num</code> equal points</li></ul>
+        <h2>Why this matters</h2>
+        <p>Essential for plotting. "Give me 100 points from 0 to 2π" is <code>np.linspace(0, 2*np.pi, 100)</code>.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand linspace includes both endpoints</label>
+<label class="checkbox-item"><input type="checkbox"> I can specify exactly how many points I want</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Unexpected spacing: linspace always includes both endpoints</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-18">Page 18 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-18">
+      <div class="page-header">
+        <span class="page-number">Page 18 of 45</span>
+        <h1 class="page-title">Random Arrays</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates arrays with random numbers.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Sequences are predictable. Sometimes you need randomness.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>uniform = np.random.rand(5)
+integers = np.random.randint(1, 100, 5)
+normal = np.random.randn(5)</p><p>print(&quot;Uniform 0-1:&quot;, uniform)
+print(&quot;Integers 1-99:&quot;, integers)
+print(&quot;Normal dist:&quot;, normal)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file (your numbers will differ):
+<pre><code>Uniform 0-1: [0.374 0.951 0.732 0.598 0.156]
+Integers 1-99: [42 87 23 64 11]
+Normal dist: [-0.234  1.523 -0.891  0.432  0.067]
+</code></pre><ul><li><code>rand(n)</code> — Uniform distribution between 0 and 1</li>
+<li><code>randint(low, high, size)</code> — Random integers (high exclusive)</li>
+<li><code>randn(n)</code> — Normal distribution (mean=0, std=1)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Testing, simulations, machine learning initialization — random data is everywhere.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can create random floats with <code>rand()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can create random integers with <code>randint()</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Different numbers each run: That's expected (it's random)</li>
+<li>Reproducible results: Use <code>np.random.seed(42)</code> before generating</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-19">Page 19 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-19">
+      <div class="page-header">
+        <span class="page-number">Page 19 of 45</span>
+        <h1 class="page-title">Creation Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you can create arrays multiple ways.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the array creation section.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Method</td><td>Creates</td></tr>
+<tr><td><code>np.array([...])</code></td><td>Array from list</td></tr>
+<tr><td><code>np.zeros((r,c))</code></td><td>Array of zeros</td></tr>
+<tr><td><code>np.ones((r,c))</code></td><td>Array of ones</td></tr>
+<tr><td><code>np.arange(start, stop, step)</code></td><td>Sequential integers</td></tr>
+<tr><td><code>np.linspace(start, stop, num)</code></td><td>Evenly spaced floats</td></tr>
+<tr><td><code>np.random.rand(n)</code></td><td>Random floats 0-1</td></tr>
+<tr><td><code>np.random.randint(lo, hi, n)</code></td><td>Random integers</td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>Array creation is step one of every NumPy workflow. These seven methods cover 90% of use cases.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can create arrays from lists</label>
+<label class="checkbox-item"><input type="checkbox"> I can create arrays of zeros/ones</label>
+<label class="checkbox-item"><input type="checkbox"> I can create sequential and random arrays</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 7-18 for any method you're unsure about.</p>
+        </div>
+        <div class="next-page"><a href="#page-20">Page 20 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-20">
+      <div class="page-header">
+        <span class="page-number">Page 20 of 45</span>
+        <h1 class="page-title">Indexing 1D Arrays</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to access individual elements.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can create arrays. Now access their data.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([10, 20, 30, 40, 50])</p><p>print(&quot;First element:&quot;, arr[0])
+print(&quot;Third element:&quot;, arr[2])
+print(&quot;Last element:&quot;, arr[-1])
+print(&quot;Second to last:&quot;, arr[-2])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>First element: 10
+Third element: 30
+Last element: 50
+Second to last: 40
+</code></pre><p>Indexing works like Python lists:
+<ul><li><code>[0]</code> is first element</li>
+<li><code>[-1]</code> is last element</li>
+<li>Indices start at 0</li></ul>
+        <h2>Why this matters</h2>
+        <p>Accessing specific elements is fundamental. This syntax is used millions of times in NumPy code.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can access elements with positive indices</label>
+<label class="checkbox-item"><input type="checkbox"> I can access elements with negative indices</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>IndexError</code>: Index is out of bounds. Check array size with <code>len(arr)</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-21">Page 21 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-21">
+      <div class="page-header">
+        <span class="page-number">Page 21 of 45</span>
+        <h1 class="page-title">Slicing 1D Arrays</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to access ranges of elements.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You accessed single elements. Now access multiple.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([10, 20, 30, 40, 50, 60, 70])</p><p>print(&quot;First three:&quot;, arr[0:3])
+print(&quot;Index 2 to 5:&quot;, arr[2:6])
+print(&quot;From index 4:&quot;, arr[4:])
+print(&quot;Up to index 4:&quot;, arr[:4])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>First three: [10 20 30]
+Index 2 to 5: [30 40 50 60]
+From index 4: [50 60 70]
+Up to index 4: [10 20 30 40]
+</code></pre><p>Slice syntax: <code>arr[start:stop]</code>
+<ul><li>Start is included</li>
+<li>Stop is excluded</li>
+<li>Omit start = from beginning</li>
+<li>Omit stop = to end</li></ul>
+        <h2>Why this matters</h2>
+        <p>Slicing extracts subsets without loops. Essential for data manipulation.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand <code>start:stop</code> syntax</label>
+<label class="checkbox-item"><input type="checkbox"> I understand stop index is excluded</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Wrong elements: Remember stop is exclusive</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-22">Page 22 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-22">
+      <div class="page-header">
+        <span class="page-number">Page 22 of 45</span>
+        <h1 class="page-title">Slice with Step</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to skip elements when slicing.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Basic slices are contiguous. Add step for patterns.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</p><p>print(&quot;Every other:&quot;, arr[::2])
+print(&quot;Every third:&quot;, arr[::3])
+print(&quot;Reversed:&quot;, arr[::-1])
+print(&quot;Odd indices:&quot;, arr[1::2])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Every other: [0 2 4 6 8]
+Every third: [0 3 6 9]
+Reversed: [9 8 7 6 5 4 3 2 1 0]
+Odd indices: [1 3 5 7 9]
+</code></pre><p>Full syntax: <code>arr[start:stop:step]</code>
+<ul><li><code>::2</code> — every 2nd element</li>
+<li><code>::-1</code> — reverse the array</li>
+<li><code>1::2</code> — start at 1, take every 2nd</li></ul>
+        <h2>Why this matters</h2>
+        <p>Extract patterns without loops. Reverse arrays instantly. Common in signal processing and image manipulation.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use step to skip elements</label>
+<label class="checkbox-item"><input type="checkbox"> I can reverse arrays with <code>[::-1]</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Experiment with different steps.</p>
+        </div>
+        <div class="next-page"><a href="#page-23">Page 23 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-23">
+      <div class="page-header">
+        <span class="page-number">Page 23 of 45</span>
+        <h1 class="page-title">Indexing 2D Arrays</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to access elements in a matrix.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You indexed 1D arrays. Now handle 2D.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])</p><p>print(&quot;Element at row 0, col 0:&quot;, matrix[0, 0])
+print(&quot;Element at row 1, col 2:&quot;, matrix[1, 2])
+print(&quot;Element at row 2, col 1:&quot;, matrix[2, 1])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Element at row 0, col 0: 1
+Element at row 1, col 2: 6
+Element at row 2, col 1: 8
+</code></pre><p>2D indexing: <code>matrix[row, column]</code>
+<ul><li>Row 0 is the first row <code>[1, 2, 3]</code></li>
+<li>Column 2 is the third column</li>
+<li><code>matrix[1, 2]</code> = row 1, column 2 = 6</li></ul>
+        <h2>Why this matters</h2>
+        <p>Accessing specific cells is how you read and modify matrix data.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can access elements with <code>[row, col]</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand row comes first, column second</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>IndexError</code>: Row or column index too large</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-24">Page 24 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-24">
+      <div class="page-header">
+        <span class="page-number">Page 24 of 45</span>
+        <h1 class="page-title">Slicing 2D Rows</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to extract entire rows from a matrix.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You accessed single cells. Now extract rows.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])</p><p>print(&quot;Row 0:&quot;, matrix[0])
+print(&quot;Row 1:&quot;, matrix[1])
+print(&quot;Rows 0-1:&quot;, matrix[0:2])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Row 0: [1 2 3]
+Row 1: [4 5 6]
+Rows 0-1: [[1 2 3]
+ [4 5 6]]
+</code></pre><ul><li><code>matrix[0]</code> — entire first row</li>
+<li><code>matrix[0:2]</code> — rows 0 and 1 (2D result)</li>
+</ul>
+Think of rows as the first dimension.</p>
+        <h2>Why this matters</h2>
+        <p>Extracting rows is how you select samples from a dataset.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can get a single row with <code>matrix[n]</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can get multiple rows with <code>matrix[start:stop]</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Experiment with different row indices.</p>
+        </div>
+        <div class="next-page"><a href="#page-25">Page 25 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-25">
+      <div class="page-header">
+        <span class="page-number">Page 25 of 45</span>
+        <h1 class="page-title">Slicing 2D Columns</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to extract entire columns from a matrix.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You extracted rows. Now extract columns.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])</p><p>print(&quot;Column 0:&quot;, matrix[:, 0])
+print(&quot;Column 2:&quot;, matrix[:, 2])
+print(&quot;Columns 0-1:&quot;, matrix[:, 0:2])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Column 0: [1 4 7]
+Column 2: [3 6 9]
+Columns 0-1: [[1 2]
+ [4 5]
+ [7 8]]
+</code></pre><p>The syntax <code>matrix[:, n]</code>:
+<ul><li><code>:</code> means "all rows"</li>
+<li><code>n</code> is the column index</li>
+</ul>
+<code>[:, 0]</code> reads as "all rows, column 0."</p>
+        <h2>Why this matters</h2>
+        <p>Extracting columns is how you select features from a dataset.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can get a column with <code>matrix[:, n]</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>:</code> means "all" in that dimension</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Forgot the colon: <code>matrix[0]</code> is a row. <code>matrix[:, 0]</code> is a column</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-26">Page 26 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-26">
+      <div class="page-header">
+        <span class="page-number">Page 26 of 45</span>
+        <h1 class="page-title">Indexing Checkpoint</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Verifies you can access array elements and slices.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have completed the indexing and slicing section.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>You should now be able to:</p><table>
+<tr><td>Operation</td><td>Syntax</td></tr>
+<tr><td>Single element (1D)</td><td><code>arr[i]</code></td></tr>
+<tr><td>Slice (1D)</td><td><code>arr[start:stop:step]</code></td></tr>
+<tr><td>Single element (2D)</td><td><code>matrix[row, col]</code></td></tr>
+<tr><td>Entire row</td><td><code>matrix[row]</code></td></tr>
+<tr><td>Entire column</td><td><code>matrix[:, col]</code></td></tr>
+<tr><td>Submatrix</td><td><code>matrix[r1:r2, c1:c2]</code></td></tr>
+</table>
+        <h2>Why this matters</h2>
+        <p>Indexing is how you read data. You'll use these patterns constantly.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can access 1D elements and slices</label>
+<label class="checkbox-item"><input type="checkbox"> I can access 2D rows, columns, and elements</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Review pages 20-25 for any concept you're unsure about.</p>
+        </div>
+        <div class="next-page"><a href="#page-27">Page 27 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-27">
+      <div class="page-header">
+        <span class="page-number">Page 27 of 45</span>
+        <h1 class="page-title">Element-wise Addition</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to add arrays together.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can access data. Now perform operations.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])</p><p>print(&quot;a + b:&quot;, a + b)
+print(&quot;a + 5:&quot;, a + 5)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>a + b: [11 22 33 44]
+a + 5: [6 7 8 9]
+</code></pre><ul><li>Array + Array: adds corresponding elements</li>
+<li>Array + Scalar: adds the scalar to every element</li>
+</ul>
+No loops needed. NumPy handles it automatically.</p>
+        <h2>Why this matters</h2>
+        <p>Vectorized operations are the core of NumPy. They're faster than loops and easier to read.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand array + array adds element-wise</label>
+<label class="checkbox-item"><input type="checkbox"> I understand array + scalar adds to all elements</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Shape mismatch: Arrays must be the same shape (for now)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-28">Page 28 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-28">
+      <div class="page-header">
+        <span class="page-number">Page 28 of 45</span>
+        <h1 class="page-title">Element-wise Math</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows subtraction, multiplication, and division.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You did addition. Now do the rest.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>a = np.array([10, 20, 30, 40])
+b = np.array([2, 4, 5, 8])</p><p>print(&quot;a - b:&quot;, a - b)
+print(&quot;a * b:&quot;, a * b)
+print(&quot;a / b:&quot;, a / b)
+print(&quot;a <strong> 2:&quot;, a </strong> 2)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>a - b: [ 8 16 25 32]
+a * b: [ 20  80 150 320]
+a / b: [5. 5. 6. 5.]
+a ** 2: [ 100  400  900 1600]
+</code></pre><p>All basic math operators work element-wise:
+<ul><li><code>-</code> subtraction</li>
+<li><code>*</code> multiplication</li>
+<li><code>/</code> division</li>
+<li><code>**</code> power</li></ul>
+        <h2>Why this matters</h2>
+        <p>This is how you process data at scale. One line replaces a loop over thousands of elements.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can perform subtraction, multiplication, division</label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>**</code> is the power operator</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Division by zero: NumPy returns <code>inf</code> or <code>nan</code>, not an error</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-29">Page 29 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-29">
+      <div class="page-header">
+        <span class="page-number">Page 29 of 45</span>
+        <h1 class="page-title">NumPy Math Functions</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows built-in math functions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Basic operators are limited. NumPy has advanced math.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([1, 4, 9, 16, 25])</p><p>print(&quot;Square root:&quot;, np.sqrt(arr))
+print(&quot;Exponential:&quot;, np.exp(np.array([1, 2, 3])))
+print(&quot;Logarithm:&quot;, np.log(np.array([1, 10, 100])))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Square root: [1. 2. 3. 4. 5.]
+Exponential: [ 2.718  7.389 20.086]
+Logarithm: [0.    2.303 4.605]
+</code></pre><p>Common functions:
+<ul><li><code>np.sqrt()</code> — square root</li>
+<li><code>np.exp()</code> — e^x</li>
+<li><code>np.log()</code> — natural log</li>
+<li><code>np.sin()</code>, <code>np.cos()</code> — trigonometry</li>
+<li><code>np.abs()</code> — absolute value</li></ul>
+        <h2>Why this matters</h2>
+        <p>Scientific computing needs these functions. NumPy applies them to entire arrays at once.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can apply <code>np.sqrt()</code> to an array</label>
+<label class="checkbox-item"><input type="checkbox"> I understand these functions work element-wise</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>sqrt</code> of negative: Returns <code>nan</code> (not a number)</li>
+<li><code>log</code> of zero or negative: Returns <code>-inf</code> or <code>nan</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-30">Page 30 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-30">
+      <div class="page-header">
+        <span class="page-number">Page 30 of 45</span>
+        <h1 class="page-title">Comparison Operations</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to compare arrays.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Math produces numbers. Comparisons produce booleans.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([1, 5, 10, 15, 20])</p><p>print(&quot;Greater than 8:&quot;, arr &gt; 8)
+print(&quot;Equal to 10:&quot;, arr == 10)
+print(&quot;Less than or equal 10:&quot;, arr &lt;= 10)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Greater than 8: [False False  True  True  True]
+Equal to 10: [False False  True False False]
+Less than or equal 10: [ True  True  True False False]
+</code></pre><p>Comparisons return boolean arrays:
+<ul><li><code>></code>, <code><</code>, <code>>=</code>, <code><=</code>, <code>==</code>, <code>!=</code></li>
+<li>Each element is compared independently</li></ul>
+        <h2>Why this matters</h2>
+        <p>Boolean arrays are used for filtering. "Give me all values greater than 10" starts with a comparison.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use comparison operators on arrays</label>
+<label class="checkbox-item"><input type="checkbox"> I understand the result is a boolean array</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. These always work.</p>
+        </div>
+        <div class="next-page"><a href="#page-31">Page 31 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-31">
+      <div class="page-header">
+        <span class="page-number">Page 31 of 45</span>
+        <h1 class="page-title">Boolean Indexing</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to filter arrays using conditions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You created boolean arrays. Now use them to filter.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([5, 12, 8, 21, 3, 15, 7])</p><p># Get elements greater than 10
+mask = arr &gt; 10
+print(&quot;Mask:&quot;, mask)
+print(&quot;Filtered:&quot;, arr[mask])</p><p># Or in one line
+print(&quot;Direct:&quot;, arr[arr &gt; 10])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Mask: [False  True False  True False  True False]
+Filtered: [12 21 15]
+Direct: [12 21 15]
+</code></pre><p>Boolean indexing: <code>arr[boolean_array]</code>
+<ul><li>Returns only elements where the boolean is True</li>
+<li>The mask must be the same length as the array</li></ul>
+        <h2>Why this matters</h2>
+        <p>Filtering is essential for data analysis. "Show me all sales above $1000" is boolean indexing.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can create a mask with a condition</label>
+<label class="checkbox-item"><input type="checkbox"> I can filter an array using <code>arr[mask]</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Wrong length: Boolean array must match original array length</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-32">Page 32 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-32">
+      <div class="page-header">
+        <span class="page-number">Page 32 of 45</span>
+        <h1 class="page-title">Combining Conditions</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to use AND, OR with boolean arrays.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Single conditions are limiting. Combine them for power.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([5, 12, 8, 21, 3, 15, 7])</p><p># AND: both conditions must be true
+print(&quot;Between 5 and 15:&quot;, arr[(arr &gt;= 5) &amp; (arr &lt;= 15)])</p><p># OR: either condition can be true
+<table>
+<tr></tr>
+</table><p># NOT: invert the condition
+print(&quot;NOT greater than 10:&quot;, arr[~(arr &gt; 10)])
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Between 5 and 15: [ 5 12  8 15  7]
+Less than 5 OR greater than 15: [ 3 21]
+NOT greater than 10: [5 8 3 7]
+</code></pre><p>Logical operators for arrays:
+<ul><li><code>&</code> — AND (both true)</li>
+<table>
+<tr></tr>
+</table>
+<li><code>~</code> — NOT (invert)</li>
+</ul>
+<strong>Important:</strong> Use parentheses around each condition!</p>
+        <h2>Why this matters</h2>
+        <p>Real filters are complex. "Sales between $100-$500 in January" needs AND.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <table>
+<tr></tr>
+</table>
+<label class="checkbox-item"><input type="checkbox"> I understand parentheses are required</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Missing parentheses: <code>arr > 5 & arr < 10</code> fails. Use <code>(arr > 5) & (arr < 10)</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-33">Page 33 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-33">
+      <div class="page-header">
+        <span class="page-number">Page 33 of 45</span>
+        <h1 class="page-title">Modifying with Boolean Indexing</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to change array values using conditions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You filtered arrays. Now modify them conditionally.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+print(&quot;Original:&quot;, arr)</p><p># Set all values greater than 5 to 0
+arr[arr &gt; 5] = 0
+print(&quot;After setting &gt;5 to 0:&quot;, arr)</p><p># Reset and try another operation
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+arr[arr % 2 == 0] = -1  # Replace evens with -1
+print(&quot;Evens replaced:&quot;, arr)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Original: [ 1  2  3  4  5  6  7  8  9 10]
+After setting &gt;5 to 0: [1 2 3 4 5 0 0 0 0 0]
+Evens replaced: [ 1 -1  3 -1  5 -1  7 -1  9 -1]
+</code></pre><p><code>arr[condition] = value</code> modifies elements in place:
+<ul><li>Only elements where condition is True are changed</li>
+<li>Original array is modified (not a copy)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Data cleaning often requires conditional modification. "Replace all negative values with 0" is one line.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can modify array elements using conditions</label>
+<label class="checkbox-item"><input type="checkbox"> I understand this modifies the original array</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Be careful: changes are permanent.</p>
+        </div>
+        <div class="next-page"><a href="#page-34">Page 34 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-34">
+      <div class="page-header">
+        <span class="page-number">Page 34 of 45</span>
+        <h1 class="page-title">Sum and Mean</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to aggregate array values.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You filtered data. Now summarize it.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([10, 20, 30, 40, 50])</p><p>print(&quot;Sum:&quot;, np.sum(arr))
+print(&quot;Mean:&quot;, np.mean(arr))
+print(&quot;Also sum:&quot;, arr.sum())
+print(&quot;Also mean:&quot;, arr.mean())
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Sum: 150
+Mean: 30.0
+Also sum: 150
+Also mean: 30.0
+</code></pre><p>Two ways to call aggregation:
+<ul><li><code>np.sum(arr)</code> — function style</li>
+<li><code>arr.sum()</code> — method style</li>
+</ul>
+Both work identically. Choose based on readability.</p>
+        <h2>Why this matters</h2>
+        <p>Aggregation answers questions: "What's the total sales?" "What's the average score?"</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can calculate sum with <code>np.sum()</code> or <code>.sum()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can calculate mean with <code>np.mean()</code> or <code>.mean()</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. These always work on numeric arrays.</p>
+        </div>
+        <div class="next-page"><a href="#page-35">Page 35 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-35">
+      <div class="page-header">
+        <span class="page-number">Page 35 of 45</span>
+        <h1 class="page-title">Min, Max, and More</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows additional aggregation functions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Sum and mean are common. There's more.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([45, 12, 78, 34, 56, 89, 23])</p><p>print(&quot;Minimum:&quot;, arr.min())
+print(&quot;Maximum:&quot;, arr.max())
+print(&quot;Index of min:&quot;, arr.argmin())
+print(&quot;Index of max:&quot;, arr.argmax())
+print(&quot;Standard deviation:&quot;, arr.std())
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Minimum: 12
+Maximum: 89
+Index of min: 1
+Index of max: 5
+Standard deviation: 25.21...
+</code></pre><p>Key aggregations:
+<ul><li><code>min()</code>, <code>max()</code> — smallest/largest value</li>
+<li><code>argmin()</code>, <code>argmax()</code> — INDEX of smallest/largest</li>
+<li><code>std()</code> — standard deviation</li>
+<li><code>var()</code> — variance</li></ul>
+        <h2>Why this matters</h2>
+        <p>Finding extremes and spread tells you about your data distribution.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can find min/max values</label>
+<label class="checkbox-item"><input type="checkbox"> I can find the INDEX of min/max with <code>argmin()</code>/<code>argmax()</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. These always work on numeric arrays.</p>
+        </div>
+        <div class="next-page"><a href="#page-36">Page 36 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-36">
+      <div class="page-header">
+        <span class="page-number">Page 36 of 45</span>
+        <h1 class="page-title">Aggregation Along Axes</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to aggregate rows or columns separately.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>1D aggregation sums everything. 2D needs more control.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])</p><p>print(&quot;Matrix:\n&quot;, matrix)
+print(&quot;Sum all:&quot;, matrix.sum())
+print(&quot;Sum each column:&quot;, matrix.sum(axis=0))
+print(&quot;Sum each row:&quot;, matrix.sum(axis=1))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Matrix:
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+Sum all: 45
+Sum each column: [12 15 18]
+Sum each row: [ 6 15 24]
+</code></pre><p>The <code>axis</code> parameter:
+<ul><li>No axis: aggregate everything</li>
+<li><code>axis=0</code>: aggregate down columns (collapse rows)</li>
+<li><code>axis=1</code>: aggregate across rows (collapse columns)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Datasets have rows (samples) and columns (features). You often need totals or means per column.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand <code>axis=0</code> aggregates columns</label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>axis=1</code> aggregates rows</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Confusing axis: 0 = down, 1 = across. Remember: "axis 0 disappears rows."</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-37">Page 37 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-37">
+      <div class="page-header">
+        <span class="page-number">Page 37 of 45</span>
+        <h1 class="page-title">Reshape Arrays</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to change an array's dimensions.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You created and aggregated arrays. Now transform their shape.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.arange(12)
+print(&quot;Original:&quot;, arr)
+print(&quot;Shape:&quot;, arr.shape)</p><p>reshaped = arr.reshape(3, 4)
+print(&quot;\nReshaped to 3x4:&quot;)
+print(reshaped)</p><p>reshaped2 = arr.reshape(4, 3)
+print(&quot;\nReshaped to 4x3:&quot;)
+print(reshaped2)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Original: [ 0  1  2  3  4  5  6  7  8  9 10 11]
+Shape: (12,)</p><p>Reshaped to 3x4:
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]]</p><p>Reshaped to 4x3:
+[[ 0  1  2]
+ [ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+</code></pre><p><code>reshape(rows, cols)</code> transforms dimensions:
+<ul><li>Total elements must stay the same (12 = 3×4 = 4×3)</li>
+<li>Data fills row by row</li></ul>
+        <h2>Why this matters</h2>
+        <p>Machine learning often requires specific input shapes. Reshape transforms your data to fit.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can reshape arrays with <code>.reshape()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand total elements must match</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>cannot reshape</code>: The product of new dimensions must equal original size</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-38">Page 38 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-38">
+      <div class="page-header">
+        <span class="page-number">Page 38 of 45</span>
+        <h1 class="page-title">Reshape with -1</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows automatic dimension calculation.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You manually specified both dimensions. Let NumPy infer one.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.arange(24)</p><p># Let NumPy figure out the number of columns
+reshaped = arr.reshape(6, -1)
+print(&quot;6 rows, auto columns:&quot;)
+print(reshaped)
+print(&quot;Shape:&quot;, reshaped.shape)</p><p># Let NumPy figure out the number of rows
+reshaped2 = arr.reshape(-1, 8)
+print(&quot;\nAuto rows, 8 columns:&quot;)
+print(reshaped2)
+print(&quot;Shape:&quot;, reshaped2.shape)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>6 rows, auto columns:
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ ...
+Shape: (6, 4)</p><p>Auto rows, 8 columns:
+[[ 0  1  2  3  4  5  6  7]
+ ...
+Shape: (3, 8)
+</code></pre><p><code>-1</code> means "calculate this dimension automatically":
+<ul><li><code>reshape(6, -1)</code> with 24 elements → <code>(6, 4)</code> because 24÷6=4</li>
+<li><code>reshape(-1, 8)</code> with 24 elements → <code>(3, 8)</code> because 24÷8=3</li></ul>
+        <h2>Why this matters</h2>
+        <p>When you know one dimension but not the other, use <code>-1</code> and let NumPy do the math.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>-1</code> to auto-calculate one dimension</label>
+<label class="checkbox-item"><input type="checkbox"> I understand only ONE dimension can be -1</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Multiple -1: Only one dimension can be inferred</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-39">Page 39 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-39">
+      <div class="page-header">
+        <span class="page-number">Page 39 of 45</span>
+        <h1 class="page-title">Flatten and Ravel</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to convert any array to 1D.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Reshape adds dimensions. Flatten removes them.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])</p><p>print(&quot;Original shape:&quot;, matrix.shape)
+print(&quot;Flattened:&quot;, matrix.flatten())
+print(&quot;Raveled:&quot;, matrix.ravel())
+print(&quot;Reshaped to 1D:&quot;, matrix.reshape(-1))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Original shape: (2, 3)
+Flattened: [1 2 3 4 5 6]
+Raveled: [1 2 3 4 5 6]
+Reshaped to 1D: [1 2 3 4 5 6]
+</code></pre><p>Three ways to flatten:
+<ul><li><code>flatten()</code> — returns a copy</li>
+<li><code>ravel()</code> — returns a view (faster, but changes affect original)</li>
+<li><code>reshape(-1)</code> — equivalent to ravel</li></ul>
+        <h2>Why this matters</h2>
+        <p>Sometimes you need all elements in a single row. Flattening is common for passing data to functions.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can flatten with <code>.flatten()</code> or <code>.ravel()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand flatten copies, ravel views</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. All three methods work.</p>
+        </div>
+        <div class="next-page"><a href="#page-40">Page 40 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-40">
+      <div class="page-header">
+        <span class="page-number">Page 40 of 45</span>
+        <h1 class="page-title">Transpose</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to swap rows and columns.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Reshape changes dimensions. Transpose swaps them.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>matrix = np.array([
+    [1, 2, 3],
+    [4, 5, 6]
+])</p><p>print(&quot;Original (2x3):&quot;)
+print(matrix)</p><p>print(&quot;\nTransposed (3x2):&quot;)
+print(matrix.T)
+print(&quot;Also transposed:&quot;)
+print(np.transpose(matrix))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Original (2x3):
+[[1 2 3]
+ [4 5 6]]</p><p>Transposed (3x2):
+[[1 4]
+ [2 5]
+ [3 6]]
+Also transposed:
+[[1 4]
+ [2 5]
+ [3 6]]
+</code></pre><p>Transpose flips the matrix:
+<ul><li>Rows become columns</li>
+<li>Columns become rows</li>
+<li><code>(2, 3)</code> becomes <code>(3, 2)</code></li></ul>
+        <h2>Why this matters</h2>
+        <p>Linear algebra operations often require transposition. Matrix multiplication, least squares, and more use <code>.T</code>.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can transpose with <code>.T</code> or <code>np.transpose()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand rows become columns</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Transpose always works on 2D+ arrays.</p>
+        </div>
+        <div class="next-page"><a href="#page-41">Page 41 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-41">
+      <div class="page-header">
+        <span class="page-number">Page 41 of 45</span>
+        <h1 class="page-title">Concatenate Arrays</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows how to combine arrays.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You reshaped arrays. Now join them.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])</p><p>print(&quot;Concatenate 1D:&quot;, np.concatenate([a, b]))</p><p># 2D arrays
+x = np.array([[1, 2], [3, 4]])
+y = np.array([[5, 6], [7, 8]])</p><p>print(&quot;\nStack vertically (more rows):&quot;)
+print(np.concatenate([x, y], axis=0))</p><p>print(&quot;\nStack horizontally (more columns):&quot;)
+print(np.concatenate([x, y], axis=1))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Concatenate 1D: [1 2 3 4 5 6]</p><p>Stack vertically (more rows):
+[[1 2]
+ [3 4]
+ [5 6]
+ [7 8]]</p><p>Stack horizontally (more columns):
+[[1 2 5 6]
+ [3 4 7 8]]
+</code></pre><p><code>np.concatenate([arrays], axis)</code>:
+<ul><li><code>axis=0</code>: stack vertically (add rows)</li>
+<li><code>axis=1</code>: stack horizontally (add columns)</li></ul>
+        <h2>Why this matters</h2>
+        <p>Building datasets often means combining arrays from different sources.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can concatenate 1D arrays</label>
+<label class="checkbox-item"><input type="checkbox"> I can concatenate 2D arrays along rows or columns</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Shape mismatch: Arrays must have compatible shapes on the join axis</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-42">Page 42 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-42">
+      <div class="page-header">
+        <span class="page-number">Page 42 of 45</span>
+        <h1 class="page-title">Stack Arrays</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows alternative ways to combine arrays.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Concatenate joins. Stack adds dimensions.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])</p><p>print(&quot;vstack (vertical):&quot;)
+print(np.vstack([a, b]))</p><p>print(&quot;\nhstack (horizontal):&quot;)
+print(np.hstack([a, b]))</p><p>print(&quot;\nstack (new dimension):&quot;)
+print(np.stack([a, b]))
+print(&quot;Shape:&quot;, np.stack([a, b]).shape)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>vstack (vertical):
+[[1 2 3]
+ [4 5 6]]</p><p>hstack (horizontal):
+[1 2 3 4 5 6]</p><p>stack (new dimension):
+[[1 2 3]
+ [4 5 6]]
+Shape: (2, 3)
+</code></pre><p>Convenience functions:
+<ul><li><code>vstack</code>: vertical stack (add rows)</li>
+<li><code>hstack</code>: horizontal stack (add columns or extend 1D)</li>
+<li><code>stack</code>: create a NEW dimension</li></ul>
+        <h2>Why this matters</h2>
+        <p><code>vstack</code> and <code>hstack</code> are more readable than <code>concatenate</code> with axis.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>vstack</code> to stack arrays vertically</label>
+<label class="checkbox-item"><input type="checkbox"> I can use <code>hstack</code> to combine arrays horizontally</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Shape mismatch: Arrays must have compatible shapes</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-43">Page 43 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-43">
+      <div class="page-header">
+        <span class="page-number">Page 43 of 45</span>
+        <h1 class="page-title">Copy vs View</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Explains when changes affect the original array.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You've modified arrays. Understand when copies are made.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>original = np.array([1, 2, 3, 4, 5])</p><p># Slicing creates a VIEW
+view = original[1:4]
+view[0] = 99
+print(&quot;After modifying view:&quot;)
+print(&quot;Original:&quot;, original)
+print(&quot;View:&quot;, view)</p><p># copy() creates a COPY
+original = np.array([1, 2, 3, 4, 5])
+copy = original[1:4].copy()
+copy[0] = 99
+print(&quot;\nAfter modifying copy:&quot;)
+print(&quot;Original:&quot;, original)
+print(&quot;Copy:&quot;, copy)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>After modifying view:
+Original: [ 1 99  3  4  5]
+View: [99  3  4]</p><p>After modifying copy:
+Original: [1 2 3 4 5]
+Copy: [99  3  4]
+</code></pre><p>Critical concept:
+<ul><li><strong>View</strong>: Points to original data. Changes affect both.</li>
+<li><strong>Copy</strong>: Independent data. Changes are isolated.</li>
+</ul>
+Slices are views by default. Use <code>.copy()</code> when you need independence.</p>
+        <h2>Why this matters</h2>
+        <p>This is a common source of bugs. Knowing when you have a view prevents accidental data corruption.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand slices create views</label>
+<label class="checkbox-item"><input type="checkbox"> I know to use <code>.copy()</code> for independent data</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing breaks, but unexpected changes happen if you forget about views.</p>
+        </div>
+        <div class="next-page"><a href="#page-44">Page 44 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-44">
+      <div class="page-header">
+        <span class="page-number">Page 44 of 45</span>
+        <h1 class="page-title">Where Function</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Shows conditional element selection.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Boolean indexing filters. Where transforms.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import numpy as np</p><p>arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])</p><p># Replace based on condition
+result = np.where(arr &gt; 5, arr, 0)
+print(&quot;Keep if &gt;5, else 0:&quot;, result)</p><p># Different values for true/false
+result2 = np.where(arr % 2 == 0, &quot;even&quot;, &quot;odd&quot;)
+print(&quot;Even or odd:&quot;, result2)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Keep if &gt;5, else 0: [ 0  0  0  0  0  6  7  8  9 10]
+Even or odd: [&#x27;odd&#x27; &#x27;even&#x27; &#x27;odd&#x27; &#x27;even&#x27; &#x27;odd&#x27; &#x27;even&#x27; &#x27;odd&#x27; &#x27;even&#x27; &#x27;odd&#x27; &#x27;even&#x27;]
+</code></pre><p><code>np.where(condition, if_true, if_false)</code>:
+<ul><li>Evaluates condition for each element</li>
+<li>Returns <code>if_true</code> where True, <code>if_false</code> where False</li>
+<li>Like a vectorized if-else</li></ul>
+        <h2>Why this matters</h2>
+        <p>Where is cleaner than boolean indexing when you need both branches (true AND false cases).</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>np.where()</code> for conditional values</label>
+<label class="checkbox-item"><input type="checkbox"> I understand it's like an element-wise if-else</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Shape mismatch: if_true and if_false must broadcast to the condition shape</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-45">Page 45 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-45">
+      <div class="page-header">
+        <span class="page-number">Page 45 of 45</span>
+        <h1 class="page-title">Final Verification</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms you have mastered all skills in this guide.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the end. Verify everything works together.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>Complete this final test in your <code>numpy_basics.py</code>:</p><pre><code>import numpy as np</p><p># Create data
+data = np.random.randint(0, 100, 20)
+print(&quot;Data:&quot;, data)</p><p># Reshape to 4x5
+matrix = data.reshape(4, 5)
+print(&quot;\nAs 4x5 matrix:&quot;)
+print(matrix)</p><p># Column means
+print(&quot;\nColumn means:&quot;, matrix.mean(axis=0))</p><p># Filter values above average
+avg = data.mean()
+print(f&quot;\nAverage: {avg:.2f}&quot;)
+print(&quot;Above average:&quot;, data[data &gt; avg])</p><p># Replace below average with 0
+cleaned = np.where(data &gt;= avg, data, 0)
+print(&quot;Cleaned:&quot;, cleaned)</p><p>print(&quot;\n✓ NumPy Fundamentals Complete!&quot;)
+</code></pre><p>Run it. If you understand every line, you've completed the guide.</p>
+        <h2>Why this matters</h2>
+        <p>You now have the foundation for data science in Python. NumPy skills unlock Pandas, Matplotlib, Scikit-learn, and beyond.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I completed the final test</label>
+<label class="checkbox-item"><input type="checkbox"> I understand every operation used</label>
+<label class="checkbox-item"><input type="checkbox"> I am ready to use NumPy in projects</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Review the specific section where the error occurred</li>
+<li>Each skill builds on the previous one</li></ul>
+        </div>
+        
+      </div>
+    </article>
+    </main>
+
+    <button class="toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰</button>
+
+    <div class="toc-panel" id="tocPanel">
+        <div class="toc-header">
+            <h3>Contents</h3>
+            <button class="toc-close" onclick="toggleTOC()">×</button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="#page-1">Page 1: What This Guide Covers</a></li>
+<li><a href="#page-2">Page 2: Prerequisites Check</a></li>
+<li><a href="#page-3">Page 3: Install NumPy</a></li>
+<li><a href="#page-4">Page 4: Verify Installation</a></li>
+<li><a href="#page-5">Page 5: Create a Practice File</a></li>
+<li><a href="#page-6">Page 6: Import NumPy</a></li>
+<li><a href="#page-7">Page 7: Your First Array</a></li>
+<li><a href="#page-8">Page 8: Array vs List</a></li>
+<li><a href="#page-9">Page 9: Check Array Type</a></li>
+<li><a href="#page-10">Page 10: Specify Data Type</a></li>
+<li><a href="#page-11">Page 11: Array Shape</a></li>
+<li><a href="#page-12">Page 12: Create 2D Array</a></li>
+<li><a href="#page-13">Page 13: Create 3D Array</a></li>
+<li><a href="#page-14">Page 14: Arrays of Zeros</a></li>
+<li><a href="#page-15">Page 15: Arrays of Ones</a></li>
+<li><a href="#page-16">Page 16: Arrays with arange</a></li>
+<li><a href="#page-17">Page 17: Arrays with linspace</a></li>
+<li><a href="#page-18">Page 18: Random Arrays</a></li>
+<li><a href="#page-19">Page 19: Creation Checkpoint</a></li>
+<li><a href="#page-20">Page 20: Indexing 1D Arrays</a></li>
+<li><a href="#page-21">Page 21: Slicing 1D Arrays</a></li>
+<li><a href="#page-22">Page 22: Slice with Step</a></li>
+<li><a href="#page-23">Page 23: Indexing 2D Arrays</a></li>
+<li><a href="#page-24">Page 24: Slicing 2D Rows</a></li>
+<li><a href="#page-25">Page 25: Slicing 2D Columns</a></li>
+<li><a href="#page-26">Page 26: Indexing Checkpoint</a></li>
+<li><a href="#page-27">Page 27: Element-wise Addition</a></li>
+<li><a href="#page-28">Page 28: Element-wise Math</a></li>
+<li><a href="#page-29">Page 29: NumPy Math Functions</a></li>
+<li><a href="#page-30">Page 30: Comparison Operations</a></li>
+<li><a href="#page-31">Page 31: Boolean Indexing</a></li>
+<li><a href="#page-32">Page 32: Combining Conditions</a></li>
+<li><a href="#page-33">Page 33: Modifying with Boolean Indexing</a></li>
+<li><a href="#page-34">Page 34: Sum and Mean</a></li>
+<li><a href="#page-35">Page 35: Min, Max, and More</a></li>
+<li><a href="#page-36">Page 36: Aggregation Along Axes</a></li>
+<li><a href="#page-37">Page 37: Reshape Arrays</a></li>
+<li><a href="#page-38">Page 38: Reshape with -1</a></li>
+<li><a href="#page-39">Page 39: Flatten and Ravel</a></li>
+<li><a href="#page-40">Page 40: Transpose</a></li>
+<li><a href="#page-41">Page 41: Concatenate Arrays</a></li>
+<li><a href="#page-42">Page 42: Stack Arrays</a></li>
+<li><a href="#page-43">Page 43: Copy vs View</a></li>
+<li><a href="#page-44">Page 44: Where Function</a></li>
+<li><a href="#page-45">Page 45: Final Verification</a></li>
+        </ul>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+    </footer>
+
+    <script src="/build-it/assets/js/guide.js"></script>
+</body>
+</html>
