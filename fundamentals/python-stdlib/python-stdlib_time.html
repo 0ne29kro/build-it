@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundation Guide — time | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand"><a href="/build-it/"><span>Build It</span></a></div>
+            <nav class="breadcrumb">
+                <a href="/build-it/">Home</a> / 
+                <a href="/build-it/fundamentals/">Fundamentals</a> / 
+                <a href="/build-it/fundamentals/python-stdlib/">Python Standard Library</a> / 
+                time
+            </nav>
+        </div>
+    </header>
+
+    <div class="guide-header">
+        <h1>Foundation Guide</h1>
+        <p class="subtitle">Python Standard Library: time</p>
+        <div class="guide-meta">
+            <span>📄 24 Pages</span>
+            <span>🎯 Sleep, timestamps, measuring duration</span>
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <main class="guide-content">
+        
+    <article class="page-section" id="page-1">
+      <div class="page-header">
+        <span class="page-number">Page 1 of 24</span>
+        <h1 class="page-title">What This Guide Covers</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Introduces the time module and what you will learn.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the starting point. You should know basic Python before starting.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>The <code>time</code> module handles time-related operations: pausing your program, measuring how long things take, and working with timestamps. By the end of this guide, you will know how to:</p><ul><li><strong>Pause execution</strong> — Make your program wait</li>
+<li><strong>Get timestamps</strong> — Current time as a number</li>
+<li><strong>Format time</strong> — Convert timestamps to readable strings</li>
+<li><strong>Parse time</strong> — Convert strings back to time objects</li>
+<li><strong>Measure duration</strong> — Time how long code takes to run</li>
+<li><strong>Use different clocks</strong> — Wall time vs CPU time vs monotonic</li>
+</ul>
+The time module is built into Python. No installation required.</p>
+        <h2>Why this matters</h2>
+        <p>Time operations are everywhere: delays in games, rate limiting APIs, logging timestamps, benchmarking performance, scheduling tasks.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand the time module handles time-related operations</label>
+<label class="checkbox-item"><input type="checkbox"> I have basic Python knowledge</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break yet. Move to Page 2.</p>
+        </div>
+        <div class="next-page"><a href="#page-2">Page 2 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-2">
+      <div class="page-header">
+        <span class="page-number">Page 2 of 24</span>
+        <h1 class="page-title">Create a Practice File</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Sets up a Python file for practicing the time module.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Before writing code, create a workspace.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>mkdir ~/projects/time-practice
+cd ~/projects/time-practice
+touch time_basics.py
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>These commands:
+<ul><li>Create a folder called <code>time-practice</code></li>
+<li>Enter that folder</li>
+<li>Create an empty Python file</li>
+</ul>
+From now on, you will write code in <code>time_basics.py</code> and run it with <code>python3 time_basics.py</code>.</p>
+        <h2>Why this matters</h2>
+        <p>Having a dedicated file lets you build up code incrementally and re-run to test changes.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I created the folder and file</label>
+<label class="checkbox-item"><input type="checkbox"> Running <code>ls</code> shows <code>time_basics.py</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>mkdir: File exists</code>: The folder exists. Just <code>cd</code> into it</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-3">Page 3 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-3">
+      <div class="page-header">
+        <span class="page-number">Page 3 of 24</span>
+        <h1 class="page-title">Import time</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Imports the time module into your Python file.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Your file is ready. Now add the import.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>print(&quot;time module imported successfully&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Open <code>time_basics.py</code> in VS Code and add this code.</p><p><code>import time</code> loads the module. Like <code>random</code>, we don't use an alias — <code>time</code> is already short and clear.</p><p>Run it:
+<pre><code>python3 time_basics.py
+</code></pre><p>Output:
+<pre><code>time module imported successfully
+</code></pre>
+        <h2>Why this matters</h2>
+        <p>This import line starts every script that works with time operations.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> My file contains <code>import time</code></label>
+<label class="checkbox-item"><input type="checkbox"> Running the file prints the success message</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ModuleNotFoundError</code>: This shouldn't happen — time is built-in. Check spelling.</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-4">Page 4 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-4">
+      <div class="page-header">
+        <span class="page-number">Page 4 of 24</span>
+        <h1 class="page-title">time.sleep()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Pauses program execution for a specified duration.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Module imported. Now use the most common function.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>print(&quot;Starting...&quot;)
+time.sleep(2)  # Pause for 2 seconds
+print(&quot;2 seconds later!&quot;)</p><p>time.sleep(0.5)  # Pause for half a second
+print(&quot;Half second later!&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file and watch:
+<pre><code>Starting...
+[2 second pause]
+2 seconds later!
+[0.5 second pause]
+Half second later!
+</code></pre><p><code>time.sleep(seconds)</code>:
+<ul><li>Pauses execution for the specified number of seconds</li>
+<li>Accepts integers or floats (for sub-second delays)</li>
+<li>The program does nothing during sleep</li></ul>
+        <h2>Why this matters</h2>
+        <p>Delays are essential for: rate limiting API calls, animations, countdowns, retry logic, polling intervals.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can pause execution with <code>time.sleep()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand it accepts decimals for sub-second delays</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Program hangs: That's the sleep working. Wait for it to complete.</li>
+<li>Negative value: <code>sleep(-1)</code> raises <code>ValueError</code></li></ul>
+        </div>
+        <div class="next-page"><a href="#page-5">Page 5 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-5">
+      <div class="page-header">
+        <span class="page-number">Page 5 of 24</span>
+        <h1 class="page-title">time.time()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Gets the current time as a Unix timestamp.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You can pause time. Now get the current time.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>now = time.time()
+print(&quot;Current timestamp:&quot;, now)</p><p># Timestamps are seconds since January 1, 1970
+print(&quot;That&#x27;s seconds since 1970-01-01 00:00:00 UTC&quot;)</p><p># Run twice to see it change
+time.sleep(1)
+later = time.time()
+print(&quot;One second later:&quot;, later)
+print(&quot;Difference:&quot;, later - now)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Current timestamp: 1737849600.123456
+That&#x27;s seconds since 1970-01-01 00:00:00 UTC
+One second later: 1737849601.234567
+Difference: 1.111111
+</code></pre><p><code>time.time()</code> returns a float:
+<ul><li>Whole part = seconds since "epoch" (Jan 1, 1970)</li>
+<li>Decimal part = fractional seconds</li>
+<li>This is called a "Unix timestamp"</li></ul>
+        <h2>Why this matters</h2>
+        <p>Timestamps are the universal way to record when things happen. Logs, databases, and APIs all use them.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can get the current timestamp with <code>time.time()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand it's seconds since 1970</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Timestamps always work.</p>
+        </div>
+        <div class="next-page"><a href="#page-6">Page 6 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-6">
+      <div class="page-header">
+        <span class="page-number">Page 6 of 24</span>
+        <h1 class="page-title">time.ctime()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Converts a timestamp to a human-readable string.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You have a timestamp number. Now make it readable.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># Current time as readable string
+now = time.ctime()
+print(&quot;Current time:&quot;, now)</p><p># Convert a specific timestamp
+timestamp = time.time()
+readable = time.ctime(timestamp)
+print(&quot;From timestamp:&quot;, readable)</p><p># Convert a historical timestamp
+moon_landing = 0  # Epoch = Jan 1, 1970
+print(&quot;Epoch:&quot;, time.ctime(moon_landing))
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Current time: Sun Jan 26 14:30:45 2026
+From timestamp: Sun Jan 26 14:30:45 2026
+Epoch: Wed Dec 31 16:00:00 1969
+</code></pre><p><code>time.ctime(timestamp)</code>:
+<ul><li>Converts timestamp to a readable string</li>
+<li>If no argument, uses current time</li>
+<li>Format: <code>Day Mon DD HH:MM:SS YYYY</code></li>
+</ul>
+Note: Epoch shows as Dec 31 1969 because of timezone offset from UTC.</p>
+        <h2>Why this matters</h2>
+        <p>Humans can't read <code>1737849600</code>. Quick debugging and logging need readable output.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can convert timestamps to strings with <code>ctime()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand the default format</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>OSError</code>: Timestamp too large or negative for your system</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-7">Page 7 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-7">
+      <div class="page-header">
+        <span class="page-number">Page 7 of 24</span>
+        <h1 class="page-title">time.localtime()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Converts a timestamp to a structured time object.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>ctime()</code> gives a string. <code>localtime()</code> gives components.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># Get structured local time
+now = time.localtime()
+print(&quot;Full struct:&quot;, now)</p><p># Access individual components
+print(f&quot;Year: {now.tm_year}&quot;)
+print(f&quot;Month: {now.tm_mon}&quot;)
+print(f&quot;Day: {now.tm_mday}&quot;)
+print(f&quot;Hour: {now.tm_hour}&quot;)
+print(f&quot;Minute: {now.tm_min}&quot;)
+print(f&quot;Second: {now.tm_sec}&quot;)
+print(f&quot;Weekday: {now.tm_wday}&quot;)  # 0=Monday, 6=Sunday
+print(f&quot;Day of year: {now.tm_yday}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Full struct: time.struct_time(tm_year=2026, tm_mon=1, tm_mday=26, ...)
+Year: 2026
+Month: 1
+Day: 26
+Hour: 14
+Minute: 30
+Second: 45
+Weekday: 6
+Day of year: 26
+</code></pre><p><code>time.localtime()</code> returns a <code>struct_time</code> with:
+<ul><li><code>tm_year</code>, <code>tm_mon</code>, <code>tm_mday</code> — date components</li>
+<li><code>tm_hour</code>, <code>tm_min</code>, <code>tm_sec</code> — time components</li>
+<li><code>tm_wday</code> — weekday (0=Monday)</li>
+<li><code>tm_yday</code> — day of year (1-366)</li></ul>
+        <h2>Why this matters</h2>
+        <p>When you need specific components (just the hour, just the month), <code>localtime()</code> gives direct access without string parsing.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can get a struct_time with <code>localtime()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I can access individual time components</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Try different attributes.</p>
+        </div>
+        <div class="next-page"><a href="#page-8">Page 8 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-8">
+      <div class="page-header">
+        <span class="page-number">Page 8 of 24</span>
+        <h1 class="page-title">time.gmtime()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Gets structured time in UTC (no timezone offset).</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>localtime()</code> uses your timezone. <code>gmtime()</code> uses UTC.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>local = time.localtime()
+utc = time.gmtime()</p><p>print(&quot;Local time:&quot;, time.strftime(&quot;%H:%M:%S&quot;, local))
+print(&quot;UTC time:  &quot;, time.strftime(&quot;%H:%M:%S&quot;, utc))
+print(f&quot;Difference: {local.tm_hour - utc.tm_hour} hours&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file (results depend on your timezone):
+<pre><code>Local time: 14:30:45
+UTC time:   22:30:45
+Difference: -8 hours
+</code></pre><p><code>time.gmtime()</code>:
+<ul><li>Same structure as <code>localtime()</code></li>
+<li>But in UTC (Coordinated Universal Time)</li>
+<li>No daylight saving adjustments</li>
+</ul>
+UTC is the global standard for servers and logs.</p>
+        <h2>Why this matters</h2>
+        <p>When coordinating across timezones (servers, APIs, international users), UTC is the common reference.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand <code>gmtime()</code> returns UTC time</label>
+<label class="checkbox-item"><input type="checkbox"> I can see the offset between local and UTC</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Offset depends on your location.</p>
+        </div>
+        <div class="next-page"><a href="#page-9">Page 9 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-9">
+      <div class="page-header">
+        <span class="page-number">Page 9 of 24</span>
+        <h1 class="page-title">time.strftime()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Formats time into any string format you want.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>ctime()</code> has a fixed format. <code>strftime()</code> is flexible.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>now = time.localtime()</p><p># Different formats
+print(time.strftime(&quot;%Y-%m-%d&quot;, now))           # 2026-01-26
+print(time.strftime(&quot;%d/%m/%Y&quot;, now))           # 26/01/2026
+print(time.strftime(&quot;%B %d, %Y&quot;, now))          # January 26, 2026
+print(time.strftime(&quot;%H:%M:%S&quot;, now))           # 14:30:45
+print(time.strftime(&quot;%I:%M %p&quot;, now))           # 02:30 PM
+print(time.strftime(&quot;%A, %B %d&quot;, now))          # Sunday, January 26
+print(time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, now))  # 2026-01-26 14:30:45
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>2026-01-26
+26/01/2026
+January 26, 2026
+14:30:45
+02:30 PM
+Sunday, January 26
+2026-01-26 14:30:45
+</code></pre><p>Common format codes:
+<ul><li><code>%Y</code> = 4-digit year, <code>%y</code> = 2-digit year</li>
+<li><code>%m</code> = month (01-12), <code>%B</code> = full month name</li>
+<li><code>%d</code> = day (01-31)</li>
+<li><code>%H</code> = 24-hour, <code>%I</code> = 12-hour, <code>%p</code> = AM/PM</li>
+<li><code>%M</code> = minute, <code>%S</code> = second</li>
+<li><code>%A</code> = weekday name</li></ul>
+        <h2>Why this matters</h2>
+        <p>Different systems need different formats: ISO for APIs, local format for users, custom for logs.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can format time with <code>strftime()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I know common format codes</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Wrong output: Check format codes (they're case-sensitive)</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-10">Page 10 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-10">
+      <div class="page-header">
+        <span class="page-number">Page 10 of 24</span>
+        <h1 class="page-title">time.strptime()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Parses a time string into a struct_time.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>strftime()</code> formats time → string. <code>strptime()</code> parses string → time.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># Parse different formats
+date_str = &quot;2026-01-26&quot;
+parsed = time.strptime(date_str, &quot;%Y-%m-%d&quot;)
+print(f&quot;Parsed: {parsed.tm_year}-{parsed.tm_mon}-{parsed.tm_mday}&quot;)</p><p># Parse with time
+datetime_str = &quot;January 26, 2026 14:30&quot;
+parsed = time.strptime(datetime_str, &quot;%B %d, %Y %H:%M&quot;)
+print(f&quot;Hour: {parsed.tm_hour}, Minute: {parsed.tm_min}&quot;)</p><p># Parse timestamp from log
+log_entry = &quot;26/01/2026 14:30:45&quot;
+parsed = time.strptime(log_entry, &quot;%d/%m/%Y %H:%M:%S&quot;)
+print(f&quot;Day: {parsed.tm_mday}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Parsed: 2026-1-26
+Hour: 14, Minute: 30
+Day: 26
+</code></pre><p><code>time.strptime(string, format)</code>:
+<ul><li>Parses a string using the specified format</li>
+<li>Returns a <code>struct_time</code></li>
+<li>Format must match the string exactly</li></ul>
+        <h2>Why this matters</h2>
+        <p>Incoming data (user input, files, APIs) comes as strings. Parsing converts them to usable time objects.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can parse time strings with <code>strptime()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand format must match the string</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>ValueError</code>: Format doesn't match the string. Check carefully.</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-11">Page 11 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-11">
+      <div class="page-header">
+        <span class="page-number">Page 11 of 24</span>
+        <h1 class="page-title">time.mktime()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Converts a struct_time back to a timestamp.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Complete the round trip: timestamp → struct_time → timestamp.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># Get current time as struct
+now_struct = time.localtime()
+print(&quot;Struct:&quot;, now_struct)</p><p># Convert to timestamp
+timestamp = time.mktime(now_struct)
+print(&quot;Timestamp:&quot;, timestamp)</p><p># Verify round trip
+print(&quot;Back to ctime:&quot;, time.ctime(timestamp))</p><p># Create a specific time
+new_years = time.strptime(&quot;2026-01-01 00:00:00&quot;, &quot;%Y-%m-%d %H:%M:%S&quot;)
+new_years_ts = time.mktime(new_years)
+print(f&quot;New Year 2026 timestamp: {new_years_ts}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Struct: time.struct_time(tm_year=2026, ...)
+Timestamp: 1737849045.0
+Back to ctime: Sun Jan 26 14:30:45 2026
+New Year 2026 timestamp: 1735689600.0
+</code></pre><p><code>time.mktime(struct_time)</code>:
+<ul><li>Converts struct_time to a Unix timestamp</li>
+<li>Inverse of <code>localtime()</code></li>
+<li>Useful for calculating differences or storing in databases</li></ul>
+        <h2>Why this matters</h2>
+        <p>Sometimes you build a time from components and need a timestamp for storage or comparison.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can convert struct_time to timestamp with <code>mktime()</code></label>
+<label class="checkbox-item"><input type="checkbox"> I understand the round trip: time() → localtime() → mktime()</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li><code>OverflowError</code>: Year out of range for timestamps</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-12">Page 12 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-12">
+      <div class="page-header">
+        <span class="page-number">Page 12 of 24</span>
+        <h1 class="page-title">Measure Elapsed Time</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Times how long code takes to execute.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You know timestamps. Now use them for benchmarking.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># Simple timing
+start = time.time()</p><p># Simulate work
+total = 0
+for i in range(1000000):
+    total += i</p><p>end = time.time()
+elapsed = end - start</p><p>print(f&quot;Sum: {total}&quot;)
+print(f&quot;Time: {elapsed:.4f} seconds&quot;)</p><p># Time a sleep (verify it works)
+start = time.time()
+time.sleep(0.5)
+end = time.time()
+print(f&quot;Sleep took: {end - start:.4f} seconds&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Sum: 499999500000
+Time: 0.0523 seconds
+Sleep took: 0.5012 seconds
+</code></pre><p>Pattern for timing:
+<ul><li>Record start time</li>
+<li>Run the code</li>
+<li>Record end time</li>
+<li>Calculate difference</li></ul>
+        <h2>Why this matters</h2>
+        <p>Performance matters. Timing tells you which code is slow and whether optimizations help.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can measure elapsed time with start/end timestamps</label>
+<label class="checkbox-item"><input type="checkbox"> I understand the basic timing pattern</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Times will vary by machine speed.</p>
+        </div>
+        <div class="next-page"><a href="#page-13">Page 13 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-13">
+      <div class="page-header">
+        <span class="page-number">Page 13 of 24</span>
+        <h1 class="page-title">time.perf_counter()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Provides high-precision timing for benchmarks.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>time.time()</code> is good. <code>perf_counter()</code> is better for precise measurements.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># perf_counter for precise benchmarking
+start = time.perf_counter()</p><p>total = sum(range(1000000))</p><p>end = time.perf_counter()
+elapsed = end - start</p><p>print(f&quot;Sum: {total}&quot;)
+print(f&quot;perf_counter time: {elapsed:.6f} seconds&quot;)
+print(f&quot;That&#x27;s {elapsed * 1000:.3f} milliseconds&quot;)
+print(f&quot;That&#x27;s {elapsed * 1000000:.0f} microseconds&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Sum: 499999500000
+perf_counter time: 0.023456 seconds
+That&#x27;s 23.456 milliseconds
+That&#x27;s 23456 microseconds
+</code></pre><p><code>time.perf_counter()</code>:
+<ul><li>Highest resolution timer available</li>
+<li>Includes time during sleep</li>
+<li>NOT related to wall clock time (arbitrary starting point)</li>
+<li>Best choice for benchmarking</li></ul>
+        <h2>Why this matters</h2>
+        <p>When measuring small code blocks (microseconds), <code>perf_counter()</code> gives more accurate results than <code>time()</code>.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>perf_counter()</code> for precise timing</label>
+<label class="checkbox-item"><input type="checkbox"> I understand it's better for benchmarks than <code>time()</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Values are always relative.</p>
+        </div>
+        <div class="next-page"><a href="#page-14">Page 14 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-14">
+      <div class="page-header">
+        <span class="page-number">Page 14 of 24</span>
+        <h1 class="page-title">time.perf_counter_ns()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Gets high-precision time in nanoseconds as an integer.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>perf_counter()</code> returns float seconds. <code>perf_counter_ns()</code> returns integer nanoseconds.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># Nanosecond precision (integer)
+start_ns = time.perf_counter_ns()</p><p>total = sum(range(100000))</p><p>end_ns = time.perf_counter_ns()
+elapsed_ns = end_ns - start_ns</p><p>print(f&quot;Elapsed: {elapsed_ns} nanoseconds&quot;)
+print(f&quot;That&#x27;s {elapsed_ns / 1000:.1f} microseconds&quot;)
+print(f&quot;That&#x27;s {elapsed_ns / 1000000:.3f} milliseconds&quot;)</p><p># Compare with regular perf_counter
+start = time.perf_counter()
+total = sum(range(100000))
+end = time.perf_counter()
+print(f&quot;\nperf_counter: {(end-start)*1e9:.0f} nanoseconds&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Elapsed: 2345678 nanoseconds
+That&#x27;s 2345.7 microseconds
+That&#x27;s 2.346 milliseconds</p><p>perf_counter: 2345678 nanoseconds
+</code></pre><p><code>time.perf_counter_ns()</code>:
+<ul><li>Returns nanoseconds as integer (no float rounding errors)</li>
+<li>1 second = 1,000,000,000 nanoseconds</li>
+<li>Useful for very precise measurements</li></ul>
+        <h2>Why this matters</h2>
+        <p>Floating-point has precision limits. Integer nanoseconds avoid rounding errors in accumulated measurements.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can use <code>perf_counter_ns()</code> for nanosecond timing</label>
+<label class="checkbox-item"><input type="checkbox"> I understand when integer precision matters</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Python 3.7+ required.</p>
+        </div>
+        <div class="next-page"><a href="#page-15">Page 15 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-15">
+      <div class="page-header">
+        <span class="page-number">Page 15 of 24</span>
+        <h1 class="page-title">time.monotonic()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Provides a clock that never goes backward.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p><code>time()</code> can jump (daylight saving, NTP). <code>monotonic()</code> can't.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># monotonic clock for reliable elapsed time
+start = time.monotonic()</p><p>time.sleep(1.5)</p><p>end = time.monotonic()
+elapsed = end - start</p><p>print(f&quot;Elapsed: {elapsed:.3f} seconds&quot;)</p><p># Demonstrate it&#x27;s always increasing
+print(&quot;\nMonotonic values (always increase):&quot;)
+for i in range(5):
+    print(f&quot;  {time.monotonic():.6f}&quot;)
+    time.sleep(0.1)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Elapsed: 1.502 seconds</p><p>Monotonic values (always increase):
+  12345.678901
+  12345.779012
+  12345.879123
+  12345.979234
+  12346.079345
+</code></pre><p><code>time.monotonic()</code>:
+<ul><li>Always moves forward (never jumps backward)</li>
+<li>Unaffected by system clock changes</li>
+<li>Perfect for timeouts and elapsed time in real applications</li></ul>
+        <h2>Why this matters</h2>
+        <p>If the system clock changes (daylight saving, NTP sync), <code>time()</code> can jump. <code>monotonic()</code> guarantees forward progress.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand <code>monotonic()</code> never goes backward</label>
+<label class="checkbox-item"><input type="checkbox"> I know to use it for timeouts and intervals</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Monotonic is always safe.</p>
+        </div>
+        <div class="next-page"><a href="#page-16">Page 16 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-16">
+      <div class="page-header">
+        <span class="page-number">Page 16 of 24</span>
+        <h1 class="page-title">time.process_time()</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Measures CPU time used by your process only.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Wall time includes sleep. Process time is actual computation.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p># Compare wall time vs CPU time
+print(&quot;Heavy computation:&quot;)
+wall_start = time.perf_counter()
+cpu_start = time.process_time()</p><p>total = sum(i*i for i in range(2000000))</p><p>wall_end = time.perf_counter()
+cpu_end = time.process_time()</p><p>print(f&quot;  Wall time: {wall_end - wall_start:.4f} sec&quot;)
+print(f&quot;  CPU time:  {cpu_end - cpu_start:.4f} sec&quot;)</p><p># Sleep shows the difference
+print(&quot;\nWith sleep:&quot;)
+wall_start = time.perf_counter()
+cpu_start = time.process_time()</p><p>time.sleep(1)  # This uses no CPU
+total = sum(range(100000))</p><p>wall_end = time.perf_counter()
+cpu_end = time.process_time()</p><p>print(f&quot;  Wall time: {wall_end - wall_start:.4f} sec&quot;)
+print(f&quot;  CPU time:  {cpu_end - cpu_start:.4f} sec&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Heavy computation:
+  Wall time: 0.1523 sec
+  CPU time:  0.1521 sec</p><p>With sleep:
+  Wall time: 1.0034 sec
+  CPU time:  0.0023 sec
+</code></pre><p>Notice:
+<ul><li>Heavy computation: wall ≈ CPU (all time is computation)</li>
+<li>With sleep: wall >> CPU (sleep doesn't use CPU)</li>
+</ul>
+<code>time.process_time()</code>:
+<ul><li>Only counts CPU cycles used by your program</li>
+<li>Excludes sleep, I/O waits, other processes</li></ul>
+        <h2>Why this matters</h2>
+        <p>When profiling, you care about CPU efficiency. Process time isolates computation from waiting.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand <code>process_time()</code> excludes sleep</label>
+<label class="checkbox-item"><input type="checkbox"> I know the difference between wall time and CPU time</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. Compare the two values.</p>
+        </div>
+        <div class="next-page"><a href="#page-17">Page 17 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-17">
+      <div class="page-header">
+        <span class="page-number">Page 17 of 24</span>
+        <h1 class="page-title">Timer Context Manager</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Creates a reusable timing utility.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Timing pattern is repetitive. Make it reusable.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>class Timer:
+    def __enter__(self):
+        self.start = time.perf_counter()
+        return self
+    
+    def __exit__(self, *args):
+        self.elapsed = time.perf_counter() - self.start
+        print(f&quot;Elapsed: {self.elapsed:.4f} seconds&quot;)</p><p># Use it
+with Timer():
+    total = sum(range(1000000))
+    print(f&quot;Sum: {total}&quot;)</p><p>with Timer():
+    time.sleep(0.5)
+    print(&quot;Done sleeping&quot;)</p><p># Access elapsed time
+with Timer() as t:
+    data = [i**2 for i in range(100000)]</p><p>print(f&quot;Stored elapsed: {t.elapsed:.4f}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Sum: 499999500000
+Elapsed: 0.0234 seconds
+Done sleeping
+Elapsed: 0.5012 seconds
+Elapsed: 0.0123 seconds
+Stored elapsed: 0.0123
+</code></pre><p>The <code>Timer</code> context manager:
+<ul><li>Starts timing on <code>with</code> entry</li>
+<li>Stops and prints on exit</li>
+<li>Can store elapsed time for later use</li></ul>
+        <h2>Why this matters</h2>
+        <p>Clean, reusable timing. One line to time any block of code.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can create a Timer context manager</label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>__enter__</code> and <code>__exit__</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>IndentationError: Check class and method indentation</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-18">Page 18 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-18">
+      <div class="page-header">
+        <span class="page-number">Page 18 of 24</span>
+        <h1 class="page-title">Countdown Timer</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Builds a practical countdown timer.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Apply time functions to a real use case.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>def countdown(seconds):
+    &quot;&quot;&quot;Display a countdown timer.&quot;&quot;&quot;
+    print(f&quot;Starting {seconds} second countdown...&quot;)
+    
+    while seconds &gt; 0:
+        mins, secs = divmod(seconds, 60)
+        timer = f&quot;{mins:02d}:{secs:02d}&quot;
+        print(f&quot;\r{timer}&quot;, end=&quot;&quot;, flush=True)
+        time.sleep(1)
+        seconds -= 1
+    
+    print(&quot;\r00:00&quot;)
+    print(&quot;Time&#x27;s up!&quot;)</p><p># Run a short countdown
+countdown(5)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Starting 5 second countdown...
+00:05
+00:04
+00:03
+00:02
+00:01
+00:00
+Time&#x27;s up!
+</code></pre><p>Key techniques:
+<ul><li><code>divmod(seconds, 60)</code> splits into minutes and seconds</li>
+<li><code>\r</code> returns to line start (overwrites previous output)</li>
+<li><code>flush=True</code> forces immediate display</li>
+<li><code>time.sleep(1)</code> waits between updates</li></ul>
+        <h2>Why this matters</h2>
+        <p>Countdowns are everywhere: Pomodoro timers, cooking timers, exam timers, game timers.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can build a countdown timer</label>
+<label class="checkbox-item"><input type="checkbox"> I understand <code>\r</code> for overwriting output</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>No overwrite: Some terminals don't support <code>\r</code>. Output will be multiple lines.</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-19">Page 19 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-19">
+      <div class="page-header">
+        <span class="page-number">Page 19 of 24</span>
+        <h1 class="page-title">Rate Limiter</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Limits how often an action can occur.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>APIs often require rate limiting. Time makes it possible.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>class RateLimiter:
+    def __init__(self, calls_per_second):
+        self.min_interval = 1.0 / calls_per_second
+        self.last_call = 0
+    
+    def wait(self):
+        &quot;&quot;&quot;Wait if needed to respect rate limit.&quot;&quot;&quot;
+        now = time.monotonic()
+        elapsed = now - self.last_call
+        
+        if elapsed &lt; self.min_interval:
+            sleep_time = self.min_interval - elapsed
+            time.sleep(sleep_time)
+        
+        self.last_call = time.monotonic()</p><p># Example: max 2 calls per second
+limiter = RateLimiter(calls_per_second=2)</p><p>print(&quot;Making 6 API calls at max 2/second:&quot;)
+start = time.perf_counter()</p><p>for i in range(6):
+    limiter.wait()
+    print(f&quot;  Call {i+1} at {time.perf_counter() - start:.2f}s&quot;)</p><p>total = time.perf_counter() - start
+print(f&quot;Total time: {total:.2f}s (expected ~2.5s)&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Making 6 API calls at max 2/second:
+  Call 1 at 0.00s
+  Call 2 at 0.50s
+  Call 3 at 1.00s
+  Call 4 at 1.50s
+  Call 5 at 2.00s
+  Call 6 at 2.50s
+Total time: 2.50s (expected ~2.5s)
+</code></pre><p>The rate limiter:
+<ul><li>Calculates minimum interval between calls</li>
+<li>Sleeps if called too soon</li>
+<li>Uses <code>monotonic()</code> for reliable timing</li></ul>
+        <h2>Why this matters</h2>
+        <p>APIs ban you for too many requests. Rate limiting keeps you within limits.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can implement a rate limiter</label>
+<label class="checkbox-item"><input type="checkbox"> I understand why <code>monotonic()</code> is used</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Division by zero: <code>calls_per_second</code> must be > 0</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-20">Page 20 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-20">
+      <div class="page-header">
+        <span class="page-number">Page 20 of 24</span>
+        <h1 class="page-title">Retry with Backoff</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Implements exponential backoff for retrying failed operations.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Network calls fail. Backoff retries intelligently.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time
+import random</p><p>def retry_with_backoff(func, max_retries=5, base_delay=1.0):
+    &quot;&quot;&quot;Retry a function with exponential backoff.&quot;&quot;&quot;
+    for attempt in range(max_retries):
+        try:
+            return func()
+        except Exception as e:
+            if attempt == max_retries - 1:
+                raise  # Last attempt, give up
+            
+            # Exponential backoff with jitter
+            delay = base_delay * (2 ** attempt)
+            jitter = random.uniform(0, delay * 0.1)
+            total_delay = delay + jitter
+            
+            print(f&quot;Attempt {attempt + 1} failed: {e}&quot;)
+            print(f&quot;Retrying in {total_delay:.2f} seconds...&quot;)
+            time.sleep(total_delay)</p><p># Simulate flaky operation (fails 70% of the time)
+attempt_count = 0</p><p>def flaky_operation():
+    global attempt_count
+    attempt_count += 1
+    if random.random() &lt; 0.7:
+        raise ConnectionError(f&quot;Network error on attempt {attempt_count}&quot;)
+    return &quot;Success!&quot;</p><p># Test it
+random.seed(42)
+try:
+    result = retry_with_backoff(flaky_operation)
+    print(f&quot;Result: {result}&quot;)
+except Exception as e:
+    print(f&quot;All retries failed: {e}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Attempt 1 failed: Network error on attempt 1
+Retrying in 1.05 seconds...
+Attempt 2 failed: Network error on attempt 2
+Retrying in 2.18 seconds...
+Attempt 3 failed: Network error on attempt 3
+Retrying in 4.31 seconds...
+Result: Success!
+</code></pre><p>Exponential backoff:
+<ul><li>Delay doubles each retry (1s, 2s, 4s, 8s...)</li>
+<li>Jitter adds randomness to prevent thundering herd</li>
+<li>Eventually gives up after max retries</li></ul>
+        <h2>Why this matters</h2>
+        <p>Network reliability. Every production system needs retry logic with backoff.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I understand exponential backoff pattern</label>
+<label class="checkbox-item"><input type="checkbox"> I understand why jitter is added</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <ul><li>Runs forever: Make sure max_retries is reasonable</li></ul>
+        </div>
+        <div class="next-page"><a href="#page-21">Page 21 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-21">
+      <div class="page-header">
+        <span class="page-number">Page 21 of 24</span>
+        <h1 class="page-title">Execution Timeout</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Limits how long an operation can run.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Sometimes code hangs. Timeouts prevent infinite waits.</p>
+        </div>
+        
+        <h2>Code (this page)</h2>
+        <div class="code-block">
+            <pre><code>import time</p><p>def with_timeout(func, timeout_seconds, check_interval=0.1):
+    &quot;&quot;&quot;
+    Simple timeout pattern (polling-based).
+    Note: This is a simplified example. For real timeouts,
+    use threading or asyncio.
+    &quot;&quot;&quot;
+    start = time.monotonic()
+    deadline = start + timeout_seconds
+    
+    while time.monotonic() &lt; deadline:
+        # Try the operation
+        result = func()
+        if result is not None:
+            return result
+        time.sleep(check_interval)
+    
+    raise TimeoutError(f&quot;Operation timed out after {timeout_seconds}s&quot;)</p><p># Simulate long-running task
+counter = 0</p><p>def slow_task():
+    &quot;&quot;&quot;Returns result after 5 calls, None otherwise.&quot;&quot;&quot;
+    global counter
+    counter += 1
+    print(f&quot;  Attempt {counter}...&quot;)
+    if counter &gt;= 5:
+        return &quot;Task complete!&quot;
+    return None</p><p># Test with sufficient timeout
+print(&quot;Test 1: 2 second timeout (should succeed)&quot;)
+counter = 0
+try:
+    result = with_timeout(slow_task, timeout_seconds=2)
+    print(f&quot;Result: {result}&quot;)
+except TimeoutError as e:
+    print(f&quot;Failed: {e}&quot;)</p><p># Test with insufficient timeout
+print(&quot;\nTest 2: 0.3 second timeout (should fail)&quot;)
+counter = 0
+try:
+    result = with_timeout(slow_task, timeout_seconds=0.3)
+    print(f&quot;Result: {result}&quot;)
+except TimeoutError as e:
+    print(f&quot;Failed: {e}&quot;)
+</code></pre>
+        </div>
+        <h2>Explanation</h2>
+        <p>Run the file:
+<pre><code>Test 1: 2 second timeout (should succeed)
+  Attempt 1...
+  Attempt 2...
+  Attempt 3...
+  Attempt 4...
+  Attempt 5...
+Result: Task complete!</p><p>Test 2: 0.3 second timeout (should fail)
+  Attempt 1...
+  Attempt 2...
+  Attempt 3...
+Failed: Operation timed out after 0.3s
+</code></pre><p>Pattern:
+<ul><li>Set a deadline using <code>monotonic()</code></li>
+<li>Check deadline in each iteration</li>
+<li>Raise <code>TimeoutError</code> if exceeded</li></ul>
+        <h2>Why this matters</h2>
+        <p>Hanging operations freeze your program. Timeouts keep things responsive.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can implement a basic timeout pattern</label>
+<label class="checkbox-item"><input type="checkbox"> I understand deadline checking with <code>monotonic()</code></label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing should break. This is a simplified pattern.</p>
+        </div>
+        <div class="next-page"><a href="#page-22">Page 22 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-22">
+      <div class="page-header">
+        <span class="page-number">Page 22 of 24</span>
+        <h1 class="page-title">Clock Comparison Summary</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Summarizes when to use each clock type.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>You've learned multiple clocks. Know which to use.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <table>
+<tr><td>Clock</td><td>Use Case</td><td>Notes</td></tr>
+<tr><td><code>time()</code></td><td>Timestamps, logging</td><td>Can jump with clock changes</td></tr>
+<tr><td><code>perf_counter()</code></td><td>Benchmarking</td><td>Highest precision</td></tr>
+<tr><td><code>perf_counter_ns()</code></td><td>Nanosecond benchmarks</td><td>Integer, no float errors</td></tr>
+<tr><td><code>monotonic()</code></td><td>Timeouts, intervals</td><td>Never goes backward</td></tr>
+<tr><td><code>process_time()</code></td><td>CPU profiling</td><td>Excludes sleep/IO</td></tr>
+</table><p><strong>Decision guide:</strong></p><ul><li><strong>Need a timestamp for storage/display?</strong> → <code>time()</code></li>
+<li><strong>Measuring code performance?</strong> → <code>perf_counter()</code></li>
+<li><strong>Need reliable elapsed time in production?</strong> → <code>monotonic()</code></li>
+<li><strong>Measuring CPU usage specifically?</strong> → <code>process_time()</code></li></ul>
+        <h2>Why this matters</h2>
+        <p>Using the wrong clock causes bugs: timeouts that fail during daylight saving, benchmarks with wrong precision.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I know which clock to use for each purpose</label>
+<label class="checkbox-item"><input type="checkbox"> I understand the tradeoffs</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. This is reference material.</p>
+        </div>
+        <div class="next-page"><a href="#page-23">Page 23 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-23">
+      <div class="page-header">
+        <span class="page-number">Page 23 of 24</span>
+        <h1 class="page-title">Function Reference</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Quick reference for all time functions covered.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>Lookup table after completing the guide.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>### Core Functions</p><table>
+<tr><td>Function</td><td>Returns</td><td>Description</td></tr>
+<tr><td><code>sleep(secs)</code></td><td>None</td><td>Pause execution</td></tr>
+<tr><td><code>time()</code></td><td>float</td><td>Unix timestamp</td></tr>
+<tr><td><code>ctime(ts)</code></td><td>str</td><td>Readable time string</td></tr>
+<tr><td><code>localtime(ts)</code></td><td>struct_time</td><td>Local time components</td></tr>
+<tr><td><code>gmtime(ts)</code></td><td>struct_time</td><td>UTC time components</td></tr>
+<tr><td><code>mktime(st)</code></td><td>float</td><td>struct_time → timestamp</td></tr>
+<tr><td><code>strftime(fmt, st)</code></td><td>str</td><td>Format time to string</td></tr>
+<tr><td><code>strptime(s, fmt)</code></td><td>struct_time</td><td>Parse string to time</td></tr>
+</table><p>### Clocks</p><table>
+<tr><td>Function</td><td>Returns</td><td>Best For</td></tr>
+<tr><td><code>perf_counter()</code></td><td>float</td><td>Benchmarking</td></tr>
+<tr><td><code>perf_counter_ns()</code></td><td>int</td><td>Precise benchmarks</td></tr>
+<tr><td><code>monotonic()</code></td><td>float</td><td>Timeouts/intervals</td></tr>
+<tr><td><code>process_time()</code></td><td>float</td><td>CPU profiling</td></tr>
+</table><p>### Common Format Codes</p><table>
+<tr><td>Code</td><td>Meaning</td><td>Example</td></tr>
+<tr><td><code>%Y</code></td><td>4-digit year</td><td>2026</td></tr>
+<tr><td><code>%m</code></td><td>Month (01-12)</td><td>01</td></tr>
+<tr><td><code>%d</code></td><td>Day (01-31)</td><td>26</td></tr>
+<tr><td><code>%H</code></td><td>Hour 24h (00-23)</td><td>14</td></tr>
+<tr><td><code>%I</code></td><td>Hour 12h (01-12)</td><td>02</td></tr>
+<tr><td><code>%M</code></td><td>Minute (00-59)</td><td>30</td></tr>
+<tr><td><code>%S</code></td><td>Second (00-59)</td><td>45</td></tr>
+<tr><td><code>%p</code></td><td>AM/PM</td><td>PM</td></tr>
+<tr><td><code>%A</code></td><td>Weekday name</td><td>Sunday</td></tr>
+<tr><td><code>%B</code></td><td>Month name</td><td>January</td></tr>
+</table>
+        <h2>Why this matters</h2>
+        
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I can quickly find the function I need</label>
+<label class="checkbox-item"><input type="checkbox"> I know common format codes</label></p>
+        </div>
+        
+        <div class="troubleshooting">
+            <h3>⚠ If something breaks here</h3>
+            <p>Nothing to break. Reference only.</p>
+        </div>
+        <div class="next-page"><a href="#page-24">Page 24 →</a></div>
+      </div>
+    </article>
+    <article class="page-section" id="page-24">
+      <div class="page-header">
+        <span class="page-number">Page 24 of 24</span>
+        <h1 class="page-title">Final Verification</h1>
+      </div>
+      <div class="page-body">
+        <h2>What this page does</h2>
+        <p>Confirms you have mastered all skills in this guide.</p>
+        
+        <div class="where-fits">
+            <h2>Where this fits</h2>
+            <p>This is the end. Verify everything works together.</p>
+        </div>
+        
+        <h2>Explanation</h2>
+        <p>Complete this final test in your <code>time_basics.py</code>:</p><pre><code>import time</p><p>print(&quot;=== Time Module Final Test ===\n&quot;)</p><p># 1. Current timestamp and readable time
+ts = time.time()
+print(f&quot;1. Timestamp: {ts:.0f}&quot;)
+print(f&quot;   Readable: {time.ctime(ts)}&quot;)</p><p># 2. Format current time
+now = time.localtime()
+formatted = time.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;, now)
+print(f&quot;\n2. Formatted: {formatted}&quot;)</p><p># 3. Parse a date string
+date_str = &quot;2026-12-25&quot;
+parsed = time.strptime(date_str, &quot;%Y-%m-%d&quot;)
+print(f&quot;\n3. Parsed &#x27;{date_str}&#x27;: month={parsed.tm_mon}, day={parsed.tm_mday}&quot;)</p><p># 4. Benchmark with perf_counter
+start = time.perf_counter()
+total = sum(i*i for i in range(500000))
+elapsed = time.perf_counter() - start
+print(f&quot;\n4. Computation took {elapsed*1000:.2f} ms&quot;)</p><p># 5. Compare wall time vs CPU time
+print(&quot;\n5. Wall vs CPU time (with sleep):&quot;)
+wall_start = time.perf_counter()
+cpu_start = time.process_time()</p><p>time.sleep(0.5)
+_ = sum(range(100000))</p><p>wall_elapsed = time.perf_counter() - wall_start
+cpu_elapsed = time.process_time() - cpu_start</p><p>print(f&quot;   Wall: {wall_elapsed:.3f}s&quot;)
+print(f&quot;   CPU:  {cpu_elapsed:.3f}s&quot;)</p><p># 6. Short countdown
+print(&quot;\n6. Countdown:&quot;)
+for i in range(3, 0, -1):
+    print(f&quot;   {i}...&quot;)
+    time.sleep(1)
+print(&quot;   Done!&quot;)</p><p>print(&quot;\n✓ Time Module Fundamentals Complete!&quot;)
+</code></pre><p>Run it. If you understand every line, you've completed the guide.</p>
+        <h2>Why this matters</h2>
+        <p>You now control time in Python: pausing, measuring, formatting, and benchmarking.</p>
+        
+        <div class="checkpoint">
+            <h3>✓ Checkpoint</h3>
+            <p><label class="checkbox-item"><input type="checkbox"> I completed the final test</label>
+<label class="checkbox-item"><input type="checkbox"> I understand every operation used</label>
+<label class="checkbox-item"><input type="checkbox"> I am ready to use the time module in projects</label></p>
+        </div>
+        
+        
+      </div>
+    </article>
+    </main>
+
+    <button class="toc-toggle" onclick="toggleTOC()" title="Table of Contents">☰</button>
+
+    <div class="toc-panel" id="tocPanel">
+        <div class="toc-header">
+            <h3>Contents</h3>
+            <button class="toc-close" onclick="toggleTOC()">×</button>
+        </div>
+        <ul class="toc-list">
+            <li><a href="#page-1">Page 1: What This Guide Covers</a></li>
+<li><a href="#page-2">Page 2: Create a Practice File</a></li>
+<li><a href="#page-3">Page 3: Import time</a></li>
+<li><a href="#page-4">Page 4: time.sleep()</a></li>
+<li><a href="#page-5">Page 5: time.time()</a></li>
+<li><a href="#page-6">Page 6: time.ctime()</a></li>
+<li><a href="#page-7">Page 7: time.localtime()</a></li>
+<li><a href="#page-8">Page 8: time.gmtime()</a></li>
+<li><a href="#page-9">Page 9: time.strftime()</a></li>
+<li><a href="#page-10">Page 10: time.strptime()</a></li>
+<li><a href="#page-11">Page 11: time.mktime()</a></li>
+<li><a href="#page-12">Page 12: Measure Elapsed Time</a></li>
+<li><a href="#page-13">Page 13: time.perf_counter()</a></li>
+<li><a href="#page-14">Page 14: time.perf_counter_ns()</a></li>
+<li><a href="#page-15">Page 15: time.monotonic()</a></li>
+<li><a href="#page-16">Page 16: time.process_time()</a></li>
+<li><a href="#page-17">Page 17: Timer Context Manager</a></li>
+<li><a href="#page-18">Page 18: Countdown Timer</a></li>
+<li><a href="#page-19">Page 19: Rate Limiter</a></li>
+<li><a href="#page-20">Page 20: Retry with Backoff</a></li>
+<li><a href="#page-21">Page 21: Execution Timeout</a></li>
+<li><a href="#page-22">Page 22: Clock Comparison Summary</a></li>
+<li><a href="#page-23">Page 23: Function Reference</a></li>
+<li><a href="#page-24">Page 24: Final Verification</a></li>
+        </ul>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>Learn by building. One page at a time.</p>
+        <p>© 2026 MoreSalamander StudioLabs. All rights reserved. <a href="/build-it/license.html">License</a></p>
+    </footer>
+
+    <script src="/build-it/assets/js/guide.js"></script>
+</body>
+</html>
