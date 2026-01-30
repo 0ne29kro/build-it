@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Life Demo | Build It</title>
+    <link rel="stylesheet" href="/build-it/assets/css/guide.css">
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+        }
+
+        .showcase-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .showcase-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #4ECDC4, #45B7D1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .showcase-header p {
+            color: #888;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(78, 205, 196, 0.2);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+
+        .video-card h3 {
+            margin: 1rem 1.5rem 0.5rem;
+            color: #4ECDC4;
+            font-size: 1.25rem;
+        }
+
+        .video-card p {
+            margin: 0 1.5rem 1.5rem;
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 2rem;
+            color: #4ECDC4;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+            border-top: 1px solid #333;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            .showcase-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="/build-it/" class="back-link">← Back to Build It</a>
+
+    <header class="showcase-header">
+        <h1>Particle Life</h1>
+        <p>Emergent behavior from simple rules. Each species attracts or repels others — complex patterns arise from chaos.</p>
+    </header>
+
+    <div class="video-grid">
+        <div class="video-card">
+            <video controls preload="metadata">
+                <source src="videos/cluster.mp4" type="video/mp4">
+            </video>
+            <h3>Clusters</h3>
+            <p>Species attract their own kind and repel others. Watch as colonies form and stabilize into distinct territories.</p>
+        </div>
+
+        <div class="video-card">
+            <video controls preload="metadata">
+                <source src="videos/chains.mp4" type="video/mp4">
+            </video>
+            <h3>Chains</h3>
+            <p>Each species chases the next in a cycle. Spiraling pursuit patterns emerge as they endlessly follow each other.</p>
+        </div>
+
+        <div class="video-card">
+            <video controls preload="metadata">
+                <source src="videos/snakes.mp4" type="video/mp4">
+            </video>
+            <h3>Snakes</h3>
+            <p>Strong same-species attraction creates flowing, snake-like formations that wind through space.</p>
+        </div>
+
+        <div class="video-card">
+            <video controls preload="metadata">
+                <source src="videos/random.mp4" type="video/mp4">
+            </video>
+            <h3>Random Rules</h3>
+            <p>10,000 particles with a randomized attraction matrix. Pure emergence — no two runs are alike.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Build It</strong> — A MoreSalamander StudioLabs Production</p>
+        <p>© 2026 MoreSalamander StudioLabs. All rights reserved.</p>
+    </footer>
+</body>
+</html>
